@@ -1,0 +1,35 @@
+.div-criar-post-geral {
+    display: flex;
+    flex: 1;
+    background-color: rgb(211, 209, 209);
+    justify-content: flex-end;
+    align-items: center;
+    height: 50px;
+}
+
+.div-criar-post{
+    margin-right: 20px;
+    font-weight: bold;
+}
+
+.btn-criar-post {
+    border-radius: 20px;
+    width: 30px;
+    border-style: none;
+    background-color: #00de90;
+    margin-left: 10px;
+}
+.btn-criar-post:hover {
+    opacity: 0.6;
+}
+.footer-index {
+    display: flex;
+    background-color: #005940;
+    color: #00fa85;
+    align-items: center;
+    text-align: center;
+    height: 120px;
+}
+.item-footer {
+    flex: 1;
+}
