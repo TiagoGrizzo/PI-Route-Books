@@ -1,5 +1,10 @@
 .bg-navbar{
     background-color: #005940 !important;
+    position: sticky;
+    font-size: 20px;
+}
+.header-navbar{
+    background-color: #005940;
 }
 .text-color-navbar{
     color: #00fa85 !important;
@@ -11,6 +16,33 @@
 .bg-color-menu-btn{
     background-color: #00de90;
 }
+.barra-pesquisa {
+    display: flex;
+}
+.perfil-geral {
+    padding-left: 60px;
+}
+.menu-perfil {
+    justify-items: center;
+}
+.perfil-item {
+    color: #005940;
+}
+.perfil-item:hover{
+    background-color: #e4e4e4;
+    border-radius: 20px;
+}
+.btn-perfil {
+     background-color: #01b475;
+     border-radius: 400px;
+     border: 0;
+}
+.btn.show{
+    background-color: #00fa85;
+}
+.btn-perfil:hover{
+    background-color: #00fa85;
+}
 .div-criar-post-geral {
     display: flex;
     flex: 1;
@@ -18,10 +50,13 @@
     justify-content: flex-end;
     align-items: center;
     height: 50px;
+    font-size: 20px;
+}
+.bg-criar-post {
+    background-color: rgb(211, 209, 209);    
 }
 
 .div-criar-post{
-    margin-right: 20px;
     font-weight: bold;
 }
 
@@ -45,4 +80,59 @@
 }
 .item-footer {
     flex: 1;
+}
+.h3-conteudo{
+    text-align: center;
+    padding: 20px;
+}
+.div-fundo-relatos{
+    display: flex;
+    justify-content: center;
+}
+.fundo-relatos{
+    background-color: #00fa85;
+    width: 1060px;
+    display: flex;
+    height: 324px;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    border-radius: 10px;
+}
+.relato-1{
+    height: 121px;
+    width: 960px;
+    background-color: #fff;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: 2px #005940 solid;
+}
+.relato-2{
+    height: 121px;
+    width: 960px; 
+    background-color: #fff;  
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: 2px #005940 solid;
+}
+
+.div-btn-relatos{
+    display: flex;
+    padding-right: 20px;
+}
+
+.btn-relatos{
+    color: #fff;
+    background-color: #005940;
+    border-radius: 20px;
+    padding: 10px;
+    border: 0;
+}
+.h5-conteudo{
+    padding-left: 20px;
 }
