@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
 .bg-navbar{
     background-color: #005940 !important;
     position: sticky;
@@ -91,14 +92,15 @@
 }
 .fundo-relatos{
     background-color: #00fa85;
-    width: 1060px;
+    width: fit-content;
     display: flex;
-    height: 324px;
+    height: fit-content;
     justify-content: center;
     flex-direction: column;
     align-items: center;
     gap: 20px;
     border-radius: 10px;
+    padding: 40px;
 }
 .relato-1{
     height: 121px;

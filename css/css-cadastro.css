@@ -1,0 +1,91 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+body{
+    height: 100vh;
+    font-family: 'Nunito', Arial, Helvetica, sans-serif;
+    background: linear-gradient(-45deg, #000000, #00fa85);
+}
+.form-cadastro {
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 50px 120px 50px 120px;
+    width: min-content;
+    display: flex;
+    align-items: center;
+    border: #005940 solid;
+}
+.route-cadastro{
+    text-align: center;
+    padding-bottom: 20px;
+    font-size: 2.5em;
+    color: #00fa85;
+    text-shadow: 2px 2px 2px #005940;
+    font-family: 'Nunito', Arial, Helvetica, sans-serif;
+}
+.titulo-cadastro {
+    font-size: 1.8em;
+    margin-bottom: 10%;
+    text-align: center;
+}
+.input-cadastro {
+    min-width: 280px;
+    border-radius: 22px;
+    border: 2px #005940 solid;
+    padding: 5px;
+    margin: 0px 0px 12px -5px;
+    display: flex;
+    align-items: center;
+}
+.input-cadastro i{
+    font-size: 1.2em;
+    padding: 5px;
+}
+.input-cadastro input{
+    width: 90%;
+    height: 2.2em;
+    border: none;
+    outline: none;
+}
+.div-btn-cadastro{
+    display: flex;
+    justify-content: center;
+}
+.div-btn-cadastro a{
+    width: 100%;
+    border-radius: 15px;
+    margin-top: 10%;
+}
+.btn-cadastrar {
+    width: 100%;
+    height: 35px;
+    font-size: 1.2em;
+    font-weight: 600;
+    border: #005940 1px solid;
+    background-color: #00fa85;
+    border-radius: 15px;
+    padding: 5px 20px 5px 20px;
+    font-family: 'Nunito', Arial, Helvetica, sans-serif;
+    outline: none;
+}
+.btn-cadastrar:hover{
+    background-color: #00d974;
+    cursor: pointer;
+}
+.link-cadastro{
+    font-size: .9em;
+}
+.link-cadastro a{
+    color: #005940;
+}
+.link-cadastro a:hover{
+    color: #00d974;
+}
+.titulo-esqueceu{
+    font-size: 1.4em;
+    text-align: center;
+    padding-bottom: 10%;
+    padding-top: 10%;
+}
