@@ -1,3 +1,6 @@
-.perfil-geral {
-    padding-left: 60px;
+.titulo-sobre {
+    text-align: start;
+}
+.p-sobre{
+    font-size: 1.2em;
 }
