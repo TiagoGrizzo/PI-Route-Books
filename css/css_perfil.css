@@ -1,0 +1,16 @@
+.dados-pessoais{
+     
+}
+
+.dados-legitimos{
+     
+    
+}
+
+.dados-usuario{
+    display: flex;
+   justify-content: end;
+   align-items: start;
+    flex-direction: row;
+    padding: 150px;
+}
