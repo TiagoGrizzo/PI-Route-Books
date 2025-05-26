@@ -13,4 +13,32 @@
    align-items: start;
     flex-direction: row;
     padding: 150px;
+  
+}
+
+.icone-perfil{
+   font-size: 180px;
+   justify-content: end;
+   align-items: start;
+   flex-direction: row;
+   padding: 10px;
+   margin-left: 180px;
+   
+   
+
+}
+
+.perfil-titulo{
+    justify-content: end;
+    align-items: start;
+    flex-direction: row;
+    padding: 20px;
+    margin-top: 50px;
+    
+    
+    
+}
+
+.dados-perfil{
+   
 }
