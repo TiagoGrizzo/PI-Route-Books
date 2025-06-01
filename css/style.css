@@ -7,6 +7,10 @@ body{
     position: sticky;
     font-size: 20px;
 }
+.logo-tamanho{
+    height: 30px;
+    margin-top: -13px;
+}
 .header-navbar{
     background-color: #005940;
 }
@@ -88,7 +92,9 @@ body{
     color: #00fa85;
     align-items: center;
     text-align: center;
-    height: 70px;
+    height: 100px;
+    width: 100%;
+    
 }
 .item-footer {
     flex: 1;
