@@ -1,19 +1,9 @@
-.dados-pessoais{
-     
-}
-
-.dados-legitimos{
-     
-    
-}
-
 .dados-usuario{
     display: flex;
    justify-content: end;
    align-items: start;
     flex-direction: row;
-    padding: 150px;
-  
+    padding: 30px;
 }
 
 .icone-perfil{
@@ -23,9 +13,6 @@
    flex-direction: row;
    padding: 10px;
    margin-left: 180px;
-   
-   
-
 }
 
 .perfil-titulo{
@@ -33,12 +20,32 @@
     align-items: start;
     flex-direction: row;
     padding: 20px;
-    margin-top: 50px;
-    
-    
-    
+    margin-top: 50px; 
+}
+
+
+
+.input-perfil{
+        min-width: 280px;
+        border-radius:50px;
+        border: 3px #005940 solid;
+        padding: 5px;
+        margin: 0px 0px 12px -5px;
+        align-items: center;
+        outline: none;
+        width: 500px;
+}
+
+
+.input-perfil input{
+    outline: none;
+    border: none;
+}
+
+.perfil-titulo{
+    color:#005940;
 }
 
 .dados-perfil{
-   
+    color:#005940
 }
