@@ -90,3 +90,27 @@ body{
     padding-bottom: 10%;
     padding-top: 10%;
 }
+.link-login{
+    font-size: .9em;
+}
+.link-login a{
+    color: #005940;
+}
+.link-login a:hover{
+    color: #00d974;
+}
+.logo-login{
+    height: 50px;
+}
+.logo{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+    margin-top: 10px;
+}
+.logo-esq{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 5px;
+    margin-top: 10px;
+}

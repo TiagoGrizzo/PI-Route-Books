@@ -1,8 +1,135 @@
-.titulo-contato {
-   color: #005940;
-    
+.contato-geral{
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   flex-direction: column;
+   background-color: #FFF;
+   padding-top: 50px;
+   padding-bottom: 70px;
 }
-
-.p-contato {
-    
+.contato-geral .contato-titulo{
+   max-width: 800px;
+   text-align: center;
+}
+.fale-contato{
+   font-size: 36px;
+   font-weight: 500;
+   color: #005940;
+}
+.p-contato{
+   font-weight: 300;
+}
+.container-contato{
+   width: 100%;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   margin-top: 30px;
+}
+.contato-texto{
+   width: 50%;
+   display: flex;
+   flex-direction: column;
+}
+.box-contato{
+   position: relative;
+   padding: 20px 0;
+   display: flex;
+}
+.icone-contato{
+   min-width: 60px;
+   height: 60px;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   border-radius: 50px;
+   font-size: 22px;
+   background-color: #00fa85;
+}
+.info-contato{
+   display: flex;
+   margin-left: 20px;
+   font-size: 16px;
+   flex-direction: column;
+   font-weight: 300;  
+}
+.info-contato h3{
+   font-weight: 500;
+   color: #005940;
+}
+.contato-form{
+   width: 40%;
+   padding: 40px;
+   padding-top: 20px;
+   background-color: #71b3a1;
+   border-radius: 10px;
+}
+.contato-form h2{
+   font-size: 30px;
+   color: #004230;
+   text-align: center;
+   padding-bottom: 10px;
+}
+.contato-form h2::after{
+   content: "";
+    width: 10.4em;
+    height: 5px;
+    background-color: #005940;
+    border-radius: 10px;
+    display: block;
+    margin: auto;
+}
+.contato-form span{
+   color: #004230;
+   font-weight: 600;
+}
+.input-div-contato{
+   width: 100%;
+   margin-top: 25px;
+}
+.input-div-contato input{
+   width: 100%;
+   padding: 5px 0;
+   font-size: 16px;
+   margin: 10px 0;
+   border: 2px #005940 solid;
+   border-radius: 10px;
+   outline: none;
+   padding-left: 5px;
+}
+.input-div-contato textarea{
+   width: 100%;
+   padding: 5px 0;
+   font-size: 16px;
+   margin: 10px 0;
+   border: 2px #005940 solid;
+   border-radius: 10px;
+   outline: none;
+   padding-left: 5px;
+}
+.div-btn-contato{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    justify-self: center;
+    width: 80%;
+    padding-top: 25px;
+}
+.div-btn-contato a{
+    width: 100%;
+    border-radius: 15px;
+    text-decoration: none;
+}
+.btn-contato{
+   width: 100%;
+   padding: 5px 0;
+   font-size: 16px;
+   border: 2px #005940 solid;
+   border-radius: 10px;
+   background-color: #FFF;
+   background-color: #00fa85;
+}
+.btn-contato:hover{
+   background-color: #00d974;
+   cursor: pointer;
 }
