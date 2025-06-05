@@ -33,9 +33,20 @@ body{
 .logo-sobre{
     width: auto;
     display: flex;
-    justify-content: end;
+    justify-content: center;
 }
-.logo-sobre img{
+.perfil-sobre-integrantes img{
+    height: 200px;
+    justify-content: end;
+    width: auto;
+    display: flex;
+    justify-content: center;
+    border-radius: 50%;
+}
+
+.perfil-sobre-integrantes{
+    display: flex;
+    justify-content: center;
 }
 .sobre-redes{
     height: fit-content;
