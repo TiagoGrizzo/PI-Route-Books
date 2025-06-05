@@ -1,0 +1,31 @@
+body{
+    background-color: #E6D5B8;
+}
+.sec-posts{
+    display: flex;
+   justify-content: center;
+   align-items: center;
+   flex-direction: column;
+}
+.titulo-posts{
+    text-align: center;
+    padding-top: 50px;
+}
+.container-posts{
+    
+    height: 100%;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+}
+.barra-posts{
+    background-color: gray;
+    width: 100%;
+}
+.btn-barra{
+    display: flex;
+    flex-direction: column;
+}
