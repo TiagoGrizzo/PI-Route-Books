@@ -1,51 +1,63 @@
-.dados-usuario{
+body{
+    background-color: #faefdb;
+}
+.perfil-foto img{
+    height: 200px;
     display: flex;
-   justify-content: end;
-   align-items: start;
-    flex-direction: row;
-    padding: 30px;
+    justify-content: center;
+    border-radius: 50%;
+    padding-top: 20px;
 }
 
-.icone-perfil{
-   font-size: 180px;
-   justify-content: end;
-   align-items: start;
-   flex-direction: row;
-   padding: 10px;
-   margin-left: 180px;
+.perfil-foto{
+    display: flex;
+    justify-content: center;
+    padding-bottom: 20px;
 }
-
-.perfil-titulo{
-    justify-content: end;
-    align-items: start;
-    flex-direction: row;
-    padding: 20px;
-    margin-top: 50px; 
+.titulo-perfil{
+    padding-top: 15px;
+    padding-bottom: 10px;
+    font-weight: bold;
+    color: #005940;
 }
-
-
+.div-perfil{
+    border: 1px #005940 solid;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 20px;
+    box-shadow: 3px 3px 5px 5px #d1d1d1;
+    align-self: center;
+    margin-top: 40px;
+    padding-top: 10px;
+    background-color: #f8f8f8;
+}
+.perfil-info{
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    justify-content: center;
+}
 
 .input-perfil{
-        min-width: 280px;
-        border-radius:50px;
-        border: 3px #005940 solid;
-        padding: 5px;
-        margin: 0px 0px 12px -5px;
-        align-items: center;
-        outline: none;
-        width: 500px;
+    width: 100%;
+   padding: 5px 0;
+   font-size: 16px;
+   margin: 10px 0;
+   border: 2px #005940 solid;
+   border-radius: 10px;
+   outline: none;
+   padding-left: 5px;
 }
-
-
-.input-perfil input{
-    outline: none;
-    border: none;
+.campos-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
-
-.perfil-titulo{
-    color:#005940;
-}
-
-.dados-perfil{
-    color:#005940
+.container-perfil{
+    width: 700px;
+    justify-self: center;
+    align-self: center;
+    padding-bottom: 80px;
+    padding-top: 20px;
 }

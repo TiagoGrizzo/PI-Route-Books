@@ -62,14 +62,14 @@ body{
 .div-criar-post-geral {
     display: flex;
     flex: 1;
-    background-color: rgb(211, 209, 209);
+    background-color: #71b3a1;
     justify-content: flex-end;
     align-items: center;
     height: 50px;
     font-size: 20px;
 }
 .bg-criar-post {
-    background-color: rgb(211, 209, 209);    
+    background-color: #71b3a1;    
 }
 
 .div-criar-post{
