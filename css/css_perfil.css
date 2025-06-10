@@ -15,27 +15,22 @@ body{
     padding-bottom: 20px;
 }
 .titulo-perfil{
-    padding-top: 15px;
-    padding-bottom: 10px;
     font-weight: bold;
     color: #005940;
+    font-size: 29px;
 }
 .div-perfil{
-    border: 1px #005940 solid;
-    border-radius: 20px;
     display: flex;
-    flex-direction: column;
-    padding-bottom: 20px;
-    box-shadow: 3px 3px 5px 5px #d1d1d1;
-    align-self: center;
-    margin-top: 40px;
-    padding-top: 10px;
-    background-color: #f8f8f8;
+    flex-direction: row;
+    width: 100%;
+    padding-top: 30px;
+    justify-content: center;
+    margin-bottom: 30px;
 }
 .perfil-info{
     display: flex;
     flex-direction: column;
-    width: 70%;
+    width: 85%;
     justify-content: center;
 }
 
@@ -53,11 +48,64 @@ body{
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 100%;
 }
 .container-perfil{
-    width: 700px;
+    width: 1200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
     justify-self: center;
     align-self: center;
-    padding-bottom: 80px;
-    padding-top: 20px;
+    height: 85vh;
+}
+.perfil-info-bio{
+    display: flex;
+    flex-direction: column;
+    width: 53%;
+    justify-content: center;
+    align-items: center;
+    margin-right: 10px;
+}
+.perfil-info-bio textarea{
+    resize: none;
+    padding: 15px;
+    text-decoration: none;
+    text-align: justify;
+    font-weight: 600;
+    font-size: 17px;
+}
+.orientacao-perfil{
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    width: 47%;
+}
+.foto-centro{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    border: 1px #005940 solid;
+    border-radius: 20px;
+    padding-bottom: 20px;
+    margin-bottom: 40px;
+    box-shadow: 3px 3px 5px 5px #d1d1d1;
+    align-self: center;
+    margin-top: 30px;
+    padding-top: 15px;
+    background-color: #f8f8f8;
+}
+.text-perfil{
+    width: 90%;
+   font-size: 16px;
+   border: 2px #005940 solid;
+   border-radius: 10px;
+   outline: none;
+   height: 100%;
+}
+.label-perfil-bio{
+    text-align: center;
 }
