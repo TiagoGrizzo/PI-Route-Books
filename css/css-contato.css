@@ -12,6 +12,7 @@ body{
 .contato-geral .contato-titulo{
    max-width: 800px;
    text-align: center;
+   
 }
 .fale-contato{
    font-size: 36px;
@@ -91,7 +92,7 @@ body{
 }
 .input-div-contato{
    width: 100%;
-   margin-top: 25px;
+   margin-top: 3px;
 }
 .input-div-contato input{
    width: 100%;

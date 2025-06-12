@@ -18,15 +18,15 @@ body{
     font-weight: bold;
     color: #005940;
     font-size: 29px;
+    
 }
 .div-perfil{
     display: flex;
     flex-direction: row;
     width: 100%;
-    padding-top: 30px;
     justify-content: center;
-    margin-bottom: 30px;
 }
+
 .perfil-info{
     display: flex;
     flex-direction: column;
