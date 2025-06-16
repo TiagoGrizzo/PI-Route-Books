@@ -1,6 +1,4 @@
-body{
-    background-color: #faefdb;
-}
+
 .perfil-foto img{
     height: 200px;
     display: flex;
@@ -18,7 +16,7 @@ body{
     font-weight: bold;
     color: #005940;
     font-size: 29px;
-    
+    padding-top: 20px;
 }
 .div-perfil{
     display: flex;
@@ -67,6 +65,7 @@ body{
     justify-content: center;
     align-items: center;
     margin-right: 10px;
+
 }
 .perfil-info-bio textarea{
     resize: none;
@@ -75,6 +74,7 @@ body{
     text-align: justify;
     font-weight: 600;
     font-size: 17px;
+    height: 100%;
 }
 .orientacao-perfil{
     display: flex;
@@ -88,15 +88,14 @@ body{
     width: 100%;
     align-items: center;
     justify-content: center;
-    border: 1px #005940 solid;
     border-radius: 20px;
     padding-bottom: 20px;
     margin-bottom: 40px;
-    box-shadow: 3px 3px 5px 5px #d1d1d1;
+    box-shadow: 13px 13px 15px 15px #d1d1d1;
     align-self: center;
     margin-top: 30px;
     padding-top: 15px;
-    background-color: #f8f8f8;
+    border: #005940 solid 1px;
 }
 .text-perfil{
     width: 90%;
@@ -104,8 +103,43 @@ body{
    border: 2px #005940 solid;
    border-radius: 10px;
    outline: none;
-   height: 100%;
 }
 .label-perfil-bio{
     text-align: center;
+}
+@media (max-width: 1230px) {
+           .div-perfil{
+                display: flex;
+                flex-direction: column;
+                width: 100%;
+                justify-content: center;
+                align-items: center;
+           }
+           .container-perfil{
+                max-width: 600px;
+           }
+           .perfil-info-bio{
+                width: 90%;
+                height: 250px;
+            }
+            .orientacao-perfil{
+                width: 90%;
+            }
+            .foto-centro{
+                width: 90%;
+            }
+            .perfil-info{
+                width: 90%;
+            }
+            .titulo-perfil{
+                padding-top: 30px;
+            }
+            .foto-centro{
+                margin-top: 20px;
+            }
+}
+@media (max-height: 850px) {
+    .container-perfil{
+        height: 100%;
+    }
 }

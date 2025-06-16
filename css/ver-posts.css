@@ -1,18 +1,19 @@
 body{
-    background-color: #faefdb;
+    background-color: #eafaf3;
 }
 .sec-posts{
     display: flex;
    justify-content: center;
    align-items: center;
    flex-direction: column;
+   padding-bottom: 40px;
 }
 .titulo-posts{
     text-align: center;
     padding-top: 50px;
+    padding-bottom: 30px;
 }
 .container-posts{
-    
     height: 100%;
     border-radius: 10px;
     display: flex;
@@ -28,4 +29,17 @@ body{
 .btn-barra{
     display: flex;
     flex-direction: column;
+}
+.relato-posts{
+    height: 100%;
+    width: 960px;
+    background-color: #fff;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: 2px #005940 solid;
+}
+.relato-posts:hover {
+    transform: translateY(-8px) scale(1.03);
 }

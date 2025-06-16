@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="css/color.css">
     <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/css-index.css">
 </head>
 <body>
   <header class="header-navbar">
@@ -47,6 +48,7 @@
         </div>
     </nav>
   </header>
+  
 
   <div class="bg-criar-post">
     <div class="div-criar-post-geral container-xxl">
@@ -58,17 +60,29 @@
       </div>
     </div>
   </div>
+  <section class="inicio-index container-xxl">
+        <img src="imgs/mundo.png" alt="Mochilão aventura">
+        <h2 class="titulo-font cor-titulo">Explore o mundo com liberdade e emoção!</h2>
+        <p>
+            Descubra destinos incríveis, dicas essenciais e histórias inspiradoras para quem ama viajar de mochila nas costas. Aventuras, trilhas, paisagens de tirar o fôlego e experiências inesquecíveis esperam por você. Pronto para embarcar nessa jornada?
+        </p>
+        <a href="verposts.html" class="btn-inicio">Comece sua aventura</a>
+  </section>
   <div class="bg-conteudo">
     <div class="title-conteudo">
-      <h3 class="h3-conteudo titulo-font">Relatos mais recentes de aventureiros</h3>
+      <h3 class="h3-conteudo titulo-font cor-titulo">Últimos posts feito por aventureiros</h3>
     </div>
     <div class="div-fundo-relatos">
       <div class="fundo-relatos">
         <div class="relato-1">
-              <h5 class="h5-conteudo">
-                Foi mt legal!
-                <p class="pessoa-relato">Jhon Árias <img class="img-relato" src="imgs/jk.jfif"></p>
-              </h5>
+              <div class="conteudo-card-index">
+                    <h3 class="titulo-font cor-titulo">Trilha Incrível na Chapada Diamantina</h3>
+                    <p>Confira como foi nossa aventura de 5 dias explorando cachoeiras, grutas e paisagens de tirar o fôlego na Chapada Diamantina.</p>
+                    <div class="post-info-index">
+                      <span>Por João Aventureiro</span> • 
+                      <span>16 de Junho, 2025</span>
+                    </div>
+              </div>
             <div class="div-btn-relatos">
               <a href="verposts.html">
                 <button class="btn-relatos">
@@ -77,11 +91,15 @@
               </a>
             </div>
         </div>
-        <div class="relato-2">
-              <h5 class="h5-conteudo">
-                Me diverti muito lá
-                <p class="pessoa-relato">John Kennedy<img class="img-relato" src="imgs/pessoabarda.avif"></p>
-              </h5>
+        <div class="relato-1">
+              <div class="conteudo-card-index">
+                    <h3 class="titulo-font cor-titulo">Mochilão pela América do Sul: Roteiro e Dicas</h3>
+                    <p>Descubra nosso roteiro econômico passando por Peru, Bolívia e Chile, com dicas para mochileiros iniciantes.</p>
+                    <div class="post-info-index">
+                      <span>Por Mariana Reis</span> • 
+                      <span>17 de Junho, 2025</span>
+                    </div>
+                </div>
             <div class="div-btn-relatos">
                 <button class="btn-relatos">
                   Ver Post
@@ -91,19 +109,62 @@
       </div>
     </div>
   </div>
-  <div class="geral-sobre container-xl">
-    <div class="titulo-sobre">
-        <h2 class="titulo-font cor-titulo">Route Books</h2>
+  <h2 class="container-xxl conheca-index titulo-font cor-titulo">Alguns lugares que você deve visitar!</h2>
+
+  <div id="carouselExampleAutoplaying" class="carousel slide container-xxl tamanho-car" data-bs-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="imgs/peru.jpg" class="d-block w-100 img-car" alt="...">
+      <div class="carousel-caption d-none d-md-block">
+        <h5>Lago Titicaia - Peru</h5>
+        <p>Some representative placeholder content for the third slide.</p>
+      </div>
     </div>
-    <div class="div-texto-sobre container-sm">
+    <div class="carousel-item">
+      <img src="imgs/kuala.jpeg" class="d-block w-100 img-car" alt="...">
+      <div class="carousel-caption d-none d-md-block">
+        <h5>Kuala Lumpur - Indonésia</h5>
+        <p>Some representative placeholder content for the third slide.</p>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <img src="imgs/peru.jpg" class="d-block w-100 img-car" alt="...">
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+      <h2 class="titulo-font cor-titulo tit-dicas container-xxl">Dicas Rápidas para Mochileiros</h2>
+        <div class="dicas-list container-xxl">
+            <div class="dica-item"><span>🎒</span> Leve apenas o essencial para facilitar seus deslocamentos.</div>
+            <div class="dica-item"><span>💧</span> Tenha sempre uma garrafa de água reutilizável.</div>
+            <div class="dica-item"><span>🗺️</span> Baixe mapas offline dos destinos que vai visitar.</div>
+            <div class="dica-item"><span>🛏️</span> Pesquise hostels e acomodações compartilhadas para economizar.</div>
+            <div class="dica-item"><span>🌎</span> Respeite a cultura local e preserve o meio ambiente.</div>
+        </div>
+  <h2 class="container-xxl conheca-index titulo-font cor-titulo">Conheça um pouco sobre a gente!</h2>
+  <div class="geral-sobre container-xl">
+    <div class="text-titulo-sobre">
+      <div class="titulo-sobre">
+        <h2 class="titulo-font cor-titulo">Sobre Nós</h2>
+      </div>
+      <div class="div-texto-sobre container-sm">
         <p class="p-sobre">A Route Books é um guia turístico com a finalidade de ajudar viajantes a encontrar grandes experiências, 
           como pontos turísticos, atividades atrativas, culturas, entre outras variedades. Com diversidade de lugares, você pode encontrar um novo destino aqui, sempre com roteiros diferentes, para nos relacionarmos da melhor forma possível 
           com os nossos clientes. Aqui as pessoas podem deixar os relatos de suas aventuras para ajudar outros viajantes </p>
+      </div>
     </div>
-    <div class="div-btn-relatos">
+    
+    <div class="div-btn-sobre">
         <a href="sobre.html">
             <button class="btn-relatos btn-ver-sobre">
-              Ver Sobre
+              Ver Mais >
             </button> 
         </a>
       </div>
