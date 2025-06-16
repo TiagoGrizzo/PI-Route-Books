@@ -3,50 +3,57 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Route Books - Cadastro</title>
+    <title>Route Books - Cadastre-se E Aventure-se!</title>
     <link rel="stylesheet" href="css/reset.css">
     <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/css-cadastro.css">
 </head>
 <body>
-    <div class="form-cadastro">
-        <form action="">
+    <section class="form-cadastro-geral container-xxl">
+        <form action="" class="form-cad">
             <div class="logo">
                 <img src="imgs/rb-logo1.png" class="logo-login">
             </div>
 
             <h2 class="titulo-cadastro">Cadastre-se e Aventure-se!</h2>
-            <label for="username">Nome de usuário:</label>
-            <div class="input-cadastro">
-                <i class="fa fa-user-o" aria-hidden="true"></i>
-                <input class="input-username" name="username" type="text" placeholder="Insira seu nome de usuário">
+            <div class="div-inputs">
+                <div class="dividir-inputs-1">
+                        <label for="username">Nome de usuário:</label>
+                    <div class="input-cadastro">
+                        <i class="fa fa-user-o" aria-hidden="true"></i>
+                        <input class="input-username" name="username" type="text" placeholder="Insira seu nome de usuário...">
+                    </div>
+                    <label for="username">Nome completo:</label>
+                    <div class="input-cadastro">
+                        <i class="fa fa-user-o" aria-hidden="true"></i>
+                        <input class="input-username" name="username" type="text" placeholder="Insira seu nome completo...">
+                    </div>
+                    <label for="email">E-mail:</label>
+                    <div class="input-cadastro">
+                        <i class="fa fa-envelope-o" aria-hidden="true"></i>
+                        <input class="input-email" name="email" type="email" placeholder="Insira seu e-mail...">
+                    </div>
+                </div>
+                <div class="dividir-inputs-2">
+                        <label for="Telefone">Telefone:</label>
+                    <div class="input-cadastro">
+                        <i class="fa fa-phone" aria-hidden="true"></i>
+                        <input class="input-telefone" name="Telefone" type="te" placeholder="Insira seu número de telefone...">
+                    </div>
+                    <label for="senha">Senha:</label>
+                    <div class="input-cadastro">
+                        <i class="fa fa-lock" aria-hidden="true"></i>
+                        <input class="input-senha" name="senha" type="password" placeholder="Insira sua senha...">
+                    </div>
+                    <label for="username">Confirme sua senha:</label>
+                    <div class="input-cadastro">
+                        <i class="fa fa-lock" aria-hidden="true"></i>
+                        <input class="input-senha" name="conf-senha" type="password" placeholder="Insira novamente sua senha...">
+                    </div>
+                </div>
             </div>
-            <label for="username">Nome completo:</label>
-            <div class="input-cadastro">
-                <i class="fa fa-user-o" aria-hidden="true"></i>
-                <input class="input-username" name="username" type="text" placeholder="Insira seu nome completo">
-            </div>
-            <label for="email">E-mail:</label>
-            <div class="input-cadastro">
-                <i class="fa fa-envelope-o" aria-hidden="true"></i>
-                <input class="input-email" name="email" type="email" placeholder="Insira seu e-mail">
-            </div>
-            <label for="Telefone">Telefone:</label>
-            <div class="input-cadastro">
-                <i class="fa fa-phone" aria-hidden="true"></i>
-                <input class="input-telefone" name="Telefone" type="te" placeholder="Insira seu número de telefone">
-            </div>
-            <label for="senha">Senha:</label>
-            <div class="input-cadastro">
-                <i class="fa fa-lock" aria-hidden="true"></i>
-                <input class="input-senha" name="senha" type="password" placeholder="Insira sua senha">
-            </div>
-            <label for="username">Confirme sua senha:</label>
-            <div class="input-cadastro">
-                <i class="fa fa-lock" aria-hidden="true"></i>
-                <input class="input-senha" name="conf-senha" type="password" placeholder="Insira novamente sua senha">
-            </div>
+            
             <div class="div-btn-cadastro">
                 <a href="login.html">
                     <button type="button" class="btn-cadastrar">Cadastrar</button>    
@@ -57,6 +64,6 @@
                 Já tem um conta? <a href="login.html">Entre já!</a>
             </div>
         </form>
-    </div>
+    </section>
 </body>
 </html>
