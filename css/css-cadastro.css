@@ -5,6 +5,7 @@ html{
     justify-content: center;
     align-items: center;
 }
+/*ALTERAÇÕES GERAIS NO HTML PARA CENTRALIZAR A SECTION*/
 body{
     font-family: 'Nunito', Arial, Helvetica, sans-serif;
     background: #005940;
@@ -12,6 +13,7 @@ body{
     justify-content: center;
     align-items: center;
 }
+/*ALTERAÇÕES NO BODY*/
 .form-cadastro-geral {
     position: relative;
     width: min-content;
@@ -22,6 +24,7 @@ body{
     box-shadow: 0 1px 4px 0 rgba(0, 0, 0, .1);
     width: 100%;
 }
+/*ALTERAÇÕES NA DIV PRINCIPAL*/
 .form-cad{
     display: flex;
     flex-direction: column;
@@ -32,32 +35,30 @@ body{
     border-radius: 10px;
     padding: 20px 0px 30px 0px;
 }
+/*ALTERAÇÕES DO FORM*/
 .div-inputs{
     display: flex;
     flex-direction: column;
     gap: 5px;
 }
+/*DIV GERAL DO INPUTS*/
 .dividir-inputs-1{
     display: flex;
     flex-direction: column;
 }
+/*DIV DOS 3 PRIMEIROS INPUTS (FEITO PARA FINS DE RESPONSIVIDADE)*/
 .dividir-inputs-2{
     display: flex;
     flex-direction: column;
 }
-.route-cadastro{
-    text-align: center;
-    padding-bottom: 20px;
-    font-size: 2.5em;
-    color: #00fa85;
-    text-shadow: 2px 2px 2px #005940;
-    font-family: 'Nunito', Arial, Helvetica, sans-serif;
-}
+/*DIV DOS 3 ULTIMOS INPUT*/
+
 .titulo-cadastro {
     font-size: 1.8em;
     margin-bottom: 10%;
     text-align: center;
 }
+/*TITULO DO CADASTRO*/
 .input-cadastro {
     min-width: 380px;
     border-radius: 22px;
@@ -67,26 +68,31 @@ body{
     display: flex;
     align-items: center;
 }
+/*INPUTS DO CADASTRO*/
 .input-cadastro i{
     font-size: 1.2em;
     padding: 5px;
 }
+/*ALTERANDO OS ICONES*/
 .input-cadastro input{
     width: 90%;
     height: 2.2em;
     border: none;
     outline: none;
 }
+/*MUDANÇAS ESPECIFICAS NO INPUT*/
 .div-btn-cadastro{
     display: flex;
     justify-content: center;
     width: 60%;
 }
+/*DIV DO BOTAO DE CADASTRO*/
 .div-btn-cadastro a{
     width: 90%;
     border-radius: 15px;
     margin-top: 10%;
 }
+/*ALTERANDO O LINK DO BOTAO*/
 .btn-cadastrar {
     width: 100%;
     height: 35px;
@@ -99,25 +105,14 @@ body{
     font-family: 'Nunito', Arial, Helvetica, sans-serif;
     outline: none;
 }
+/*ALTERANDO O BOTAO EM SI*/
 .btn-cadastrar:hover{
     background-color: #00d974;
     cursor: pointer;
 }
-.link-cadastro{
-    font-size: .9em;
-}
-.link-cadastro a{
-    color: #005940;
-}
-.link-cadastro a:hover{
-    color: #00d974;
-}
-.titulo-esqueceu{
-    font-size: 1.4em;
-    text-align: center;
-    padding-bottom: 10%;
-    padding-top: 10%;
-}
+/*MODIFICANDO O HOVER(QUANDO O MOUSE PASSA POR CIMA DO ELEMENTO) DO BOTAO DE CADASTRAR*/
+
+/*LINK PARA O LOGIN*/
 .link-login{
     font-size: .9em;
 }
@@ -127,7 +122,8 @@ body{
 .link-login a:hover{
     color: #00d974;
 }
-.logo-login{
+/*LINK PARA O LOGIN*/
+.logo-cadastro{
     height: 50px;
 }
 .logo{
@@ -136,12 +132,7 @@ body{
     margin-bottom: 30px;
     margin-top: 10px;
 }
-.logo-esq{
-    display: flex;
-    justify-content: center;
-    margin-bottom: 5px;
-    margin-top: 10px;
-}
+/*LOGO*/
 @media (max-height: 850px) {
     .form-cadastro-geral {
         width: 100%;
@@ -192,3 +183,4 @@ body{
         gap: 0px;
     }
 }
+/*RESPONSIVIDADE*/

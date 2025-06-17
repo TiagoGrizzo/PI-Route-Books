@@ -63,14 +63,14 @@ body{
 }
 .btn-postar {
     background-color: #00d974;
-    color: #005940;
+    color: #fff;
     border: none;
     padding: 14px 0;
-    border-radius: 20px;
+    border-radius: 10px;
     font-size: 1rem;
     font-weight: 700;
     cursor: pointer;
-    width: 70%;
+    width: 100%;
     box-shadow: 0 2px 8px rgba(44, 92, 59, 0.08);
     letter-spacing: 1px;
 }
@@ -84,7 +84,7 @@ body{
     color: #fff;
     border: none;
     padding: 14px 0;
-    border-radius: 20px;
+    border-radius: 10px;
     font-size: 1rem;
     font-weight: 700;
     cursor: pointer;

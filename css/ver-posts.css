@@ -41,5 +41,5 @@ body{
     border: 2px #005940 solid;
 }
 .relato-posts:hover {
-    transform: translateY(-8px) scale(1.03);
+    transform: scale(1.03);
 }

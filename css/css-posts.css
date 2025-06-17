@@ -1,49 +1,75 @@
-.container {
+.container-post {
     max-width: 800px;
     margin: 0 auto;
     padding: 20px;
 }
-.post-image {
-    width: 100%;
-    max-height: 400px;
-    object-fit: cover;
-    margin: 20px 0;
+/*ajustar o tamanho do conteudo do post*/
+.conteudo-geral-post{
+    padding-top: 20px;
 }
-.post-meta {
+/*aumentar o tamanho entre o titulo e navbar*/
+.info-post {
     color: #666;
     font-size: 0.9rem;
+    margin-top: 10px;
+    margin-bottom: 20px;
 }
-
-.comments { 
+/*infos basicas do post*/
+.comentarios-post { 
     margin-top: 40px; 
-    border-top: 1px solid #ddd; 
+    border-top: 1px solid #005940; 
     padding-top: 20px; 
 }
-.comment { 
+/*daqui pra baixo é tudo sobre a seção de comentários*/
+.comentario-ex { 
     display: flex; 
     gap: 15px; 
     margin: 20px 0; 
 }              
-.comment img {
-    width: 50px; 
-    height: 50px; 
-}
-.comment-date { 
+.info-comentario { 
     color: #666; 
     font-size: 0.8rem; 
 }
-#comment-form {
-    margin-top: 30px; 
+.form-comentarios {
+    margin-top: 30px;  
+    border-bottom: 1px solid #005940; 
+    margin-bottom: 30px;
+    padding-bottom: 30px;
+    display: flex;
+    flex-direction: column;
 }
-#comment-form input, 
-#comment-form textarea { 
+.form-comentarios input, 
+.form-comentarios textarea { 
     width: 100%; 
     margin: 10px 0; 
     padding: 8px; 
+    border-radius: 10px;
 }
-#comment-form button { 
-    background: #2c3e50; 
-    color: white; 
-    border: none; 
-    padding: 10px 20px; 
-    cursor: pointer; }
+.form-comentarios p{
+    font-size: 15px;
+    color: #666;
+}
+.form-comentarios textarea { 
+    min-height: 100px;
+    max-height: 300px;
+    resize: vertical;
+    border: #005940 2px solid;
+    width: 80%;
+    margin-bottom: 30px;
+}
+.form-comentarios button { 
+    min-width: 150px;
+    max-width: 150px;
+    height: 35px;
+    font-size: 1.2em;
+    font-weight: 600;
+    border: #005940 1px solid;
+    background-color: #00fa85;
+    border-radius: 10px;
+    padding: 5px 20px 5px 20px;
+    outline: none;
+}
+.form-comentarios button:hover {
+    background-color: #00d974;
+    cursor: pointer;
+}

@@ -237,12 +237,5 @@
     content: "";
     width: 0em;
     height: 0em;
-    background-color: #005940;
-    border-radius: 10px;
-    display: block;
-    margin: auto; 
-    flex-direction: row;
-    margin-right: 20px;
-    align-self: center;
     }
 }
