@@ -25,6 +25,9 @@
 .btn-criar-post:hover {
     background-color: #00be7c;
 }
+/*tudo acima envolve o botão de criar post*/
+
+/*inicio do index*/
 .inicio-index {
     display: flex;
     flex-direction: column;
@@ -147,6 +150,12 @@
 .img-car{
     border-radius: 30px;
 }
+.legenda-car{
+    color: #005940;
+    background-color: #ffffff;
+    border-radius: 20px;
+    border: #005940 2px solid;
+}
 
 /*fim do carrossel do index*/
 
@@ -198,7 +207,6 @@
     border-radius: 10px;
     display: block;
     margin: auto; 
-    flex-direction: row;
     margin-right: 20px;
     align-self: center;
 }
@@ -212,6 +220,9 @@
     padding-top: 30px;
     font-weight: bold;
 }
+/*fim sobre do index*/
+
+/* Responsividade */
 @media (max-width: 1070px) {
     .relatos{
         width: 100%;

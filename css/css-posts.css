@@ -7,6 +7,10 @@
 .conteudo-geral-post{
     padding-top: 20px;
 }
+.conteudo-geral-post h4{
+    padding-bottom: 12px;
+    padding-top: 10px;
+}
 /*aumentar o tamanho entre o titulo e navbar*/
 .info-post {
     color: #666;
@@ -72,4 +76,16 @@
 .form-comentarios button:hover {
     background-color: #00d974;
     cursor: pointer;
+}
+.conteudo-comentario {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #e9fff5;
+    box-shadow: 3px 5px 15px rgba(0, 0, 0, 0.1);
+}
+.conteudo-comentario h4 {
+    margin-bottom: -5px;
 }

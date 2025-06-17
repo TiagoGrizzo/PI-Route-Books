@@ -73,14 +73,41 @@ body{
     color: #00fa85;
     align-items: center;
     text-align: center;
-    height: 100px;
+    justify-content: center;
+    gap: 20px;
+    min-height: 200px;
     width: 100%;
-    
+    margin-top: 90px;
+}
+.itens-footer-geral{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    width: 90%;
 }
 .item-footer {
-    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;  
+    width: 30%;
 }
-
+.item-footer a {
+    color: #00fa85;
+    text-decoration: none;
+}
+.item-footer a:hover {
+    color: #00d974;
+}
+.item-footer-direitos{
+    max-width: 220px;
+}
+.logo-footer{
+    height: 50px;
+}
 /*fim footer*/
 
 .h3-conteudo{
