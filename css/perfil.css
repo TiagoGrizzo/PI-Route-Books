@@ -1,53 +1,7 @@
-
-.perfil-foto img{
-    height: 200px;
-    display: flex;
-    justify-content: center;
-    border-radius: 50%;
-    padding-top: 20px;
+html{
+    height: 100%;
 }
-
-.perfil-foto{
-    display: flex;
-    justify-content: center;
-    padding-bottom: 20px;
-}
-.titulo-perfil{
-    font-weight: bold;
-    color: #005940;
-    font-size: 29px;
-    padding-top: 20px;
-}
-.div-perfil{
-    display: flex;
-    flex-direction: row;
-    width: 100%;
-    justify-content: center;
-}
-
-.perfil-info{
-    display: flex;
-    flex-direction: column;
-    width: 85%;
-    justify-content: center;
-}
-
-.input-perfil{
-    width: 100%;
-   padding: 5px 0;
-   font-size: 16px;
-   margin: 10px 0;
-   border: 2px #005940 solid;
-   border-radius: 10px;
-   outline: none;
-   padding-left: 5px;
-}
-.campos-info {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-}
+/*DEFININDO ALTURA DO HTML PARA 100%*/
 .container-perfil{
     width: 1200px;
     display: flex;
@@ -56,32 +10,15 @@
     flex-direction: column;
     justify-self: center;
     align-self: center;
-    height: 85vh;
 }
-.perfil-info-bio{
-    display: flex;
-    flex-direction: column;
-    width: 53%;
-    justify-content: center;
-    align-items: center;
-    margin-right: 10px;
-
+/*CONTAINER DO PERFIL*/
+.titulo-perfil{
+    font-weight: bold;
+    color: #005940;
+    font-size: 29px;
+    padding-top: 20px;
 }
-.perfil-info-bio textarea{
-    resize: none;
-    padding: 15px;
-    text-decoration: none;
-    text-align: justify;
-    font-weight: 600;
-    font-size: 17px;
-    height: 100%;
-}
-.orientacao-perfil{
-    display: flex;
-    flex-direction: column;
-    align-self: center;
-    width: 47%;
-}
+/*TÍTULO DO PERFIL*/
 .foto-centro{
     display: flex;
     flex-direction: column;
@@ -97,16 +34,99 @@
     padding-top: 15px;
     border: #005940 solid 1px;
 }
-.text-perfil{
+/*DIV QUE CENTRALIZA A FOTO DE PERFIL E ADICIONAR BORDA, BOX-SHADOW E DIRECIONA TUDO PRA COLUNA*/
+.perfil-foto{
+    display: flex;
+    justify-content: center;
+    padding-bottom: 20px;
+}
+/*DIV DA FOTO DE PERFIL*/
+.perfil-foto img{
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    border-radius: 50%;
+    padding-top: 20px;
+}
+/*ALTERANDO FOTO DO PERFIL*/
+.div-perfil{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: center;
+}
+/*DIV GERA DAS INFORMAÇÕES DO PERFIL*/
+.orientacao-perfil{
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    width: 47%;
+}
+/*DIV PARA VOLTAR A DIREÇÃO DOS ELEMENTOS PARA COLUMN*/
+.perfil-info-bio{
+    display: flex;
+    flex-direction: column;
+    width: 53%;
+    justify-content: center;
+    align-items: center;
+    margin-right: 10px;
+
+}
+/*DIV DA BIOGRAFIA*/
+.perfil-info-bio textarea{
+    resize: none;
+    padding: 15px;
+    text-decoration: none;
+    text-align: justify;
+    font-weight: 600;
+    font-size: 17px;
+    height: 100%;
     width: 90%;
+    font-size: 16px;
+    border: 2px #005940 solid;
+    border-radius: 10px;
+    outline: none;
+}
+/*MODIFICANDO O TEXTAREA DA BIOGRAFIA*/
+.campos-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+/*DIV GERAL DOS CAMPOS DE INFO*/
+.perfil-info{
+    display: flex;
+    flex-direction: column;
+    width: 85%;
+    justify-content: center;
+}
+/*CLASSE COMPARTILHADA DOS CAMPOS DE INFO*/
+.perfil-info label{
+    color: #005940;
+    font-weight: bold;
+    margin-bottom: -10px;
+}
+/*MODIFICANDO AS LABELS DO PERFIL*/
+.input-perfil{
+    width: 100%;
+   padding: 5px 0;
    font-size: 16px;
+   margin: 10px 0;
    border: 2px #005940 solid;
    border-radius: 10px;
    outline: none;
+   padding-left: 5px;
 }
+/*MODIFICANDO OS INPUTS DO PERFIL*/
 .label-perfil-bio{
     text-align: center;
+    color: #005940;
+    font-weight: bold;
 }
+/*LABEL DO TEXTAREA DA BIO*/
+
+/*ABAIXO É RESPONSIVIDADE*/
 @media (max-width: 1230px) {
            .div-perfil{
                 display: flex;

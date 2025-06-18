@@ -1,0 +1,132 @@
+html{
+    height: 100%;
+}
+/*HTML OCUPA 100% DO ALTURAL DA TELA*/
+body{
+    width: 100%;
+}
+/*BODY OCUPA 100% DA LARGURA DA TELA*/
+.sobre-geral h1{
+    text-align: center;
+    font-size: 3em;
+    margin-top: 30px;
+    color: #005940;
+}
+/*MOD O TÍTULO DA PÁGINA*/
+.sobre-geral h1::after{
+    content: "";
+    width: 5.6em;
+    height: 5px;
+    background-color: #00de90;
+    border-radius: 10px;
+    display: block;
+    margin: auto;
+}
+/*TRACINHO EMBAIXO DO TÍTULO DA PÁGINA*/
+.sobre-geral-integrantes{
+    padding-bottom: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 130px;
+}
+/*DIV GERAL DO INTEGRANTES*/
+.sobre-integrantes h1{
+    text-align: center;
+    font-size: 3em;
+    margin-top: 30px;
+    color: #005940;
+}
+/*MODIFICANDO O TÍTULO DOS INTEGRANTES*/
+.sobre-integrantes h1::after{
+    content: "";
+    width: 6.8em;
+    height: 5px;
+    background-color: #00de90;
+    border-radius: 10px;
+    display: block;
+    margin: auto;
+}
+/*TRACINHO EMBAIXO DO TÍTULO DOS INTEGRANTES*/
+.sobre-texto-geral{
+    padding-top: 60px; 
+    padding-bottom: 60px;   
+}
+/*DIV GERAL DO SOBRE*/
+.sobre-texto{
+    width: 60%;
+    float: left;
+    text-align: left;
+    padding: 0px 30px;
+}
+/*TEXTO DO SOBRE*/
+.logo-sobre{
+    width: auto;
+    display: flex;
+    justify-content: center;
+}
+/*LOGO SITE*/
+.perfil-sobre-integrantes img{
+    height: 200px;
+    justify-content: end;
+    width: auto;
+    display: flex;
+    justify-content: center;
+    border-radius: 50%;
+}
+/*FOTO DOS INTEGRANTES*/
+.perfil-sobre-integrantes{
+    display: flex;
+    justify-content: center;
+}
+/*DIV DA FOTO DOS INTEGRANTES*/
+.sobre-redes{
+    height: fit-content;
+    display: flex;
+    gap: 20px;
+}
+/*DIV DOS ICONES DAS REDES SOCIAIS*/
+.sobre-redes i{
+    font-size: 1.8em;
+}
+/*ICONES DA REDES SOCIAIS*/
+/*RESPONSIVIDADE*/
+@media (max-width: 920px) {
+    .sobre-texto-geral{
+        display: flex;
+        flex-direction: column;
+    }
+    .logo-sobre{
+        height: 70px;
+    }
+    .sobre-geral-integrantes{
+        display: flex;
+    }
+    .sobre-integrantes h1{
+        padding-bottom: 50px;
+    }
+}
+@media (max-width: 500px)
+{
+    .perfil-sobre-integrantes img{
+        height: 0px;
+        width: 0px;    
+    }
+    .perfil-sobre-integrantes{
+        width: fit-content;
+        height: fit-content;
+    }
+    .sobre-texto{
+        width: 80%;
+    }
+    .sobre-geral-integrantes h1{
+        width: 80%;
+    }
+    .logo-sobre img{
+        height: 0px;
+        width: 0px;
+    }
+    .sobre-texto-geral{
+        width: 90%;
+        text-align: center;
+    }
+}

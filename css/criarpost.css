@@ -1,6 +1,7 @@
 body{
     background-color: #eafaf3;
 }
+/*MUDANDO COR DO FUNDO*/
 .post-container {
     max-width: 650px;
     margin: 108px auto 100px auto;
@@ -10,6 +11,7 @@ body{
     box-shadow: 1px 6px 6px 10px rgba(44, 92, 59, 0.10);
     border: 1px solid #005940;
 }
+/*CONTAINER DO CRIAR POST*/
 .post-container h2 {
     margin-bottom: 28px;
     color: #005940;
@@ -17,10 +19,12 @@ body{
     text-align: center;
     letter-spacing: 1px;
 }
+/*MODIFICANDO TÍTULO DA PÁGINA*/
 .form-bloco {
     margin-bottom: 22px;
     background-color: #fff;
 }
+/*MODIFICANDO DIVS DO FORM*/
 .form-bloco label {
     display: block;
     margin-bottom: 7px;
@@ -28,6 +32,7 @@ body{
     color: #005940;
     letter-spacing: 0.5px;
 }
+/*MODIFICANDO LABEL*/
 .form-bloco input,
 .form-bloco textarea,
 .form-bloco select {
@@ -37,16 +42,12 @@ body{
     border-radius: 7px;
     font-size: 1rem;
 }
-.form-bloco input:focus,
-.form-bloco textarea:focus,
-.form-bloco select:focus {
-    border: 1.5px solid #005940;
-    outline: none;
-}
+/*MODIFICANDO INPUT, TEXTAREA E SELECT*/
 .form-bloco textarea {
     resize: vertical;
     min-height: 120px;
 }
+/*MODIFICANDO TEXTAREA*/
 .btns-post{
     display: flex;
     flex-direction: row;
@@ -58,9 +59,11 @@ body{
     padding-top: 30px;
     padding-bottom: 10px;
 }
+/*MODIFICANDO DIV DOS BUTTONS*/
 .btns-post a {
     width: 40%;
 }
+/*LINK DO BUTTON*/
 .btn-postar {
     background-color: #00d974;
     color: #fff;
@@ -74,11 +77,13 @@ body{
     box-shadow: 0 2px 8px rgba(44, 92, 59, 0.08);
     letter-spacing: 1px;
 }
+/*MODIFICANDO BOTAO DE POSTAR*/
 .btn-postar:hover {
     background-color: #005940;
     box-shadow: 0 4px 16px rgba(44, 92, 59, 0.13);
     color: #fff;
-    }
+}
+/*ALTERANDO O BOTAO DE POSTAR QUANDO O MOUSE ESTÁ EM CIMA DELE*/
 .btn-cancelar{
     background-color: rgb(190, 0, 0);
     color: #fff;
@@ -92,12 +97,15 @@ body{
     box-shadow: 0 2px 8px rgba(44, 92, 59, 0.08);
     letter-spacing: 1px;
 }
+/*MODIFICANDO BOTAO DE CANCELAR*/
 .btn-cancelar:hover{
     background-color: rgb(110, 0, 0);
 }
+/*ALTERANDO BOTAO DE CANCELAR QUANDO O MOUSE ESTÁ EM CIMA DELE*/
+
+/*ABAIXO É RESPONSIVIDADE*/
 @media (max-width: 700px) {
     .post-container {
-        padding: 20px 8px 18px 8px;
-        max-width: 98vw;
+        width: 90%;
     }
 }

@@ -5,34 +5,45 @@ html{
     justify-content: center;
     align-items: center;
 }
+/*DEFININDO ALTURA EM 100% E CENTRALIZANDO CONTEUDO*/
 body{
     font-family: 'Nunito', Arial, Helvetica, sans-serif;
-    background: #005940;
+    background-color: #005940;
     display: flex;
     justify-content: center;
     align-items: center;
 }
-.form-esqueceu-geral {
+/*MUDANDO COR DE FUNDO, CENTRALIZANDO CONTEUDO E TROCANDO A FONTE DA PÁGINA PARA NUNITO*/
+.form-nova-geral {
     position: relative;
-    width: fit-content;
+    width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
     border: #005940 solid;
     box-shadow: 0 1px 4px 0 rgba(0, 0, 0, .1);
+    width: 100%;
 }
-.form-esq{
+/*SECTION GERAL DA PÁGINA*/
+.form-nov{
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     background-color: #fff;
     border-radius: 10px;
-    padding: 20px 0px 40px 0px;
-    width: fit-content;
+    padding: 20px 40px 30px 40px;
+    min-width: 550px;
 }
-
-.input-esqueceu {
+/*FORM DA PÁGINA*/
+.titulo-nova {
+    font-size: 1.8em;
+    margin-bottom: 30px;
+    margin-top: 10px;
+    text-align: center;
+}
+/*TÍTULO DA PÁGINA*/
+.input-nova {
     min-width: 380px;
     border-radius: 22px;
     border: 2px #005940 solid;
@@ -41,34 +52,40 @@ body{
     display: flex;
     align-items: center;
 }
-.input-esqueceu i{
+/*DIV DO INPUT DA PÁGINA*/
+.input-nova i{
     font-size: 1.2em;
     padding: 5px;
 }
-.input-esqueceu input{
+/*ICONE DO INPUT*/
+.input-nova input{
     width: 90%;
     height: 2.2em;
     border: none;
     outline: none;
 }
-.form-esq label{
-    min-width: 380px;
+/*INPUT DA DIV DO INPUT*/
+.form-nov label{
+    display: flex;
+    justify-content: start;
+    text-align: start;
+    width: 380px;
 }
-.div-btn-enviar{
+/*LABEL DA DIV DE INPUT DA PÁGINA*/
+.div-btn-nova{
     display: flex;
     justify-content: center;
     width: 60%;
 }
-.btn-enviar:hover{
-    background-color: #00d974;
-    cursor: pointer;
-}
-.div-btn-enviar a{
+/*DIV DO BOTAO DA PÁGINA*/
+.div-btn-nova a{
     width: 90%;
     border-radius: 15px;
     margin-top: 10%;
+    margin-bottom: 5%;
 }
-.btn-enviar {
+/*LINK DO BOTAO DA PÁGINA*/
+.btn-enviar-nova {
     width: 100%;
     height: 35px;
     font-size: 1.2em;
@@ -80,19 +97,20 @@ body{
     font-family: 'Nunito', Arial, Helvetica, sans-serif;
     outline: none;
 }
-.titulo-esqueceu{
-    font-size: 1.4em;
-    text-align: center;
-    width: 70%;
-    padding-bottom: 10%;
-    padding-top: 10%;
+/*MODIFICANDO BOTAO DA PÁGINA*/
+.btn-enviar-nova:hover{
+    background-color: #00d974;
+    cursor: pointer;
 }
-.logo-login{
+/*HOVER DO BOTAO DE ENVIAR*/
+.logo-img{
     height: 50px;
 }
-.logo-esq{
+/*DEFININDO TAMANHO DA LOGO*/
+.logo{
     display: flex;
     justify-content: center;
-    margin-bottom: 5px;
+    margin-bottom: 30px;
     margin-top: 10px;
 }
+/*DIV DA LOGO*/

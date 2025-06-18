@@ -1,18 +1,21 @@
 body{
     background-color: #eafaf3;
 }
+/*ALTERANDO COR DO FUNDO DA PÁGINA*/
 .sec-posts{
-    display: flex;
-   justify-content: center;
-   align-items: center;
-   flex-direction: column;
-   padding-bottom: 40px;
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding-bottom: 40px;
 }
+/*SECTION GERAL DOS POSTS*/
 .titulo-posts{
     text-align: center;
     padding-top: 50px;
     padding-bottom: 30px;
 }
+/*TITULO DA PÁGINA NO BODY*/
 .container-posts{
     height: 100%;
     border-radius: 10px;
@@ -22,14 +25,7 @@ body{
     flex-direction: column;
     gap: 20px;
 }
-.barra-posts{
-    background-color: gray;
-    width: 100%;
-}
-.btn-barra{
-    display: flex;
-    flex-direction: column;
-}
+/*CONTAINER REFERENTE AO POSTS*/
 .relato-posts{
     height: 100%;
     width: 960px;
@@ -40,6 +36,14 @@ body{
     justify-content: space-between;
     border: 2px #005940 solid;
 }
+/*DIV PRINCIPAL DE CADA POST*/
 .relato-posts:hover {
     transform: scale(1.03);
 }
+/*"ANIMAÇÃO" PARA QUANDO O MOUSE PASSAR POR CIMA DO POST ELE AUMENTA DE TAMANHO PARA DAR DESTAQUE*/
+@media (max-width: 985px) {
+    .relato-posts {
+        width: 90%;
+    }
+}
+/*RESPONSIVANDO OS POSTS*/

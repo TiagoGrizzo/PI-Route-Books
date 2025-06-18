@@ -2,7 +2,7 @@
 body{
     font-family: 'Roboto', Arial, Helvetica, sans-serif;
 }
-
+/*IMPORTANDO AS FONTES ROBOTO, RUBIK E NUNITO*/
 /*inicio navbar*/
 
 .bg-navbar{
@@ -10,59 +10,74 @@ body{
     position: sticky;
     font-size: 20px;
 }
+/*MUDANDO COR DE FUNDO DA NAVBAR*/
 .logo-tamanho{
     height: 30px;
     margin-top: -13px;
 }
+/*ALTERA O TAMANHO DA LOGO DA NAVBAR*/
 .header-navbar{
     background-color: #005940;
 }
+/*COR DE HEADER*/
 .titulo-font{
     font-family: 'Rubik', Arial, Helvetica, sans-serif;
 }
+/*CLASSE QUE TROCA A FONTE PARA RUBIK*/
 .text-color-navbar{
     color: #00fa85 !important;
 }
+/*COR DA FONTE DE NAVBAR*/
 .text-color-navbar:hover{
     color: #00a759 !important;
 }
+/*HOVER DA NAVBAR*/
 .search-bar {
     border-radius: 20px;
 }
+/*BARRA DE PESQUISA*/
 .bg-color-menu-btn{
     background-color: #00de90;
 }
+/*COR DE FUNDO DO BOTAO DE MENU*/
 .barra-pesquisa {
     display: flex;
 }
+/*BARRA DE PESQUISA FLEX*/
 .perfil-geral {
     padding-left: 60px;
 }
+/*DIV DO BOTAO DE PERFIL*/
 .menu-perfil {
     justify-items: center;
 }
+/*CENTRALIZANDO CONTEUDO DO BOTA DE PERFIL*/
 .perfil-item {
     color: #005940;
 }
+/*COR DOS LINK DO BOTAO DE PERFIL*/
 .perfil-item:hover{
     background-color: #e4e4e4;
     border-radius: 20px;
 }
+/*HOVER DOS LINKS DO BOTAO DE PERFIL*/
 .btn-perfil {
      background-color: #01b475;
      border-radius: 400px;
      border: 0;
 }
+/*MODIFICANDO BOTAO DE PERFIL*/
 .perfil-geral {
     padding-left: 60px;
 }
+/*MODIFICANDO BOTAO DE PERFIL*/
 .btn.show{
     background-color: #008d5c;
 }
 .btn-perfil:hover{
     background-color: #008d5c;
 }
-
+/*HOVER DO BOTAO DE PERFIL*/
 /*fim da navbar*/
 
 /*Inicio footer*/
@@ -79,6 +94,7 @@ body{
     width: 100%;
     margin-top: 90px;
 }
+/*MODIFICANDO FOOTER*/
 .itens-footer-geral{
     display: flex;
     justify-content: center;
@@ -88,6 +104,7 @@ body{
     flex-wrap: wrap;
     width: 90%;
 }
+/*ALINHANDO ITENS DO FOOTER*/
 .item-footer {
     display: flex;
     justify-content: center;
@@ -95,30 +112,36 @@ body{
     text-align: center;  
     width: 30%;
 }
+/*MODIFICANDO CADA ITEM DO FOOTER*/
 .item-footer a {
     color: #00fa85;
     text-decoration: none;
 }
+/*LINKS DO FOOTER*/
 .item-footer a:hover {
     color: #00d974;
 }
+/*HOVER DOS LINKS DO FOOTER*/
 .item-footer-direitos{
     max-width: 220px;
 }
+/*DIREITOS RESERVADOS DO FOOTER*/
 .logo-footer{
     height: 50px;
 }
+/*MOD LOGO DO FOOTER*/
 /*fim footer*/
 
 .h3-conteudo{
     text-align: center;
     padding: 20px;
 }
+/*TÍTULO DO CONTEUDO*/
 .div-btn-relatos{
     display: flex;
     padding-right: 20px;
 }
-
+/*DIV BOTAO DO POST*/
 .btn-relatos{
     color: #fff;
     background-color: #005940;
@@ -128,9 +151,11 @@ body{
     width: 120px;
     box-shadow: 0 1px 4px 0 rgba(0, 0, 0, .1);
 }
+/*MODIFICANDO COR DOS POSTS*/
 .btn-relatos:hover{
     background-color: #00996e;
 }
+/*HOVER DO BOTAO DOS RELATOS*/
 .h5-conteudo{
     padding-left: 20px;
 }
@@ -138,33 +163,39 @@ body{
 .cor-titulo{
     color: #007554;
 }
+/*CLASSE PARA MUDAR A COR DE ELEMENTOS*/
 .titulo-centro{
     text-align: center;
 }
+/*CLASSE PARA CENTRALIZAR TEXTO DE ELEMENTOS*/
 .relatos:hover {
     transform: scale(1.03);
 }
+/*"ANIMAÇÃO" DE AUMENTAR ELEMENTO*/
 .conteudo-card-index {
     padding: 18px 20px 22px 20px;
     flex: 1;
     display: flex;
     flex-direction: column;
 }
+/*MODIFICANDO CONTEUDO DOS RELATOS*/
 .conteudo-card-index h3 {
     margin: 0 0 10px 0;
     font-size: 1.2em;
     font-weight: 700;
 }
+/*MOD TÍTULOS DOS RELATOS*/
 .conteudo-card-index p {
     margin: 0 0 14px 0;
     font-size: 1em;
     flex: 1;
 }
+/*TEXTO DOS RELATOS*/
 .post-info-index {
     color: #666;
     font-size: 0.9rem;
 }
-
+/*INFOS DO POST(NOME DO AUTOR, DATA E TIPO DE POST*/
 /*Responsividade da navbar*/
 
 @media (max-width: 1400px) {

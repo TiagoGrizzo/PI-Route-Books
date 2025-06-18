@@ -5,10 +5,10 @@ html{
     justify-content: center;
     align-items: center;
 }
-/*ALTERAÇÕES GERAIS NO HTML PARA CENTRALIZAR A SECTION*/
+/*DEFININDO ALTURA EM 100% E CENTRALIZANDO CONTEUDO*/
 body{
     font-family: 'Nunito', Arial, Helvetica, sans-serif;
-    background: #005940;
+    background-color: #005940;
     display: flex;
     justify-content: center;
     align-items: center;
