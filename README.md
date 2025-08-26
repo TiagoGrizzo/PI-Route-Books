@@ -1,3 +1,18 @@
+<div align="center" id="inicio">
+  <img alt="Logo Route Books" src="imgs/rb-logo2.png" width="550">
+
+  
+  #  Dicas para mochileiros e viajantes
+  ### Centro Paula Souza
+  ### Faculdade de Tecnologia de Jahu - FATEC JAHU 
+  ### Curso de Tecnologia em Desenvolvimento de Software Multiplataforma
+  ### Feito por Lucas Eduardo e Tiago Augusto 
+  ### Jaú-SP, Brasil. 
+  ### Início: 1º Semestre / 2025
+  # Documento da aplicação web
+</div>
+
+
 ## 🌍 Route Books
 
 **Route Books** é um blog colaborativo feito com HTML e CSS, criado para mochileiros e aventureiros que amam explorar o mundo. A plataforma permite que os usuários compartilhem experiências de viagem, ofereçam dicas, tirem dúvidas e montem roteiros personalizados — tudo isso em uma comunidade apaixonada por descobrir novos destinos.
