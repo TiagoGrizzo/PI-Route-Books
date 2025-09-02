@@ -290,13 +290,6 @@ HOME TOUR. Disponível em: [https://hometour.com.br/](https://hometour.com.br/)
 - 🧭 Layout pensado para valorizar o espírito aventureiro
 
 
-## 🛠️ Tecnologias Utilizadas
-
-- **HTML**
-- **CSS**
-- **BOOTSTRAP**
-
-
 ## 📸 Imagens do Projeto
 
 ![image](https://github.com/user-attachments/assets/d2f13507-4625-4493-af23-89d414f8ab60)
