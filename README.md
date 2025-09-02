@@ -99,7 +99,7 @@ Exibir dicas de pontos turísticos cadastrados no site: nome, descrição, local
 O sistema deve permitir busca dos pontos turísticos, por meio de: Local, nome (parte do nome), categoria (restaurante, hotel, cidade, ponto turístico etc.) – Mais agilidade para o cliente
 
 ### RF8 – Verificar Avaliação de postagem por outros usuários
-O sistema deve exibir avaliações realizadas com: id_pontoturistico, data, localização, nota_avaliação (algo mais?) – Para ajudar a pessoa a entender o lugar e o local que ela irá, o que tem, pontos turísticos, entre outros)
+O sistema deve exibir avaliações realizadas com: id_pontoturistico, data, localização, nota_avaliação (algo mais?) – (Para ajudar a pessoa a entender o lugar e o local que ela irá, o que tem, pontos turísticos, entre outros)
 
 ### RF9 - Exibir busca mais populares 
 O sistema deve exibir as avaliações mais frequentes: id_pontoturistico, data, localização, comentário (conter um campo onde contenha as postagens mais populares)
