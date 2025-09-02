@@ -259,16 +259,16 @@ O processo de desenvolvimento foi tudo dentro dos conformes, todos os integrante
 
 
 # 9. Referências bibliográficas
-ATLASSIAN. Trello. 2025. Disponível em: [https://trello.com/](https://trello.com/)
-FIGMA, Inc. Figma: the collaborative interface design tool. 2025. Disponível em: [https://www.figma.com/](https://www.figma.com/)
-BOOTSTRAP. Disponível em: [https://getbootstrap.com/docs/5.3/getting-started/introduction/  ](https://getbootstrap.com/docs/5.3/getting-started/introduction/  )
-FONTAWESOME. Disponível em: [https://fontawesome.com/ ](https://fontawesome.com/ )
-EMOJIPEDIA. Diposnível em: [ https://emojipedia.org/ ]( https://emojipedia.org/ )
+ATLASSIAN. Trello. 2025. Disponível em: [https://trello.com/](https://trello.com/) <br>
+FIGMA, Inc. Figma: the collaborative interface design tool. 2025. Disponível em: [https://www.figma.com/](https://www.figma.com/) <br>
+BOOTSTRAP. Disponível em: [https://getbootstrap.com/docs/5.3/getting-started/introduction/  ](https://getbootstrap.com/docs/5.3/getting-started/introduction/  )<br>
+FONTAWESOME. Disponível em: [https://fontawesome.com/ ](https://fontawesome.com/ )<br>
+EMOJIPEDIA. Diposnível em: [ https://emojipedia.org/ ]( https://emojipedia.org/ )<br>
 MAIKON.BIZ. Criador de personas. Disponível em: [Maikon.biz: https://maikon.biz/gerador-de-personas/](https://maikon.biz/gerador-de-personas/)
 
 # Inspirações e referências
-MOCHILEIROS. Disponível em: [ https://www.mochileiros.com/    ]( https://www.mochileiros.com/    )
-TRIPADVISOR. Disponível em: [https://www.tripadvisor.com.br/ ](https://www.tripadvisor.com.br/ )
+MOCHILEIROS. Disponível em: [ https://www.mochileiros.com/    ]( https://www.mochileiros.com/    )<br>
+TRIPADVISOR. Disponível em: [https://www.tripadvisor.com.br/ ](https://www.tripadvisor.com.br/ )<br>
 HOME TOUR. Disponível em: [https://hometour.com.br/](https://hometour.com.br/)
 
 
