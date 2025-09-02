@@ -216,6 +216,37 @@ Agora iremos implementar mais atividades, como Banco de dados ao projeto e talve
 # 5. Design
 ### Paleta de cores:
 
+| Nome          | Hexadecimais                      |
+|---------------|-----------------------------------|
+| TONS DE VERDE | #005940, #00DE90, #00FA85, #04B885 |
+| TONS DE AZUL | #00EEFF |
+| TONS DE VERMELHO | #FFA6A6 |
+| PRETO | #000000 |
+| BRANCO | #FFFFFF|
+
+
+### Tipografia: 
+- [Rubik - Google Fonts](https://fonts.google.com/specimen/Rubik)
+- [Nunito - Google Fonts](https://fonts.google.com/specimen/Nunito)
+- [Roboto - Google Fonts](https://fonts.google.com/specimen/Roboto)
+
+  Rubik para títulos. <br>
+  Nunito para páginas envolvendo cadastro, login, esqueci senha. <br>
+  Roboto para textos gerais da aplicação. 
+
+### Modelo de navegação:
+Ainda será feito!!!
+
+
+[Voltar para o início](#inicio)
+
+
+# 6. Protótipo
+- ### Link dos protótipos com a ferramenta Figma: [Figma - Route Books](https://www.figma.com/design/8UFfrEyZOdytMzzJvd0jSB/Mockup-do-site-PI?node-id=0-1&p=f&t=6UuWB1YErd0NN2MF-0)
+
+
+
+
 
 ## 🌍 Route Books
 
