@@ -104,6 +104,9 @@ O sistema deve exibir avaliações realizadas com: id_pontoturistico, data, loca
 ### RF9 - Exibir busca mais populares 
 O sistema deve exibir as avaliações mais frequentes: id_pontoturistico, data, localização, comentário (conter um campo onde contenha as postagens mais populares)
 
+### RF10
+O sistema deve permitir que os usuários possam se desconectar da sua conta. 
+
 </details>
 
 
