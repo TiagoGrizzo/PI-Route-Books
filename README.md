@@ -143,7 +143,7 @@ O sistema deve estar disponível 24x7x30 (100%) do tempo.
   - Design personalizado
   - Integrações extras
   - Manutenção pós-lançamento
-  - Responsividade avançada
+  - Responsividade
   - Filtros personalizados para encontrar a viagem ideal.
   - Informações detalhadas sobre destinos turísticos, atrações e atividades.
 
