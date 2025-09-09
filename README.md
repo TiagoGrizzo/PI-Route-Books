@@ -125,6 +125,9 @@ O sistema deve proteger os dados dos usuários contra acesso não autorizado.
 
 ### RNF5 - Disponibilidade
 O sistema deve estar disponível 24x7x30 (100%) do tempo. 
+
+### RNF6 - Acessibilidade 
+O sistema possui um modo escuro para facilitar a visualização da aplicação.
 </details>
 
 [Voltar para o início](#inicio)
