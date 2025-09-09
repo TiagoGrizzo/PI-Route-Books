@@ -78,7 +78,7 @@ Um documento de requisitos de sistema é um arquivo que descreve o que o sistema
 O sistema deve exibir importantes informações pessoais e curriculares equipe, como: Nome, e-mail, mini-currículo, github, Linkedin, celular
 
 ### RF2 - Exibir feedback, disponibilizar chat. 
-O sistema deve permitir que os usuários enviem feedback com atributos: Id_pontoturistico, data_da_visita, Id_usuário, comentário. (Para ajudar os clientes e a empresa à melhorar)
+O sistema deve permitir que os usuários enviem feedback com atributos: Id_pontoturistico, data_da_visita, Id_usuário, comentário. Tendo também nas postagens likes para melhor visibilidade (Para ajudar os clientes e a empresa à melhorar)
 
 ### RF3 - Cadastrar usuário 
 O sistema deve permitir o cadastro de usuários com as informações: Id_usuario, Nome, celular, e-mail, senha, cpf.
@@ -86,7 +86,7 @@ O sistema deve permitir o cadastro de usuários com as informações: Id_usuario
 ### RF4 - Realizar Login do usuário
 O sistema deve permitir o login do usuário utilizando informações pessoais cadastradas (E-mail/Nome de usuário e senha).
 
-### RF5 - – Disponibilizar uma página de contato 
+### RF5 – Disponibilizar uma página de contato 
 O sistema deve exibir um formulário de contato com: id_usuario, e-mail, data, comentário e observação. (conter uma área dedicada a ajudar os usuários com dúvidas e problemas.)
 </details>
 
@@ -98,13 +98,10 @@ Exibir dicas de pontos turísticos cadastrados no site: nome, descrição, local
 ### RF7 - Disponibilizar sistema de busca 
 O sistema deve permitir busca dos pontos turísticos, por meio de: Local, nome (parte do nome), categoria (restaurante, hotel, cidade, ponto turístico etc.) – Mais agilidade para o cliente
 
-### RF8 – Verificar Avaliação de postagem por outros usuários
-O sistema deve exibir avaliações realizadas com: id_pontoturistico, data, localização, nota_avaliação (algo mais?) – (Para ajudar a pessoa a entender o lugar e o local que ela irá, o que tem, pontos turísticos, entre outros)
-
-### RF9 - Exibir busca mais populares 
+### RF8 - Exibir busca mais populares 
 O sistema deve exibir as avaliações mais frequentes: id_pontoturistico, data, localização, comentário (conter um campo onde contenha as postagens mais populares)
 
-### RF10 - Logout
+### RF9 - Logout
 O sistema deve permitir que os usuários possam se desconectar da sua conta. 
 
 </details>
