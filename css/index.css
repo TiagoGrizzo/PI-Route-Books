@@ -130,6 +130,12 @@
     align-items: center;
     gap: 10px;
 }
+
+.dica-item:hover {
+    transform: scale(1.1); 
+}
+
+
 .dica-item span {
     font-size: 1.5em;
 }
