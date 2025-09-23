@@ -40,6 +40,11 @@ html{
     justify-content: center;
     padding-bottom: 20px;
 }
+
+.perfil-foto:hover {
+    transform: scale(1.1); 
+}
+
 /*DIV DA FOTO DE PERFIL*/
 .perfil-foto img{
     height: 200px;

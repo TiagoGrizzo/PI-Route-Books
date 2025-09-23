@@ -44,6 +44,11 @@
     box-shadow: 0 8px 32px rgba(0,0,0,0.2);
     border: 4px solid #fff;
 }
+
+.inicio-index img:hover {
+    transform: scale(1.1); 
+}
+
 .inicio-index h2 {
     font-size: 2.2em;
     margin-bottom: 16px;
@@ -69,9 +74,11 @@
     text-decoration: none;
     display: inline-block;
 }
+
 .btn-inicio:hover {
     background: #00d974;
-    color: #fff;
+    color: #000000;
+    transform: scale(1.1);
 }
 
 /*relatos recentes do index*/
@@ -129,6 +136,7 @@
     display: flex;
     align-items: center;
     gap: 10px;
+    
 }
 
 .dica-item:hover {
@@ -180,6 +188,11 @@
     text-align: center;
     background-color: #fff;
 }
+
+.geral-sobre:hover {
+    transform: scale(1.1); 
+}
+
 .titulo-sobre{
     width: fit-content;
     padding-bottom: 20px;
@@ -227,6 +240,8 @@
     font-weight: bold;
 }
 /*fim sobre do index*/
+
+
 
 /* Responsividade */
 @media (max-width: 1070px) {
