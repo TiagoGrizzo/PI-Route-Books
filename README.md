@@ -239,8 +239,8 @@ Agora iremos implementar mais atividades, como Banco de dados ao projeto e talve
 
 ### Logo:  
 <div align="center">
-    <img src="./imgs/logo.jpg" alt="logo" width="550">
-    <img src="./imgs/logo1.jpg" alt="logo 1" width="550">
+    <img src="./imgs/logo.jpg" alt="logo" width="250">
+    <img src="./imgs/logo1.jpg" alt="logo 1" width="250">
 </div>
 
 
