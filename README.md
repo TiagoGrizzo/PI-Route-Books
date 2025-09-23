@@ -136,7 +136,7 @@ O sistema possui um modo escuro para facilitar a visualização da aplicação.
 ### Figura 1 - Canvas, modelo de negócios:
 
 <div align="center">
-    <img src="./imgs/modelo_canva.png" alt="Figura 1 - Canvas, modelo de negócios" width="550">
+    <img src="./imgs/modelo-canvas.png" alt="Figura 1 - Canvas, modelo de negócios" width="550">
 </div>
 
 ## 3.1. O que será elaborado?
