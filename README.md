@@ -237,6 +237,13 @@ Agora iremos implementar mais atividades, como Banco de dados ao projeto e talve
   Nunito para páginas envolvendo cadastro, login, esqueci senha. <br>
   Roboto para textos gerais da aplicação. 
 
+### Logo:  
+<div align="center">
+    <img src="./imgs/logo.jpg" alt="logo" width="550">
+    <img src="./imgs/logo1.jpg" alt="logo 1" width="550">
+</div>
+
+
 ### Modelo de navegação:
 Ainda será feito!!!
 
