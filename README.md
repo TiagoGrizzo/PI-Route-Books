@@ -327,7 +327,7 @@ HOME TOUR. Disponível em: [https://hometour.com.br/](https://hometour.com.br/)
 
 2. Em um dos programas citados acima, use o comando 'cd ..' até ir para a pasta 'C:', normalmente o comando 'cd ..' precisará ser usado 2 vezes.
 
-3. Estando na pasta 'C:' cole esse comando 'git clone https://github.com/Guilherme-RR/PI-Route-Books', lembrando que esse comando funcioná somente caso já tenha sido baixado o git no seu computador.
+3. Estando na pasta 'C:' cole esse comando 'git clone https://github.com/TiagoGrizzo/PI-Route-Books', lembrando que esse comando funcioná somente caso já tenha sido baixado o git no seu computador.
 
 4. Depois de usar o comando citado no passo de cima, entra na pasta do projeto, use o comando 'cd PI-Route-Books'.
 
