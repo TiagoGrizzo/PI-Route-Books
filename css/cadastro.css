@@ -51,6 +51,8 @@ body{
     display: flex;
     flex-direction: column;
 }
+
+
 /*DIV DOS 3 ULTIMOS INPUT*/
 
 .titulo-cadastro {
@@ -80,6 +82,7 @@ body{
     border: none;
     outline: none;
 }
+
 /*MUDANÇAS ESPECIFICAS NO INPUT*/
 .div-btn-cadastro{
     display: flex;
@@ -112,6 +115,10 @@ body{
 }
 /*MODIFICANDO O HOVER(QUANDO O MOUSE PASSA POR CIMA DO ELEMENTO) DO BOTAO DE CADASTRAR*/
 
+
+
+
+
 /*LINK PARA O LOGIN*/
 .link-login{
     font-size: .9em;
@@ -133,6 +140,7 @@ body{
     margin-top: 10px;
 }
 /*LOGO*/
+
 @media (max-height: 850px) {
     .form-cadastro-geral {
         width: 100%;
@@ -184,3 +192,32 @@ body{
     }
 }
 /*RESPONSIVIDADE*/
+
+
+
+
+.input-uf {
+  display: flex;
+  align-items: center;
+  border: 2px solid #005940;
+  border-radius: 22px;
+  padding: 5px 10px;
+  width: fit-content;
+}
+
+.input-uf i {
+  font-size: 1.2em;
+  padding-right: 5px;
+  color: #005940;
+}
+
+.select-uf {
+  border: none;
+  outline: none;
+  font-size: 1em;
+  padding: 5px;
+  border-radius: 22px;
+  background: transparent;
+  cursor: pointer;
+}
+
