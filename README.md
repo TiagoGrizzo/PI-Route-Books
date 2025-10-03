@@ -154,15 +154,15 @@ O sistema possui um modo escuro para facilitar a visualização da aplicação.
 ### Parcerias principais:
   - Empresas locais
   - Eventos de turismo (ex: AVIRRP) 
-  - Parcerias com fornecedores confiáveis 
+  - Parcerias com empresas confiáveis 
 ### Atividades principais:
-  - Suporte ao cliente 
+  - Dicas para o público
   - Divulgar locais (EX: PONTOS TURÍSTICOS, RESTAURANTES.)
   - Desenvolvimento da plataforma.
 ### Recursos principais:
   - Internet
   - Equipe de desenvolvimento
-  - Notebooks/pc
+  - Notebooks/PC
   - Ferramentas de desenvolvimento web
   - Conteúdo e informações
   - PlaTaforma de hospedagem
@@ -194,8 +194,7 @@ O sistema possui um modo escuro para facilitar a visualização da aplicação.
   - Registro e renovação do domínio
 ### Fontes de renda: 
   - Publicidade e Anúncios (Ads)
-  - Vendas de produtos próprios
-  - Programas de fidelidade 
+  - Programas de afiliados
 
 [Voltar para o início](#inicio)
 
@@ -245,8 +244,16 @@ Agora iremos implementar mais atividades, como Banco de dados ao projeto e talve
 
 
 ### Modelo de navegação:
-Ainda será feito!!!
+```mermaid
+    flowchart TD
+    homePage["Home Page"] --> sobre(["Sobre"]) & contato(["Contato"]) & criarPost(["Criar Post"]) & perfil(["Perfil"])   & posts(["Posts"]) & login(["Login"]) & verPosts(["Ver Posts"])
+    login --> cadastro(["Cadastro"]) & esqueceuSenha(["Esqueceu Senha"])
+    esqueceuSenha --> alterarSenha(["Alterar Senha"])
+    perfil --> editarperfil(["Editar perfil"])
+    
 
+    style sobre stroke-width:2px,stroke-dasharray: 0
+```
 
 [Voltar para o início](#inicio)
 
