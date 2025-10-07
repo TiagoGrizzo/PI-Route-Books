@@ -246,10 +246,11 @@ Agora iremos implementar mais atividades, como Banco de dados ao projeto e talve
 ### Modelo de navegação:
 ```mermaid
     flowchart TD
-    homePage["Home Page"] --> sobre(["Sobre"]) & contato(["Contato"]) & criarPost(["Criar Post"]) & perfil(["Perfil"])   & posts(["Posts"]) & login(["Login"]) & verPosts(["Ver Posts"])
+    homePage["Home Page"] --> sobre(["Sobre"]) & contato(["Contato"]) & criarPost(["Criar Post"]) & perfil(["Perfil"])  & login(["Login"]) & verPosts(["Ver Posts"])
     login --> cadastro(["Cadastro"]) & esqueceuSenha(["Esqueceu Senha"])
     esqueceuSenha --> alterarSenha(["Alterar Senha"])
     perfil --> editarperfil(["Editar perfil"])
+    verPosts(["Ver Posts"]) --> posts(["Posts"])  
     
 
     style sobre stroke-width:2px,stroke-dasharray: 0
