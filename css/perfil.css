@@ -47,11 +47,16 @@ html{
 
 /*DIV DA FOTO DE PERFIL*/
 .perfil-foto img{
-    height: 200px;
+    height: 150px;
+    width: 150px;
+    object-fit: cover; 
+    object-position: center;
     display: flex;
     justify-content: center;
+    border: 3px solid #00fa85;
     border-radius: 50%;
-    padding-top: 20px;
+    padding-top: 0.1px;
+    transition: transform 0.3 ease;
 }
 /*ALTERANDO FOTO DO PERFIL*/
 .div-perfil{
