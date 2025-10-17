@@ -294,7 +294,6 @@ HOME TOUR. Disponível em: [https://hometour.com.br/](https://hometour.com.br/)
 
 
 
-
 ## 🌍 Route Books
 
 **Route Books** é um blog colaborativo feito com HTML e CSS, criado para mochileiros e aventureiros que amam explorar o mundo. A plataforma permite que os usuários compartilhem experiências de viagem, ofereçam dicas, tirem dúvidas e montem roteiros personalizados — tudo isso em uma comunidade apaixonada por descobrir novos destinos.
