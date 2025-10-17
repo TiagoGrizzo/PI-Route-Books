@@ -35,7 +35,7 @@
 </details>
 
 # 1. Resumo da aplicação web
-Este projeto tem por objetivo facilitar que pessoas apaixonadas por lugares históricos e bonitos, que consigam achar grandes aventuras, com dicas sobre pontos turísticos, restaurantes tradicionais, entre outras variedades. A ideia é que a plataforma seja de utilização simples, com informações claras e objetivas, que não deixe os clientes confusos ou perdidos (Pesquisar determinado local e achar ele com agilidade)
+Este projeto tem por objetivo facilitar que pessoas apaixonadas por lugares históricos e bonitos, consigam achar grandes aventuras, com dicas sobre pontos turísticos, restaurantes tradicionais, entre outras variedades. Falaremos sobre pontos REGIONAIS, NACIONAIS E DO MUNDO. A ideia é que a plataforma seja de utilização simples, com informações claras e objetivas, que não deixe os clientes confusos ou perdidos (Pesquisar determinado local e achar ele com agilidade)
 Utilizamos alguns sites que existem nesta área e juntamos com nosso interesse por lugares turísticos, que contam sua história e valorizam o que tem.
 
 ## 1.1. Objetivos
@@ -51,7 +51,7 @@ A nossa felicidade é deixar os nossos clientes satisfeitos e encantados, críti
 ## 1.2. Métodos da pesquisa
 A pesquisa e o desenvolvimento do projeto estão sendo realizados com o apoio da infraestrutura disponibilizada pela Fatec de Jahu. As atividades ocorrem tanto durante as aulas quanto nos períodos livres, utilizando os computadores dos laboratórios da instituição, bem como os computadores pessoais dos integrantes da equipe. 
 
-As tecnologias utilizadas até o momento incluem HTML, CSS, Bootstrap para a construção da interface e estrutura da aplicação. O protótipo visual está sendo desenvolvido por meio da ferramenta Figma, que permite a criação colaborativa de interfaces. Além disso, está sendo utilizada a biblioteca Font Awesome para a inserção de ícones que enriquecem a experiência do usuário. Para o desenvolvimento do back-end, será empregado PHP em conjunto com MySQL e XAMPP. O código é desenvolvido no VS Code e versionado com Git, garantindo organização e controle das alterações.
+As tecnologias utilizadas até o momento incluem HTML, CSS, JS, Bootstrap para a construção da interface e estrutura da aplicação. O protótipo visual está sendo desenvolvido por meio da ferramenta Figma, que permite a criação colaborativa de interfaces. Além disso, está sendo utilizada a biblioteca Font Awesome para a inserção de ícones que enriquecem a experiência do usuário. Para o desenvolvimento do back-end, será empregado PHP em conjunto com MySQL e XAMPP. O código é desenvolvido no VS Code e versionado com Git, garantindo organização e controle das alterações.
 
 <h3 align="center">
   <a href="#"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg" alt="HTML" align="center" width="35"></a> &nbsp;&nbsp;
@@ -90,22 +90,21 @@ O sistema deve permitir o login do usuário utilizando informações pessoais ca
 
 ### RF5 – Disponibilizar uma página de contato 
 O sistema deve exibir um formulário de contato com: id_usuario, e-mail, data, comentário e observação. (conter uma área dedicada a ajudar os usuários com dúvidas e problemas.)
+
+### RF6 - Logout
+O sistema deve permitir que os usuários possam se desconectar da sua conta.
 </details>
 
 <details><summary><h3>Requisitos que serão trabalhados</h3></summary>
 
-### RF6 - Exibir dicas de pontos turísticos e atividades. 
+### RF7 - Exibir dicas de pontos turísticos e atividades. 
 Exibir dicas de pontos turísticos cadastrados no site: nome, descrição, localização etc. (Explorar melhor o lugar que pretende visitar)
 
-### RF7 - Disponibilizar sistema de busca 
+### RF8 - Disponibilizar sistema de busca 
 O sistema deve permitir busca dos pontos turísticos, por meio de: Local, nome (parte do nome), categoria (restaurante, hotel, cidade, ponto turístico etc.) – Mais agilidade para o cliente
 
-### RF8 - Exibir busca mais populares 
+### RF9 - Exibir busca mais populares 
 O sistema deve exibir as avaliações mais frequentes: id_pontoturistico, data, localização, comentário (conter um campo onde contenha as postagens mais populares)
-
-### RF9 - Logout
-O sistema deve permitir que os usuários possam se desconectar da sua conta. 
-
 </details>
 
 
@@ -206,14 +205,14 @@ O sistema possui um modo escuro para facilitar a visualização da aplicação.
 Sim, temos os equipamentos necessários fornecidos pela FATEC JAHU, computadores, internet, ferramentas web e um ambiente adequado para a realização do projeto.
 
 ### Viabilidade financeira: 
-É viável pelo fato que vai ser mão de obra nossa, não iremos contratar ninguém. Ele irá nos retornar um aprendizado muito grande nessa área e uma bela evolução.
+É viável pelo fato que vai ser mão de obra dos integrantes do grupo, não iremos contratar ninguém de fora no momento. Ele irá nos retornar um aprendizado muito grande nessa área e uma bela evolução.
 
 ### Viabilidade de mercado: 
-Foi feita à análise, no começo erámos uma vitrine para viagens e percebemos que já existiam muitas nesse mesmo estilo, então nos renovamos, pegamos um nicho em específico e hoje somos um tipo de blog/guia turístico para mochileiros(as) que gostam de viajar e conhecer o que aquele lugar os oferece.
+Foi feita à análise, no começo erámos uma vitrine para viagens e percebemos que já existiam muitas nesse mesmo estilo, então nos renovamos, pegamos um nicho em específico e hoje somos um tipo de blog/guia turístico para relatos de mochileiros(as), empresas, entre outros, que gostam de viajar e divulgar o seu trabalho e conhecer o que aquele lugar os oferece.
 
 ### Viabilidade operacional: 
 Até o momento sim, não foram exigidas tantas atividades agora de início, então a organização, suporte e armazenamento está tudo correto.
-Agora iremos implementar mais atividades, como Banco de dados ao projeto e talvez JavaScript, PHP...
+Agora iremos implementar mais atividades, como Banco de dados ao projeto, JavaScript, PHP e outras tecnologias ao decorrer dos semestres
 
 [Voltar para o início](#inicio)
 
@@ -268,7 +267,7 @@ Agora iremos implementar mais atividades, como Banco de dados ao projeto e talve
 # 7. Aplicação
 - ### Link para o nosso repositório do GitHub: [Repositório - PI-ROUTE-BOOKS](https://github.com/Guilherme-RR/PI-Route-Books)
 
-A aplicação Route Books, visa facilitar o encontro de países, pontos turísticos e atividades atrativas, com as experiências contatadas pelas pessoas que viveram grandes  aventuras.  
+A aplicação Route Books, visa facilitar o encontro de pontos turísticos regionais, nacionais e mundiais e atividades atrativas, com as experiências contatadas pelas pessoas que viveram essas aventuras. Assim, tendo uma aplicação mais interativa e com a oportunidade de criar uma boa networking e ser um site informativo para ajudar todos os públicos.  
 
 
 # 8. Considerações finais
@@ -291,7 +290,7 @@ MOCHILEIROS. Disponível em: [ https://www.mochileiros.com/    ]( https://www.mo
 TRIPADVISOR. Disponível em: [https://www.tripadvisor.com.br/ ](https://www.tripadvisor.com.br/ )<br>
 HOME TOUR. Disponível em: [https://hometour.com.br/](https://hometour.com.br/)
 
-
+[Voltar para o início](#inicio)
 
 
 
