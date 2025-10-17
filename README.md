@@ -229,13 +229,18 @@ Agora iremos implementar mais atividades, como Banco de dados ao projeto, JavaSc
 
 
 ### Tipografia: 
+
+| **Fonte** | **Utilidade** |
+|------------|---------------|
+| Rubik | Para títulos |
+| Nunito | Para páginas envolvendo cadastro, login e esqueci senha |
+| Roboto | Para textos gerais da aplicação |
+
+
 - [Rubik - Google Fonts](https://fonts.google.com/specimen/Rubik)
 - [Nunito - Google Fonts](https://fonts.google.com/specimen/Nunito)
 - [Roboto - Google Fonts](https://fonts.google.com/specimen/Roboto)
 
-  Rubik para títulos. <br>
-  Nunito para páginas envolvendo cadastro, login, esqueci senha. <br>
-  Roboto para textos gerais da aplicação. 
 
 ### Logo:  
 <div align="center">
