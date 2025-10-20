@@ -203,3 +203,11 @@ body{
         padding-right: 40px;
     }
 }
+
+
+body.dark-mode .dark-mode-toggle .dark-icon {
+    display: none; /* Esconde a lua */
+}
+body.dark-mode .dark-mode-toggle .light-icon {
+    display: block; /* Mostra o sol */
+}

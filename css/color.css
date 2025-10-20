@@ -1,0 +1,35 @@
+/* :root é o seletor base, aplicando a todo documento
+geralmente utulizado para variaveis
+*/
+/* Conteúdo do seu css/color.css */
+:root{
+    /* Tema Light - Cores baseadas no seu CSS atual */
+    --bg-color: #fff;               /* Fundo padrão */
+    --text-color: #000;             /* Texto padrão (usado para o body) */
+    --main-color: #005940;          /* Cor principal (Navbar, Botões) */
+    --secondary-color: #00fa85;     /* Cor secundária (Texto da Navbar, Links) */
+    --accent-hover: #00a759;        /* Cor de hover principal */
+    --title-color: #007554;         /* Cor dos títulos (cor-titulo) */
+    --card-bg: #f3ecec;             /* Fundo dos cards/seções (não está explícito, mas é bom ter) */
+    --link-text-color: #666;        /* Cor de texto secundário (post-info-index) */
+    --btn-bg-hover: #00996e;        /* Hover do botão de relatos */
+    --menu-btn-bg: #00de90;         /* Cor do botão de menu */
+}
+
+/* Tema Dark - Sobrescreve as variáveis */
+body.dark-mode{
+    --bg-color: #121212;
+    --text-color: #7a7a7a;
+    --main-color: #1f1f1f;          /* Navbar e Footer no Dark Mode */
+    --secondary-color: #00fa85;     /* Mantendo o verde neon claro para destaque */
+    --accent-hover: #00d974;        /* Ajuste do hover no Dark Mode */
+    --title-color: #00fa85;         /* Títulos no Dark Mode */
+    --card-bg: #1e1e1e;
+    --link-text-color: #aaa;
+    --btn-bg-hover: #00996e;        /* Pode manter ou ajustar */
+    --menu-btn-bg: #00de90;         /* Pode manter ou ajustar */
+
+    /* Aplicações globais */
+    background-color: var(--bg-color);
+    color: var(--text-color);
+}

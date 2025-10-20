@@ -128,7 +128,7 @@
     border-radius: 12px;
     border: #00d974 solid 1px;
     padding: 18px 22px;
-    color: #000;
+    color: var(--text-color);
     font-size: 1em;
     min-width: 220px;
     max-width: 320px;
