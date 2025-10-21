@@ -135,6 +135,7 @@ O sistema possui um modo escuro para facilitar a visualização da aplicação.
 
 # 3. Modelo de negócios
 ### Figura 1 - Canvas, modelo de negócios:
+Na Figura 1, podemos visualizar o modelo de negócios, utilizado para melhor identificação do que o projeto oferece, como estrutura, canais, parceiros...
 
 <div align="center">
     <img src="./imgs/modelo-canvas.png" alt="Figura 1 - Canvas, modelo de negócios" width="550">
@@ -242,7 +243,9 @@ Agora iremos implementar mais atividades, como Banco de dados ao projeto, JavaSc
 - [Roboto - Google Fonts](https://fonts.google.com/specimen/Roboto)
 
 
-### Logo:  
+### Logo: 
+As figuras apresentadas são as logos do nosso projeto, uma com a escrita em preto e outra com a escrita em branco, pensada para diferentes fundos.
+
 <div align="center">
     <img src="./imgs/logo.jpg" alt="logo" width="250">
     <img src="./imgs/logo1.jpg" alt="logo 1" width="250">
@@ -250,6 +253,8 @@ Agora iremos implementar mais atividades, como Banco de dados ao projeto, JavaSc
 
 
 ### Modelo de navegação:
+Representação do nosso modelo de navegação, utilizada para observar como o sistema funciona, quais caminhos e processos existem dentro da aplicação.
+
 ```mermaid
     flowchart TD
     homePage["Home Page"] --> sobre(["Sobre"]) & contato(["Contato"]) & criarPost(["Criar Post"]) & perfil(["Perfil"])  & login(["Login"]) & verPosts(["Ver Posts"])
@@ -267,6 +272,11 @@ Agora iremos implementar mais atividades, como Banco de dados ao projeto, JavaSc
 
 # 6. Protótipo
 - ### Link dos protótipos com a ferramenta Figma: [Figma - Route Books](https://www.figma.com/design/8UFfrEyZOdytMzzJvd0jSB/Mockup-do-site-PI?node-id=0-1&p=f&t=6UuWB1YErd0NN2MF-0)
+
+### Figura 3 - Protótipo da home
+  <div align="center">
+    <img src="./imgs/prototipo_home.png" alt="Figura 3 - Prototipo" width="550">
+  </div>
 
 
 # 7. Aplicação
@@ -297,7 +307,7 @@ HOME TOUR. Disponível em: [https://hometour.com.br/](https://hometour.com.br/)
 
 [Voltar para o início](#inicio)
 
-
+<hr>
 
 ## 🌍 Route Books
 
