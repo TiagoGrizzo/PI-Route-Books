@@ -274,6 +274,8 @@ Representação do nosso modelo de navegação, utilizada para observar como o s
 - ### Link dos protótipos com a ferramenta Figma: [Figma - Route Books](https://www.figma.com/design/8UFfrEyZOdytMzzJvd0jSB/Mockup-do-site-PI?node-id=0-1&p=f&t=6UuWB1YErd0NN2MF-0)
 
 ### Figura 3 - Protótipo da home
+Nesta imagem, é possível visualizar o protótipo da homepage, de como ela seria na aplicação final (Fizemos mais telas, mas coloquei apenas uma para visualização).
+
   <div align="center">
     <img src="./imgs/prototipo_home.png" alt="Figura 3 - Prototipo" width="550">
   </div>
