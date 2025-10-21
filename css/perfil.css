@@ -28,7 +28,7 @@ html{
     border-radius: 20px;
     padding-bottom: 20px;
     margin-bottom: 40px;
-    box-shadow: 13px 13px 15px 15px #d1d1d1;
+    box-shadow: 13px 13px 15px 15px #727272;
     align-self: center;
     margin-top: 30px;
     padding-top: 15px;
@@ -96,6 +96,7 @@ html{
     border: 2px #005940 solid;
     border-radius: 10px;
     outline: none;
+    background-color: #f0f0f0;
 }
 /*MODIFICANDO O TEXTAREA DA BIOGRAFIA*/
 .campos-info {
@@ -110,6 +111,7 @@ html{
     flex-direction: column;
     width: 85%;
     justify-content: center;
+    
 }
 /*CLASSE COMPARTILHADA DOS CAMPOS DE INFO*/
 .perfil-info label{
@@ -127,6 +129,7 @@ html{
    border-radius: 10px;
    outline: none;
    padding-left: 5px;
+   background-color: #f0f0f0;
 }
 /*MODIFICANDO OS INPUTS DO PERFIL*/
 .label-perfil-bio{

@@ -205,9 +205,45 @@ body{
 }
 
 
+
+/*Modo claro*/
+.dark-mode-toggle .light-icon{
+    display: none; /* Esconde o sol */
+}
+
+.dark-mode-toggle .dark-icon{
+    display: block; /* Mostra a lua */
+}
+
+
+/*Modo escuro*/
 body.dark-mode .dark-mode-toggle .dark-icon {
     display: none; /* Esconde a lua */
 }
 body.dark-mode .dark-mode-toggle .light-icon {
     display: block; /* Mostra o sol */
+}
+
+
+.btn-dark-mode{
+    background-color: #06ce88;
+    width: 50px;
+    height: 40px;
+    border-radius: 400px;
+    transition: background-color 0.3 ease, transform 0.2 ease;
+    font-size: 18px;
+}
+
+.btn-dark-mode:hover{
+    background-color: #37a37d;
+    transform: scale(1.05);
+}
+
+body.dark-mode .btn-dark-mode {
+    background-color: #06ce88;
+    color: #ffffff;
+}
+
+body.dark-mode .btn-dark-mode:hover {
+    background-color: #37a37d;
 }
