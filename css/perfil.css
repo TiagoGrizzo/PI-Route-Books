@@ -14,7 +14,7 @@ html{
 /*CONTAINER DO PERFIL*/
 .titulo-perfil{
     font-weight: bold;
-    color: #005940;
+    color: var(--text-color);
     font-size: 29px;
     padding-top: 20px;
 }
@@ -28,7 +28,7 @@ html{
     border-radius: 20px;
     padding-bottom: 20px;
     margin-bottom: 40px;
-    box-shadow: 13px 13px 15px 15px #727272;
+    box-shadow: 5px 5px 5px 5px #727272;
     align-self: center;
     margin-top: 30px;
     padding-top: 15px;
@@ -96,7 +96,7 @@ html{
     border: 2px #005940 solid;
     border-radius: 10px;
     outline: none;
-    background-color: #f0f0f0;
+    background-color: var(--text-area);
 }
 /*MODIFICANDO O TEXTAREA DA BIOGRAFIA*/
 .campos-info {
@@ -104,6 +104,7 @@ html{
     flex-direction: column;
     align-items: center;
     width: 100%;
+    
 }
 /*DIV GERAL DOS CAMPOS DE INFO*/
 .perfil-info{
@@ -129,7 +130,7 @@ html{
    border-radius: 10px;
    outline: none;
    padding-left: 5px;
-   background-color: #f0f0f0;
+   background-color: var(--text-area);
 }
 /*MODIFICANDO OS INPUTS DO PERFIL*/
 .label-perfil-bio{

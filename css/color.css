@@ -19,7 +19,7 @@ geralmente utulizado para variaveis
 /* Tema Dark - Sobrescreve as variáveis */
 body.dark-mode{
     --bg-color: #121212;
-    --text-color: #00996e;
+    --text-color: #998874;
     --main-color: #1f1f1f;          /* Navbar e Footer no Dark Mode */
     --secondary-color: #00fa85;     /* Mantendo o verde neon claro para destaque */
     --accent-hover: #00d974;        /* Ajuste do hover no Dark Mode */
@@ -28,6 +28,7 @@ body.dark-mode{
     --link-text-color: #aaa;
     --btn-bg-hover: #00996e;        /* Pode manter ou ajustar */
     --menu-btn-bg: #00de90;         /* Pode manter ou ajustar */
+    --text-area: #FFF8DC;           /* Muda a cor dos input do perfil */
     
     /* Aplicações globais */
     background-color: var(--bg-color);

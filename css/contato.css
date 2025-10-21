@@ -16,7 +16,7 @@ html{
 .fale-contato{
    font-size: 36px;
    font-weight: 500;
-   color: #005940;
+   color: var(--text-color);
    margin-top: 50px;
 }
 /*TÍTULO DA PÁGINA*/
@@ -30,7 +30,7 @@ html{
    justify-content: center;
    align-items: center;
    margin-top: 30px;
-   box-shadow: 5px 5px 5px 5px gray;
+   box-shadow: 5px 5px 5px 5px #727272;
    padding: 30px;
    border-radius: 20px;
    background-color: #ffffff;
