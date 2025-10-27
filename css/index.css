@@ -6,13 +6,17 @@
     align-items: center;
     height: 50px;
     font-size: 20px;
+    padding-right: 80px;
 }
 .bg-criar-post {
-    background-color: #71b3a1;    
+    background-color: #71b3a1; 
+       
 }
 
 .div-criar-post{
     font-weight: bold;
+    color: var(--criar-post-bg);
+    
 }
 
 .btn-criar-post {
@@ -25,6 +29,7 @@
 .btn-criar-post:hover {
     background-color: #00be7c;
 }
+
 /*tudo acima envolve o botão de criar post*/
 
 /*inicio do index*/

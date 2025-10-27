@@ -28,7 +28,7 @@ html{
     border-radius: 20px;
     padding-bottom: 20px;
     margin-bottom: 40px;
-    box-shadow: 5px 5px 5px 5px #727272;
+    box-shadow: 3px 3px 3px 3px #998874;
     align-self: center;
     margin-top: 30px;
     padding-top: 15px;
@@ -116,7 +116,7 @@ html{
 }
 /*CLASSE COMPARTILHADA DOS CAMPOS DE INFO*/
 .perfil-info label{
-    color: #005940;
+    color: var(--text-color);
     font-weight: bold;
     margin-bottom: -10px;
 }
@@ -135,7 +135,7 @@ html{
 /*MODIFICANDO OS INPUTS DO PERFIL*/
 .label-perfil-bio{
     text-align: center;
-    color: #005940;
+    color: var(--text-color);
     font-weight: bold;
 }
 /*LABEL DO TEXTAREA DA BIO*/
@@ -151,11 +151,31 @@ html{
   cursor: pointer;             
   transition: 0.3s ease;       
   box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+  margin-right: 2px;
 }
 
 .btn-editar-perfil:hover {
   background-color: #032c22;   
   transform: scale(1.1);       
+}
+
+.btn-trocar-foto{
+  background-color: #005940;   
+  color: #00fa85;               
+  border: none;                
+  border-radius: 10%;          
+  padding: 12px;               
+  font-size: 15px;             
+  cursor: pointer;             
+  transition: 0.3s ease;       
+  box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+  margin-bottom: 5px;
+
+}
+
+.btn-trocar-foto i{
+    font-size: 13px;
+    margin-right: 2px;
 }
 
 

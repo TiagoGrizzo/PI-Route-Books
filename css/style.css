@@ -11,11 +11,24 @@ body{
     font-size: 20px;
 }
 /*MUDANDO COR DE FUNDO DA NAVBAR*/
+
 .logo-tamanho{
     height: 30px;
     margin-top: -13px;
 }
 /*ALTERA O TAMANHO DA LOGO DA NAVBAR*/
+
+.navbar-brand-text-color-navbar{
+    margin-right: 50px;
+    margin-left: 100px;
+}
+/*ESPAÇO DA LOGO*/
+
+.nav-item{
+    margin-left: 5px;
+}
+/*ESPAÇO ENTRE O HOME, QUEM SOMOS E CONTATO*/
+
 .header-navbar{
     background-color: #005940;
 }
@@ -232,6 +245,7 @@ body.dark-mode .dark-mode-toggle .light-icon {
     border-radius: 400px;
     transition: background-color 0.3 ease, transform 0.2 ease;
     font-size: 18px;
+    margin-right: 100px;
 }
 
 .btn-dark-mode:hover{

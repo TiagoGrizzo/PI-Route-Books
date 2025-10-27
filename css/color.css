@@ -14,6 +14,7 @@ geralmente utulizado para variaveis
     --link-text-color: #666;        /* Cor de texto secundário (post-info-index) */
     --btn-bg-hover: #00996e;        /* Hover do botão de relatos */
     --menu-btn-bg: #00de90;         /* Cor do botão de menu */
+    --criar-post-bg: #000000;
 }
 
 /* Tema Dark - Sobrescreve as variáveis */
@@ -28,7 +29,8 @@ body.dark-mode{
     --link-text-color: #aaa;
     --btn-bg-hover: #00996e;        /* Pode manter ou ajustar */
     --menu-btn-bg: #00de90;         /* Pode manter ou ajustar */
-    --text-area: #FFF8DC;           /* Muda a cor dos input do perfil */
+    --text-area: #dfdedb;           /* Muda a cor dos input do perfil */
+    --criar-post-bg: #000000;
     
     /* Aplicações globais */
     background-color: var(--bg-color);
