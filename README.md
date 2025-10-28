@@ -278,7 +278,7 @@ Representação do nosso modelo de navegação, utilizada para observar como o s
 Na imagem abaixo, é visto o modelo de caso de uso da nossa aplicação, que demonstra como será feito todo o processo com um visitante, para que ele vire um usuário e as funçõoes do admin.
 
   <div align="center">
-    <img src="./imgs/diagrama-caso-de-uso-atualizacao.jpg" alt="Figura 3 - Caso de uso" width="700">
+    <img src="./imgs/diagrama-caso-de-uso-atualizacao.jpg" alt="Figura 3 - Caso de uso" width="550">
   </div>
 
 [Voltar para o início](#inicio)
