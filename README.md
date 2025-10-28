@@ -243,7 +243,8 @@ Agora iremos implementar mais atividades, como Banco de dados ao projeto, JavaSc
 - [Roboto - Google Fonts](https://fonts.google.com/specimen/Roboto)
 
 
-### Logo: 
+### Logo:
+### Figura 2 - Logotipo 
 As figuras apresentadas são as logos do nosso projeto, uma com a escrita em preto e outra com a escrita em branco, pensada para diferentes fundos.
 
 <div align="center">
@@ -272,26 +273,26 @@ Representação do nosso modelo de navegação, utilizada para observar como o s
 
 
 # 6. Caso de uso 
-### Modelo de casos de uso do sistema 
+### Figura 3 - Modelo de caso de uso 
+
 Na imagem abaixo, é visto o modelo de caso de uso da nossa aplicação, que demonstra como será feito todo o processo com um visitante, para que ele vire um usuário e as funçõoes do admin.
 
   <div align="center">
-    <img src="./imgs/diagrama-caso-de-uso-atualizacao.jpg" alt="Figura 4 - Caso de uso" width="550">
+    <img src="./imgs/diagrama-caso-de-uso-atualizacao.jpg" alt="Figura 3 - Caso de uso" width="700">
   </div>
 
 [Voltar para o início](#inicio)
 
 
 
-
 # 7. Protótipo
 - ### Link dos protótipos com a ferramenta Figma: [Figma - Route Books](https://www.figma.com/design/8UFfrEyZOdytMzzJvd0jSB/Mockup-do-site-PI?node-id=0-1&p=f&t=6UuWB1YErd0NN2MF-0)
 
-### Figura 3 - Protótipo da home
+### Figura 4 - Protótipo da home
 Nesta imagem, é possível visualizar o protótipo da homepage, de como ela seria na aplicação final (Fizemos mais telas, mas coloquei apenas uma para visualização).
 
   <div align="center">
-    <img src="./imgs/prototipo_home.png" alt="Figura 3 - Prototipo" width="550">
+    <img src="./imgs/prototipo_home.png" alt="Figura 4 - Prototipo" width="550">
   </div>
 
 
