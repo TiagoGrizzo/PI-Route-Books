@@ -270,7 +270,21 @@ Representação do nosso modelo de navegação, utilizada para observar como o s
 [Voltar para o início](#inicio)
 
 
-# 6. Protótipo
+
+# 6. Caso de uso 
+### Modelo de casos de uso do sistema 
+Na imagem abaixo, é visto o modelo de caso de uso da nossa aplicação, que demonstra como será feito todo o processo com um visitante, para que ele vire um usuário e as funçõoes do admin.
+
+  <div align="center">
+    <img src="./imgs/diagrama-caso-de-uso-atualizacao.jpg" alt="Figura 4 - Caso de uso" width="550">
+  </div>
+
+[Voltar para o início](#inicio)
+
+
+
+
+# 7. Protótipo
 - ### Link dos protótipos com a ferramenta Figma: [Figma - Route Books](https://www.figma.com/design/8UFfrEyZOdytMzzJvd0jSB/Mockup-do-site-PI?node-id=0-1&p=f&t=6UuWB1YErd0NN2MF-0)
 
 ### Figura 3 - Protótipo da home
@@ -281,20 +295,20 @@ Nesta imagem, é possível visualizar o protótipo da homepage, de como ela seri
   </div>
 
 
-# 7. Aplicação
+# 8. Aplicação
 - ### Link para o nosso repositório do GitHub: [Repositório - PI-ROUTE-BOOKS](https://github.com/Guilherme-RR/PI-Route-Books)
 
 A aplicação Route Books, visa facilitar o encontro de pontos turísticos regionais, nacionais e mundiais e atividades atrativas, com as experiências contatadas pelas pessoas que viveram essas aventuras. Assim, tendo uma aplicação mais interativa e com a oportunidade de criar uma boa networking e ser um site informativo para ajudar todos os públicos.  
 
 
-# 8. Considerações finais
+# 9. Considerações finais
 O processo de desenvolvimento foi tudo dentro dos conformes, todos os integrantes foram participativos em diferentes áreas do projeto, protótipos, html, css, documentação, entre outros. No início, tínhamos uma ideia de ser uma vitrine de viagens, com o objetivo de mostrar as agências mais confiáveis para viagens dentro ou fora do Brasil, mas após algumas reuniões decidimos mudar o escopo do nosso projeto, assim se transformando em um guia de viagens, um site para que as pessoas possam dar seus feedbacks e contar suas experiências para os demais, sobre determinados locais e com diferentes culturas, na qual as pessoas podem se interessar e querer viver essa experiência. Ocorreram algumas limitações, principalmente com a internet da instituição, em alguns momentos não conseguíamos progredir ou até concluir certas partes do projeto, as máquinas de alguns laboratórios também eram lentos, então ficava difícil trabalhar, mas conseguimos avançar, pelo fator que fazíamos em casa, isso ajudava. Tivemos algumas dificuldades, algo normal, porque muitos assuntos e tarefas foram novidades para alguns integrantes, fazendo com que ficássemos com um pouco de receio de errar, fazer errado. A aplicação terá um papel importante para o conhecimento de novos costumes, origens, histórias e importância para os integrantes do grupo, fazer um projeto desse envolve muita paciência e dedicação, isso faz com que criemos um certo tipo de maturidade e acostumados com esse tipo de vivência.  
 
 [Voltar para o início](#inicio)
 
 
 
-# 9. Referências bibliográficas
+# 10. Referências bibliográficas
 ATLASSIAN. Trello. 2025. Disponível em: [https://trello.com/](https://trello.com/) <br>
 FIGMA, Inc. Figma: the collaborative interface design tool. 2025. Disponível em: [https://www.figma.com/](https://www.figma.com/) <br>
 BOOTSTRAP. Disponível em: [https://getbootstrap.com/docs/5.3/getting-started/introduction/  ](https://getbootstrap.com/docs/5.3/getting-started/introduction/  )<br>
