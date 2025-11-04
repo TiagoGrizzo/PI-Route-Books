@@ -134,8 +134,14 @@ O sistema possui um modo escuro para facilitar a visualização da aplicação.
 [Voltar para o início](#inicio)
 
 # 3. Modelo de negócios
-### Figura 1 - Canvas, modelo de negócios:
+
 Na Figura 1, podemos visualizar o modelo de negócios, utilizado para melhor identificação do que o projeto oferece, como estrutura, canais, parceiros...
+
+<div align="center">
+
+### Figura 1 - Canvas, modelo de negócios
+
+</div>
 
 <div align="center">
     <img src="./imgs/modelo-canvas.png" alt="Figura 1 - Canvas, modelo de negócios" width="550">
@@ -244,9 +250,14 @@ Agora iremos implementar mais atividades, como Banco de dados ao projeto, JavaSc
 
 
 ### Logo:
-### Figura 2 - Logotipo 
-As figuras apresentadas são as logos do nosso projeto, uma com a escrita em preto e outra com a escrita em branco, pensada para diferentes fundos.
+ 
+As figuras 2 apresentadas, são as logos do nosso projeto, uma com a escrita em preto e outra com a escrita em branco, pensada para diferentes fundos.
 
+<div align="center">
+
+### Figura 2 - Logotipo
+
+</div>
 <div align="center">
     <img src="./imgs/logo.jpg" alt="logo" width="250">
     <img src="./imgs/logo1.jpg" alt="logo 1" width="250">
@@ -273,9 +284,15 @@ Representação do nosso modelo de navegação, utilizada para observar como o s
 
 
 # 6. Caso de uso 
+
+
+Na figura 3, é visto o modelo de caso de uso geral da nossa aplicação, que demonstra como será feito todo o processo com um visitante, para que ele vire um usuário e as funçõoes do admin. O caso de uso de baixo e alto nível está especificado.
+
+<div align="center">
+
 ### Figura 3 - Modelo de caso de uso 
 
-Na imagem abaixo, é visto o modelo de caso de uso da nossa aplicação, que demonstra como será feito todo o processo com um visitante, para que ele vire um usuário e as funçõoes do admin.
+</div>
 
   <div align="center">
     <img src="./imgs/diagrama-caso-de-uso-atualizacao.jpg" alt="Figura 3 - Caso de uso" width="550">
@@ -288,8 +305,14 @@ Na imagem abaixo, é visto o modelo de caso de uso da nossa aplicação, que dem
 # 7. Protótipo
 - ### Link dos protótipos com a ferramenta Figma: [Figma - Route Books](https://www.figma.com/design/8UFfrEyZOdytMzzJvd0jSB/Mockup-do-site-PI?node-id=0-1&p=f&t=6UuWB1YErd0NN2MF-0)
 
+
+Na figura 4, é possível visualizar o protótipo da homepage, de como ela seria na aplicação final (Fizemos mais telas, mas coloquei apenas uma para visualização).
+
+<div align="center">
+
 ### Figura 4 - Protótipo da home
-Nesta imagem, é possível visualizar o protótipo da homepage, de como ela seria na aplicação final (Fizemos mais telas, mas coloquei apenas uma para visualização).
+
+</div>
 
   <div align="center">
     <img src="./imgs/prototipo_home.png" alt="Figura 4 - Prototipo" width="550">
