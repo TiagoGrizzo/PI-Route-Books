@@ -28,10 +28,11 @@
     - [3.4. Quanto custará?](#34-quanto-custará)
   - [4. Estudo de viabilidade](#4-estudo-de-viabilidade)
   - [5. Design](#5-design)
-  - [6. Protótipo](#6-protótipo)
-  - [7. Aplicação](#7-aplicação)
-  - [8. Considerações finais](#8-considerações-finais)
-  - [Referências bibliográficas](#referências-bibliográficas)
+  - [6. Caso de uso](#5-caso-uso)
+  - [7. Protótipo](#6-protótipo)
+  - [8. Aplicação](#7-aplicação)
+  - [9. Considerações finais](#8-considerações-finais)
+  - [10. Referências bibliográficas](#referências-bibliográficas)
 </details>
 
 # 1. Resumo da aplicação web
