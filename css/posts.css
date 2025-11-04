@@ -1,7 +1,23 @@
+body{
+    background-image: url('../imgs/foto-post.jpg');
+    background-size: cover;
+}
+
+
+
 .container-post {
-    max-width: 800px;
+    max-width: 1000px;
     margin: 0 auto;
     padding: 20px;
+
+    
+    margin: 108px auto 100px auto;
+    background: rgba(255,255,255,0.90);
+    padding: 40px 32px 32px 32px;
+    border-radius: 18px;
+    box-shadow: 1px 6px 6px 10px rgba(44, 92, 59, 0.10);
+    border: 1px solid #005940;
+    
 }
 /*ajustar o tamanho do conteudo do post*/
 .conteudo-geral-post{
