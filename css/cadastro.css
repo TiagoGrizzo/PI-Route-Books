@@ -50,8 +50,8 @@ body{
 .dividir-inputs-2{
     display: flex;
     flex-direction: column;
+    
 }
-
 
 /*DIV DOS 3 ULTIMOS INPUT*/
 
@@ -62,7 +62,7 @@ body{
 }
 /*TITULO DO CADASTRO*/
 .input-cadastro {
-    min-width: 380px;
+    min-width: 290px;
     border-radius: 22px;
     border: 2px #005940 solid;
     padding: 5px;
@@ -136,8 +136,8 @@ body{
 .logo{
     display: flex;
     justify-content: center;
-    margin-bottom: 30px;
-    margin-top: 10px;
+    margin-bottom: 15px;
+    margin-top: 45px;
 }
 /*LOGO*/
 
