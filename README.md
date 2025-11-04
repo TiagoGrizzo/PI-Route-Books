@@ -92,19 +92,22 @@ O sistema deve permitir o login do usuário utilizando informações pessoais ca
 ### RF5 – Disponibilizar uma página de contato 
 O sistema deve exibir um formulário de contato com: id_usuario, e-mail, data, comentário e observação. (conter uma área dedicada a ajudar os usuários com dúvidas e problemas.)
 
-### RF6 - Logout
+### RF6 - Criar Post 
+O sistema permite que o usuário faça uma publicação no nosso site, relacionado ao tema principal da aplicação (turismo), assim, podendo relatar experiências, dúvidas... entre outros
+
+### RF7 - Logout
 O sistema deve permitir que os usuários possam se desconectar da sua conta.
 </details>
 
 <details><summary><h3>Requisitos que serão trabalhados</h3></summary>
 
-### RF7 - Exibir dicas de pontos turísticos e atividades. 
+### RF8 - Exibir dicas de pontos turísticos e atividades. 
 Exibir dicas de pontos turísticos cadastrados no site: nome, descrição, localização etc. (Explorar melhor o lugar que pretende visitar)
 
-### RF8 - Disponibilizar sistema de busca 
+### RF9 - Disponibilizar sistema de busca 
 O sistema deve permitir busca dos pontos turísticos, por meio de: Local, nome (parte do nome), categoria (restaurante, hotel, cidade, ponto turístico etc.) – Mais agilidade para o cliente
 
-### RF9 - Exibir busca mais populares 
+### RF10 - Exibir busca mais populares 
 O sistema deve exibir as avaliações mais frequentes: id_pontoturistico, data, localização, comentário (conter um campo onde contenha as postagens mais populares)
 </details>
 
