@@ -289,6 +289,112 @@ Representação do nosso modelo de navegação, utilizada para observar como o s
 
 # 6. Caso de uso 
 
+CASO DE USO EXPANDIDO
+
+BAIXO NÍVEL
+
+CADASTRO :
+
+Caso de uso: Cadastrar usuário no sistema
+Atores: Usuário
+Finalidade: Registrar usuários ao sistema para que eles possam utilizar de forma mais ampla o sistema
+Visão geral: O usuário após acessar nosso site, ele poderá fazer o login, mas caso ele não tenha um registro, ele tem a oportunidade, ao clicar no link "Cadastre-se já!", de se cadastrar e informar dados básicos no sistema (Nome, e-mail, senha, país, cidade...) e ter sua conta pronta para uso.
+Tipo: Primário
+Referências cruzadas: RF3 - Cadastrar usuário
+Ação do ator:
+1. Começa com o visitante acessando o sistema
+3. Ele pode já fazer o login (caso já tenha um registro), mas no caso de uma primeira visita, ele clica no link que o leva para o cadastro
+4. Registra seus dados (Nome, e-mail, senha, cidade...)
+5. Finaliza o registro
+7. Terá sua conta pronta para ser utilizada
+
+Resposta do sistema:
+- O sistema exibe o formulário
+- O Sistema valida os dados
+- O sistema salva os dados do usuário
+- O sistema cria sua conta
+
+================================================================================
+
+CRIAR POST:
+
+Caso de uso: Criar um post sobre a sua experiência
+Atores: Usuário e Admin
+Finalidade: Que o usuário possa relatar a sua experiência turística e publicar em nosso site
+Visão geral: O usuário após se cadastrar e realizar o login (e-mail e senha), ele está permitido a fazer uma publicação sobre turismo, basta clicar no botão "Criar Post" no canto superior direito, e você vai poder especificar em tipo (Gastrônomico, esporte, cultural...) e a categoria da sua postagem (Relato, dúvida...) e escrever o seu relato.
+Tipo: Primário
+Referências cruzadas: RF3 - Cadastrar usuário, RF4 - Realizar Login do usuário e RF6 - Criar Post
+Ação do ator:
+1. O usuário realiza o login
+3. Acessa a homepage e clica no botão no canto superior direito "Criar Post"
+4. Adiociona o seu relato e específica o tipo e a categoria da sua publicação
+5. Clica em publicar, botão está em verde
+7. Sua publicação está finalizado
+
+Resposta do sistema:
+- O sistema exibe o formulário para a criação da publicação
+- Valida os dados
+- O sistema salva o relato
+- O sistema exibe sua publicação
+
+================================================================================
+
+ALTO NÍVEL
+
+Caso de uso: Realizar cadastro
+Atores: Usuário
+Tipo: Primário
+Descrição: Permite que um novo usuário (Mochileiro, turista...) crie uma conta no sistema. O sistema solicita dados básicos (nome, email, senha, cidade, país...) e, após a validação, cria o registro no banco de dados.
+
+Caso de uso: Fazer Login
+Atores: Usuário
+Tipo: Primário
+Descrição: Um Usuário registrado fornece suas credenciais (email e senha) para acessar o sistema. O sistema valida as credenciais; se corretas, concede acesso e você já é levado a homepage do sistema.
+
+Caso de uso: Visualizar homepage
+Atores: Usuário e Admin
+Tipo: Primário
+Descrição: Após o login, o sistema apresenta ao Usuário a tela inicial do sistema, que exibe publicações relevantes, opções de lugares, informações sobre o que fazer e informações sobre quem somos.
+
+Caso de uso: Criar Post
+Atores: Usuário
+Tipo: Primário
+Descrição: O usuário após se cadastrar e realizar o login, ele está permitido a fazer uma publicação sobre turismo, você pode especificar em tipo (Gastrônomico, esporte, cultural...) e a categoria da sua postagem (Relato, dúvida...).
+
+Caso de uso: Gerenciar Perfil
+Atores: Admin e Usuário
+Tipo: Primário
+Descrição: O usuário e admin tem seus perfis, onde é possível atualizar suas informações e foto. (TERÁ MAIS FUNÇÕES, mas até o momento é isso).
+
+Caso de uso: Excluir/Editar postagens próprias
+Atores: Usuários
+Tipo: Primário
+Descrição: O usuário pode excluir ou editar postagens dentro do site, alguns do motivos pode ser por erros ortográficos, não achou atrativo a postagem, entre outros.
+
+Caso de uso: Denunciar contéudo
+Atores: Usuário e Admin
+Tipo: Primário
+Descrição: O usuário pode denunciar um conteúdo, por algum motivo coerente, e o admin irá avaliar se aquela postagem poderá continuar dentro do site.
+
+Caso de uso: Buscar postagens/usuários
+Atores: Usuário e admin
+Tipo: Primário
+Descrição: O admin e o usuário podem utilizar o sistema de busca que existe dentro do sistema para facilitar o encontro de usuários e postagens existentes.
+
+Caso de uso: Seguir outro usuário
+Atores: Usuário
+Tipo: Primário
+Descrição: O usuário pode se conectar com outras pessoas, assim, criando networking, amizades, aprendizados e experiências.
+
+Caso de uso: Comentar em postagens
+Atores: Usuário
+Tipo: Primário
+Descrição: O usuário pode dar a sua pequena visão sobre o assunto comentado em postagens de outros usuários.
+
+Caso de uso: Curtir postagens
+Atores: Usuário
+Tipo: Primário
+Descrição: O usuário pode avaliar a postagem de outro usuário.
 
 Na figura 3, é visto o modelo de caso de uso geral da nossa aplicação, que demonstra como será feito todo o processo com um visitante, para que ele vire um usuário e as funçõoes do admin. O caso de uso de baixo e alto nível está especificado.
 
