@@ -3,7 +3,9 @@ html{
 }
 /*DEFININDO ALTURA DO HTML PARA 100%*/
 .container-perfil{
-    width: 1200px;
+    max-width: 1200px;
+    width: 100%;
+    padding: 0 15px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -152,6 +154,7 @@ html{
   transition: 0.3s ease;       
   box-shadow: 0 4px 6px rgba(0,0,0,0.2);
   margin-right: 2px;
+  margin-bottom: 20px;
 }
 
 .btn-editar-perfil:hover {
@@ -181,38 +184,68 @@ html{
 
 /*ABAIXO É RESPONSIVIDADE*/
 @media (max-width: 1230px) {
-           .div-perfil{
-                display: flex;
-                flex-direction: column;
-                width: 100%;
-                justify-content: center;
-                align-items: center;
-           }
-           .container-perfil{
-                max-width: 600px;
-           }
-           .perfil-info-bio{
-                width: 90%;
-                height: 250px;
-            }
-            .orientacao-perfil{
-                width: 90%;
-            }
-            .foto-centro{
-                width: 90%;
-            }
-            .perfil-info{
-                width: 90%;
-            }
-            .titulo-perfil{
-                padding-top: 30px;
-            }
-            .foto-centro{
-                margin-top: 20px;
-            }
-}
-@media (max-height: 850px) {
+
+    .div-perfil{
+        flex-direction: column;
+        width: 100%;
+        max-width: 750px;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .orientacao-perfil,
+    .perfil-info-bio {
+        width: 100%;
+        max-width: 280px;
+    }
+
+    .perfil-info-bio textarea{
+        width: 100%;
+        height: 180px;
+    }
+
+    .perfil-info{
+        width: 100%;
+    }
+
+    .foto-centro{
+        width: 95%;
+        margin-top: 20px;
+    }
+
     .container-perfil{
-        height: 100%;
+        width: 100%;
+        max-width: 600px;
+    }
+}
+
+/*Celular*/
+@media (max-width: 600px){
+
+    .perfil-foto img{
+        width: 120px;
+        height: 120px;
+    }
+
+    .titulo-perfil{
+        font-size: 22px;
+    }
+
+    .perfil-info label{
+        font-size: 14px;
+    }
+
+    .input-perfil{
+        font-size: 14px;
+    }
+
+    .perfil-info-bio textarea{
+        font-size: 14px;
+        height: 150px;
+    }
+
+    .btn-editar-perfil{
+        padding: 10px;
+        font-size: 14px;
     }
 }

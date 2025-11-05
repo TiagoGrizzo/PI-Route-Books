@@ -1,9 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
 body{
     font-family: 'Roboto', Arial, Helvetica, sans-serif;
+    
 }
 /*IMPORTANDO AS FONTES ROBOTO, RUBIK E NUNITO*/
 /*inicio navbar*/
+
+html, body {
+    overflow-x: hidden;
+    width: 100%;
+}
 
 .bg-navbar{
     background-color: #005940 !important;
@@ -59,6 +65,7 @@ body{
 /*BARRA DE PESQUISA FLEX*/
 .perfil-geral {
     padding-left: 60px;
+    
 }
 /*DIV DO BOTAO DE PERFIL*/
 .menu-perfil {
@@ -78,6 +85,7 @@ body{
      background-color: #01b475;
      border-radius: 400px;
      border: 0;
+     
 }
 /*MODIFICANDO BOTAO DE PERFIL*/
 .perfil-geral {
@@ -211,11 +219,45 @@ body{
 /*INFOS DO POST(NOME DO AUTOR, DATA E TIPO DE POST*/
 /*Responsividade da navbar*/
 
-@media (max-width: 1400px) {
+/* Ajuste Navbar em telas médias (tablets) */
+@media (max-width: 992px) {
+    .navbar-brand-text-color-navbar {
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+
     .perfil-geral {
-        padding-right: 40px;
+        padding-left: 20px;
+    }
+
+    .btn-dark-mode {
+        margin-right: 20px; /* empurra menos */
     }
 }
+
+/* Ajuste Navbar em celulares */
+@media (max-width: 500px) {
+    .navbar-brand-text-color-navbar {
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .perfil-geral {
+        padding-left: 0;
+    }
+
+    .barra-pesquisa {
+        width: 100%;
+        margin-top: 10px;
+    }
+
+    .btn-dark-mode {
+        margin-right: 0;
+        margin-left: 10px;
+        transform: scale(0.9); /* diminui um pouco */
+    }
+}
+
 
 
 
@@ -241,17 +283,23 @@ body.dark-mode .dark-mode-toggle .light-icon {
 .btn-dark-mode{
     background-color: #06ce88;
     width: 50px;
-    height: 40px;
+    height: 45px;
     border-radius: 400px;
-    transition: background-color 0.3 ease, transform 0.2 ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     font-size: 18px;
-    margin-right: 100px;
+    transition: background-color .3s ease, transform .2s ease;
+    margin-right: 130px;
+    margin-left: 10px;
+    
 }
 
 .btn-dark-mode:hover{
     background-color: #37a37d;
     transform: scale(1.05);
 }
+
 
 body.dark-mode .btn-dark-mode {
     background-color: #06ce88;

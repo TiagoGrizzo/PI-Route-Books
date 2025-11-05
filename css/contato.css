@@ -1,5 +1,7 @@
 html{
    height: 100%;
+   margin: 0;
+   padding: 0;
 }
 .contato-geral{
    display: flex;
@@ -187,26 +189,45 @@ html{
    }
    /*AUMENTANDO O PADDING E O MARGIN DO CONTATO-GERAL*/
 }
-@media (max-width: 800px) {
-   .container-contato{
-      flex-direction: column;
-      width: 90%;
+@media (max-width: 1200px) {
+   .container-contato {
+      width: 95%;
+      flex-wrap: wrap;
+      padding: 20px;
    }
-   /*MODIFICANDO A DIREÇÃO PARA COLUMN E DIMINUINDO A LARGURA DO CONTAINER-CONTATO*/
-   .contato-texto{
-      width: fit-content;
-      align-items: self-start;
+
+   .contato-texto,
+   .contato-form {
+      width: 100%; /* Faz empilhar certinho */
    }
-   /*MODIFICANDO A LARGURA PARA FIT-CONTENT E ALINHANDO O TEXTO A ESQUERDA*/
-   .contato-form{
-      width: 100%;
+
+   .contato-texto {
+      margin-bottom: 20px; /* Espaço entre texto e formulário */
    }
-   /*MODIFICANDO A LARGURA PARA 100%*/
-   .contato-geral{
-      height: 100%;
-   }
-   /*MODIFICANDO O HEIGHT PARA 100%*/
 }
+
+@media (max-width: 768px) {
+
+   .contato-geral {
+      padding-left: 20px;
+      padding-right: 20px;
+   }
+
+   .contato-texto h1 {
+      font-size: 1.6rem;
+      text-align: center;
+   }
+
+   .contato-texto p {
+      text-align: center;
+   }
+
+   .contato-form {
+      padding: 15px;
+   }
+}
+
+
 @media (max-height: 820px) {
    .contato-geral{
       height: 100%;
