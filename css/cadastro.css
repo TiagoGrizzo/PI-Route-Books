@@ -1,18 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
-html{
+
+html, body {
     height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-/*DEFININDO ALTURA EM 100% E CENTRALIZANDO CONTEUDO*/
-body{
+    width: 100%;
     font-family: 'Nunito', Arial, Helvetica, sans-serif;
     background-color: #005940;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    margin: 0;
+    padding: 0;
+    display: block; 
+    overflow-x: hidden; /* impede rolagem lateral */
+    
 }
+
 /*ALTERAÇÕES NO BODY*/
 .form-cadastro-geral {
     position: relative;
@@ -62,7 +61,7 @@ body{
 }
 /*TITULO DO CADASTRO*/
 .input-cadastro {
-    min-width: 290px;
+    min-width: 300px;
     border-radius: 22px;
     border: 2px #005940 solid;
     padding: 5px;
@@ -141,59 +140,135 @@ body{
 }
 /*LOGO*/
 
-@media (max-height: 850px) {
-    .form-cadastro-geral {
-        width: 100%;
-        height: 90%;
+/* ============================== */
+/* 📱 CELULARES (ATÉ 600px) */
+/* ============================== */
+@media (max-width: 600px) {
+    html, body {
+        height: auto;
+        display: block;
+        background-color: #005940;
     }
+
     .form-cad {
-        width: fit-content;
-        padding-left: 50px;
-        padding-right: 50px;
+        min-width: unset; /* remove largura mínima */
+        width: 90%;
+        padding: 20px;
+        border-radius: 8px;
     }
+
     .div-inputs {
-        flex-direction: row;
-        gap: 20px;
+        flex-direction: column;
+        gap: 0;
     }
-    .input-cadastro{
+
+    .dividir-inputs-1,
+    .dividir-inputs-2 {
         width: 100%;
     }
-}
-@media (max-height: 630px) {
-    html{
-        height: auto;
+
+    .input-cadastro {
+        width: 100%;
+        margin: 8px 0;
     }
-    .form-cadastro-geral {
-        padding-top: 20px;
-        padding-bottom: 20px;
+
+    .titulo-cadastro {
+        font-size: 1.4em;
+        margin-bottom: 30px;
+    }
+
+    .div-btn-cadastro {
+        width: 100%;
+    }
+
+    .btn-cadastrar {
+        font-size: 1em;
+        padding: 10px;
+    }
+
+    .logo {
+        margin-top: 20px;
+        margin-bottom: 20px;
     }
 }
-@media (max-width: 880px) 
-{
-    html{
+
+
+/* ============================== */
+/* 💻 IPAD / TABLET (768px–1024px) */
+/* ============================== */
+@media (min-width: 768px) and (max-width: 1024px) {
+    html, body {
         height: auto;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        background-color: #005940;
         display: flex;
         justify-content: center;
+        align-items: flex-start;
+        overflow-x: hidden;
     }
+
     .form-cadastro-geral {
         width: 100%;
-        height: auto;
-        padding-top: 20px;
-        padding-bottom: 20px;
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 40px 20px;
+        box-sizing: border-box;
     }
-   .div-inputs{
-    flex-direction: column;
-   }
-   .input-cadastro{
+
+    .form-cad {
+        width: 80%;
+        max-width: 800px;
+        background-color: #fff;
+        border-radius: 12px;
+        padding: 40px;
+        box-sizing: border-box;
+    }
+
+    .div-inputs {
+        display: flex;
+        flex-direction: row; /* divide em duas colunas */
+        justify-content: space-between;
+        gap: 40px;
+    }
+
+    .dividir-inputs-1,
+    .dividir-inputs-2 {
+        flex: 1;
+    }
+
+    .input-cadastro {
+        width: 100%;
+        margin: 8px 0;
+    }
+
+    .titulo-cadastro {
+        font-size: 1.8em;
+        text-align: center;
+        margin-bottom: 40px;
+    }
+
+    .div-btn-cadastro {
+        width: 80%;
+        margin-top: 40px;
+    }
+
+    .btn-cadastrar {
+        font-size: 1.1em;
+        padding: 12px;
         width: 100%;
     }
-    .div-inputs{
-        gap: 0px;
+
+    .logo-cadastro {
+        height: 60px;
     }
 }
+
+
 /*RESPONSIVIDADE*/
-
-
 
 
 .input-uf {
@@ -220,4 +295,6 @@ body{
   background: transparent;
   cursor: pointer;
 }
+
+
 

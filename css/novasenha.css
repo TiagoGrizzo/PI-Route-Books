@@ -1,9 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
-html{
+html, body {
     height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    margin: 0;
+    padding: 0;
 }
 /*DEFININDO ALTURA EM 100% E CENTRALIZANDO CONTEUDO*/
 body{
@@ -12,6 +11,8 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
+    overflow: hidden; /* impede qualquer rolagem */
+    
 }
 /*MUDANDO COR DE FUNDO, CENTRALIZANDO CONTEUDO E TROCANDO A FONTE DA PÁGINA PARA NUNITO*/
 .form-nova-geral {
@@ -33,7 +34,8 @@ body{
     background-color: #fff;
     border-radius: 10px;
     padding: 20px 40px 30px 40px;
-    min-width: 550px;
+    width: 90%;
+    max-width: 550px;
 }
 /*FORM DA PÁGINA*/
 .titulo-nova {
@@ -44,7 +46,6 @@ body{
 }
 /*TÍTULO DA PÁGINA*/
 .input-nova {
-    min-width: 380px;
     border-radius: 22px;
     border: 2px #005940 solid;
     padding: 5px;
@@ -69,8 +70,13 @@ body{
     display: flex;
     justify-content: start;
     text-align: start;
-    width: 380px;
 }
+
+.input-nova, .form-nov label {
+    width: 100%;
+    max-width: 380px;
+}
+
 /*LABEL DA DIV DE INPUT DA PÁGINA*/
 .div-btn-nova{
     display: flex;
@@ -114,3 +120,56 @@ body{
     margin-top: 10px;
 }
 /*DIV DA LOGO*/
+
+
+/* =================== MEDIA QUERIES =================== */
+
+/* Tablet (até 1024px) */
+@media (max-width: 400px) {
+    .form-nova-geral {
+        width: 90%;
+    }
+    .form-nov {
+        min-width: 0; /* remove largura mínima fixa */
+        width: 100%;
+        padding: 20px;
+    }
+    .input-nova, .form-nov label {
+        min-width: 0;
+        width: 100%;
+    }
+    .titulo-nova {
+        font-size: 1.5em;
+        width: 90%;
+        margin-bottom: 20px;
+        margin-top: 10px;
+    }
+    .div-btn-nova {
+        width: 100%;
+    }
+    .div-btn-nova a {
+        width: 100%;
+    }
+}
+
+/* Celular (até 768px) */
+@media (max-width: 768px) {
+    .form-nova-geral {
+        width: 95%;
+    }
+    .form-nov {
+        padding: 15px;
+    }
+    .titulo-nova {
+        font-size: 1.3em;
+    }
+    .input-nova input {
+        height: 2em;
+        font-size: 0.95em;
+    }
+    .btn-enviar-nova {
+        font-size: 1em;
+        height: 35px;
+        padding: 5px;
+    }
+}

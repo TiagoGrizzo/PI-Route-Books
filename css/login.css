@@ -4,6 +4,7 @@ html{
     display: flex;
     justify-content: center;
     align-items: center;
+    
 }
 /*DEFININDO ALTURA EM 100% DA TELA E CENTRALIZANDO CONTEUDO*/
 body{
@@ -29,7 +30,7 @@ body{
     justify-content: center;
     background-color: #fff;
     border-radius: 10px;
-    padding: 30px 90px 40px 90px;
+    padding: 40px 90px 40px 90px;
 }
 /*MODIFICANDO O FORMULÁRIO DA PÁGINA*/
 .titulo-login {
@@ -39,13 +40,14 @@ body{
 }
 /*MODIFICANDO TÍTUO*/
 .input-login {
-    min-width: 380px;
+    width: 100%;
     border-radius: 22px;
     border: 2px #005940 solid;
     padding: 5px;
     margin: 0px 0px 12px -5px;
     display: flex;
     align-items: center;
+    box-sizing: border-box;
 }
 /*MODIFICANDO A DIV DO INPUT DA PÁGINA*/
 .input-login i{
@@ -61,7 +63,8 @@ body{
 }
 /*MODIFICANDO O INPUT DA PÁGINA*/
 .form-log label{
-    min-width: 380px;
+    width: 100%;
+    box-sizing: border-box;
 }
 /*MODIFICNADO LABEL DO FORM*/
 .div-btn-login{
@@ -123,3 +126,148 @@ body{
     margin-top: 10px;
 }
 /*MODIFICANDO DIV DA LOGO*/
+
+/* ============================== */
+/* 📱 CELULARES (ATÉ 600px) */
+/* ============================== */
+@media (max-width: 400px) {
+    html, body {
+        height: auto;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        background-color: #005940;
+        display: block;
+        overflow-x: hidden;
+    }
+
+    .form-login-geral {
+        width: 100%;
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 30px 10px;
+        box-sizing: border-box;
+    }
+
+    .form-log {
+        width: 90%;
+        padding: 25px 20px;
+        border-radius: 10px;
+        background-color: #fff;
+        box-sizing: border-box;
+    }
+
+    .titulo-login {
+        font-size: 1.4em;
+        margin-bottom: 25px;
+        text-align: center;
+    }
+
+    .input-login {
+        width: 100%;
+        min-width: unset;
+        margin: 8px 0;
+    }
+
+    .form-log label {
+        min-width: unset;
+        width: 100%;
+    }
+
+    .btn-logar {
+        font-size: 1em;
+        padding: 10px;
+    }
+
+    .div-btn-login {
+        width: 100%;
+        margin-top: 25px;
+    }
+
+    .logo-img {
+        height: 45px;
+        margin-bottom: 20px;
+    }
+
+    .link-login-cad {
+        flex-direction: column;
+        text-align: center;
+        font-size: 0.9em;
+    }
+}
+
+/* ============================== */
+/* 💻 TABLETS / IPAD (768px–1024px) */
+/* ============================== */
+@media (min-width: 768px) and (max-width: 1024px) {
+    html, body {
+        height: auto;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        background-color: #005940;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        overflow-x: hidden;
+    }
+
+    .form-login-geral {
+        width: 100%;
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 40px 20px;
+        box-sizing: border-box;
+    }
+
+    .form-log {
+        width: 75%;
+        max-width: 700px;
+        padding: 40px;
+        border-radius: 12px;
+    }
+
+    .titulo-login {
+        font-size: 1.8em;
+        margin-bottom: 40px;
+        text-align: center;
+    }
+
+    .input-login {
+        width: 100%;
+        min-width: unset;
+        margin: 10px 0;
+    }
+
+    .form-log label {
+        min-width: unset;
+        width: 100%;
+    }
+
+    .btn-logar {
+        font-size: 1.1em;
+        padding: 12px;
+        width: 100%;
+    }
+
+    .div-btn-login {
+        width: 80%;
+        margin-top: 30px;
+    }
+
+    .logo-img {
+        height: 60px;
+        margin-bottom: 30px;
+    }
+
+    .link-login-cad {
+        justify-content: center;
+        text-align: center;
+        font-size: 1em;
+    }
+}
+/* RESPONSIVIDADE */

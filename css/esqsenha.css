@@ -110,3 +110,54 @@ body{
     margin-top: 10px;
 }
 /*MODIFICANDO A DIV DA LOGO*/
+
+
+
+/* Tablet (iPad) */
+@media (max-width: 1024px) {
+    .form-esqueceu-geral {
+        width: 90%; /* encolhe o formulário */
+    }
+    .form-esq {
+        width: 100%;
+        padding: 20px;
+    }
+    .input-esqueceu, .form-esq label {
+        min-width: 0; /* remove o min-width que quebrava layout */
+        width: 100%;
+    }
+    .titulo-esqueceu {
+        font-size: 1.2em;
+        width: 90%;
+        padding: 5% 0;
+    }
+    .div-btn-enviar {
+        width: 100%;
+    }
+    .div-btn-enviar a {
+        width: 100%;
+    }
+}
+
+/* Celular */
+@media (max-width: 768px) {
+    .form-esqueceu-geral {
+        width: 95%;
+    }
+    .form-esq {
+        padding: 15px;
+    }
+    .titulo-esqueceu {
+        font-size: 1.1em;
+    }
+    .input-esqueceu input {
+        height: 2em;
+        font-size: 0.95em;
+    }
+    .btn-enviar {
+        font-size: 1em;
+        height: 35px;
+        padding: 5px;
+    }
+}
+/* RESPONSIVIDADE */
