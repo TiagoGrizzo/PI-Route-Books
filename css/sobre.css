@@ -90,6 +90,7 @@ body{
 }
 /*ICONES DA REDES SOCIAIS*/
 /*RESPONSIVIDADE*/
+/*Tablet*/
 @media (max-width: 920px) {
     .sobre-texto-geral{
         display: flex;
@@ -105,6 +106,8 @@ body{
         padding-bottom: 50px;
     }
 }
+
+/*Celular*/
 @media (max-width: 500px)
 {
     .perfil-sobre-integrantes img{

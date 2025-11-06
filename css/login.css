@@ -127,9 +127,7 @@ body{
 }
 /*MODIFICANDO DIV DA LOGO*/
 
-/* ============================== */
-/* 📱 CELULARES (ATÉ 600px) */
-/* ============================== */
+/*Celular*/
 @media (max-width: 400px) {
     html, body {
         height: auto;
@@ -198,9 +196,7 @@ body{
     }
 }
 
-/* ============================== */
-/* 💻 TABLETS / IPAD (768px–1024px) */
-/* ============================== */
+/*Tablet*/
 @media (min-width: 768px) and (max-width: 1024px) {
     html, body {
         height: auto;

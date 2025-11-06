@@ -113,7 +113,7 @@ body{
 
 
 
-/* Tablet (iPad) */
+/* Tablet */
 @media (max-width: 1024px) {
     .form-esqueceu-geral {
         width: 90%; /* encolhe o formulário */

@@ -183,6 +183,7 @@ html{
 
 
 /*ABAIXO É RESPONSIVIDADE*/
+/*Tablet*/
 @media (max-width: 1230px) {
 
     .div-perfil{
@@ -196,12 +197,12 @@ html{
     .orientacao-perfil,
     .perfil-info-bio {
         width: 100%;
-        max-width: 280px;
+        max-width: 500px;
     }
 
     .perfil-info-bio textarea{
         width: 100%;
-        height: 180px;
+        height: 220px;
     }
 
     .perfil-info{
@@ -215,7 +216,7 @@ html{
 
     .container-perfil{
         width: 100%;
-        max-width: 600px;
+        max-width: 800px;
     }
 }
 
@@ -247,5 +248,11 @@ html{
     .btn-editar-perfil{
         padding: 10px;
         font-size: 14px;
+    }
+
+    .orientacao-perfil,
+    .perfil-info-bio {
+        
+        max-width: 90%;
     }
 }

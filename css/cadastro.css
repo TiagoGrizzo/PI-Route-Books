@@ -140,9 +140,7 @@ html, body {
 }
 /*LOGO*/
 
-/* ============================== */
-/* 📱 CELULARES (ATÉ 600px) */
-/* ============================== */
+/*Celular*/
 @media (max-width: 600px) {
     html, body {
         height: auto;
@@ -193,9 +191,7 @@ html, body {
 }
 
 
-/* ============================== */
-/* 💻 IPAD / TABLET (768px–1024px) */
-/* ============================== */
+/*Tablet*/
 @media (min-width: 768px) and (max-width: 1024px) {
     html, body {
         height: auto;

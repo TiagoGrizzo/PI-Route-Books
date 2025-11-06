@@ -217,9 +217,10 @@ html, body {
     font-size: 0.9rem;
 }
 /*INFOS DO POST(NOME DO AUTOR, DATA E TIPO DE POST*/
-/*Responsividade da navbar*/
 
-/* Ajuste Navbar em telas médias (tablets) */
+
+/*Responsividade da navbar*/
+/* Ajuste Navbar em tablets */
 @media (max-width: 992px) {
     .navbar-brand-text-color-navbar {
         margin-left: 20px;
@@ -257,6 +258,65 @@ html, body {
         transform: scale(0.9); /* diminui um pouco */
     }
 }
+
+
+/* TABLET (até 992px) - FOOTER */
+@media (max-width: 992px) {
+    .item-footer {
+        width: 45%; /* 2 itens por linha */
+    }
+
+    .logo-footer {
+        height: 45px; /* reduz um pouco */
+    }
+}
+
+/* CELULAR (até 500px) - FOOTER */
+@media (max-width: 500px) {
+
+    .item-footer {
+        width: 100%; /* cada item ocupa a linha inteira */
+    }
+
+    .itens-footer-geral {
+        gap: 10px; /* aproxima um pouco */
+    }
+
+    .logo-footer {
+        height: 40px;
+        margin-top: 10px;
+    }
+
+    .item-footer h4, 
+    .item-footer-direitos h4 {
+        font-size: 14px; /* texto menor p/ caber bem */
+    }
+}
+
+/* Ajuste do dropdown de perfil no mobile */
+@media (max-width: 600px) {
+
+  .perfil-geral {
+    position: relative; /* Mantém referência para o menu */
+  }
+
+  .menu-perfil {
+    position: absolute !important;
+    top: 40px !important; /* Distância do botão */
+    right: 60px !important; /* Centraliza */
+    
+    transform: translateX(-50%) !important; /* Ajusta a centralização */
+    width: 160px !important; /* Ajuste de largura para caber o texto */
+    text-align: center;
+    border-radius: 10px;
+  }
+
+  .menu-perfil .dropdown-item {
+    white-space: nowrap; /* Garante que o texto não quebre */
+    font-size: 15px;
+  }
+}
+
 
 
 
