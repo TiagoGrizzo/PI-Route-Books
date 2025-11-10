@@ -23,7 +23,6 @@ body{
     display: flex;
     align-items: center;
     justify-content: center;
-    
     box-shadow: 0 1px 4px 0 rgba(0, 0, 0, .1);
 }
 /*SECTION GERAL DA PÁGINA*/
@@ -34,8 +33,9 @@ body{
     justify-content: center;
     background-color: #fff;
     border-radius: 10px;
-    padding: 20px 0px 40px 0px;
-    width: fit-content;
+    padding: 18px 0px 24px 0px;
+    width: 600px;
+    max-width: 85%;
 }
 /*FORM DE ESQUECEU SUA SENHA*/
 .input-esqueceu {
