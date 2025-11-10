@@ -7,11 +7,14 @@ html, body {
 /*DEFININDO ALTURA EM 100% E CENTRALIZANDO CONTEUDO*/
 body{
     font-family: 'Nunito', Arial, Helvetica, sans-serif;
-    background-color: #005940;
     display: flex;
     justify-content: center;
     align-items: center;
     overflow: hidden; /* impede qualquer rolagem */
+    background-image: url('../imgs/foto_esqsenha2.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     
 }
 /*MUDANDO COR DE FUNDO, CENTRALIZANDO CONTEUDO E TROCANDO A FONTE DA PÁGINA PARA NUNITO*/
@@ -21,7 +24,6 @@ body{
     display: flex;
     align-items: center;
     justify-content: center;
-    border: #005940 solid;
     box-shadow: 0 1px 4px 0 rgba(0, 0, 0, .1);
     width: 100%;
 }

@@ -8,10 +8,13 @@ html{
 /*DEFININDO ALTURA PARA 100% DA TELA E CENTRALIZANDO O CONTEUDO*/
 body{
     font-family: 'Nunito', Arial, Helvetica, sans-serif;
-    background-color: #005940;
     display: flex;
     justify-content: center;
     align-items: center;
+    background-image: url('../imgs/foto_esqsenha.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 /*DEFININDO A FONTE A SER USADA NA PÁGINA, MUDANDO COR DE FUNDO E CENTRALIZANDO CONTEUDO*/
 .form-esqueceu-geral {
@@ -20,7 +23,7 @@ body{
     display: flex;
     align-items: center;
     justify-content: center;
-    border: #005940 solid;
+    
     box-shadow: 0 1px 4px 0 rgba(0, 0, 0, .1);
 }
 /*SECTION GERAL DA PÁGINA*/

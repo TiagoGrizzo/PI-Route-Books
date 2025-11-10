@@ -1,6 +1,9 @@
 body{
     background-image: url('../imgs/foto-post.jpg');
     background-size: cover;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 
@@ -9,8 +12,6 @@ body{
     max-width: 1000px;
     margin: 0 auto;
     padding: 20px;
-
-    
     margin: 108px auto 100px auto;
     background: rgba(255,255,255,0.90);
     padding: 40px 32px 32px 32px;
