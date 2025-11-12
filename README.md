@@ -406,7 +406,7 @@ Na figura 3, é visto o modelo de caso de uso geral da nossa aplicação, que de
 </div>
 
   <div align="center">
-    <img src="./imgs/diagrama-caso-de-uso-atualizacao.jpg" alt="Figura 3 - Caso de uso" width="550">
+    <img src="./imgs/diagrama-caso-de-uso-atualizacao-light.jpg.jpg" alt="Figura 3 - Caso de uso" width="550">
   </div>
 
 [Voltar para o início](#inicio)
