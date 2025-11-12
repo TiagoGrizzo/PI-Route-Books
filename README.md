@@ -29,10 +29,11 @@
   - [4. Estudo de viabilidade](#4-estudo-de-viabilidade)
   - [5. Design](#5-design)
   - [6. Caso de uso](#6-caso-de-uso)
-  - [7. Protótipo](#7-protótipo)
-  - [8. Aplicação](#8-aplicação)
-  - [9. Considerações finais](#9-considerações-finais)
-  - [10. Referências bibliográficas](#10-referências-bibliográficas)
+  - [7. Modelo lógico (BD)](#7-modelo-lógico)
+  - [8. Protótipo](#8-protótipo)
+  - [9. Aplicação](#9-aplicação)
+  - [10. Considerações finais](#10-considerações-finais)
+  - [11. Referências bibliográficas](#11-referências-bibliográficas)
 </details>
 
 # 1. Resumo da aplicação web
@@ -232,9 +233,9 @@ Agora iremos implementar mais atividades, como Banco de dados ao projeto, JavaSc
 
 | Nome          | Hexadecimais                      |
 |---------------|-----------------------------------|
-| TONS DE VERDE | #005940, #00DE90, #00FA85, #04B885 |
-| TONS DE AZUL | #00EEFF |
-| TONS DE VERMELHO | #FFA6A6 |
+| TONS DE VERDE | #005940, #00DE90, #00FA85, #04B885, #68d6a3, #48b281 |
+| TOM DE AZUL | #00EEFF |
+| TOM DE MARROM | #998874 |
 | PRETO | #000000 |
 | BRANCO | #FFFFFF|
 
@@ -314,7 +315,7 @@ Resposta do sistema:
 - O sistema salva os dados do usuário
 - O sistema cria sua conta
 
-================================================================================
+============================================================================
 
 CRIAR POST:
 
@@ -337,7 +338,7 @@ Resposta do sistema:
 - O sistema salva o relato
 - O sistema exibe sua publicação
 
-================================================================================
+============================================================================
 
 ALTO NÍVEL
 
@@ -411,38 +412,54 @@ Na figura 3, é visto o modelo de caso de uso geral da nossa aplicação, que de
 [Voltar para o início](#inicio)
 
 
-
-# 7. Protótipo
-- ### Link dos protótipos com a ferramenta Figma: [Figma - Route Books](https://www.figma.com/design/8UFfrEyZOdytMzzJvd0jSB/Mockup-do-site-PI?node-id=0-1&p=f&t=6UuWB1YErd0NN2MF-0)
-
-
-Na figura 4, é possível visualizar o protótipo da homepage, de como ela seria na aplicação final (Fizemos mais telas, mas coloquei apenas uma para visualização).
+# 7. Modelo Lógico 
+Na figura 4, podemos ver o modelo lógico do nosso sistema, a modelagem do banco de dados, com todas as tabelas e relacionamentos necessários
 
 <div align="center">
 
-### Figura 4 - Protótipo da home
+### Figura 4 - Modelo Lógico (Modelagem do banco de dados)
 
 </div>
 
   <div align="center">
-    <img src="./imgs/prototipo_home.png" alt="Figura 4 - Prototipo" width="550">
+    <img src="./imgs/modelagem-PI-completa.png" alt="Figura 4 - Modelo Lógico" width="550">
+  </div>
+
+[Voltar para o início](#inicio) 
+
+
+
+# 8. Protótipo
+- ### Link dos protótipos com a ferramenta Figma: [Figma - Route Books](https://www.figma.com/design/8UFfrEyZOdytMzzJvd0jSB/Mockup-do-site-PI?node-id=0-1&p=f&t=6UuWB1YErd0NN2MF-0)
+
+
+Na figura 5, é possível visualizar o protótipo da homepage, de como ela seria na aplicação final (Fizemos mais telas, mas coloquei apenas uma para visualização).
+
+<div align="center">
+
+### Figura 5 - Protótipo da home
+
+</div>
+
+  <div align="center">
+    <img src="./imgs/prototipo_home.png" alt="Figura 5 - Prototipo" width="550">
   </div>
 
 
-# 8. Aplicação
+# 9. Aplicação
 - ### Link para o nosso repositório do GitHub: [Repositório - PI-ROUTE-BOOKS](https://github.com/Guilherme-RR/PI-Route-Books)
 
 A aplicação Route Books, visa facilitar o encontro de pontos turísticos regionais, nacionais e mundiais e atividades atrativas, com as experiências contatadas pelas pessoas que viveram essas aventuras. Assim, tendo uma aplicação mais interativa e com a oportunidade de criar uma boa networking e ser um site informativo para ajudar todos os públicos.  
 
 
-# 9. Considerações finais
+# 10. Considerações finais
 O processo de desenvolvimento foi tudo dentro dos conformes, todos os integrantes foram participativos em diferentes áreas do projeto, protótipos, html, css, documentação, entre outros. No início, tínhamos uma ideia de ser uma vitrine de viagens, com o objetivo de mostrar as agências mais confiáveis para viagens dentro ou fora do Brasil, mas após algumas reuniões decidimos mudar o escopo do nosso projeto, assim se transformando em um guia de viagens, um site para que as pessoas possam dar seus feedbacks e contar suas experiências para os demais, sobre determinados locais e com diferentes culturas, na qual as pessoas podem se interessar e querer viver essa experiência. Ocorreram algumas limitações, principalmente com a internet da instituição, em alguns momentos não conseguíamos progredir ou até concluir certas partes do projeto, as máquinas de alguns laboratórios também eram lentos, então ficava difícil trabalhar, mas conseguimos avançar, pelo fator que fazíamos em casa, isso ajudava. Tivemos algumas dificuldades, algo normal, porque muitos assuntos e tarefas foram novidades para alguns integrantes, fazendo com que ficássemos com um pouco de receio de errar, fazer errado. A aplicação terá um papel importante para o conhecimento de novos costumes, origens, histórias e importância para os integrantes do grupo, fazer um projeto desse envolve muita paciência e dedicação, isso faz com que criemos um certo tipo de maturidade e acostumados com esse tipo de vivência.  
 
 [Voltar para o início](#inicio)
 
 
 
-# 10. Referências bibliográficas
+# 11. Referências bibliográficas
 ATLASSIAN. Trello. 2025. Disponível em: [https://trello.com/](https://trello.com/) <br>
 FIGMA, Inc. Figma: the collaborative interface design tool. 2025. Disponível em: [https://www.figma.com/](https://www.figma.com/) <br>
 BOOTSTRAP. Disponível em: [https://getbootstrap.com/docs/5.3/getting-started/introduction/  ](https://getbootstrap.com/docs/5.3/getting-started/introduction/  )<br>
