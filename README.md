@@ -149,7 +149,7 @@ Na Figura 1, podemos visualizar o modelo de negócios, utilizado para melhor ide
 </div>
 
 <div align="center">
-    <img src="./imgs/modelo-canvas.png" alt="Figura 1 - Canvas, modelo de negócios" width="550">
+    <img src="./imgs/Modelo de Negócios - P.I.png" alt="Figura 1 - Canvas, modelo de negócios" width="550">
 </div>
 
 ## 3.1. O que será elaborado?
@@ -406,7 +406,7 @@ Na figura 3, é visto o modelo de caso de uso geral da nossa aplicação, que de
 </div>
 
   <div align="center">
-    <img src="./imgs/diagrama-caso-de-uso-atualizacao-light.jpg" alt="Figura 3 - Caso de uso" width="550">
+    <img src="./imgs/Cópia do diagrama-caso-de-uso-atualizacao.drawio.png" alt="Figura 3 - Caso de uso" width="550">
   </div>
 
 [Voltar para o início](#inicio)
@@ -422,7 +422,7 @@ Na figura 4, podemos ver o modelo lógico do nosso sistema, a modelagem do banco
 </div>
 
   <div align="center">
-    <img src="./imgs/modelagem-PI-completa.png" alt="Figura 4 - Modelo Lógico" width="550">
+    <img src="./imgs/modelagem-PI-completa 1.png" alt="Figura 4 - Modelo Lógico" width="550">
   </div>
 
 [Voltar para o início](#inicio) 
