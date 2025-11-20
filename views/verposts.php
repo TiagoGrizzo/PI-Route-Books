@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Route Books - Posts De Outros Aventureiros!</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/color.css">
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/verposts.css">
+</head>
+<body>
+  <!--NAVBAR-->
+  <header class="header-navbar">
+    <nav class="navbar navbar-expand-lg bg-body-tertiary bg-navbar container-xxl">
+        <div class="container-fluid">
+          <a class="navbar-brand-text-color-navbar" href="index.html"><img src="imgs/rb-logo2.png" class="logo-tamanho"></a>
+          <button class="navbar-toggler bg-color-menu-btn" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active text-color-navbar titulo-font " aria-current="page" href="index.html">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-color-navbar titulo-font" href="sobre.html">Quem somos</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-color-navbar titulo-font" href="contato.html">Contato</a>
+              </li>
+            </ul>
+            <form class="d-flex barra-pesquisa" role="search">
+              <input class="form-control me-2 search-bar" type="search" placeholder="Pesquisar" aria-label="Search"/>
+              <button class="btn btn-outline-success" type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
+            </form>
+          </div>
+          <div class="dropdown perfil-geral">
+            <button class="btn btn-secondary dropdown-toggle btn-perfil" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <i class="fa fa-user-o" aria-hidden="true"></i>
+            </button>
+            <ul class="dropdown-menu menu-perfil">
+              <li><a class="dropdown-item perfil-item" href="perfil.html">Perfil</a></li>
+              <li><a class="dropdown-item perfil-item" href="login.html">Sair da Conta</a></li>
+            </ul>
+          </div>
+        </div>
+    </nav>
+  </header>
+  <!--FIM NAVBAR-->
+
+  <!--INICIO CONTEUDO DA PAGINA DE POSTS-->
+  <section class="sec-posts container-xxl">
+    <!--TITULO DO VER POSTS-->
+    <div class="titulo-posts">
+        <h3 class="titulo-font cor-titulo">Veja os post de outros aventureiros!</h3>
+    </div>
+    <div class="container-posts">
+      <!--CARD DE CADA POST-->
+        <div class="relato-posts">
+              <div class="conteudo-card-index">
+                    <h3 class="titulo-font cor-titulo">Mochilão pela América do Sul: Roteiro e Dicas</h3>
+                    <p>Descubra nosso roteiro econômico passando por Peru, Bolívia e Chile, com dicas para mochileiros iniciantes.</p>
+                    <div class="post-info-index">
+                      <span>Por Mariana Reis • 16 de Junho, 2025 • Roteiro</span>
+                    </div>
+              </div>
+            <div class="div-btn-relatos">
+              <a href="verposts.html">
+                <button class="btn-relatos">
+                  Ver Mais
+                </button> 
+              </a>
+            </div>
+        </div>
+        <div class="relato-posts">
+              <div class="conteudo-card-index">
+                    <h3 class="titulo-font cor-titulo">Trilha Incrível na Chapada Diamantina</h3>
+                    <p>Confira como foi nossa aventura de 5 dias explorando cachoeiras, grutas e paisagens de tirar o fôlego na Chapada Diamantina.</p>
+                    <div class="post-info-index">
+                      <span>Por João Aventureiro • 13 de Junho, 2025 • Relato</span>
+                    </div>
+              </div>
+            <div class="div-btn-relatos">
+              <a href="post2.html">
+                <button class="btn-relatos">
+                  Ver Mais
+                </button> 
+              </a>
+            </div>
+        </div>
+        <div class="relato-posts">
+              <div class="conteudo-card-index">
+                    <h3 class="titulo-font cor-titulo">Patagônia: Trilhas e Glaciares</h3>
+                    <p>Uma jornada incrível pelas paisagens geladas da Patagônia. Veja dicas de trilhas, equipamentos e como economizar durante o mochilão!</p>
+                    <div class="post-info-index">
+                      <span>Por Ana Souza • 16 de Junho, 2025 • Dicas</span>
+                    </div>
+              </div>
+            <div class="div-btn-relatos">
+              <a href="verposts.html">
+                <button class="btn-relatos">
+                  Ver Mais
+                </button> 
+              </a>
+            </div>
+        </div>
+        <div class="relato-posts">
+              <div class="conteudo-card-index">
+                    <h3 class="titulo-font cor-titulo">Alguém aí sabe lugares legais para se fazer mochilão na Ásia?</h3>
+                    <p>Tõ doida pra fazer um mochilão pela Ásia, mas não sei onde ir, alguém aí com dicas?</p>
+                    <div class="post-info-index">
+                      <span>Por Carla Mendes • 16 de Junho, 2025 • Dúvida</span>
+                    </div>
+              </div>
+            <div class="div-btn-relatos">
+              <a href="verposts.html">
+                <button class="btn-relatos">
+                  Ver Mais
+                </button> 
+              </a>
+            </div>
+        </div>
+        <div class="relato-posts">
+              <div class="conteudo-card-index">
+                    <h3 class="titulo-font cor-titulo">Europa de Trem: 30 Dias, 10 Países</h3>
+                    <p>Veja como planejar um mochilão econômico pela Europa usando trens. Dicas de passes, hostels e roteiros imperdíveis!</p>
+                    <div class="post-info-index">
+                      <span>Por Lucas Lima • 15 de Junho, 2025 • Guia</span>
+                    </div>
+              </div>
+            <div class="div-btn-relatos">
+              <a href="verposts.html">
+                <button class="btn-relatos">
+                  Ver Mais
+                </button> 
+              </a>
+            </div>
+        </div>
+    </div>
+  </section>
+  <!--FIM DO CONTEUDO DA PAGINA DE POSTS-->
+
+  <!--INICIO DO FOOTER DO VER POSTS-->
+  <footer class="footer-index">
+        <div class="itens-footer-geral">
+          <div class="item-footer item-footer-direitos">
+              <h4 class="titulo-font">
+                  Route Books © Todos os direitos reservados
+              </h4>
+          </div>
+          <div class="item-footer">
+              <h4 class="titulo-font">
+                  Desenvolvido por: <br>
+                  <a href="https://github.com/LucasEduardoPereiraCruz">Lucas Cruz</a> <br>
+                  <a href="https://github.com/TiagoGrizzo">Tiago Grizzo</a><br>
+              </h4>
+          </div>
+          <div class="logo-footer">
+              <img src="imgs/rb-logo2.png" alt="Logo Route Books" class="logo-footer">
+          </div>
+        </div>
+      </footer>
+  <!--FIM DO FOOTER DO VER POSTS-->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO" crossorigin="anonymous"></script>
+</body>
+</html>

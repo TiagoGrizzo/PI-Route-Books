@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Route Books - Fale Com A Gente!</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/color.css">
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/contato.css">
+
+</head>
+<body>
+    <header class="header-navbar">
+    <nav class="navbar navbar-expand-lg bg-body-tertiary bg-navbar container-xxl">
+        <div class="container-fluid">
+          <a class="navbar-brand-text-color-navbar" href="index.html"><img src="imgs/rb-logo2.png" class="logo-tamanho"></a>
+          <button class="navbar-toggler bg-color-menu-btn" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active text-color-navbar" aria-current="page" href="index.html">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-color-navbar" href="sobre.html">Quem somos</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-color-navbar" href="contato.html">Contato</a>
+              </li>
+            </ul>
+            <form class="d-flex barra-pesquisa" role="search">
+              <input class="form-control me-2 search-bar" type="search" placeholder="Pesquisar" aria-label="Search"/>
+              <button class="btn btn-outline-success" type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
+            </form>
+          </div>
+          <div class="dropdown perfil-geral">
+            <button class="btn btn-secondary dropdown-toggle btn-perfil" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <i class="fa fa-user-o" aria-hidden="true"></i>
+            </button>
+            <ul class="dropdown-menu menu-perfil">
+              <li><a class="dropdown-item perfil-item" href="perfil.html">Perfil</a></li>
+              <li><a class="dropdown-item perfil-item" href="login.html">Sair da Conta</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="dark-mode-toggle">
+          <button class="btn-dark-mode" onclick="toggleDarkMode()">
+            <i class="fa fa-moon-o dark-icon" aria-hidden="true"></i>
+            <i class="fa fa-sun-o light-icon" aria-hidden="true"></i>
+          </button>
+        </div>
+    </nav>
+  </header>
+  <!--FIM NAVBAR-->
+  <main>
+  <section class="contato-geral container-xxl">
+    <div class="contato-titulo">
+      <!--TITULO-->
+      <h2 class="fale-contato titulo-font">Fale Conosco</h2>
+      <p class="p-contato">Mande a sua dúvida para a nossa equipe e te responderemos o mais breve possível! <br> Siga as outras formas de contato logo a baixo.</p>
+    </div>
+    <div class="container-contato">
+      <div class="contato-texto">
+        <div class="icone-geral-contato">
+          <div class="icone-contato">
+            <i class="fa fa-envelope-o" aria-hidden="true"></i>
+          </div>
+          <div class="info-contato">
+            <!--INFOS DA EQUIPE-->
+              <h3 class="titulo-font"> E-mail </h3>
+              <p>contato@routebooks.com</p>
+          </div>
+        </div>
+        <div class="icone-geral-contato">
+          <div class="icone-contato">
+            <i class="fa fa-phone" aria-hidden="true"></i>
+          </div>
+          <div class="info-contato">
+              <h3 class="titulo-font"> Telefone </h3>
+              <p>(14) 9999 9999</p>
+          </div>
+        </div>
+      </div>
+      <div class="contato-form">
+        <form>
+          <!--FORM PARA ENVIO DA MENSAGEM-->
+          <h2 class="titulo-font">Envie sua mensagem!</h2>
+          <div class="input-div-contato">
+            <label class="titulo-font">Nome Completo</label>
+            <input type="text" name="" required placeholder="Insira seu nome completo...">
+          </div>
+          <div class="input-div-contato">
+            <label class="titulo-font">E-mail</label>
+            <input type="text" name="" required placeholder="Insira seu e-mail...">
+          </div>
+          <div class="input-div-contato">
+            <label class="titulo-font">Digite sua mensagem</label><br>
+            <textarea required placeholder="Digite sua mensagem aqui..."></textarea>
+          </div>
+          <div class="div-btn-contato">
+            <a href="contato.html">
+              <!--BOTAO DE ENVIAR-->
+              <button type="button" class="titulo-font btn-contato">Enviar</button>    
+            </a> 
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+  </main>
+  <!--FOOTER-->
+  <footer class="footer-index">
+        <div class="itens-footer-geral">
+          <div class="item-footer item-footer-direitos">
+              <h4 class="titulo-font">
+                  Route Books ©Todos os direitos reservados
+              </h4>
+          </div>
+          <div class="item-footer">
+              <h4 class="titulo-font">
+                  Desenvolvido por: <br>
+                  <a href="https://github.com/LucasEduardoPereiraCruz">Lucas Cruz</a> <br>
+                  <a href="https://github.com/TiagoGrizzo">Tiago Grizzo</a><br>
+              </h4>
+          </div>
+          <div class="logo-footer">
+              <img src="imgs/rb-logo2.png" alt="Logo Route Books" class="logo-footer">
+          </div>
+        </div>
+  </footer>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO" crossorigin="anonymous"></script>
+  <script src="js/script.js"></script>
+</body>
+</html>

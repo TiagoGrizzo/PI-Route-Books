@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Route Books - Post</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/color.css">
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/posts.css">
+</head>
+<body>
+  <!--INICIO NAVBAR-->
+    <header class="header-navbar">
+    <nav class="navbar navbar-expand-lg bg-body-tertiary bg-navbar container-xxl">
+        <div class="container-fluid">
+          <a class="navbar-brand-text-color-navbar" href="index.html"><img src="imgs/rb-logo2.png" class="logo-tamanho"></a>
+          <button class="navbar-toggler bg-color-menu-btn" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active text-color-navbar" aria-current="page" href="index.html">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-color-navbar" href="sobre.html">Quem somos</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-color-navbar" href="contato.html">Contato</a>
+              </li>
+            </ul>
+            <form class="d-flex barra-pesquisa" role="search">
+              <input class="form-control me-2 search-bar" type="search" placeholder="Pesquisar" aria-label="Search"/>
+              <button class="btn btn-outline-success" type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
+            </form>
+          </div>
+          <div class="dropdown perfil-geral">
+            <button class="btn btn-secondary dropdown-toggle btn-perfil" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <i class="fa fa-user-o" aria-hidden="true"></i>
+            </button>
+            <ul class="dropdown-menu menu-perfil">
+              <li><a class="dropdown-item perfil-item" href="perfil.html">Perfil</a></li>
+              <li><a class="dropdown-item perfil-item" href="login.html">Sair da Conta</a></li>
+            </ul>
+          </div>
+        </div>
+    </nav>
+  </header>
+  <!--FIM DA NAVBAR-->
+
+
+  <!--INICIO DA SECTION PRINCIPAL DA PAGINA-->
+  <section class="container-post">
+        <div class="conteudo-geral-post">
+            <h2 class="titulo-font cor-titulo">Atravessando os Andes: Uma Jornada Inesquecível</h2>
+            <div class="info-post">
+              <!--INFOS BASICAS DO POST-->
+                <span>Por Carlos Alberto • 10 de Junho, 2025 • Relato</span>
+            </div>
+            <!--CONTEUDO DO POST-->
+            <p>Depois de meses de planejamento, finalmente iniciei minha jornada pelos Andes. A cordilheira que se estende por seis países sul-americanos oferece paisagens de tirar o fôlego e experiências únicas para qualquer mochileiro.</p>
+
+            <h4 class="titulo-font">Preparativos Essenciais</h4>
+            <ul>
+                <li>Mochila impermeável de 60L</li>
+                <li>Roupas térmicas</li>
+                <li>Equipamento de altitude</li>
+                <li>Documentos importantes</li>
+            </ul>
+
+            <p>A primeira parada foi em Cusco, Peru, onde passei uma semana me aclimatando à altitude. Dali, parti para uma trilha de 4 dias até Machu Picchu, uma experiência que mudou completamente minha perspectiva sobre viagens.</p>
+
+            <h4 class="titulo-font">Dicas para Futuros Mochileiros</h4>
+            <ol>
+                <li>Planeje com antecedência, mas esteja aberto a mudanças</li>
+                <li>Respeite seus limites físicos em grandes altitudes</li>
+                <li>Conecte-se com outros viajantes nos albergues</li>
+                <li>Documente suas experiências</li>
+            </ol>
+
+            <p>Continuarei compartilhando mais histórias e dicas sobre essa incrível jornada pelos Andes. Fique ligado para os próximos posts!</p>
+
+            <div class="tags-post">
+                <h4 class="titulo-font cor-titulo">Tags:</h4>
+                <span class="tag-item cor-titulo">#trilha </span>
+                <span class="tag-item cor-titulo">#aventura </span>
+                <span class="tag-item cor-titulo">#andes </span>
+                <span class="tag-item cor-titulo">#mochilão </span>
+            </div>
+            <!--FIM DO CONTEUDO DO POST-->
+        </div>
+        <div class="comentarios-post">
+          <!--INICIO DA SEÇÃO DE COMENTÁRIOS-->
+          <h3 class="cor-titulo titulo-font">Comentários</h3>
+            <form class="form-comentarios">
+                <h5>Deixe seu comentário!</h5>
+                <p>Seja sempre respeitoso com os outros.</p>
+                <textarea placeholder="Comente aqui!" required></textarea>
+                <button type="submit" class="titulo-font">Enviar</button>
+            </form>
+            <div class="comentario-ex">
+                <div class="conteudo-comentario">
+                    <h4 class="cor-titulo titulo-font">@MariaSilva15</h4>
+                    <span class="info-comentario">11 de Junho, 2025</span>
+                    <p>Que experiência incrível! Também fiz essa trilha ano passado e concordo com todas as dicas. Especialmente sobre a aclimatação em Cusco, é super importante!</p>
+                </div>
+            </div>
+            <!--FIM DA SEÇÃO DE COMENTÁRIOS-->
+        </div>
+  </section>
+  <footer class="footer-index">
+        <div class="itens-footer-geral">
+          <div class="item-footer item-footer-direitos">
+              <h4 class="titulo-font">
+                  Route Books © Todos os direitos reservados
+              </h4>
+          </div>
+          <div class="item-footer">
+              <h4 class="titulo-font">
+                  Desenvolvido por: <br>
+                  <a href="https://github.com/LucasEduardoPereiraCruz">Lucas Cruz</a> <br>
+                  <a href="https://github.com/TiagoGrizzo">Tiago Grizzo</a><br>
+              </h4>
+          </div>
+          <div class="logo-footer">
+              <img src="imgs/rb-logo2.png" alt="Logo Route Books" class="logo-footer">
+          </div>
+        </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO" crossorigin="anonymous"></script>
+</body>
+</html>

@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Route Books - Seu melhor amigo quando a questão é se aventurar!</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/color.css">
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/sobre.css">
+
+</head>
+<body>
+    <!--INICIO DA NAVBAR-->
+    <header class="header-navbar">
+        <nav class="navbar navbar-expand-lg bg-body-tertiary bg-navbar container-xxl">
+            <div class="container-fluid">
+              <a class="navbar-brand-text-color-navbar" href="index.html"><img src="imgs/rb-logo2.png" class="logo-tamanho"></a>
+              <button class="navbar-toggler bg-color-menu-btn" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                  <li class="nav-item">
+                    <a class="nav-link active text-color-navbar" aria-current="page" href="index.html">Home</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link text-color-navbar" href="sobre.html">Quem somos</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link text-color-navbar" href="contato.html">Contato</a>
+                  </li>
+                </ul>
+                <form class="d-flex barra-pesquisa" role="search">
+                  <input class="form-control me-2 search-bar" type="search" placeholder="Pesquisar" aria-label="Search"/>
+                  <button class="btn btn-outline-success" type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
+                </form>
+              </div>
+              <div class="dropdown perfil-geral">
+                <button class="btn btn-secondary dropdown-toggle btn-perfil" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <i class="fa fa-user-o" aria-hidden="true"></i>
+                </button>
+                <ul class="dropdown-menu menu-perfil">
+                  <li><a class="dropdown-item perfil-item" href="perfil.html">Perfil</a></li>
+                  <li><a class="dropdown-item perfil-item" href="login.html">Sair da Conta</a></li>
+                </ul>
+              </div>
+            </div>
+            <div class="dark-mode-toggle">
+              <button class="btn-dark-mode" onclick="toggleDarkMode()">
+                <i class="fa fa-moon-o dark-icon" aria-hidden="true"></i>
+                <i class="fa fa-sun-o light-icon" aria-hidden="true"></i>
+            </button>
+            </div>
+        </nav>
+    </header> 
+    <!--FIM NAVBAR--> 
+    <section class="container-xxl">
+      <!--SECTION PRINCIPAL DO SITE-->
+      <div class="sobre-geral">
+        <h1 class="titulo-font">
+          <!--TÍTULO-->
+          QUEM SOMOS?
+        </h1>
+        <div class="sobre-texto-geral">
+          <div class="sobre-texto">
+            <h3 class="titulo-font">
+              <!--INFOS E LOGO-->
+              Route Books - Conheça nossa equipe! 
+            </h3>
+            <p>
+             Conheça melhor a equipe desenvolvedora do site, composta por 2 integrantes.
+            </p>
+            <div class="sobre-redes">
+              <i class="fa fa-instagram" aria-hidden="true"></i>
+              <i class="fa fa-facebook-official" aria-hidden="true"></i>
+            </div>
+          </div>
+          <div class="logo-sobre">
+            <img id="logoSobre" src="imgs/rb-logo1.png" alt="Logo Route Books">
+          </div>         
+        </div>
+      </div>
+      
+      <!--Integrantes-->
+      <div class="sobre-geral-integrantes">
+        <!--DIV PRINCIPAL DOS INTEGRANTES-->
+        <div class="sobre-integrantes">
+          <!--DIV COM CLASSE COMPARTILHADA PELOS INTEGRANTES-->
+            <h1 class="titulo-font">
+              <!--TÍTULO DOS INTEGRANTES-->
+            INTEGRANTES
+            </h1>
+          <div class="sobre-texto">
+            <!--INFOS, FOTO E REDES SOCIAIS DOS INTEGRANTES-->
+          </div>
+          <div class="perfil-sobre-integrantes">
+          </div>        
+        </div>
+        <div class="sobre-integrantes">
+          <div class="sobre-texto">
+            <h3 class="titulo-font">
+              Lucas Eduardo
+            </h3>
+            <p>
+              Olá, pessoal! Me chamo Lucas Eduardo, tenho 19 anos, estudante na Fatec Jahu em Desenvolvimento de Software Multiplataforma, estou cursando o 2º semestre e
+              participo ativamente no processo deste website, tanto na parte de documentação, protótipos e desenvolvimento web. Tenho o sonho de seguir na área de tecnologia e sou um grande admirador 
+              de histórias, culturas e paisagens, por isso tenho o prazer de rabalhar para este projeto.
+            <div class="sobre-redes">
+              <a href="https://www.instagram.com/lukinhaepc/"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+              <a href="https://www.linkedin.com/in/lucas-eduardo-pereira-da-cruz-a2b399351/"><i class="fa fa-linkedin-square" aria-hidden="true"></i></a>
+              <a href="https://github.com/LucasEduardoPereiraCruz"><i class="fa fa-github" aria-hidden="true"></i></a>
+            </div>
+          </div>
+          
+          <div class="perfil-sobre-integrantes">
+            <img src="imgs/foto_perfil3.jpg">
+          </div>         
+      </div>
+      <div class="sobre-integrantes">
+          <div class="sobre-texto">
+            <h3 class="titulo-font">
+              Tiago Grizzo 
+            </h3>
+            <p>
+              Sou o Tiago, tenho 19 anos e estudo na Fatec Jahu no curso de Desevolvimento De Software Multiplataforma. 
+              Assim como os outros membros participei ativamente nas partes de documentação do projeto, produção do protótipo e
+               na construção deste website.
+            </p>
+            <div class="sobre-redes">
+              <a href="https://www.instagram.com/_taggrizzo/"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+              <a href="https://www.linkedin.com/in/tiago-grizzo-781755351/"><i class="fa fa-linkedin-square" aria-hidden="true"></i></a>
+              <a href="https://github.com/TiagoGrizzo"><i class="fa fa-github" aria-hidden="true"></i></a>
+            </div>
+          </div>
+          <div class="perfil-sobre-integrantes">
+            <img src="imgs/perfil-tiago.jfif">
+          </div>         
+        </div>
+      </div>
+      </div>
+    </section>
+    <!--INICIO DO FOOTER-->
+    <footer class="footer-index">
+        <div class="itens-footer-geral">
+          <div class="item-footer item-footer-direitos">
+              <h4 class="titulo-font">
+                  Route Books © Todos os direitos reservados
+              </h4>
+          </div>
+          <div class="item-footer">
+              <h4 class="titulo-font">
+                  Desenvolvido por: <br>
+                  <a href="https://github.com/LucasEduardoPereiraCruz">Lucas Cruz</a> <br>
+                  <a href="https://github.com/TiagoGrizzo">Tiago Grizzo</a><br>
+              </h4>
+          </div>
+          <div class="logo-footer">
+              <img src="imgs/rb-logo2.png" alt="Logo Route Books" class="logo-footer">
+          </div>
+        </div>
+    </footer>
+    <!--FIM DO FOOTER-->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO" crossorigin="anonymous"></script>
+  <script src="js/script.js"></script>
+</body>
+</html>

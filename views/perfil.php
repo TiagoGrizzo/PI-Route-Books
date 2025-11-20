@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Route Books - Perfil De Usuário</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/color.css">
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/perfil.css">
+</head>
+<body>
+    <header class="header-navbar">
+        <nav class="navbar navbar-expand-lg bg-body-tertiary bg-navbar container-xxl">
+            <div class="container-fluid">
+              <a class="navbar-brand-text-color-navbar" href="index.html"><img src="imgs/rb-logo2.png" class="logo-tamanho"></a>
+              <button class="navbar-toggler bg-color-menu-btn" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                  <li class="nav-item">
+                    <a class="nav-link active text-color-navbar" aria-current="page" href="index.html">Home</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link text-color-navbar" href="sobre.html">Quem somos</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link text-color-navbar" href="contato.html">Contato</a>
+                  </li>
+                </ul>
+                <form class="d-flex barra-pesquisa" role="search">
+                  <input class="form-control me-2 search-bar" type="search" placeholder="Pesquisar" aria-label="Search"/>
+                  <button class="btn btn-outline-success" type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
+                </form>
+              </div>
+              <div class="dropdown perfil-geral">
+                <button class="btn btn-secondary dropdown-toggle btn-perfil" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <i class="fa fa-user-o" aria-hidden="true"></i>
+                </button>
+                <ul class="dropdown-menu menu-perfil">
+                  <li><a class="dropdown-item perfil-item" href="perfil.html">Perfil</a></li>
+                  <li><a class="dropdown-item perfil-item" href="login.html">Sair da Conta</a></li>
+                </ul>
+              </div>
+            </div>
+            <div class="dark-mode-toggle">
+              <button class="btn-dark-mode" onclick="toggleDarkMode()">
+                <i class="fa fa-moon-o dark-icon" aria-hidden="true"></i>
+                <i class="fa fa-sun-o light-icon" aria-hidden="true"></i>
+            </button>
+            </div>
+        </nav>
+      </header>
+      <!--FIM NAVBAR-->
+
+      <section class="container-perfil">
+        <h2 class="titulo-font cor-titulo titulo-perfil">Dados do Perfil</h2>
+        <div class="foto-centro">
+          <div class="perfil-foto">
+                    <img src="imgs/pessoabarda.avif">
+                    <!--FOTO DE PERFIL-->
+          </div>
+          <div class="bg-editar-perfil">
+    <!--INICIO DO EDITAR PERFIL-->
+    <div class="div-editar-perfil-geral container-xxl">
+      <div class="div-editar-perfil titulo-font">
+          <a href="editarperfil.html">
+            <button class="btn-editar-perfil"><i class="fa fa-pencil" aria-hidden="true"></i> Editar Perfil</button>
+          </a>
+      </div>
+    </div>
+    <!--FIM DO BOTÃO EDITAR PERFIL-->
+  </div>
+
+          <div class="div-perfil">
+            <!--INFOS DO PERFIL-->
+            <div class="orientacao-perfil">
+                  <div class="campos-info">          
+                    <div class="perfil-info">
+                      <label>Nome de usuário</label>
+                      <input type="text" class="input-perfil" value="clodoaldoexplorer1"  />
+                    </div>
+                    <div class="perfil-info">
+                      <label>Nome completo</label>
+                      <input type="text" class="input-perfil" value="Clodoaldo Silva Junior"  />
+                    </div>
+                    <div class="perfil-info">
+                      <label>E-mail</label>
+                      <input type="email" class="input-perfil" value="clodoaldojr@gmail.com"  />
+                    </div>
+                    <div class="perfil-info">
+                      <label>Cidade</label>
+                      <input type="email" class="input-perfil" value="Jaú-SP"  />
+                    </div>
+                    <div class="perfil-info">
+                      <label>Estado</label>
+                      <input type="email" class="input-perfil" value="São Paulo"  />
+                    </div>
+                    <div class="perfil-info">
+                      <label>País</label>
+                      <input type="email" class="input-perfil" value="Brasil"  />
+                    </div>
+                  </div>
+            </div>      
+              <div class="perfil-info-bio">
+                <!--BIO-->
+                      <label class="label-perfil-bio">Biografia pessoal</label>
+                      <textarea class="text-perfil"  >
+Mochileiro nas horas vagas (e nas outras também).
+Apaixonado por trilhas, culturas e histórias que o mundo tem para contar.
+Vivendo com a mochila nas costas e o coração aberto. Estou disposto a conhecer novas pessoas e fazer novas amizades.
+O mundo é pequeno demais para ser explorado sozinho!</textarea>
+              </div>
+          </div>
+        </div>
+      </section>
+      <!--FOOTER-->
+      <footer class="footer-index">
+        <div class="itens-footer-geral">
+          <div class="item-footer item-footer-direitos">
+              <h4 class="titulo-font">
+                  Route Books © Todos os direitos reservados
+              </h4>
+          </div>
+          <div class="item-footer">
+              <h4 class="titulo-font">
+                  Desenvolvido por: <br>
+                  <a href="https://github.com/LucasEduardoPereiraCruz">Lucas Cruz</a> <br>
+                  <a href="https://github.com/TiagoGrizzo">Tiago Grizzo</a><br>
+              </h4>
+          </div>
+          <div class="logo-footer">
+              <img src="imgs/rb-logo2.png" alt="Logo Route Books" class="logo-footer">
+          </div>
+        </div>
+      </footer>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO" crossorigin="anonymous"></script>
+  <script src="js/script.js"></script>
+</body>
+</html>
