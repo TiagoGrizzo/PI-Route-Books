@@ -5,29 +5,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Route Books - Perfil De Usuário</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/color.css">
+    <link rel="stylesheet" href="../css/color.css">
     <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/perfil.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/perfil.css">
 </head>
 <body>
     <header class="header-navbar">
         <nav class="navbar navbar-expand-lg bg-body-tertiary bg-navbar container-xxl">
             <div class="container-fluid">
-              <a class="navbar-brand-text-color-navbar" href="index.html"><img src="imgs/rb-logo2.png" class="logo-tamanho"></a>
+              <a class="navbar-brand-text-color-navbar" href="index.php"><img src="../imgs/rb-logo2.png" class="logo-tamanho"></a>
               <button class="navbar-toggler bg-color-menu-btn" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
               </button>
               <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                   <li class="nav-item">
-                    <a class="nav-link active text-color-navbar" aria-current="page" href="index.html">Home</a>
+                    <a class="nav-link active text-color-navbar" aria-current="page" href="index.php">Home</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link text-color-navbar" href="sobre.html">Quem somos</a>
+                    <a class="nav-link text-color-navbar" href="sobre.php">Quem somos</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link text-color-navbar" href="contato.html">Contato</a>
+                    <a class="nav-link text-color-navbar" href="contato.php">Contato</a>
                   </li>
                 </ul>
                 <form class="d-flex barra-pesquisa" role="search">
@@ -40,8 +40,11 @@
                     <i class="fa fa-user-o" aria-hidden="true"></i>
                 </button>
                 <ul class="dropdown-menu menu-perfil">
-                  <li><a class="dropdown-item perfil-item" href="perfil.html">Perfil</a></li>
-                  <li><a class="dropdown-item perfil-item" href="login.html">Sair da Conta</a></li>
+                  <li><a class="dropdown-item perfil-item" href="perfil.php">Perfil</a></li>
+                   <?php if(isset($_SESSION['usuario_id'])): ?>
+                        <li><a class="dropdown-item perfil-item" href="criarpost.php">Criar Postagem</a></li>
+                    <?php endif; ?>
+                  <li><a class="dropdown-item perfil-item" href="login.php">Sair da Conta</a></li>
                 </ul>
               </div>
             </div>
@@ -58,7 +61,7 @@
         <h2 class="titulo-font cor-titulo titulo-perfil">Dados do Perfil</h2>
         <div class="foto-centro">
           <div class="perfil-foto">
-                    <img id="foto-preview" src="imgs/pessoabarda.avif" alt="Foto de Perfil">
+                    <img id="foto-preview" src="../imgs/pessoabarda.avif" alt="Foto de Perfil">
                     <!--FOTO DE PERFIL-->
           </div>
           <div class="bg-trocar-foto">
@@ -73,7 +76,7 @@
     <!--INICIO DO EDITAR PERFIL-->
         <div class="div-editar-perfil-geral container-xxl">
             <div class="div-editar-perfil titulo-font">
-                <a href="perfil.html">
+                <a href="perfil.php">
                     <button class="btn-editar-perfil"><i class="fa fa-pencil" aria-hidden="true"></i> Salvar</button>
                 </a>
             </div>
@@ -148,11 +151,11 @@ O mundo é pequeno demais para ser explorado sozinho!</textarea>
               </h4>
           </div>
           <div class="logo-footer">
-              <img src="imgs/rb-logo2.png" alt="Logo Route Books" class="logo-footer">
+              <img src="../imgs/rb-logo2.png" alt="Logo Route Books" class="logo-footer">
           </div>
         </div>
       </footer>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO" crossorigin="anonymous"></script>
-  <script src="js/script.js"></script>
+  <script src="../js/script.js"></script>
 </body>
 </html>

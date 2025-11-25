@@ -4,16 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Route Books - Nova Senha</title>
-    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="../css/reset.css">
     <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/novasenha.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/novasenha.css">
 </head>
 <body>
     <section class="form-nova-geral container-xxl">
         <form action="" class="form-nov">
             <div class="logo">
-                <img src="imgs/rb-logo1.png" class="logo-img">
+                <img src="../imgs/rb-logo1.png" class="logo-img">
                 <!--LOGO-->
             </div>
             <!--CAMPOS PARA TROCAR A SENHA-->

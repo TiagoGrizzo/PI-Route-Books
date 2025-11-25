@@ -4,32 +4,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Route Books - Post</title>
-    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="../css/reset.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/color.css">
+    <link rel="stylesheet" href="../css/color.css">
     <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/posts.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/posts.css">
 </head>
 <body>
   <!--INICIO NAVBAR-->
     <header class="header-navbar">
     <nav class="navbar navbar-expand-lg bg-body-tertiary bg-navbar container-xxl">
         <div class="container-fluid">
-          <a class="navbar-brand-text-color-navbar" href="index.html"><img src="imgs/rb-logo2.png" class="logo-tamanho"></a>
+          <a class="navbar-brand-text-color-navbar" href="index.php"><img src="../imgs/rb-logo2.png" class="logo-tamanho"></a>
           <button class="navbar-toggler bg-color-menu-btn" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item">
-                <a class="nav-link active text-color-navbar" aria-current="page" href="index.html">Home</a>
+                <a class="nav-link active text-color-navbar" aria-current="page" href="index.php">Home</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link text-color-navbar" href="sobre.html">Quem somos</a>
+                <a class="nav-link text-color-navbar" href="sobre.php">Quem somos</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link text-color-navbar" href="contato.html">Contato</a>
+                <a class="nav-link text-color-navbar" href="contato.php">Contato</a>
               </li>
             </ul>
             <form class="d-flex barra-pesquisa" role="search">
@@ -42,8 +42,8 @@
                 <i class="fa fa-user-o" aria-hidden="true"></i>
             </button>
             <ul class="dropdown-menu menu-perfil">
-              <li><a class="dropdown-item perfil-item" href="perfil.html">Perfil</a></li>
-              <li><a class="dropdown-item perfil-item" href="login.html">Sair da Conta</a></li>
+              <li><a class="dropdown-item perfil-item" href="perfil.php">Perfil</a></li>
+              <li><a class="dropdown-item perfil-item" href="login.php">Sair da Conta</a></li>
             </ul>
           </div>
         </div>
@@ -142,7 +142,7 @@
               </h4>
           </div>
           <div class="logo-footer">
-              <img src="imgs/rb-logo2.png" alt="Logo Route Books" class="logo-footer">
+              <img src="../imgs/rb-logo2.png" alt="Logo Route Books" class="logo-footer">
           </div>
         </div>
   </footer>
