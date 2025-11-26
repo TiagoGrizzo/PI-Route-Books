@@ -223,8 +223,7 @@ Sim, temos os equipamentos necessários fornecidos pela FATEC JAHU, computadores
 Foi feita à análise, no começo erámos uma vitrine para viagens e percebemos que já existiam muitas nesse mesmo estilo, então nos renovamos, pegamos um nicho em específico e hoje somos um tipo de blog/guia turístico para relatos de mochileiros(as), empresas, entre outros, que gostam de viajar e divulgar o seu trabalho e conhecer o que aquele lugar os oferece.
 
 ### Viabilidade operacional: 
-Até o momento sim, não foram exigidas tantas atividades agora de início, então a organização, suporte e armazenamento está tudo correto.
-Agora iremos implementar mais atividades, como Banco de dados ao projeto, JavaScript, PHP e outras tecnologias ao decorrer dos semestres
+É viavel, pois o sistema é intuitivo e de fácil uso, a equipe é qualificada para usar e testar o sistema no dia a dia. O sistema é leve e qualquer computador suporta rodar a aplicação.
 
 [Voltar para o início](#inicio)
 
