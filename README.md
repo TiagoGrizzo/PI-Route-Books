@@ -37,12 +37,12 @@
 </details>
 
 # 1. Resumo da aplicação web
-Este projeto tem por objetivo facilitar que pessoas apaixonadas por lugares históricos e bonitos, consigam achar grandes aventuras, com dicas sobre pontos turísticos, restaurantes tradicionais, entre outras variedades. Falaremos sobre pontos REGIONAIS, NACIONAIS E DO MUNDO. A ideia é que a plataforma seja de utilização simples, com informações claras e objetivas, que não deixe os clientes confusos ou perdidos (Pesquisar determinado local e achar ele com agilidade)
+Este projeto tem por objetivo facilitar que pessoas apaixonadas por lugares históricos e cativantes, consigam achar grandes aventuras, com dicas sobre pontos turísticos, restaurantes tradicionais, entre outras variedades. Falaremos sobre pontos REGIONAIS, NACIONAIS E MUNDIAIS. A ideia é que a plataforma seja de utilização simples, com informações claras e objetivas, que não deixe os clientes confusos ou perdidos (Pesquisar determinado local e achar ele com agilidade). Os usuários podem deixar seus relatos (posts) e comentários nesses posts também.
 Utilizamos alguns sites que existem nesta área e juntamos com nosso interesse por lugares turísticos, que contam sua história e valorizam o que tem.
 
 ## 1.1. Objetivos
 USUÁRIOS/CLIENTES: 
-Facilitar que pessoas apaixonadas por lugares históricos e bonitos com belas histórias, consigam achar grandes aventuras, com dicas sobre pontos turísticos, restaurantes tradicionais, entre outras variedades.
+Facilitar que pessoas apaixonadas por viagens consigam encontrar grandes aventuras, com dicas sobre pontos turísticos, restaurantes tradicionais, entre outras variedades.
 
 
 EMPRESA/EQUIPE
@@ -53,7 +53,7 @@ A nossa felicidade é deixar os nossos clientes satisfeitos e encantados, críti
 ## 1.2. Métodos da pesquisa
 A pesquisa e o desenvolvimento do projeto estão sendo realizados com o apoio da infraestrutura disponibilizada pela Fatec de Jahu. As atividades ocorrem tanto durante as aulas quanto nos períodos livres, utilizando os computadores dos laboratórios da instituição, bem como os computadores pessoais dos integrantes da equipe. 
 
-As tecnologias utilizadas até o momento incluem HTML, CSS, JS, Bootstrap para a construção da interface e estrutura da aplicação. O protótipo visual está sendo desenvolvido por meio da ferramenta Figma, que permite a criação colaborativa de interfaces. Além disso, está sendo utilizada a biblioteca Font Awesome para a inserção de ícones que enriquecem a experiência do usuário. Para o desenvolvimento do back-end, será empregado PHP em conjunto com MySQL e XAMPP. O código é desenvolvido no VS Code e versionado com Git, garantindo organização e controle das alterações.
+As tecnologias utilizadas até o momento incluem HTML, CSS, JS, Bootstrap para a construção da interface e estrutura da aplicação. O protótipo visual está sendo desenvolvido por meio da ferramenta Figma, que permite a criação colaborativa de interfaces. Além disso, está sendo utilizada a biblioteca Font Awesome para a inserção de ícones que enriquecem a experiência do usuário. Para o desenvolvimento do back-end, será empregado PHP em conjunto com MySQL e XAMPP, e continuaremos o aprofundamento de BD não relacional com mongoDB e aperfeiçoamento com C# em algumas partes. O código é desenvolvido no VS Code e versionado com Git, garantindo organização e controle das alterações.
 
 <h3 align="center">
   <a href="#"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg" alt="HTML" align="center" width="35"></a> &nbsp;&nbsp;
@@ -68,7 +68,7 @@ As tecnologias utilizadas até o momento incluem HTML, CSS, JS, Bootstrap para a
   <a href="#"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg" alt="Git" align="center" width="35"></a>
 </h3>
 
-Todo o trabalho está sendo conduzido nas dependências da Fatec de Jahu, local que oferece o suporte necessário para o desenvolvimento do projeto. As atividades estão sendo realizadas durante o primeiro semestre do curso, em alinhamento com os conteúdos estudados nas disciplinas, o que possibilita a aplicação prática dos conhecimentos adquiridos em sala de aula. 
+Todo o trabalho está sendo conduzido nas dependências da Fatec de Jahu, local que oferece o suporte necessário para o desenvolvimento do projeto. As atividades estão sendo realizadas desde o primeiro semestre do curso, em alinhamento com os conteúdos estudados nas disciplinas, o que possibilita a aplicação prática dos conhecimentos adquiridos em sala de aula. 
 
 [Voltar para o início](#inicio)
 
@@ -217,7 +217,7 @@ Na Figura 1, podemos visualizar o modelo de negócios, utilizado para melhor ide
 Sim, temos os equipamentos necessários fornecidos pela FATEC JAHU, computadores, internet, ferramentas web e um ambiente adequado para a realização do projeto.
 
 ### Viabilidade financeira: 
-É viável pelo fato que vai ser mão de obra dos integrantes do grupo, não iremos contratar ninguém de fora no momento. Ele irá nos retornar um aprendizado muito grande nessa área e uma bela evolução.
+É viável pelo fato que vai ser mão de obra dos integrantes do grupo, não iremos contratar ninguém de fora no momento. Ele irá nos retornar um aprendizado grande nessa área e uma boa evolução.
 
 ### Viabilidade de mercado: 
 Foi feita à análise, no começo erámos uma vitrine para viagens e percebemos que já existiam muitas nesse mesmo estilo, então nos renovamos, pegamos um nicho em específico e hoje somos um tipo de blog/guia turístico para relatos de mochileiros(as), empresas, entre outros, que gostam de viajar e divulgar o seu trabalho e conhecer o que aquele lugar os oferece.
@@ -230,13 +230,15 @@ Foi feita à análise, no começo erámos uma vitrine para viagens e percebemos 
 # 5. Design
 ### Paleta de cores:
 
-| Nome          | Hexadecimais                      |
-|---------------|-----------------------------------|
-| TONS DE VERDE | #005940, #00DE90, #00FA85, #04B885, #68d6a3, #48b281 |
-| TOM DE AZUL | #00EEFF |
-| TOM DE MARROM | #998874 |
-| PRETO | #000000 |
-| BRANCO | #FFFFFF|
+| Nome            | Amostras |
+|-----------------|----------|
+| TONS DE VERDE   | ![#005940](https://img.shields.io/badge/005940-005940?style=flat-square) ![#00DE90](https://img.shields.io/badge/00DE90-00DE90?style=flat-square) ![#00FA85](https://img.shields.io/badge/00FA85-00FA85?style=flat-square) ![#04B885](https://img.shields.io/badge/04B885-04B885?style=flat-square) ![#68D6A3](https://img.shields.io/badge/68D6A3-68D6A3?style=flat-square) ![#48B281](https://img.shields.io/badge/48B281-48B281?style=flat-square) |
+| TOM DE AZUL     | ![#00EEFF](https://img.shields.io/badge/00EEFF-00EEFF?style=flat-square) |
+| TOM DE MARROM   | ![#998874](https://img.shields.io/badge/998874-998874?style=flat-square) |
+| PRETO           | ![#000000](https://img.shields.io/badge/000000-000000?style=flat-square) |
+| BRANCO          | ![#FFFFFF](https://img.shields.io/badge/FFFFFF-FFFFFF?style=flat-square) |
+
+
 
 
 ### Tipografia: 
@@ -341,59 +343,59 @@ Resposta do sistema:
 
 ALTO NÍVEL
 
-Caso de uso: Realizar cadastro
-Atores: Usuário
-Tipo: Primário
+Caso de uso: Realizar cadastro <br>
+Atores: Usuário <br>
+Tipo: Primário <br>
 Descrição: Permite que um novo usuário (Mochileiro, turista...) crie uma conta no sistema. O sistema solicita dados básicos (nome, email, senha, cidade, país...) e, após a validação, cria o registro no banco de dados.
 
-Caso de uso: Fazer Login
-Atores: Usuário
-Tipo: Primário
+Caso de uso: Fazer Login <br>
+Atores: Usuário <br>
+Tipo: Primário <br>
 Descrição: Um Usuário registrado fornece suas credenciais (email e senha) para acessar o sistema. O sistema valida as credenciais; se corretas, concede acesso e você já é levado a homepage do sistema.
 
-Caso de uso: Visualizar homepage
-Atores: Usuário e Admin
-Tipo: Primário
+Caso de uso: Visualizar homepage <br>
+Atores: Usuário e Admin <br>
+Tipo: Primário <br>
 Descrição: Após o login, o sistema apresenta ao Usuário a tela inicial do sistema, que exibe publicações relevantes, opções de lugares, informações sobre o que fazer e informações sobre quem somos.
 
-Caso de uso: Criar Post
-Atores: Usuário
-Tipo: Primário
+Caso de uso: Criar Post <br>
+Atores: Usuário <br>
+Tipo: Primário <br>
 Descrição: O usuário após se cadastrar e realizar o login, ele está permitido a fazer uma publicação sobre turismo, você pode especificar em tipo (Gastrônomico, esporte, cultural...) e a categoria da sua postagem (Relato, dúvida...).
 
-Caso de uso: Gerenciar Perfil
-Atores: Admin e Usuário
-Tipo: Primário
+Caso de uso: Gerenciar Perfil <br>
+Atores: Admin e Usuário <br>
+Tipo: Primário <br>
 Descrição: O usuário e admin tem seus perfis, onde é possível atualizar suas informações e foto. (TERÁ MAIS FUNÇÕES, mas até o momento é isso).
 
-Caso de uso: Excluir/Editar postagens próprias
-Atores: Usuários
-Tipo: Primário
+Caso de uso: Excluir/Editar postagens próprias <br>
+Atores: Usuários <br>
+Tipo: Primário <br>
 Descrição: O usuário pode excluir ou editar postagens dentro do site, alguns do motivos pode ser por erros ortográficos, não achou atrativo a postagem, entre outros.
 
-Caso de uso: Denunciar contéudo
-Atores: Usuário e Admin
-Tipo: Primário
+Caso de uso: Denunciar contéudo <br>
+Atores: Usuário e Admin <br>
+Tipo: Primário <br>
 Descrição: O usuário pode denunciar um conteúdo, por algum motivo coerente, e o admin irá avaliar se aquela postagem poderá continuar dentro do site.
 
-Caso de uso: Buscar postagens/usuários
-Atores: Usuário e admin
-Tipo: Primário
-Descrição: O admin e o usuário podem utilizar o sistema de busca que existe dentro do sistema para facilitar o encontro de usuários e postagens existentes.
+Caso de uso: Buscar postagens/usuários <br>
+Atores: Usuário e admin <br>
+Tipo: Primário <br>
+Descrição: O admin e o usuário podem utilizar o sistema de busca que existe dentro do sistema para facilitar o encontro de usuários e postagens existentes. 
 
-Caso de uso: Seguir outro usuário
-Atores: Usuário
-Tipo: Primário
+Caso de uso: Seguir outro usuário <br>
+Atores: Usuário <br>
+Tipo: Primário <br>
 Descrição: O usuário pode se conectar com outras pessoas, assim, criando networking, amizades, aprendizados e experiências.
 
-Caso de uso: Comentar em postagens
-Atores: Usuário
-Tipo: Primário
+Caso de uso: Comentar em postagens <br>
+Atores: Usuário <br>
+Tipo: Primário <br>
 Descrição: O usuário pode dar a sua pequena visão sobre o assunto comentado em postagens de outros usuários.
 
-Caso de uso: Curtir postagens
-Atores: Usuário
-Tipo: Primário
+Caso de uso: Curtir postagens <br>
+Atores: Usuário <br>
+Tipo: Primário <br>
 Descrição: O usuário pode avaliar a postagem de outro usuário.
 
 Na figura 3, é visto o modelo de caso de uso geral da nossa aplicação, que demonstra como será feito todo o processo com um visitante, para que ele vire um usuário e as funçõoes do admin. O caso de uso de baixo e alto nível está especificado.
@@ -444,11 +446,14 @@ Na figura 5, é possível visualizar o protótipo da homepage, de como ela seria
     <img src="./imgs/prototipo_home.png" alt="Figura 5 - Prototipo" width="550">
   </div>
 
+[Voltar para o início](#inicio)
 
 # 9. Aplicação
 - ### Link para o nosso repositório do GitHub: [Repositório - PI-ROUTE-BOOKS](https://github.com/Guilherme-RR/PI-Route-Books)
 
-A aplicação Route Books, visa facilitar o encontro de pontos turísticos regionais, nacionais e mundiais e atividades atrativas, com as experiências contatadas pelas pessoas que viveram essas aventuras. Assim, tendo uma aplicação mais interativa e com a oportunidade de criar uma boa networking e ser um site informativo para ajudar todos os públicos.  
+A aplicação Route Books, visa facilitar o encontro de atividades atrativas regionais, nacionais e mundiais, com as experiências relatadas por pessoas que viveram essas aventuras. Assim, tendo uma aplicação mais interativa e com a oportunidade de criar uma boa networking e ser um site informativo para ajudar todos os públicos.  
+
+[Voltar para o início](#inicio)
 
 
 # 10. Considerações finais
@@ -477,7 +482,7 @@ HOME TOUR. Disponível em: [https://hometour.com.br/](https://hometour.com.br/)
 
 ## 🌍 Route Books
 
-**Route Books** é um blog colaborativo feito com HTML e CSS, criado para mochileiros e aventureiros que amam explorar o mundo. A plataforma permite que os usuários compartilhem experiências de viagem, ofereçam dicas, tirem dúvidas e montem roteiros personalizados — tudo isso em uma comunidade apaixonada por descobrir novos destinos.
+**Route Books** é um blog colaborativo, criado para mochileiros e aventureiros que amam explorar o mundo. A plataforma permite que os usuários compartilhem experiências de viagem, ofereçam dicas, tirem dúvidas e montem roteiros personalizados — tudo isso em uma comunidade apaixonada por descobrir novos destinos.
 
 
 ## ✨ Funcionalidades
