@@ -63,7 +63,7 @@ $temPosts = is_array($posts) && count($posts) > 0;
                     <?php if(isset($_SESSION['usuario_id'])): ?>
                         <li><a class="dropdown-item perfil-item" href="criarpost.php">Criar Postagem</a></li>
                     <?php endif; ?>
-                    <li><a class="dropdown-item perfil-item" href="../controllers/UsuarioController.php?acao=logout">Sair da Conta</a></li>
+                    <li><a class="dropdown-item perfil-item" href="../controllers/UsuarioController.php?acao=logout">Sair da conta</a></li>
                 </ul>
             </div>
             <div class="dark-mode-toggle">

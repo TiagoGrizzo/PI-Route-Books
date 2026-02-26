@@ -1,62 +1,81 @@
 <?php
 session_start();
-require_once (dirname(__DIR__) . '/models/Conexao.php');
-require_once (dirname(__DIR__) . '/models/Usuario.class.php');
+require_once(dirname(__DIR__) . '/models/Conexao.php');
+require_once(dirname(__DIR__) . '/models/Usuario.class.php');
 
 // Conexão
 $database = new Conexao();
 $db = $database->getConexao();
 $usuario = new Usuario($db);
 
+$acao = $_GET['acao'] ?? '';
 
-$acao = isset($_GET['acao']) ? $_GET['acao'] : '';
+/* =========================
+   CADASTRO
+========================= */
+if ($acao === 'cadastrar') {
 
-if ($acao == 'cadastrar') {
-    
-    $usuario->$username = $_POST['username'];
-    $usuario->$nome_completo = $_POST['nome_completo'];
-    $usuario->$email = $_POST['email'];
-    $usuario->$senha = $_POST['senha'];
-    
-    $usuario->$telefone = $_POST['telefone'] ?? '';
-    $usuario->$cidade = $_POST['cidade'] ?? '';
-    $usuario->$uf = $_POST['uf'] ?? '';
-    
+    // valida campos obrigatórios
+    if (empty($_POST['username']) || empty($_POST['nome_completo']) || empty($_POST['email']) || empty($_POST['senha']) || empty($_POST['conf_senha'])) {
+        echo "<script>alert('Preencha todos os campos obrigatórios!'); window.history.back();</script>";
+        exit;
+    }
 
-
-    // Validação de senha
-    if($_POST['senha'] !== $_POST['conf-senha']) {
+    if ($_POST['senha'] !== $_POST['conf_senha']) {
         echo "<script>alert('As senhas não conferem!'); window.history.back();</script>";
         exit;
     }
 
-    // Tenta cadastrar
-    if($usuario->cadastrar()) {
-        // Se der certo, manda pro login com mensagem
+    $usuario->username = $_POST['username'];
+    $usuario->nome = $_POST['nome_completo'];
+    $usuario->email = $_POST['email'];
+    $usuario->senha = $_POST['senha'];
+    $usuario->telefone = $_POST['telefone'] ?? '';
+    $usuario->cidade = $_POST['cidade'] ?? '';
+    $usuario->uf = $_POST['uf'] ?? '';
+    $usuario->pais_id = $_POST['pais_id'] ?? '';
+
+    if ($usuario->cadastrar()) {
+        // cadastra e redireciona para login
         header("Location: ../views/login.php?msg=cadastrado");
+        exit;
     } else {
-        // Se der erro (ex: email repetido)
-        echo "<script>alert('Erro: Email ou Usuário já cadastrados!'); window.history.back();</script>";
-    }} elseif ($acao == 'login') {
-    
+        echo "<script>alert('Erro: Email ou nome de usuário já cadastrado!'); window.history.back();</script>";
+        exit;
+    }
+
+/* =========================
+   LOGIN
+========================= */
+} elseif ($acao === 'login') {
+
+    if (empty($_POST['email']) || empty($_POST['senha'])) {
+        header('Location: ../views/login.php?erro=campos_vazios');
+        exit;
+    }
+
     $email = $_POST['email'];
     $senha = $_POST['senha'];
 
-    $user = $usuario->login($email, $senha); 
+    $user = $usuario->login($email, $senha);
 
     if ($user) {
-        $_SESSION['usuario_id'] = $user['id_usuario'];
-        $_SESSION['username'] = $user['username'];
-        
-        // Redireciona para a página inicial
+        $_SESSION['usuario_id'] = $user['id'];
+        $_SESSION['username'] = $user['nome'];
         header('Location: ../views/index.php');
-        exit();
+        exit;
     } else {
-        // Redireciona de volta para o login se o login falhar
         header('Location: ../views/login.php?erro=credenciais_invalidas');
-        exit();
+        exit;
     }
+
+/* =========================
+   LOGOUT
+========================= */
+} elseif ($acao === 'logout') {
+    // deixa como está, não mexe
+    session_destroy();
+    header('Location: ../views/login.php');
+    exit;
 }
-// Final do arquivo
-    
 ?>
