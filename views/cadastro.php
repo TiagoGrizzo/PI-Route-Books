@@ -11,55 +11,57 @@
 </head>
 <body>
     <section class="form-cadastro-geral container-xxl">
+        <!-- O action e method estão corretos -->
         <form action="../controllers/UsuarioController.php?acao=cadastrar" method="POST" class="form-cad">
             <div class="logo">
                 <img src="/PI-Route-books/imgs/rb-logo1.png" class="logo-cadastro" />
             </div>
             <h2 class="titulo-cadastro">Cadastre-se e Aventure-se!</h2>
+            
             <div class="div-inputs">
                 <div class="dividir-inputs-1">
                     <label for="username">Nome de usuário:</label>
                     <div class="input-cadastro">
                         <i class="fa fa-user-o" aria-hidden="true"></i>
-                        <input class="input-username" name="username" type="text" placeholder="Insira seu nome de usuário..." required />
+                        <input class="input-username" name="username" id="username" type="text" placeholder="Insira seu nome de usuário..." required />
                     </div>
 
                     <label for="nome_completo">Nome completo:</label>
                     <div class="input-cadastro">
                         <i class="fa fa-user-o" aria-hidden="true"></i>
-                        <input class="input-nome" name="nome_completo" type="text" placeholder="Insira seu nome completo..." required />
+                        <input class="input-nome" name="nome_completo" id="nome_completo" type="text" placeholder="Insira seu nome completo..." required />
                     </div>
 
                     <label for="email">E-mail:</label>
                     <div class="input-cadastro">
                         <i class="fa fa-envelope-o" aria-hidden="true"></i>
-                        <input class="input-email" name="email" type="email" placeholder="Insira seu e-mail..." required />
+                        <input class="input-email" name="email" id="email" type="email" placeholder="Insira seu e-mail..." required />
                     </div>
 
                     <label for="telefone">Telefone:</label>
                     <div class="input-cadastro">
                         <i class="fa fa-phone" aria-hidden="true"></i>
-                        <input class="input-telefone" name="telefone" type="text" placeholder="Insira seu número de telefone..." />
+                        <input class="input-telefone" name="telefone" id="telefone" type="text" placeholder="Insira seu número de telefone..." />
                     </div>
 
                     <label for="senha">Senha:</label>
                     <div class="input-cadastro">
                         <i class="fa fa-lock" aria-hidden="true"></i>
-                        <input class="input-senha" name="senha" type="password" placeholder="Insira sua senha..." required />
+                        <input class="input-senha" name="senha" id="senha" type="password" placeholder="Insira sua senha..." required />
                     </div>
-
                 </div>
+
                 <div class="dividir-inputs-2">
                     <label for="cidade">Cidade:</label>
                     <div class="input-cadastro">
                         <i class="fa fa-building" aria-hidden="true"></i>
-                        <input class="input-cidade" name="cidade" type="text" placeholder="Insira a sua cidade..." />
+                        <input class="input-cidade" name="cidade" id="cidade" type="text" placeholder="Insira a sua cidade..." />
                     </div>
 
                     <label for="uf">Estado (UF):</label>
                     <div class="input-cadastro">
                         <i class="fa fa-map-marker" aria-hidden="true"></i>
-                        <input class="input-estado" name="uf" type="text" placeholder="Insira a sigla do seu estado (UF)..." />
+                        <input class="input-estado" name="uf" id="uf" type="text" maxlength="2" placeholder="Ex: SP" />
                     </div>
 
                     <label for="pais_id">País:</label>
@@ -67,14 +69,16 @@
                         <i class="fa fa-globe" aria-hidden="true"></i>
                         <select class="select-uf" name="pais_id" id="pais_id">
                             <option value="">Selecione</option>
-                            <option value="BR">Brasil</option>
+                            <!-- CORREÇÃO: O value deve ser o ID NUMÉRICO que está na tabela 'paises' -->
+                            <option value="1">Brasil</option>
+                            <option value="2">Portugal</option>
                         </select>
                     </div>
                     
                     <label for="conf_senha">Confirme sua senha:</label>
                     <div class="input-cadastro">
                         <i class="fa fa-lock" aria-hidden="true"></i>
-                        <input class="input-senha" name="conf_senha" type="password" placeholder="Insira novamente sua senha..." required />
+                        <input class="input-senha" name="conf_senha" id="conf_senha" type="password" placeholder="Insira novamente sua senha..." required />
                     </div>
                 </div>
             </div>

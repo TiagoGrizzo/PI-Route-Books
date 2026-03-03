@@ -1,94 +1,84 @@
 <?php
+
+use PDO;
+use PDOException;
+
 class Usuario {
-
-    private PDO $conexao;
-
-    public ?int $id = null;
+    private ?PDO $conexao;
+    
+    public ?int $id_usuario = null;
     public ?string $username = null;
-    public ?string $nome = null;
+    public ?string $nome_completo = null;
     public ?string $email = null;
-    public ?string $senha = null;
     public ?string $telefone = null;
-    public ?string $cidade = null;
+    public ?string $senha_hash = null; 
     public ?string $uf = null;
-    public ?string $pais_id = null;
+    public ?string $cidade = null;
+    public ?int $pais_id = null;
+    public ?string $estado_conta = null;
+    public ?string $deletado_em = null;
 
     public function __construct(PDO $db) {
         $this->conexao = $db;
     }
 
-    /* =========================
-       CADASTRO
-    ========================= */
     public function cadastrar(): bool {
         try {
-            // Verifica se email ou username já existe
-            $verifica = "SELECT id FROM usuarios WHERE email = :email OR username = :username LIMIT 1";
+            $verifica = "SELECT id_usuario FROM usuarios WHERE email = :email OR username = :username LIMIT 1";
             $stmtVerifica = $this->conexao->prepare($verifica);
             $stmtVerifica->bindParam(":email", $this->email);
             $stmtVerifica->bindParam(":username", $this->username);
             $stmtVerifica->execute();
 
-            if ($stmtVerifica->rowCount() > 0) {
-                return false; // já existe
-            }
+            if ($stmtVerifica->rowCount() > 0) return false; 
 
-            $query = "INSERT INTO usuarios (username, nome, email, senha, telefone, cidade, uf, pais_id)
-                      VALUES (:username, :nome, :email, :senha, :telefone, :cidade, :uf, :pais_id)";
+            $query = "INSERT INTO usuarios (username, nome_completo, email, senha_hash, telefone, cidade, uf, pais_id)
+                      VALUES (:username, :nome_completo, :email, :senha_hash, :telefone, :cidade, :uf, :pais_id)";
 
             $stmt = $this->conexao->prepare($query);
-
-            // Sanitização
-            $this->username = strip_tags($this->username);
-            $this->nome = strip_tags($this->nome);
-            $this->email = filter_var($this->email, FILTER_SANITIZE_EMAIL);
-
-            // Hash da senha
-            $senhaHash = password_hash($this->senha, PASSWORD_DEFAULT);
+            $hash = password_hash($this->senha_hash, PASSWORD_DEFAULT);
 
             $stmt->bindParam(":username", $this->username);
-            $stmt->bindParam(":nome", $this->nome);
+            $stmt->bindParam(":nome_completo", $this->nome_completo);
             $stmt->bindParam(":email", $this->email);
-            $stmt->bindParam(":senha", $senhaHash);
+            $stmt->bindParam(":senha_hash", $hash);
             $stmt->bindParam(":telefone", $this->telefone);
             $stmt->bindParam(":cidade", $this->cidade);
             $stmt->bindParam(":uf", $this->uf);
-            $stmt->bindParam(":pais_id", $this->pais_id);
+            $stmt->bindParam(":pais_id", $this->pais_id, PDO::PARAM_INT);
 
             return $stmt->execute();
-
         } catch (PDOException $e) {
-            error_log("Erro ao cadastrar usuário: " . $e->getMessage());
+            error_log("Erro no cadastro: " . $e->getMessage());
             return false;
         }
     }
 
-    /* =========================
-       LOGIN
-    ========================= */
-    public function login(string $email, string $senha): ?array {
+    /**
+     * MÉTODO ATUALIZADO: Só loga se a conta não estiver 'REMOVIDA' ou deletada
+     */
+    public function autenticar(string $email, string $senha): ?array {
         try {
-            $query = "SELECT id, username, nome, email, senha 
+            $query = "SELECT id_usuario, username, nome_completo, email, senha_hash 
                       FROM usuarios 
                       WHERE email = :email 
+                      AND deletado_em IS NULL -- Impede login de contas excluídas
                       LIMIT 1";
+            
             $stmt = $this->conexao->prepare($query);
             $stmt->bindParam(":email", $email);
             $stmt->execute();
 
             $usuario = $stmt->fetch(PDO::FETCH_ASSOC);
 
-            if ($usuario && password_verify($senha, $usuario['senha'])) {
-                unset($usuario['senha']);
+            if ($usuario && password_verify($senha, $usuario['senha_hash'])) {
+                unset($usuario['senha_hash']); 
                 return $usuario;
             }
-
             return null;
-
         } catch (PDOException $e) {
-            error_log("Erro no login: " . $e->getMessage());
+            error_log("Erro na autenticação: " . $e->getMessage());
             return null;
         }
     }
 }
-?>
