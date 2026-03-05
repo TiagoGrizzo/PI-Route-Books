@@ -53,9 +53,15 @@ class Post {
             $this->resumo = strip_tags($this->resumo ?? '');
 
             // Vinculação de parâmetros usando o prefixo global \PDO
+
             $stmt->bindValue(':usuario_id', $this->usuario_id, \PDO::PARAM_INT);
             $stmt->bindValue(':tipo_id', $this->tipo_id, \PDO::PARAM_INT);
             $stmt->bindValue(':categoria_id', $this->categoria_id, \PDO::PARAM_INT);
+
+            $stmt->bindValue(':usuario_id', $this->usuario_id, PDO::PARAM_INT);
+            $stmt->bindValue(':tipo_id', $this->tipo_id, PDO::PARAM_INT);
+            $stmt->bindValue(':categoria_id', $this->categoria_id, PDO::PARAM_INT);
+
             $stmt->bindValue(':titulo', $this->titulo);
             $stmt->bindValue(':resumo', $this->resumo);
             $stmt->bindValue(':conteudo', $this->conteudo);
