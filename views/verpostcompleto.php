@@ -1,38 +1,60 @@
 <?php
+/**
+ * verpostcompleto.php
+ * Exibe o conteúdo detalhado de uma única postagem.
+ */
+
 require_once __DIR__ . '/../models/Conexao.php';
 require_once __DIR__ . '/../models/Post.class.php';
-session_start();
 
-$id = isset($_GET['id']) ? filter_var($_GET['id'], FILTER_SANITIZE_NUMBER_INT) : null;
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
 
-// Checa se o ID foi fornecido
-if (empty($id)) {
-    // Redireciona para a home se o ID estiver faltando
+// 1. Captura e validação do ID
+$id = isset($_GET['id']) ? (int)$_GET['id'] : null;
+
+if (!$id) {
     header('Location: index.php?erro=id_faltando');
     exit();
 }
 
-// Inicia a conexão
+// 2. Inicialização da Conexão
 $database = new Conexao();
 $db = $database->getConexao();
 
-if ($db === null) {
+if (!$db) {
     die("Erro: Não foi possível conectar ao banco de dados.");
 }
 
 $postObj = new Post($db);
 
 try {
-    // Busca o post
-    $post = $postObj->lerUm($id);
+    /**
+     * IMPORTANTE:
+     * Para que o Autor, Categoria e Tipo não fiquem como "Desconhecido/Geral",
+     * a sua função lerTodos($id) dentro de Post.class.php PRECISA de um JOIN.
+     * * Exemplo de SQL que deve estar lá:
+     * SELECT p.*, u.nome_completo, c.nome AS nome_categoria, t.nome AS nome_tipo
+     * FROM posts p
+     * JOIN usuarios u ON p.usuario_id = u.id_usuario
+     * JOIN categorias c ON p.categoria_id = c.id_categoria
+     * JOIN tipos t ON p.tipo_id = t.id_tipo
+     * WHERE p.id_post = :id
+     */
+    $resultado = $postObj->lerTodos($id); 
+    
+    // Se o método retorna a lista, pegamos o primeiro item.
+    $post = (isset($resultado[0])) ? $resultado[0] : $resultado;
 
-    // Checa se o post foi encontrado
-    if (!$post) {
-        die("<div style='text-align:center; padding: 50px;'><h1>Post não encontrado!</h1><p>Verifique se o ID está correto ou se a postagem foi excluída.</p><a href='index.php'>Voltar para a Home</a></div>");
+    // 4. Checa se o post foi encontrado e se tem o ID correto
+    if (!$post || (!isset($post['id_post']) && !isset($post['id']))) {
+        die("<div style='text-align:center; padding: 50px;'><h1>Post não encontrado!</h1><p>Verifique se o ID está correto.</p><a href='index.php' class='btn btn-primary'>Voltar para a Home</a></div>");
     }
 
-    // Formata a data para exibição
-    $data_formatada = date('d \d\e F, Y', strtotime($post['criado_em']));
+    // 5. Formatação da data
+    $data_db = $post['criado_em'] ?? $post['data_criacao'] ?? date('Y-m-d H:i:s');
+    $data_formatada = date('d/m/Y H:i', strtotime($data_db));
 
 } catch (Exception $e) {
     die("Ocorreu um erro ao carregar o post: " . $e->getMessage());
@@ -44,7 +66,7 @@ try {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?= htmlspecialchars($post['titulo']) ?> | RouteBooks</title>
+    <title><?= htmlspecialchars($post['titulo'] ?? 'Postagem') ?> | RouteBooks</title>
     <link rel="stylesheet" href="../css/reset.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
     <link rel="stylesheet" href="../css/color.css">
@@ -54,76 +76,77 @@ try {
         .post-detail-container {
             max-width: 900px;
             margin: 40px auto;
-            padding: 20px;
-            background-color: var(--card-bg-color); /* Usando a cor de fundo do tema */
+            padding: 30px;
+            background-color: var(--card-bg-color, #fff);
             border-radius: 12px;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-            color: var(--text-color-primary);
+            color: var(--text-color-primary, #333);
         }
         .post-detail-container h1 {
-            color: var(--cor-titulo);
+            color: var(--cor-titulo, #2c3e50);
             font-size: 2.5rem;
             margin-bottom: 0.5rem;
-            border-bottom: 2px solid var(--cor-titulo);
+            border-bottom: 2px solid var(--cor-titulo, #eee);
             padding-bottom: 10px;
         }
         .meta-info {
-            font-size: 0.9rem;
-            color: var(--text-color-secondary);
+            font-size: 0.95rem;
+            color: var(--text-color-secondary, #666);
             margin-bottom: 20px;
+            background: #f9f9f9;
+            padding: 15px;
+            border-radius: 8px;
         }
         .conteudo p {
             line-height: 1.8;
             white-space: pre-wrap;
             margin-top: 20px;
-            font-size: 1.1rem;
+            font-size: 1.15rem;
         }
         .btn-back-home {
             margin-top: 30px;
             display: inline-block;
-            padding: 10px 20px;
-            background-color: var(--cor-titulo);
+            padding: 10px 25px;
+            background-color: #2c3e50;
             color: white;
             border-radius: 6px;
             text-decoration: none;
-            transition: background-color 0.3s;
+            transition: 0.3s;
         }
         .btn-back-home:hover {
-            background-color: #007bff;
-            color: white;
+            background-color: #34495e;
+            color: #fff;
+        }
+        .badge-info {
+            background-color: #e9ecef;
+            color: #495057;
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-weight: bold;
         }
     </style>
 </head>
 <body>
-    <!--INICIO DA NAVBAR DO INDEX-->
     <header class="header-navbar">
         <nav class="navbar navbar-expand-lg bg-body-tertiary bg-navbar container-xxl">
             <div class="container-fluid">
-                <a class="navbar-brand-text-color-navbar" href="index.php"><img src="../imgs/rb-logo2.png" class="logo-tamanho" alt="Logo Route Books"></a>
-                <button class="navbar-toggler bg-color-menu-btn" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <a class="navbar-brand" href="index.php">
+                    <img src="../imgs/rb-logo2.png" class="logo-tamanho" alt="Logo Route Books">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                        <li class="nav-item">
-                            <a class="nav-link active text-color-navbar titulo-font " aria-current="page" href="index.php">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-color-navbar titulo-font" href="sobre.php">Quem Somos</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-color-navbar titulo-font" href="contato.php">Contato</a>
-                        </li>
+                        <li class="nav-item"><a class="nav-link active titulo-font" href="index.php">Home</a></li>
+                        <li class="nav-item"><a class="nav-link titulo-font" href="sobre.php">Quem Somos</a></li>
+                        <li class="nav-item"><a class="nav-link titulo-font" href="contato.php">Contato</a></li>
                     </ul>
-                    <form class="d-flex barra-pesquisa" role="search">
-                        <input class="form-control me-2 search-bar" type="search" placeholder="Pesquisar" aria-label="Search"/>
-                        <button class="btn btn-outline-success" type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
-                    </form>
                 </div>
                 
                 <div class="dropdown perfil-geral">
-                    <button class="btn btn-secondary dropdown-toggle btn-perfil" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        <i class="fa fa-user-o" aria-hidden="true"></i>
+                    <button class="btn btn-secondary dropdown-toggle btn-perfil" type="button" data-bs-toggle="dropdown">
+                        <i class="fa fa-user-o"></i>
                         <?php if(isset($_SESSION['username'])) echo " " . htmlspecialchars($_SESSION['username']); ?>
                     </button>
                     <ul class="dropdown-menu menu-perfil">
@@ -131,71 +154,77 @@ try {
                         <?php if(isset($_SESSION['usuario_id'])): ?>
                             <li><a class="dropdown-item perfil-item" href="criarpost.php">Criar Postagem</a></li>
                         <?php endif; ?>
-                        <li><a class="dropdown-item perfil-item" href="../controllers/UsuarioController.php?acao=logout">Sair da Conta</a></li>
+                        <li><a class="dropdown-item perfil-item" href="../controllers/UsuarioController.php?acao=logout">Sair</a></li>
                     </ul>
-                </div>
-                <div class="dark-mode-toggle">
-                    <button class="btn-dark-mode" onclick="toggleDarkMode()">
-                        <i class="fa fa-moon-o dark-icon" aria-hidden="true"></i>
-                        <i class="fa fa-sun-o light-icon" aria-hidden="true"></i>
-                    </button>
                 </div>
             </div>
         </nav>
     </header>
-    <!--FIM DA NAVBAR-->
-    
-    <!-- CONTEÚDO PRINCIPAL DENTRO DE UM CARD ESTILIZADO -->
+
     <main class="container-xxl">
         <div class="post-detail-container">
             <!-- TÍTULO -->
-            <h1 class="titulo-font"><?= htmlspecialchars($post['titulo']) ?></h1>
+            <h1 class="titulo-font"><?= htmlspecialchars($post['titulo'] ?? 'Sem Título') ?></h1>
 
             <div class="meta-info">
                 <p>
-                    Por: <strong><?= htmlspecialchars($post['nome_do_autor']) ?></strong> | 
-                    Categoria: <strong><?= htmlspecialchars($post['nome_categoria']) ?></strong> |
-                    Tipo: <strong><?= htmlspecialchars($post['nome_tipo']) ?></strong> |
-                    Publicado em: <?= $data_formatada ?>
+                    <i class="fa fa-user"></i> Autor: 
+                    <strong>
+                        <?php 
+                            // Sincronizado com nome_completo da tabela usuarios
+                            echo htmlspecialchars($post['nome_completo'] ?? $post['username'] ?? 'Autor Desconhecido'); 
+                        ?>
+                    </strong> | 
+                    <i class="fa fa-folder"></i> Categoria: 
+                    <span class="badge-info">
+                        <?php 
+                            // Sincronizado com o alias 'nome_categoria' que deve vir do JOIN
+                            echo htmlspecialchars($post['nome_categoria'] ?? 'Categoria não definida'); 
+                        ?>
+                    </span> |
+                    <i class="fa fa-bookmark"></i> Tipo: 
+                    <span class="badge-info">
+                        <?php 
+                            // Sincronizado com o alias 'nome_tipo' que deve vir do JOIN
+                            echo htmlspecialchars($post['nome_tipo'] ?? 'Tipo não definido'); 
+                        ?>
+                    </span>
                 </p>
-                <p>
-                    *Resumo: <?= htmlspecialchars($post['resumo']) ?>
+                <p class="mt-2 text-muted">
+                    <i class="fa fa-calendar"></i> Publicado em: <?= $data_formatada ?>
                 </p>
+                <?php if(!empty($post['resumo'])): ?>
+                    <p class="mt-3 p-2 border-start border-4">
+                        <strong>Resumo:</strong> <em><?= htmlspecialchars($post['resumo']) ?></em>
+                    </p>
+                <?php endif; ?>
             </div>
             
             <hr>
 
             <div class="conteudo">
                 <!-- CONTEÚDO COMPLETO -->
-                <p><?= nl2br(htmlspecialchars($post['conteudo'])) ?></p>
+                <p><?= nl2br(htmlspecialchars($post['conteudo'] ?? 'Conteúdo não disponível.')) ?></p>
             </div>
             
-            <a href="index.php" class="btn-back-home">Voltar para a Home</a>
+            <div class="d-flex justify-content-between align-items-center">
+                <a href="index.php" class="btn-back-home">
+                    <i class="fa fa-arrow-left"></i> Voltar para a Home
+                </a>
+            </div>
         </div>
     </main>
 
-    <!--INICIO DO FOOTER DO INDEX-->
-    <footer class="footer-index">
-        <div class="itens-footer-geral">
-            <div class="item-footer item-footer-direitos">
-                <h4 class="titulo-font">
-                    Route Books © Todos os direitos reservados
-                </h4>
-            </div>
+    <footer class="footer-index mt-5">
+        <div class="itens-footer-geral container-xxl d-flex justify-content-between align-items-center">
             <div class="item-footer">
-                <h4 class="titulo-font">
-                    Desenvolvido por: <br>      
-                    <a href="https://github.com/LucasEduardoPereiraCruz">Lucas Cruz</a> <br>
-                    <a href="https://github.com/TiagoGrizzo">Tiago Grizzo</a><br>
-                </h4>
+                <h4 class="titulo-font">Route Books © Todos os direitos reservados</h4>
             </div>
             <div class="logo-footer">
-                <img src="../imgs/rb-logo2.png" alt="Logo Route Books" class="logo-footer">
+                <img src="../imgs/rb-logo2.png" alt="Logo Route Books" style="width: 100px;">
             </div>
         </div>
     </footer>
-    <!--FIM DO FOOTER DO INDEX-->
-    
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
     <script src="../js/script.js"></script>
