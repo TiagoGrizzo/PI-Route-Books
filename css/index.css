@@ -276,3 +276,78 @@
     height: 0em;
     }
 }
+
+
+
+.projetos {
+    padding: 6rem 2rem;
+}
+
+.projetos-caixa {
+    display: grid;
+    /* Organiza os itens em forma de grade */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    /* Ele repete para todos os itens. fr significa fração, auto-fit encaixa tudo na tela*/
+    gap: 2rem;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.projetos-card {
+    background: #005940; 
+    border-radius: 16px;
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--vidro);
+    overflow: hidden;
+    /* Esconde a sobra da imagem */
+}
+
+.projetos-imagem {
+    height: 150px;
+    width: 100%;
+    object-fit: cover;
+    /* Ele manda a imagem (ou vídeo) preencher todo o espaço do elemento, sem distorcer, mesmo que precise cortar um pedaço. */
+    object-position: center 45%;
+    /* é a posição do objeto. a % faz a imagem subir ou descer sem mexer no card */
+}
+
+.projetos-titulos {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 50px;
+}
+
+
+
+.projetos-card:hover {
+    box-shadow: 0 10px 20px rgba(30, 111, 92, 1);
+    transform: translateY(-10px) scale(1.03);
+    /* movimentar no eixo y e mudando a escala dele */
+    transition: all 0.4s ease;
+    /* Transição */
+    cursor: pointer;
+}
+
+.caixa-textos-projeto {
+    padding: 1.5rem;
+}
+
+.info-projetos {
+    margin-bottom: 5px;
+    color: white
+}
+
+.paragrafo-projetos {
+    color: #00fa85;
+    line-height: 1.25rem;
+    /* Altura da linha */
+}
+
+
+.link-projeto{
+    display: flex;
+    justify-content: left;
+    color: var(--claro);
+    margin-top: 5px;
+    
+}

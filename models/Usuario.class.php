@@ -37,7 +37,7 @@ class Usuario {
      * Método para cadastrar um novo usuário.
      * Verifica se o email ou username já existem antes de inserir.
      */
-    public function cadastrar(): bool {
+    
         try {
             // 1. Verificação de existência
             $verifica = "SELECT id_usuario FROM usuarios WHERE email = :email OR username = :username LIMIT 1";
@@ -136,4 +136,4 @@ class Usuario {
         }
     }
 }
-}}}
+}}
