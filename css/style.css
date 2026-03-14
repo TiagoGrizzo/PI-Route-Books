@@ -36,7 +36,7 @@ html, body {
 /*ESPAÇO ENTRE O HOME, QUEM SOMOS E CONTATO*/
 
 .header-navbar{
-    background-color: #005940;
+    background-color: #065940;
 }
 /*COR DE HEADER*/
 .titulo-font{
@@ -371,3 +371,27 @@ body.dark-mode .btn-dark-mode:hover {
 }
 
 
+
+
+/* animação da navbar */
+
+.navbar-nav .nav-link{
+    position: relative;
+}
+
+.navbar-nav .nav-link::after{
+    content: "";
+    position: absolute;
+    left: 8px;
+    bottom: 4px;
+    width: 0;
+    height: 2px;
+
+    background: linear-gradient(90deg,#00fa85,#009e6b);
+
+    transition: width 0.4s ease;
+}
+
+.navbar-nav .nav-link:hover::after{
+    width: calc(100% - 16px);
+}

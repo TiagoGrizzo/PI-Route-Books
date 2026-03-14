@@ -99,9 +99,9 @@ $temPosts = is_array($posts) && count($posts) > 0;
         <!--INICIO DO CRIAR POST-->
         <div class="div-criar-post-geral container-xxl">
             <div class="div-criar-post titulo-font">
-                Criar post
-                <a href="criarpost.php">
-                    <button class="btn-criar-post"><i class="fa fa-plus" aria-hidden="true"></i></button>
+                <a href="criarpost.php" class="btn-criar-post">
+                    <i class="fa fa-plus"></i>
+                    Criar Post
                 </a>
             </div>
         </div>
@@ -116,13 +116,13 @@ $temPosts = is_array($posts) && count($posts) > 0;
             costas. Aventuras, trilhas, paisagens de tirar o fôlego e experiências inesquecíveis esperam por você.
             Pronto para embarcar nessa jornada?
         </p>
-        <a href="verposts.php" class="btn-inicio">Comece sua aventura</a>
+        <a href="verposts.php" class="btn-inicio">Comece sua aventura</a> <br> <br> <br> 
         <!--FIM DA INTRODUCAO DO SITE-->
 
         <div class="bg-conteudo">
             <!--INICIO DO CONTEUDO DO INDEX-->
             <div class="title-conteudo">
-                <h3 class="h3-conteudo titulo-font cor-titulo">Últimos posts feito por aventureiros</h3>
+                <h3 class="h3-conteudo titulo-font cor-titulo">Últimos posts feito por aventureiros</h3> 
             </div>
 
             <div class="div-fundo-relatos">
@@ -133,7 +133,7 @@ $temPosts = is_array($posts) && count($posts) > 0;
                         foreach ($posts as $p):
                             $data_formatada = date('d \d\e F, Y', strtotime($p['criado_em']));
                             $resumo_conteudo = (strlen($p['conteudo']) > 150) ? substr($p['conteudo'], 0, 150) . '...' : $p['conteudo'];
-                            ?>
+                    ?>
 
                             <div class="relatos">
                                 <!--CARD DE POST DINÂMICO-->
@@ -159,7 +159,7 @@ $temPosts = is_array($posts) && count($posts) > 0;
                                 <!--FIM DO CARD DE POST-->
                             </div>
 
-                        <?php
+                    <?php
                         endforeach; // Fim do foreach
                     else:
                         // Caso não tenha posts
@@ -171,7 +171,7 @@ $temPosts = is_array($posts) && count($posts) > 0;
             </div>
         </div>
 
-    </div>
+    </div> <br>
 
     <h1 class="container-xxl conheca-index titulo-font cor-titulo">Alguns lugares que você deve visitar!</h1>
     <section id="projetos" class="projetos">
@@ -180,7 +180,7 @@ $temPosts = is_array($posts) && count($posts) > 0;
                 <img src="../imgs/peru.jpg" alt="Projeto 1" class="projetos-imagem">
                 <div class="caixa-textos-projeto">
                     <h5 class="info-projetos">Ilhas flutuantes do Lago Titicaca - Cidade de Puno - Peru</h5> <br>
-                    <p class="paragrafo-projetos">São plataformas artificiais milenares construídas inteiramente de totora, uma planta aquática, 
+                    <p class="paragrafo-projetos">São plataformas artificiais milenares construídas inteiramente de totora, uma planta aquática,
                         habitadas pelo povo Uros</p>
                 </div>
             </div>
@@ -189,7 +189,7 @@ $temPosts = is_array($posts) && count($posts) > 0;
                 <img src="../imgs/algarve.jpg" alt="Projeto 1" class="projetos-imagem">
                 <div class="caixa-textos-projeto">
                     <h5 class="info-projetos">Algarve - Faro - Portugal</h5> <br>
-                    <p class="paragrafo-projetos">Situado no extremo sul de Portugal, é uma região costeira famosa pelas suas falésias douradas, 
+                    <p class="paragrafo-projetos">Situado no extremo sul de Portugal, é uma região costeira famosa pelas suas falésias douradas,
                         águas cristalinas e clima ameno, ideal para turismo de sol e praia entre junho e setembro.</p>
                 </div>
             </div>
@@ -198,8 +198,8 @@ $temPosts = is_array($posts) && count($posts) > 0;
                 <img src="../imgs/lencois_maranhenses.jpg" alt="Projeto 1" class="projetos-imagem">
                 <div class="caixa-textos-projeto">
                     <h5 class="info-projetos">Lençois Maranhenses - Barreirinhas, Santo Amaro do Maranhão - (MA)</h5> <br>
-                    <p class="paragrafo-projetos">O Parque Nacional dos Lençóis Maranhenses é uma área protegida no norte do Brasil, 
-                        famosa por suas grandes dunas de areia branca e lagoas temporárias formadas pela água da chuva</p> 
+                    <p class="paragrafo-projetos">O Parque Nacional dos Lençóis Maranhenses é uma área protegida no norte do Brasil,
+                        famosa por suas grandes dunas de areia branca e lagoas temporárias formadas pela água da chuva</p>
                 </div>
             </div>
 
@@ -207,9 +207,9 @@ $temPosts = is_array($posts) && count($posts) > 0;
                 <img src="../imgs/nascente_areia_que_canta-brotas.jpg" alt="Projeto 1" class="projetos-imagem">
                 <div class="caixa-textos-projeto">
                     <h5 class="info-projetos">Nascente Areia que Canta - Brotas - (SP)</h5> <br>
-                    <p class="paragrafo-projetos">Localizada a 15 km do centro da cidade, 
-                        a fazenda oferece uma visita à nascente de águas cristalinas vindas do Aquífero Guarani, 
-                        que como sugere o nome, possui uma areia diferente em seu fundo.</p> 
+                    <p class="paragrafo-projetos">Localizada a 15 km do centro da cidade,
+                        a fazenda oferece uma visita à nascente de águas cristalinas vindas do Aquífero Guarani,
+                        que como sugere o nome, possui uma areia diferente em seu fundo.</p>
                 </div>
             </div>
 
@@ -217,10 +217,10 @@ $temPosts = is_array($posts) && count($posts) > 0;
                 <img src="../imgs/Aguas-saoPedro.png" alt="Projeto 1" class="projetos-imagem">
                 <div class="caixa-textos-projeto">
                     <h5 class="info-projetos">Resorts, Parques, Centro - Águas de São Pedro - (SP)</h5> <br>
-                    <p class="paragrafo-projetos">Localizada a cerca de 190 km da capital paulista, 
+                    <p class="paragrafo-projetos">Localizada a cerca de 190 km da capital paulista,
                         é um renomado estância hidromineral e uma das menores cidades do Brasil.
-                        Famosa pelas águas medicinais, oferece turismo de saúde, 
-                        lazer no Thermas Water Park, um charmoso centrinho e alto índice de qualidade de vida </p> 
+                        Famosa pelas águas medicinais, oferece turismo de saúde,
+                        lazer no Thermas Water Park, um charmoso centrinho e alto índice de qualidade de vida </p>
                 </div>
             </div>
 
@@ -228,9 +228,9 @@ $temPosts = is_array($posts) && count($posts) > 0;
                 <img src="../imgs/Moinho-Povos-Unidos.jpg" alt="Projeto 1" class="projetos-imagem">
                 <div class="caixa-textos-projeto">
                     <h5 class="info-projetos">Moinho Povos Unidos - Holambra - (SP)</h5> <br>
-                    <p class="paragrafo-projetos">O Moinho Povos Unidos é um moinho de vento construído na tradição holandesa, 
-                        considerado o mais alto moinho de vento da América Latina, 
-                        sendo um dos principais pontos turísticos do município de Holambra, no estado de São Paulo.</p> 
+                    <p class="paragrafo-projetos">O Moinho Povos Unidos é um moinho de vento construído na tradição holandesa,
+                        considerado o mais alto moinho de vento da América Latina,
+                        sendo um dos principais pontos turísticos do município de Holambra, no estado de São Paulo.</p>
                 </div>
             </div>
 

@@ -132,14 +132,51 @@ html{
    min-height: 160px;
 }
 /*MODIFICANDO O TEXTAREA DA DIV DOS INPUTS*/
-.div-btn-contato{
-    display: flex;
-    justify-content: center;
-    text-align: center;
-    justify-self: center;
-    width: 80%;
-    padding-top: 25px;
+.btn-contato{
+   width: 100%;
+   padding: 8px 0;
+   font-size: 16px;
+   border: 2px #005940 solid;
+   border-radius: 12px;
+   background: linear-gradient(135deg,#00fa85,#00d974);
+   color: #003d2b;
+   font-weight: bold;
+   cursor: pointer;
+   transition: all 0.25s ease;
+   box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+
+   position: relative;
+   overflow: hidden;
 }
+
+/* Quando passa o mouse */ 
+.btn-contato:hover{
+   transform: translateY(-3px) scale(1.03);
+   box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+   background: linear-gradient(135deg,#00e67a,#00c96b);
+}
+
+/* Clique (efeito pressionar) */ 
+.btn-contato:active{
+   transform: scale(0.96);
+}
+
+.btn-contato::before{
+   content: "";
+   position: absolute;
+   top: 0;
+   left: -75%;
+   width: 50%;
+   height: 100%;
+   background: rgba(255,255,255,0.4);
+   transform: skewX(-25deg);
+   transition: 0.5s;
+}
+.btn-contato:hover::before{
+   left: 125%;
+}
+
+
 /*DIV DO BOTAO DO FORM DO CONTATO*/
 .div-btn-contato a{
     width: 100%;

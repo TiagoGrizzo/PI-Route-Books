@@ -26,7 +26,7 @@
                 <a class="nav-link active text-color-navbar titulo-font " aria-current="page" href="index.php">Home</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link text-color-navbar titulo-font" href="sobre.php">Quem somos</a>
+                <a class="nav-link text-color-navbar titulo-font" href="sobre.php">Quem Somos</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link text-color-navbar titulo-font" href="contato.php">Contato</a>
