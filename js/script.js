@@ -28,8 +28,8 @@ function toggleDarkMode() {
   const logo = document.getElementById('logoSobre');
 
   if (document.body.classList.contains('dark-mode')) {
-    logo.src = 'imgs/rb-logo2.png'; // logo com escrita branca
+    logo.src = '../imgs/rb-logo2.png'; // logo com escrita branca
   } else {
-    logo.src = 'imgs/rb-logo1.png'; // logo com escrita preta
+    logo.src = '../imgs/rb-logo1.png'; // logo com escrita preta
   }
 }

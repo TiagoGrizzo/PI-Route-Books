@@ -95,7 +95,9 @@
     font-weight: 700;
     cursor: pointer;
     box-shadow: 0 4px 16px rgba(0,0,0,0.08);
-    transition: all 0.3s ease;
+    transition: all 0.25s ease;
+    position: relative;
+    overflow: hidden;
     text-decoration: none;
     display: inline-block;
 }
@@ -103,8 +105,26 @@
 .btn-inicio:hover {
     background: #00d974;
     color: #000000;
-    transform: scale(1.1);
+    transform: translateY(-3px);
 }
+
+.btn-inicio::before {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -30%;
+    width: 1.9em;
+    height: 200%;
+    background-color: rgba(255, 255, 255, 0.7);
+    transform: rotate(25deg);
+    border-radius: 10px;
+    transition: left 0.6s ease;
+}
+
+.btn-inicio:hover::before {
+    left: 130%;
+}
+
 
 /*relatos recentes do index*/
 
@@ -401,3 +421,5 @@
     margin-top: 5px;
     
 }
+
+

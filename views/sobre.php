@@ -107,7 +107,7 @@
             <p>
               Olá, pessoal! Me chamo Lucas Eduardo, tenho 19 anos, estudante na Fatec Jahu em Desenvolvimento de Software Multiplataforma, estou cursando o 2º semestre e
               participo ativamente no processo deste website, tanto na parte de documentação, protótipos e desenvolvimento web. Tenho o sonho de seguir na área de tecnologia e sou um grande admirador 
-              de histórias, culturas e paisagens, por isso tenho o prazer de rabalhar para este projeto.
+              de histórias, culturas e paisagens, por isso tenho o prazer de rabalhar para este projeto. </p>
             <div class="sobre-redes">
               <a href="https://www.instagram.com/lukinhaepc/"><i class="fa fa-instagram" aria-hidden="true"></i></a>
               <a href="https://www.linkedin.com/in/lucas-eduardo-pereira-da-cruz-a2b399351/"><i class="fa fa-linkedin-square" aria-hidden="true"></i></a>
