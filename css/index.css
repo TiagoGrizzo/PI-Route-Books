@@ -23,12 +23,8 @@
     display: inline-flex;
     align-items: center;
     gap: 5px;
-
     padding: 6px 6px;
     border-radius: 12px;
-
-    margin-right: 55px;
-
     background: linear-gradient(135deg,#00d974,#00b35f);
     color: white;
     font-weight: bold;
@@ -36,6 +32,12 @@
 
     transition: all 0.25s ease;
     box-shadow: 0 6px 14px rgba(0,0,0,0.2);
+}
+
+.div-criar-post-geral {
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 55px; /*  recuo para colocar o botão mais a direita */
 }
 
 .btn-criar-post i{

@@ -22,6 +22,16 @@ html, body {
     font-weight: 400;
 }
 
+.navbar.container-xxl {
+    padding-left: 40px;
+    padding-right: 50px;
+}
+
+
+.container-fluid {
+    display: flex;
+    align-items: center;
+}
 
 .bg-navbar{
     background-color: #005940 !important;
@@ -37,8 +47,7 @@ html, body {
 /*ALTERA O TAMANHO DA LOGO DA NAVBAR*/
 
 .navbar-brand-text-color-navbar{
-    margin-right: 50px;
-    margin-left: 50px;
+    margin: 0 10px;
 }
 /*ESPAÇO DA LOGO*/
 
@@ -98,7 +107,7 @@ html, body {
 }
 /*MODIFICANDO BOTAO DE PERFIL*/
 .perfil-geral {
-    padding-left: 60px;
+    padding-left: 25px;
 }
 /*MODIFICANDO BOTAO DE PERFIL*/
 .btn.show{
