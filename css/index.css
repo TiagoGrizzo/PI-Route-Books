@@ -240,6 +240,13 @@
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
+/* DARK MODE - SOBRE NÓS */
+body.dark-mode .geral-sobre {
+    background: rgba(255,255,255,0.10);
+    border: 1px solid #00d974;
+    backdrop-filter: blur(10px);
+}
+
 .geral-sobre:hover {
     transform: scale(1.1); 
 }
@@ -425,3 +432,13 @@
 }
 
 
+/* TÍTULOS NO DARK MODE */
+body.dark-mode .cor-titulo {
+    color: #16d87d !important; /* verde mais claro */
+}
+
+body.dark-mode .btn-ver-sobre {
+    background-color: #11b669 !important; /* verde mais claro */
+}
+
+/* BARRINHA DO SOBRE NÓS NO DARK MODE */

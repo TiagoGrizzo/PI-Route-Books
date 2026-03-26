@@ -32,12 +32,20 @@ html{
    justify-content: center;
    align-items: center;
    margin-top: 30px;
-   box-shadow: 5px 5px 5px 5px #727272;
+   box-shadow: 2px 2px 2px 2px #357e64;
    padding: 30px;
    border-radius: 20px;
    background-color: #ffffff;
    border: #004230 solid 2px;
 }
+
+/* DARK MODE !IMPORTANT */
+body.dark-mode .container-contato {
+   background: rgba(255,255,255,0.10) !important;
+   border: 1px solid #00d974 !important;
+   backdrop-filter: blur(10px);
+}
+
 /*DIV PRINCIPAL DA PARTE DO CONTATO*/
 .contato-texto{
    width: 50%;
@@ -61,6 +69,12 @@ html{
    font-size: 22px;
    background-color: #00fa85;
 }
+
+/* Ícones no dark mode continuam pretos (envelope e telefone) */
+body.dark-mode .icone-contato i {
+   color: #000;
+}
+
 /*ICONES NA ESQUERDA DA PARTE DO CONTATO*/
 .info-contato{
    display: flex;
@@ -93,12 +107,19 @@ html{
    content: "";
     width: 10.4em;
     height: 5px;
-    background-color: #005940;
+    background-color: #005940; /* Aqui é a barrinha de baixo do envie sua mensagem */
     border-radius: 10px;
     display: block;
     margin: auto; 
 }
+
+/* Muda a cor da barrinha em baixo do envie sua mensagem */
+body.dark-mode .contato-form h2::after {
+   background-color: #00d974;
+}
 /*BARRINHA ABAIXO DO TÍTULO DO CONTATO*/
+
+
 .contato-form label{
    color: #004230;
    font-weight: 600;
@@ -199,6 +220,13 @@ html{
    cursor: pointer;
 }
 /*MODIFICANDO A COR E O CURSOR DO MOUSE QUANDO O MOUSE PASSA EM CIMA DO BOTAO*/
+
+/* Muda a cor das escritas */
+body.dark-mode .titulo-font {
+   color: #EBEBEB !important;
+}
+
+
 
 /*DAQUI PRA BAIXO É TUDO RESPONSIVIDADE*/
 @media (max-width: 1120px) {

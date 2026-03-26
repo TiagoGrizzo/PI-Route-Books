@@ -30,11 +30,18 @@ html{
     border-radius: 20px;
     padding-bottom: 20px;
     margin-bottom: 40px;
-    box-shadow: 3px 3px 3px 3px #998874;
+    box-shadow: 2px 2px 2px 2px #357e64;
     align-self: center;
     margin-top: 30px;
     padding-top: 15px;
     border: #005940 solid 1px;
+}
+
+/* DARK MODE - CONTATO */
+body.dark-mode .container-contato {
+    background: rgba(255,255,255,0.10);
+    border: 1px solid #00d974;
+    backdrop-filter: blur(10px);
 }
 /*DIV QUE CENTRALIZA A FOTO DE PERFIL E ADICIONAR BORDA, BOX-SHADOW E DIRECIONA TUDO PRA COLUNA*/
 .perfil-foto{
