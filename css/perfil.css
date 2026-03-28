@@ -38,8 +38,8 @@ html{
 }
 
 /* DARK MODE - CONTATO */
-body.dark-mode .container-contato {
-    background: rgba(255,255,255,0.10);
+body.dark-mode .foto-centro {
+    background: rgba(255,255,255, 0.10) !important;
     border: 1px solid #00d974;
     backdrop-filter: blur(10px);
 }

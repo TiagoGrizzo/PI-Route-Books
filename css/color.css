@@ -19,7 +19,7 @@ geralmente utulizado para variaveis
 
 /* Tema Dark - Sobrescreve as variáveis */
 body.dark-mode{
-    --bg-color: #272727;
+    --bg-color: #3A3A3C;
     --text-color: #EBEBEB;
     --main-color: #1f1f1f;          /* Navbar e Footer no Dark Mode */
     --secondary-color: #00fa85;     /* Mantendo o verde neon claro para destaque */
