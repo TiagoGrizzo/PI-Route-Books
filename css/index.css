@@ -323,6 +323,16 @@ body.dark-mode .geral-sobre {
     padding-top: 30px;
     font-weight: bold;
 }
+
+/*Muda a cor da barrinha de baixo*/
+body.dark-mode .titulo-sobre h2::after{
+    background-color: #00d974; /* ou a cor que quiser */
+}
+
+/*Muda a cor da barrinha vertical*/
+body.dark-mode .div-btn-sobre::before{
+    background-color: #00d974c4; /* mesma cor ou outra */
+}
 /*fim sobre do index*/
 
 
