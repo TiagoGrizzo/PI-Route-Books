@@ -29,7 +29,7 @@
   - [4. Estudo de viabilidade](#4-estudo-de-viabilidade)
   - [5. Design](#5-design)
   - [6. Caso de uso](#6-caso-de-uso)
-  - [7. Modelo lógico (BD)](#7-modelo-lógico)
+  - [7. Modelo lógico e físico (BD)](#7-modelo-lógico)
   - [8. Protótipo](#8-protótipo)
   - [9. Aplicação](#9-aplicação)
   - [10. Considerações finais](#10-considerações-finais)
@@ -61,11 +61,12 @@ As tecnologias utilizadas até o momento incluem HTML, CSS, JS, Bootstrap para a
   <a href="#"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg" 
   alt="JS" align="center" width="35"></a> &nbsp;&nbsp;
   <a href="#"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/bootstrap/bootstrap-original.svg" alt="BOOTSTRAP" align="center" width="35"></a> &nbsp;&nbsp;
-  <a href="#"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/php/php-original.svg" alt="PHP" align="center" width="35"></a> &nbsp;&nbsp;
+  <a href="#"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/csharp/csharp-original.svg" alt="C#" align="center" width="35"></a> &nbsp;&nbsp;
   <a href="#"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/figma/figma-original.svg" alt="Figma" align="center" width="35"></a> &nbsp;&nbsp;
   <a href="#"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original.svg" alt="MySQL" align="center" width="35"></a> &nbsp;&nbsp;
   <a href="#"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vscode/vscode-original.svg" alt="Visual Studio Code" align="center" width="35"></a> &nbsp;&nbsp;
-  <a href="#"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg" alt="Git" align="center" width="35"></a>
+  <a href="#"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg" alt="Git" align="center" width="35"></a> &nbsp;&nbsp; 
+  <a href="#"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mongodb/mongodb-original.svg" alt="MongoDB" align="center" width="35"></a> 
 </h3>
 
 Todo o trabalho está sendo conduzido nas dependências da Fatec de Jahu, local que oferece o suporte necessário para o desenvolvimento do projeto. As atividades estão sendo realizadas desde o primeiro semestre do curso, em alinhamento com os conteúdos estudados nas disciplinas, o que possibilita a aplicação prática dos conhecimentos adquiridos em sala de aula. 
@@ -414,16 +415,29 @@ Na figura 3, é visto o modelo de caso de uso geral da nossa aplicação, que de
 
 
 # 7. Modelo Lógico 
-Na figura 4, podemos ver o modelo lógico do nosso sistema, a modelagem do banco de dados, com todas as tabelas e relacionamentos necessários
+Na figura 4, podemos ver o modelo lógico do nosso sistema, que mostra como os objetos se comportam e a funcionalidade deles. 
 
 <div align="center">
 
-### Figura 4 - Modelo Lógico (Modelagem do banco de dados)
+### Figura 4 - Modelo Lógico (Diagrama de classes)
 
 </div>
 
+<div align="center">
+    <img src="./imgs/DiagramaClasses.png" alt="Figura 4 - Diagrama de classes" width="550">
+  </div>
+
+<div align="center">
+
+
+
+### Figura 5 - Modelo Físico (Modelagem do banco de dados)
+
+Na figura 5 temos o nosso modelo físico, com relacionamento entre tabelas, chaves primárias, tabelas intermediárias, onde essas funcionalidades, funcionam dentro da aplicação 
+</div>
+
   <div align="center">
-    <img src="./imgs/modelagem-PI-completa.png" alt="Figura 4 - Modelo Lógico" width="550">
+    <img src="./imgs/modelagem-PI-completa.png" alt="Figura 5 - Modelo Físico" width="550">
   </div>
 
 [Voltar para o início](#inicio) 
@@ -434,16 +448,16 @@ Na figura 4, podemos ver o modelo lógico do nosso sistema, a modelagem do banco
 - ### Link dos protótipos com a ferramenta Figma: [Figma - Route Books](https://www.figma.com/design/8UFfrEyZOdytMzzJvd0jSB/Mockup-do-site-PI?node-id=0-1&p=f&t=6UuWB1YErd0NN2MF-0)
 
 
-Na figura 5, é possível visualizar o protótipo da homepage, de como ela seria na aplicação final (Fizemos mais telas, mas coloquei apenas uma para visualização).
+Na figura 6, é possível visualizar o protótipo da homepage, de como ela seria na aplicação final (Fizemos mais telas, mas coloquei apenas uma para visualização).
 
 <div align="center">
 
-### Figura 5 - Protótipo da home
+### Figura 6 - Protótipo da home
 
 </div>
 
   <div align="center">
-    <img src="./imgs/prototipo_home.png" alt="Figura 5 - Prototipo" width="550">
+    <img src="./imgs/prototipo_home.png" alt="Figura 6 - Prototipo" width="550">
   </div>
 
 [Voltar para o início](#inicio)
@@ -457,7 +471,7 @@ A aplicação Route Books, visa facilitar o encontro de atividades atrativas reg
 
 
 # 10. Considerações finais
-O processo de desenvolvimento foi tudo dentro dos conformes, todos os integrantes foram participativos em diferentes áreas do projeto, protótipos, html, css, documentação, entre outros. No início, tínhamos uma ideia de ser uma vitrine de viagens, com o objetivo de mostrar as agências mais confiáveis para viagens dentro ou fora do Brasil, mas após algumas reuniões decidimos mudar o escopo do nosso projeto, assim se transformando em um guia de viagens, um site para que as pessoas possam dar seus feedbacks e contar suas experiências para os demais, sobre determinados locais e com diferentes culturas, na qual as pessoas podem se interessar e querer viver essa experiência. Ocorreram algumas limitações, principalmente com a internet da instituição, em alguns momentos não conseguíamos progredir ou até concluir certas partes do projeto, as máquinas de alguns laboratórios também eram lentos, então ficava difícil trabalhar, mas conseguimos avançar, pelo fator que fazíamos em casa, isso ajudava. Tivemos algumas dificuldades, algo normal, porque muitos assuntos e tarefas foram novidades para alguns integrantes, fazendo com que ficássemos com um pouco de receio de errar, fazer errado. A aplicação terá um papel importante para o conhecimento de novos costumes, origens, histórias e importância para os integrantes do grupo, fazer um projeto desse envolve muita paciência e dedicação, isso faz com que criemos um certo tipo de maturidade e acostumados com esse tipo de vivência.  
+O processo de desenvolvimento foi tudo dentro dos conformes, todos os integrantes foram participativos em diferentes áreas do projeto, protótipos, html, css, documentação, entre outros. No início, tínhamos uma ideia de ser uma vitrine de viagens, com o objetivo de mostrar as agências mais confiáveis para viagens dentro ou fora do Brasil, mas após algumas reuniões decidimos mudar o escopo do nosso projeto, assim se transformando em um guia de viagens, um site para que as pessoas possam dar seus feedbacks e contar suas experiências para os demais, sobre determinados locais e com diferentes culturas, na qual as pessoas podem se interessar e querer viver essa experiência. Ocorreram algumas limitações, principalmente com a internet da instituição, em alguns momentos não conseguíamos progredir ou até concluir certas partes do projeto, as máquinas de alguns laboratórios também eram lentos, então ficava difícil trabalhar, mas conseguimos avançar, pelo fator que fazíamos em casa, isso ajudava. Tivemos algumas dificuldades, algo normal, porque muitos assuntos e tarefas foram novidades para os integrantes, fazendo com que ficássemos com um pouco de receio de errar. A aplicação terá um papel importante para o conhecimento de novos costumes, origens, histórias e importância para os integrantes do grupo, fazer um projeto desse envolve muita paciência e dedicação, isso faz com que criemos um certo tipo de maturidade e costume com esse tipo de vivência.  
 
 [Voltar para o início](#inicio)
 
@@ -496,17 +510,16 @@ HOME TOUR. Disponível em: [https://hometour.com.br/](https://hometour.com.br/)
 
 ## 📸 Imagens do Projeto
 
-![image](https://github.com/user-attachments/assets/d2f13507-4625-4493-af23-89d414f8ab60)
-
 **Home Page**
+![Tela inicial do Route Books](https://github.com/user-attachments/assets/f199aa55-6505-4e6a-8752-2da5dc8af263)
 
-![image](https://github.com/user-attachments/assets/ed06f436-e839-45db-9f96-277ce3b842b3)
 
 **Tela de Perfil de Usuário**
+![Tela de Perfil](https://github.com/user-attachments/assets/704f4e6c-f044-4615-9189-382ebe622a7d)
 
-![image](https://github.com/user-attachments/assets/74350e2e-3895-42d5-a186-55f4666f2e75)
 
 **Tela de Login**
+![Tela de Login](https://github.com/user-attachments/assets/109a656f-9dce-41a0-94f2-b238f246fb00)
 
 ## 🚀 Como Usar
   
