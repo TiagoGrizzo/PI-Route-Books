@@ -1,0 +1,67 @@
+@{
+    ViewData["Title"] = "Fale Com A Gente!";
+}
+
+@section Styles {
+    <link rel="stylesheet" href="~/css/contato.css" />
+}
+
+<main>
+    <section class="contato-geral container-xxl mt-4">
+        <div class="contato-titulo">
+            <h2 class="fale-contato titulo-font">Fale Conosco</h2>
+            <p class="p-contato">
+                Mande a sua dúvida para a nossa equipe e te responderemos o mais breve possível! <br> 
+                Siga as outras formas de contato logo abaixo.
+            </p>
+        </div>
+
+        <div class="container-contato">
+            <div class="contato-texto">
+                <div class="icone-geral-contato">
+                    <div class="icone-contato">
+                        <i class="fa fa-envelope-o" aria-hidden="true"></i>
+                    </div>
+                    <div class="info-contato">
+                        <h3 class="titulo-font">E-mail</h3>
+                        <p>contato@routebooks.com</p>
+                    </div>
+                </div>
+                <div class="icone-geral-contato">
+                    <div class="icone-contato">
+                        <i class="fa fa-phone" aria-hidden="true"></i>
+                    </div>
+                    <div class="info-contato">
+                        <h3 class="titulo-font">Telefone</h3>
+                        <p>(14) 9999-9999</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contato-form">
+                <form asp-action="EnviarContato" asp-controller="Home" method="post">
+                    <h2 class="titulo-font">Envie sua mensagem!</h2>
+                    
+                    <div class="input-div-contato">
+                        <label class="titulo-font">Nome Completo</label>
+                        <input type="text" name="nome" required placeholder="Insira seu nome completo...">
+                    </div>
+                    
+                    <div class="input-div-contato">
+                        <label class="titulo-font">E-mail</label>
+                        <input type="email" name="email" required placeholder="Insira seu e-mail...">
+                    </div>
+                    
+                    <div class="input-div-contato">
+                        <label class="titulo-font">Digite sua mensagem</label><br>
+                        <textarea name="mensagem" required placeholder="Digite sua mensagem aqui..."></textarea>
+                    </div>
+                    
+                    <div class="div-btn-contato">
+                        <button type="submit" class="titulo-font btn-contato">Enviar</button>   
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+</main>

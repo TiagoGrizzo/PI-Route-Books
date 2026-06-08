@@ -1,0 +1,85 @@
+@model IEnumerable<PI_RouteBooks.Models.Usuario>
+
+@{
+    ViewData["Title"] = "Explorar Aventureiros";
+}
+
+@section Styles {
+    <style>
+        .card-aventureiro {
+            border-radius: 15px;
+            transition: transform 0.2s, box-shadow 0.2s;
+            background-color: #ffffff;
+        }
+
+            .card-aventureiro:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 8px 15px rgba(0,0,0,0.1) !important;
+            }
+
+        .btn-conversar {
+            border-radius: 20px;
+            background-color: #27ae60;
+            border: none;
+            padding: 8px 18px;
+            font-size: 13px;
+        }
+
+            .btn-conversar:hover {
+                background-color: #219150 !important;
+            }
+    </style>
+}
+
+<div class="container container-xxl mt-5 flex-grow-1">
+    <div class="d-flex align-items-center mb-4">
+        <i class="fa fa-users me-3" style="font-size: 2rem; color: #27ae60;"></i>
+        <div>
+            <h3 class="titulo-font mb-0" style="color: #2c3e50;">Encontre outros Aventureiros</h3>
+            <small class="text-muted">Inicie um chat privado com qualquer membro da comunidade Route Books</small>
+        </div>
+    </div>
+
+    <hr class="mb-4" style="opacity: 0.1;">
+
+    <div class="row">
+        @if (Model != null && Model.Any())
+        {
+            foreach (var usuario in Model)
+            {
+                <div class="col-md-4 mb-4">
+                    <div class="card shadow-sm border-0 card-aventureiro">
+                        <div class="card-body d-flex align-items-center justify-content-between p-3">
+
+                            <div class="d-flex align-items-center">
+                                <i class="fa fa-user-circle text-secondary me-3" style="font-size: 2.8rem; opacity: 0.7;"></i>
+                                <div>
+                                    <h6 class="mb-1 titulo-font" style="font-weight: 600; color: #2c3e50;">
+                                        @(usuario.NomeCompleto ?? usuario.Username)
+                                    </h6>
+                                    <small class="text-muted d-block">
+                                        <i class="fa fa-map-marker me-1" style="color: #e74c3c;"></i>
+                                        @usuario.Cidade - @usuario.Uf
+                                    </small>
+                                </div>
+                            </div>
+
+                            <a asp-controller="Chat" asp-action="Index" asp-route-idDoAmigo="@usuario.IdUsuario"
+                               class="btn btn-success btn-conversar text-white">
+                                <i class="fa fa-paper-plane me-1"></i> Conversar
+                            </a>
+
+                        </div>
+                    </div>
+                </div>
+            }
+        }
+        else
+        {
+            <div class="col-12 text-center text-muted py-5">
+                <i class="fa fa-user-times d-block mb-3" style="font-size: 3rem; opacity: 0.3;"></i>
+                Não há outros usuários cadastrados no momento.
+            </div>
+        }
+    </div>
+</div>

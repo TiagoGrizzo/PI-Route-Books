@@ -1,0 +1,79 @@
+@model PI_RouteBooks.Models.Post
+
+@section Styles {
+    <link rel="stylesheet" href="~/css/criarpost.css" />
+}
+
+<div class="container-xxl mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8 cad-post-box">
+            <h2 class="titulo-font cor-titulo text-center mb-4">Compartilhe sua Aventura!</h2>
+
+            <form asp-action="Create" method="post" enctype="multipart/form-data">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                <div class="form-group mb-3">
+                    <label asp-for="Titulo" class="control-label titulo-font">Título da Postagem</label>
+                    <input asp-for="Titulo" class="form-control text-box-cad" placeholder="Dê um título chamativo..." />
+                    <span asp-validation-for="Titulo" class="text-danger"></span>
+                </div>
+
+                <div class="form-group mb-3">
+                    <label asp-for="Resumo" class="control-label titulo-font">Resumo</label>
+                    <input asp-for="Resumo" class="form-control text-box-cad" placeholder="Um breve resumo do que se trata..." />
+                    <span asp-validation-for="Resumo" class="text-danger"></span>
+                </div>
+
+                <div class="form-group mb-3">
+                    <label asp-for="Conteudo" class="control-label titulo-font">Relato da Viagem</label>
+                    <textarea asp-for="Conteudo" class="form-control text-box-cad" rows="6" placeholder="Conte os detalhes da sua aventura aqui..."></textarea>
+                    <span asp-validation-for="Conteudo" class="text-danger"></span>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6 form-group mb-3">
+                        <label asp-for="TiposIdTipo" class="control-label titulo-font">Tipo de Viagem</label>
+                        <select asp-for="TiposIdTipo" class="form-control text-box-cad" asp-items="ViewBag.TiposIdTipo">
+                            <option value="">-- Selecione o Tipo --</option>
+                        </select>
+                        <span asp-validation-for="TiposIdTipo" class="text-danger"></span>
+                    </div>
+
+                    <div class="col-md-6 form-group mb-3">
+                        <label asp-for="CategoriasIdCategoria" class="control-label titulo-font">Categoria</label>
+                        <select asp-for="CategoriasIdCategoria" class="form-control text-box-cad" asp-items="ViewBag.CategoriasIdCategoria">
+                            <option value="">-- Selecione a Categoria --</option>
+                        </select>
+                        <span asp-validation-for="CategoriasIdCategoria" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="form-group mb-4">
+                    <label class="control-label titulo-font">Adicionar uma Foto (Máx. 5MB - Apenas 1 imagem)</label>
+                    <input type="file" name="fotoPost" class="form-control text-box-cad" accept="image/*" id="inputFoto" />
+                    <small class="form-text text-muted">Formatos aceitos: JPG, PNG, WEBP.</small>
+                </div>
+
+                <div class="form-group d-flex justify-content-between align-items-center mt-4">
+                    <a asp-action="Index" class="btn btn-secondary">Voltar ao Feed</a>
+                    <input type="submit" value="Publicar Relato" class="btn btn-success btn-enviar-post" />
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+
+    <script>
+        document.getElementById("inputFoto").onchange = function() {
+            if(this.files[0].size > 5242880){ // 5MB em Bytes
+               alert("A imagem é muito grande! Escolha uma foto de até 5MB.");
+               this.value = "";
+            };
+        };
+    </script>
+}
