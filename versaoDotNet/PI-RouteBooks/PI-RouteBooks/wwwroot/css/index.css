@@ -1,0 +1,454 @@
+.div-criar-post-geral {
+    display: flex;
+    flex: 1;
+    background-color: #71b3a1;
+    justify-content: flex-end;
+    align-items: center;
+    height: 50px;
+    font-size: 20px;
+    padding-right: 80px;
+}
+.bg-criar-post {
+    background-color: #71b3a1; 
+       
+}
+
+.div-criar-post{
+    font-weight: bold;
+    color: var(--criar-post-bg);
+    
+}
+
+.btn-criar-post{
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 6px 6px;
+    border-radius: 12px;
+    background: linear-gradient(135deg,#00d974,#00b35f);
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+
+    transition: all 0.25s ease;
+    box-shadow: 0 6px 14px rgba(0,0,0,0.2);
+}
+
+.div-criar-post-geral {
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 55px; /*  recuo para colocar o botão mais a direita */
+}
+
+.btn-criar-post i{
+    font-size: 14px;
+}
+
+.btn-criar-post:hover{
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0,217,116,0.35);
+    background: linear-gradient(135deg,#00e67a,#00c96a);
+}
+
+/*tudo acima envolve o botão de criar post*/
+
+/*inicio do index*/
+.inicio-index {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 60vh;
+    text-align: center;
+    padding: 40px 20px;
+}
+.inicio-index img {
+    width: 180px;
+    margin-bottom: 25px;
+    border-radius: 50%;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+    border: 4px solid #fff;
+
+    transition: all 0.5s ease;
+}
+
+.inicio-index img:hover {
+    transform: scale(1.1); 
+}
+
+.inicio-index h2 {
+    font-size: 2.2em;
+    margin-bottom: 16px;
+    font-weight: 700;
+}
+.inicio-index p {
+    font-size: 1.2em;
+    max-width: 600px;
+    margin: 0 auto 30px auto;
+    line-height: 1.6;
+}
+.btn-inicio {
+    background: #00fa85;
+    color: #2d3142;
+    padding: 14px 38px;
+    border: none;
+    border-radius: 30px;
+    font-size: 1.1em;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+    transition: all 0.25s ease;
+    position: relative;
+    overflow: hidden;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.btn-inicio:hover {
+    background: #00d974;
+    color: #000000;
+    transform: translateY(-3px);
+}
+
+.btn-inicio::before {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -30%;
+    width: 1.9em;
+    height: 200%;
+    background-color: rgba(255, 255, 255, 0.7);
+    transform: rotate(25deg);
+    border-radius: 10px;
+    transition: left 0.6s ease;
+}
+
+.btn-inicio:hover::before {
+    left: 130%;
+}
+
+
+/*relatos recentes do index*/
+
+.div-fundo-relatos{
+    display: flex;
+    justify-content: center;
+    box-shadow: 0 1px 4px 0 rgba(0, 0, 0, .1);
+}
+.fundo-relatos{
+    background-color: #00fa85;
+    width: fit-content;
+    display: flex;
+    height: fit-content;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    border-radius: 10px;
+    padding: 40px;
+    box-shadow: 0 1px 4px 0 rgba(0, 0, 0, .1);
+}
+.relatos{
+    height: 100%;
+    width: 960px;
+    background-color: #fff;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: 2px #005940 solid;
+}
+
+/*fim dos relatos recentes do index*/
+
+/*inicio das dicas do index*/
+
+.dicas-lista {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 18px;
+    margin-bottom: 40px;
+    justify-content: center;
+}
+.dica-item {
+    background: rgba(255,255,255,0.10);
+    border-radius: 12px;
+    border: #00d974 solid 1px;
+    padding: 18px 22px;
+    color: var(--text-color);
+    font-size: 1em;
+    min-width: 220px;
+    max-width: 320px;
+    box-shadow: 0 10px 8px rgba(0,0,0,0.08);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* TRANSIÇÃO SUAVE */
+}
+
+.dica-item:hover {
+    transform: scale(1.05); 
+    box-shadow: 0 12px 18px rgba(0,0,0,0.15);
+}
+
+.dica-item span {
+    font-size: 1.5em;
+}
+
+.tit-dicas{
+    text-align: center;
+    padding-bottom: 30px;
+    padding-top: 50px;
+}
+
+/*fim das dicas do index*/
+
+/*inicio cards do index*/
+
+.tamanho-car{
+    width: 1000px !important;
+    margin-top: 30px;
+    
+}
+.img-car{
+    border-radius: 30px;
+}
+.legenda-car{
+    color: #005940;
+    background-color: #ffffff;
+    border-radius: 20px;
+    border: #005940 2px solid;
+}
+
+/*fim do carrossel do index*/
+
+/*inicio sobre do index*/
+
+.geral-sobre{
+    margin-top: 30px;
+    margin-bottom: 30px;
+    border: 3px #005940 solid;
+    border-radius: 10px;
+    max-width: 850px; 
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: #fff;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* DARK MODE - SOBRE NÓS */
+body.dark-mode .geral-sobre {
+    background: rgba(255,255,255,0.10);
+    border: 1px solid #00d974;
+    backdrop-filter: blur(10px);
+}
+
+.geral-sobre:hover {
+    transform: scale(1.1); 
+}
+
+.titulo-sobre{
+    width: fit-content;
+    padding-bottom: 20px;
+}
+.text-titulo-sobre{
+    padding: 20px;
+    text-align: start;
+    font-size: 1.1em;
+}
+.titulo-sobre h2::after{
+   content: "";
+    width: 5em;
+    height: 2px;
+    background-color: #005940;
+    border-radius: 10px;
+    display: block;
+    margin: auto; 
+    text-align: start;
+}
+.btn-ver-sobre{
+    border-radius: 9px;
+    margin-bottom: 10px;   
+    width: 200px; 
+    height: 50px;
+
+    transition: all 0.25s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-ver-sobre:hover{
+    transform: translateY(-3px);
+}
+
+.div-btn-sobre::before{
+    content: "";
+    width: 0.3em;
+    height: 13em;
+    background-color: #005940;
+    border-radius: 10px;
+    display: block;
+    margin: auto; 
+    margin-right: 20px;
+    align-self: center;
+}
+
+.btn-ver-sobre::after{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -75%;
+    width: 50%;
+    height: 100%;
+    background: rgba(255,255,255,0.4);
+    transform: skewX(-25deg);
+    transition: 0.5s;
+}
+
+.btn-ver-sobre:hover::after{
+    left: 115%;
+}
+
+.div-btn-sobre{
+    display: flex;
+    padding-right: 20px;
+    align-items: center;
+}
+.conheca-index{
+    text-align: center;
+    padding-top: 30px;
+    font-weight: bold;
+}
+
+/*Muda a cor da barrinha de baixo*/
+body.dark-mode .titulo-sobre h2::after{
+    background-color: #00d974; /* ou a cor que quiser */
+}
+
+/*Muda a cor da barrinha vertical*/
+body.dark-mode .div-btn-sobre::before{
+    background-color: #00d974c4; /* mesma cor ou outra */
+}
+/*fim sobre do index*/
+
+
+
+/* Responsividade */
+@media (max-width: 1070px) {
+    .relatos{
+        width: 100%;
+    }
+    .tamanho-car{
+        width: 80% !important;
+    }
+}
+@media (max-width: 900px) {
+    .dicas-list {
+        flex-direction: column;
+        align-items: center;
+    }
+    .dica-item{
+        width: 100%;
+        max-width: 400px;
+    }
+    .geral-sobre{
+        max-width: 600px;
+        flex-direction: column;
+    }
+    .div-btn-sobre::before{
+    content: "";
+    width: 0em;
+    height: 0em;
+    }
+}
+
+
+
+.projetos {
+    padding: 2rem 2rem;
+}
+
+.projetos-caixa {
+    display: grid;
+    /* Organiza os itens em forma de grade */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    /* Ele repete para todos os itens. fr significa fração, auto-fit encaixa tudo na tela*/
+    gap: 2rem;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.projetos-card {
+    background: #005940; 
+    border-radius: 16px;
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--vidro);
+    overflow: hidden;
+    /* Esconde a sobra da imagem */
+}
+
+.projetos-imagem {
+    height: 150px;
+    width: 100%;
+    object-fit: cover;
+    /* Ele manda a imagem (ou vídeo) preencher todo o espaço do elemento, sem distorcer, mesmo que precise cortar um pedaço. */
+    object-position: center 45%;
+    /* é a posição do objeto. a % faz a imagem subir ou descer sem mexer no card */
+}
+
+.projetos-titulos {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 50px;
+}
+
+
+
+.projetos-card:hover {
+    box-shadow: 0 10px 20px rgba(30, 111, 92, 1);
+    transform: translateY(-10px) scale(1.03);
+    /* movimentar no eixo y e mudando a escala dele */
+    transition: all 0.3s ease;
+    /* Transição */
+    cursor: pointer;
+}
+
+.caixa-textos-projeto {
+    padding: 1.5rem;
+}
+
+.info-projetos {
+    margin-bottom: 5px;
+    color: white
+}
+
+.paragrafo-projetos {
+    color: #00fa85;
+    line-height: 1.25rem;
+    /* Altura da linha */
+}
+
+
+.link-projeto{
+    display: flex;
+    justify-content: left;
+    color: var(--claro);
+    margin-top: 5px;
+    
+}
+
+
+/* TÍTULOS NO DARK MODE */
+body.dark-mode .cor-titulo {
+    color: #16d87d !important; /* verde mais claro */
+}
+
+body.dark-mode .btn-ver-sobre {
+    background-color: #11b669 !important; /* verde mais claro */
+}
+
+/* BARRINHA DO SOBRE NÓS NO DARK MODE */

@@ -1,0 +1,301 @@
+html{
+   height: 100%;
+   margin: 0;
+   padding: 0;
+}
+.contato-geral{
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   flex-direction: column;
+}
+/*SECTION GERAL DA PÁGINA*/
+.contato-geral .contato-titulo{
+   max-width: 800px;
+   text-align: center;
+}
+/*DEFININDO LARGURA MÁXIMA E CENTRALIZAÇÃO PARA A DIV DO TÍTULO E A SECTION*/
+.fale-contato{
+   font-size: 36px;
+   font-weight: 500;
+   color: var(--text-color);
+   margin-top: 50px;
+}
+/*TÍTULO DA PÁGINA*/
+.p-contato{
+   font-weight: 300;
+}
+/*TEXTO ABAIXO DO TÍTULO*/
+.container-contato{
+   width: 85%;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   margin-top: 30px;
+   box-shadow: 2px 2px 2px 2px #357e64;
+   padding: 30px;
+   border-radius: 20px;
+   background-color: #ffffff;
+   border: #004230 solid 2px;
+}
+
+/* DARK MODE !IMPORTANT */
+body.dark-mode .container-contato {
+   background: rgba(255,255,255,0.10) !important;
+   border: 1px solid #00d974 !important;
+   backdrop-filter: blur(10px);
+}
+
+/*DIV PRINCIPAL DA PARTE DO CONTATO*/
+.contato-texto{
+   width: 50%;
+   display: flex;
+   flex-direction: column;
+}
+/*TEXTO DA PARTE DO CONTATO*/
+.icone-geral-contato{
+   position: relative;
+   padding: 20px 0;
+   display: flex;
+}
+/*DIV GERAL DA ESQUERDA DA PARTE DO CONTATO*/
+.icone-contato{
+   min-width: 60px;
+   height: 60px;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   border-radius: 50px;
+   font-size: 22px;
+   background-color: #00fa85;
+}
+
+/* Ícones no dark mode continuam pretos (envelope e telefone) */
+body.dark-mode .icone-contato i {
+   color: #000;
+}
+
+/*ICONES NA ESQUERDA DA PARTE DO CONTATO*/
+.info-contato{
+   display: flex;
+   margin-left: 20px;
+   font-size: 16px;
+   flex-direction: column;
+   font-weight: 300;  
+}
+/*DIV PARA O TEXTO NA ESQUERDA DA PARTE DO CONTATO*/
+.info-contato h3{
+   font-weight: 500;
+   color: #005940;
+}
+/*ALTERANDO PESO E COR DO E-MAIL E TELEFONE NA ESQUERDA DA PARTE DO CONTATO*/
+.contato-form{
+   width: 40%;
+   padding: 40px;
+   padding-top: 20px;
+   border-radius: 10px;
+}
+/*FORMULÁRIO DE CONTATO*/
+.contato-form h2{
+   font-size: 30px;
+   color: #004230;
+   text-align: center;
+   padding-bottom: 10px;
+}
+/*TÍTULO DO FORMULÁRIO*/
+.contato-form h2::after{
+   content: "";
+    width: 10.4em;
+    height: 5px;
+    background-color: #005940; /* Aqui é a barrinha de baixo do envie sua mensagem */
+    border-radius: 10px;
+    display: block;
+    margin: auto; 
+}
+
+/* Muda a cor da barrinha em baixo do envie sua mensagem */
+body.dark-mode .contato-form h2::after {
+   background-color: #00d974;
+}
+/*BARRINHA ABAIXO DO TÍTULO DO CONTATO*/
+
+
+.contato-form label{
+   color: #004230;
+   font-weight: 600;
+}
+/*LABEL DO FORM DO CONTATO*/
+.input-div-contato{
+   width: 100%;
+   margin-top: 3px;
+}
+/*DIV DOS INPUTS DO FORM DO CONTATO*/
+.input-div-contato input{
+   width: 100%;
+   padding: 5px 0;
+   font-size: 16px;
+   margin: 10px 0;
+   border: 2px #005940 solid;
+   border-radius: 10px;
+   outline: none;
+   padding-left: 5px;
+}
+/*MODIFICANDO O INPUT EM SI NA DIV DOS INPUTS*/
+.input-div-contato textarea{
+   width: 100%;
+   padding: 5px 0;
+   font-size: 16px;
+   margin: 10px 0;
+   border: 2px #005940 solid;
+   border-radius: 10px;
+   outline: none;
+   padding-left: 5px;
+   min-height: 160px;
+}
+/*MODIFICANDO O TEXTAREA DA DIV DOS INPUTS*/
+.btn-contato{
+   width: 100%;
+   padding: 8px 0;
+   font-size: 16px;
+   border: 2px #005940 solid;
+   border-radius: 12px;
+   background: linear-gradient(135deg,#00fa85,#00d974);
+   color: #003d2b;
+   font-weight: bold;
+   cursor: pointer;
+   transition: all 0.25s ease;
+   box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+
+   position: relative;
+   overflow: hidden;
+}
+
+/* Quando passa o mouse */ 
+.btn-contato:hover{
+   transform: translateY(-3px) scale(1.03);
+   box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+   background: linear-gradient(135deg,#00e67a,#00c96b);
+}
+
+/* Clique (efeito pressionar) */ 
+.btn-contato:active{
+   transform: scale(0.96);
+}
+
+.btn-contato::before{
+   content: "";
+   position: absolute;
+   top: 0;
+   left: -75%;
+   width: 50%;
+   height: 100%;
+   background: rgba(255,255,255,0.4);
+   transform: skewX(-25deg);
+   transition: 0.5s;
+}
+.btn-contato:hover::before{
+   left: 125%;
+}
+
+
+/*DIV DO BOTAO DO FORM DO CONTATO*/
+.div-btn-contato a{
+    width: 100%;
+    border-radius: 15px;
+    text-decoration: none;
+}
+/*MODIFICANDO O LINK DO BOTAO DA DIV DO BOTAO*/
+.btn-contato{
+   width: 100%;
+   padding: 5px 0;
+   font-size: 16px;
+   border: 2px #005940 solid;
+   border-radius: 10px;
+   background-color: #FFF;
+   background-color: #00fa85;
+}
+/*MODIFICANDO O BOTAO DO FORM*/
+.btn-contato:hover{
+   background-color: #00d974;
+   cursor: pointer;
+}
+/*MODIFICANDO A COR E O CURSOR DO MOUSE QUANDO O MOUSE PASSA EM CIMA DO BOTAO*/
+
+/* Muda a cor das escritas */
+body.dark-mode .titulo-font {
+   color: #EBEBEB !important;
+}
+
+
+
+/*DAQUI PRA BAIXO É TUDO RESPONSIVIDADE*/
+@media (max-width: 1120px) {
+           .contato-form h2::after{
+               content: "";
+               width: 0em;
+               height: 0PX;
+               background-color: #005940;
+               border-radius: 10px;
+               display: block;
+               margin: auto; 
+            }
+            /*TIRANDO A BARRINHA DE BAIXO DO TÍTULO DO FORM*/
+            .contato-geral{
+               padding-left: 30px;
+               padding-right: 30px;
+            }
+            /*DIMINUINDO O PADDING DA CONTATO-GERAL*/
+}
+@media (max-width: 1400px) {
+   .contato-geral{
+      padding-left: 40px;
+      padding-right: 40px;
+      margin-bottom: 30px;
+   }
+   /*AUMENTANDO O PADDING E O MARGIN DO CONTATO-GERAL*/
+}
+@media (max-width: 1200px) {
+   .container-contato {
+      width: 95%;
+      flex-wrap: wrap;
+      padding: 20px;
+   }
+
+   .contato-texto,
+   .contato-form {
+      width: 100%; /* Faz empilhar certinho */
+   }
+
+   .contato-texto {
+      margin-bottom: 20px; /* Espaço entre texto e formulário */
+   }
+}
+
+@media (max-width: 768px) {
+
+   .contato-geral {
+      padding-left: 20px;
+      padding-right: 20px;
+   }
+
+   .contato-texto h1 {
+      font-size: 1.6rem;
+      text-align: center;
+   }
+
+   .contato-texto p {
+      text-align: center;
+   }
+
+   .contato-form {
+      padding: 15px;
+   }
+}
+
+
+@media (max-height: 820px) {
+   .contato-geral{
+      height: 100%;
+   }
+   /*MODIFICANDO O HEIGHT PARA 100%*/
+}

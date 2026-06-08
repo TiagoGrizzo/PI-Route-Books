@@ -1,0 +1,111 @@
+body{
+    background-color: #eafaf3;
+}
+/*MUDANDO COR DO FUNDO*/
+.post-container {
+    max-width: 650px;
+    margin: 108px auto 100px auto;
+    background: rgba(255,255,255,0.97);
+    padding: 40px 32px 32px 32px;
+    border-radius: 18px;
+    box-shadow: 1px 6px 6px 10px rgba(44, 92, 59, 0.10);
+    border: 1px solid #005940;
+}
+/*CONTAINER DO CRIAR POST*/
+.post-container h2 {
+    margin-bottom: 28px;
+    color: #005940;
+    font-size: 2rem;
+    text-align: center;
+    letter-spacing: 1px;
+}
+/*MODIFICANDO TÍTULO DA PÁGINA*/
+.form-bloco {
+    margin-bottom: 22px;
+    background-color: #fff;
+}
+/*MODIFICANDO DIVS DO FORM*/
+.form-bloco label {
+    display: block;
+    margin-bottom: 7px;
+    font-weight: 600;
+    color: #005940;
+    letter-spacing: 0.5px;
+}
+/*MODIFICANDO LABEL*/
+.form-bloco input,
+.form-bloco textarea,
+.form-bloco select {
+    width: 100%;
+    padding: 12px;
+    border: 1.5px solid #005940;
+    border-radius: 7px;
+    font-size: 1rem;
+}
+/*MODIFICANDO INPUT, TEXTAREA E SELECT*/
+.form-bloco textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+/*MODIFICANDO TEXTAREA*/
+.btns-post{
+    display: flex;
+    flex-direction: row;
+    gap: 26px;
+    width: 80%;
+    justify-content: center;
+    align-items: center;
+    justify-self: center;
+    padding-top: 30px;
+    padding-bottom: 10px;
+}
+/*MODIFICANDO DIV DOS BUTTONS*/
+.btns-post a {
+    width: 40%;
+}
+/*LINK DO BUTTON*/
+.btn-postar {
+    background-color: #00d974;
+    color: #fff;
+    border: none;
+    padding: 14px 0;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    width: 100%;
+    box-shadow: 0 2px 8px rgba(44, 92, 59, 0.08);
+    letter-spacing: 1px;
+}
+/*MODIFICANDO BOTAO DE POSTAR*/
+.btn-postar:hover {
+    background-color: #005940;
+    box-shadow: 0 4px 16px rgba(44, 92, 59, 0.13);
+    color: #fff;
+}
+/*ALTERANDO O BOTAO DE POSTAR QUANDO O MOUSE ESTÁ EM CIMA DELE*/
+.btn-cancelar{
+    background-color: rgb(190, 0, 0);
+    color: #fff;
+    border: none;
+    padding: 14px 0;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    width: 100%;
+    box-shadow: 0 2px 8px rgba(44, 92, 59, 0.08);
+    letter-spacing: 1px;
+}
+/*MODIFICANDO BOTAO DE CANCELAR*/
+.btn-cancelar:hover{
+    background-color: rgb(110, 0, 0);
+}
+/*ALTERANDO BOTAO DE CANCELAR QUANDO O MOUSE ESTÁ EM CIMA DELE*/
+
+/*ABAIXO É RESPONSIVIDADE*/
+@media (max-width: 700px) {
+    .post-container {
+        width: 90%;
+    }
+}

@@ -1,0 +1,62 @@
+@{
+    // Desativa o _Layout padrão (navbar/footer) para a tela de login ficar isolada e limpa
+    Layout = null; 
+}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Route Books - Entre No Route Books</title>
+    
+    <link rel="stylesheet" href="~/css/reset.css" />
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/css/style.css" />
+    <link rel="stylesheet" href="~/css/login.css" />
+</head>
+<body>
+<section class="form-login-geral container-xxl">
+
+    <form asp-controller="Usuarios" asp-action="Login" method="POST" class="form-log">
+        
+        @if (ViewBag.Erro != null)
+        {
+            <div style="background-color: #e74c3c; color: white; padding: 10px; border-radius: 5px; text-align: center; margin-bottom: 15px; font-family: sans-serif; font-size: 14px;">
+                @ViewBag.Erro
+            </div>
+        }
+
+        <div class="logo">
+            <img src="~/imgs/rb-logo1.png" class="logo-img" alt="Logo Route Books" />
+        </div>
+        <h2 class="titulo-login">Entrar no Route Books</h2>
+
+        <label for="email">E-mail</label>
+        <div class="input-login">
+            <i class="fa fa-envelope-o" aria-hidden="true"></i>
+            <input class="input-email" name="email" type="email" placeholder="Insira seu e-mail..." required />
+        </div>
+
+        <label for="senha">Senha:</label>
+        <div class="input-login">
+            <i class="fa fa-lock" aria-hidden="true"></i>
+            <input class="input-senha" name="senha" type="password" placeholder="Insira sua senha..." required />
+        </div>
+
+        <div class="link-login">
+            <a href="#">Esqueci minha senha</a>
+        </div>
+
+        <div class="div-btn-login">
+            <button type="submit" class="btn-logar">Entrar</button>
+        </div>
+        <br />
+        <div class="link-login-cad">
+            Não tem uma conta? &nbsp;
+            <a asp-controller="Usuarios" asp-action="Create"> Cadastre-se já!</a>
+        </div>
+    </form>
+</section>
+</body>
+</html>

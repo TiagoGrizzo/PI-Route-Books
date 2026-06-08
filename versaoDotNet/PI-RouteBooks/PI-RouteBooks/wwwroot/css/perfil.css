@@ -1,0 +1,276 @@
+html{
+    height: 100%;
+}
+/*DEFININDO ALTURA DO HTML PARA 100%*/
+.container-perfil{
+    max-width: 1080px;
+    width: 100%;
+    padding: 0 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    justify-self: center;
+    align-self: center;
+}
+/*CONTAINER DO PERFIL*/
+.titulo-perfil{
+    font-weight: bold;
+    color: var(--text-color);
+    font-size: 29px;
+    padding-top: 20px;
+}
+/*TÍTULO DO PERFIL*/
+.foto-centro{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    border-radius: 20px;
+    padding-bottom: 20px;
+    margin-bottom: 40px;
+    box-shadow: 2px 2px 2px 2px #357e64;
+    align-self: center;
+    margin-top: 30px;
+    padding-top: 15px;
+    border: #005940 solid 1px;
+}
+
+/* DARK MODE - CONTATO */
+body.dark-mode .foto-centro {
+    background: rgba(255,255,255, 0.10) !important;
+    border: 1px solid #00d974;
+    backdrop-filter: blur(10px);
+}
+/*DIV QUE CENTRALIZA A FOTO DE PERFIL E ADICIONAR BORDA, BOX-SHADOW E DIRECIONA TUDO PRA COLUNA*/
+.perfil-foto{
+    display: flex;
+    justify-content: center;
+    padding-bottom: 20px;
+}
+
+.perfil-foto:hover {
+    transform: scale(1.1); 
+}
+
+/*DIV DA FOTO DE PERFIL*/
+.perfil-foto img{
+    height: 150px;
+    width: 150px;
+    object-fit: cover; 
+    object-position: center;
+    display: flex;
+    justify-content: center;
+    border: 3px solid #00fa85;
+    border-radius: 50%;
+    padding-top: 0.1px;
+    transition: transform 0.3 ease;
+}
+/*ALTERANDO FOTO DO PERFIL*/
+.div-perfil{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: center;
+}
+/*DIV GERA DAS INFORMAÇÕES DO PERFIL*/
+.orientacao-perfil{
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    width: 47%;
+}
+/*DIV PARA VOLTAR A DIREÇÃO DOS ELEMENTOS PARA COLUMN*/
+.perfil-info-bio{
+    display: flex;
+    flex-direction: column;
+    width: 53%;
+    justify-content: center;
+    align-items: center;
+    margin-right: 10px;
+
+}
+/*DIV DA BIOGRAFIA*/
+.perfil-info-bio textarea{
+    resize: none;
+    padding: 15px;
+    text-decoration: none;
+    text-align: justify;
+    font-weight: 600;
+    font-size: 17px;
+    height: 400px;
+    width: 90%;
+    font-size: 16px;
+    border: 2px #005940 solid;
+    border-radius: 10px;
+    outline: none;
+    background-color: var(--text-area);
+}
+/*MODIFICANDO O TEXTAREA DA BIOGRAFIA*/
+.campos-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    
+}
+/*DIV GERAL DOS CAMPOS DE INFO*/
+.perfil-info{
+    display: flex;
+    flex-direction: column;
+    width: 85%;
+    justify-content: center;
+    
+}
+/*CLASSE COMPARTILHADA DOS CAMPOS DE INFO*/
+.perfil-info label{
+    color: var(--text-color);
+    font-weight: bold;
+    margin-bottom: -10px;
+}
+/*MODIFICANDO AS LABELS DO PERFIL*/
+.input-perfil{
+    width: 100%;
+   padding: 5px 0;
+   font-size: 16px;
+   margin: 10px 0;
+   border: 2px #005940 solid;
+   border-radius: 10px;
+   outline: none;
+   padding-left: 5px;
+   background-color: var(--text-area);
+}
+/*MODIFICANDO OS INPUTS DO PERFIL*/
+.label-perfil-bio{
+    text-align: center;
+    color: var(--text-color);
+    font-weight: bold;
+}
+/*LABEL DO TEXTAREA DA BIO*/
+
+/* BOTÃO DE EDITAR PERFIL*/
+.btn-editar-perfil,
+.btn-trocar-foto{
+  background: linear-gradient(135deg,#005940,#00fa85);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  padding: 10px 18px;
+  font-size: 15px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+  position: relative;
+  overflow: hidden;
+  margin: 4px;
+}
+
+/* Animação ao passar o mouse */
+.btn-editar-perfil:hover,
+.btn-trocar-foto:hover{
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 10px 18px rgba(0,0,0,0.3);
+}
+
+/* Animação ao clicar */
+.btn-editar-perfil:active,
+.btn-trocar-foto:active{
+  transform: scale(0.95);
+}
+
+/* Efeito de brilho passando */
+.btn-editar-perfil::before,
+.btn-trocar-foto::before{
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -75%;
+  width: 50%;
+  height: 100%;
+  background: rgba(255,255,255,0.3);
+  transform: skewX(-25deg);
+  transition: 0.5s;
+}
+
+.btn-editar-perfil:hover::before,
+.btn-trocar-foto:hover::before{
+  left: 130%;
+}
+
+
+
+/*ABAIXO É RESPONSIVIDADE*/
+/*Tablet*/
+@media (max-width: 1230px) {
+
+    .div-perfil{
+        flex-direction: column;
+        width: 100%;
+        max-width: 750px;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .orientacao-perfil,
+    .perfil-info-bio {
+        width: 100%;
+        max-width: 500px;
+    }
+
+    .perfil-info-bio textarea{
+        width: 100%;
+        height: 220px;
+    }
+
+    .perfil-info{
+        width: 100%;
+    }
+
+    .foto-centro{
+        width: 95%;
+        margin-top: 20px;
+    }
+
+    .container-perfil{
+        width: 100%;
+        max-width: 800px;
+    }
+}
+
+/*Celular*/
+@media (max-width: 600px){
+
+    .perfil-foto img{
+        width: 120px;
+        height: 120px;
+    }
+
+    .titulo-perfil{
+        font-size: 22px;
+    }
+
+    .perfil-info label{
+        font-size: 14px;
+    }
+
+    .input-perfil{
+        font-size: 14px;
+    }
+
+    .perfil-info-bio textarea{
+        font-size: 14px;
+        height: 150px;
+    }
+
+    .btn-editar-perfil{
+        padding: 10px;
+        font-size: 14px;
+    }
+
+    .orientacao-perfil,
+    .perfil-info-bio {
+        
+        max-width: 90%;
+    }
+}

@@ -1,0 +1,168 @@
+@model IEnumerable<PI_RouteBooks.Models.Post>
+
+@{
+    ViewData["Title"] = "Seu melhor amigo quando a questão é se aventurar!";
+}
+
+@section Styles {
+    <link rel="stylesheet" href="~/css/index.css" asp-append-version="true" />
+}
+
+@if (TempData["MensagemSucesso"] != null)
+{
+    <div class="alert alert-success text-center container-xxl mt-3">@TempData["MensagemSucesso"]</div>
+}
+
+<div class="bg-criar-post">
+    <div class="div-criar-post-geral container-xxl">
+        <div class="div-criar-post titulo-font">
+            <a asp-controller="Posts" asp-action="Create" class="btn-criar-post text-decoration-none">
+                <i class="fa fa-plus"></i>
+                Criar Post
+            </a>
+        </div>
+    </div>
+</div>
+
+<div class="inicio-index container-xxl">
+    <img src="~/imgs/mundo.png" alt="Mochilão aventura">
+    <h2 class="titulo-font cor-titulo">Explore o mundo com liberdade e emoção!</h2>
+    <p>
+        Descubra destinos incríveis, dicas essenciais e histórias inspiradoras para quem ama viajar de mochila nas
+        costas. Aventuras, trilhas, paisagens de tirar o fôlego e experiências inesquecíveis esperam por você.
+        Pronto para embarcar nessa jornada?
+    </p>
+    <a asp-controller="Posts" asp-action="Index" class="btn-inicio text-decoration-none">Comece sua aventura</a>
+    <br><br><br>
+    <div class="bg-conteudo">
+        <div class="title-conteudo">
+            <h3 class="h3-conteudo titulo-font cor-titulo">Últimos posts feitos por aventureiros</h3>
+        </div>
+
+        <div class="div-fundo-relatos">
+            <div class="fundo-relatos">
+                @if (Model != null && Model.Any())
+                {
+                    foreach (var p in Model)
+                    {
+                        var resumoConteudo = p.Conteudo.Length > 150 ? p.Conteudo.Substring(0, 150) + "..." : p.Conteudo;
+
+                        <div class="relatos">
+                            <div class="conteudo-card-index">
+                                <h3 class="titulo-font cor-titulo">@p.Titulo</h3>
+                                <p>@resumoConteudo</p>
+
+                                <div class="post-info-index d-flex align-items-center flex-wrap">
+                                    <span>
+                                        Por @(p.Autor?.NomeCompleto ?? p.Autor?.Username ?? "Aventureiro") •
+                                        @p.DataCriacao.ToString("dd 'de' MMMM, yyyy")
+                                    </span>
+
+                                    @if (p.UsuariosIdUsuario != Context.Session.GetInt32("UsuarioId"))
+                                    {
+                                        <a asp-controller="Chat" asp-action="Index" asp-route-idDoAmigo="@p.UsuariosIdUsuario"
+                                           class="btn btn-sm btn-outline-success ms-3 py-0 px-2" style="border-radius: 12px; font-size: 11px;">
+                                            <i class="fa fa-comments"></i> Chamar no Chat
+                                        </a>
+                                    }
+                                </div>
+                            </div>
+                            <div class="div-btn-relatos">
+                                <a asp-controller="Posts" asp-action="Details" asp-route-id="@p.IdPost">
+                                    <button class="btn-relatos">Ver Post</button>
+                                </a>
+                            </div>
+                        </div>
+                    }
+                }
+                else
+                {
+                    <p style="text-align:center; color: #fff;">Ainda não há postagens. Seja o primeiro a compartilhar sua aventura!</p>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+<br>
+
+<h1 class="container-xxl conheca-index titulo-font cor-titulo">Alguns lugares que você deve visitar!</h1>
+<section id="projetos" class="projetos">
+    <div class="projetos-caixa container-xxl">
+        <div class="projetos-card">
+            <img src="~/imgs/peru.jpg" alt="Peru" class="projetos-imagem">
+            <div class="caixa-textos-projeto">
+                <h5 class="info-projetos">Ilhas flutuantes do Lago Titicaca - Puno - Peru</h5> <br>
+                <p class="paragrafo-projetos">São plataformas artificiais milenares construídas inteiramente de totora, uma planta aquática, habitadas pelo povo Uros.</p>
+            </div>
+        </div>
+
+        <div class="projetos-card">
+            <img src="~/imgs/algarve.jpg" alt="Portugal" class="projetos-imagem">
+            <div class="caixa-textos-projeto">
+                <h5 class="info-projetos">Algarve - Faro - Portugal</h5> <br>
+                <p class="paragrafo-projetos">Situado no extremo sul de Portugal, é uma região costeira famosa pelas suas falésias douradas e águas cristalinas.</p>
+            </div>
+        </div>
+
+        <div class="projetos-card">
+            <img src="~/imgs/lencois_maranhenses.jpg" alt="Lençois Maranhenses" class="projetos-imagem">
+            <div class="caixa-textos-projeto">
+                <h5 class="info-projetos">Lençóis Maranhenses - Barreirinhas - (MA)</h5> <br>
+                <p class="paragrafo-projetos">Famosa por suas grandes dunas de areia branca e lagoas temporárias formadas pela água da chuva.</p>
+            </div>
+        </div>
+
+        <div class="projetos-card">
+            <img src="~/imgs/nascente_areia_que_canta-brotas.jpg" alt="Brotas" class="projetos-imagem">
+            <div class="caixa-textos-projeto">
+                <h5 class="info-projetos">Nascente Areia que Canta - Brotas - (SP)</h5> <br>
+                <p class="paragrafo-projetos">Oferece uma visita à nascente de águas cristalinas vindas do Aquífero Guarani, com uma areia que "canta".</p>
+            </div>
+        </div>
+
+        <div class="projetos-card">
+            <img src="~/imgs/Aguas-saoPedro.png" alt="Águas de São Pedro" class="projetos-imagem">
+            <div class="caixa-textos-projeto">
+                <h5 class="info-projetos">Resorts, Parques - Águas de São Pedro - (SP)</h5> <br>
+                <p class="paragrafo-projetos">Renomada estância hidromineral. Famosa pelas águas medicinais, oferece turismo de saúde e lazer.</p>
+            </div>
+        </div>
+
+        <div class="projetos-card">
+            <img src="~/imgs/Moinho-Povos-Unidos.jpg" alt="Holambra" class="projetos-imagem">
+            <div class="caixa-textos-projeto">
+                <h5 class="info-projetos">Moinho Povos Unidos - Holambra - (SP)</h5> <br>
+                <p class="paragrafo-projetos">Moinho de vento construído na tradição holandesa, considerado o mais alto da América Latina.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<h2 class="titulo-font cor-titulo tit-dicas container-xxl">Dicas Rápidas para Mochileiros</h2>
+<div class="dicas-lista container-xxl">
+    <div class="dica-item"><span>🎒</span> Leve apenas o essencial para facilitar seus deslocamentos.</div>
+    <div class="dica-item"><span>💧</span> Tenha sempre uma garrafa de água reutilizável.</div>
+    <div class="dica-item"><span>🗺️</span> Baixe mapas offline dos destinos que vai visitar.</div>
+    <div class="dica-item"><span>🛏️</span> Pesquise hotéis e acomodações compartilhadas para economizar.</div>
+    <div class="dica-item"><span>🌎</span> Respeite a cultura local e preserve o meio ambiente.</div>
+</div>
+
+<h2 class="container-xxl conheca-index titulo-font cor-titulo">Conheça um pouco sobre a gente!</h2>
+<div class="geral-sobre container-xl mb-5">
+    <div class="text-titulo-sobre">
+        <div class="titulo-sobre">
+            <h2 class="titulo-font cor-titulo">Sobre Nós</h2>
+        </div>
+        <div class="div-texto-sobre container-sm">
+            <p class="p-sobre">
+                A Route Books é um guia turístico com a finalidade de ajudar viajantes a encontrar grandes experiências.
+                Aqui as pessoas podem deixar os relatos de suas aventuras para ajudar outros viajantes.
+            </p>
+        </div>
+    </div>
+    <div class="div-btn-sobre">
+        <a href="#" class="text-decoration-none">
+            <button class="btn-relatos btn-ver-sobre">Ver Mais ></button>
+        </a>
+    </div>
+</div>

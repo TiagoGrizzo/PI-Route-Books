@@ -1,0 +1,272 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+html{
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+/*DEFININDO ALTURA EM 100% DA TELA E CENTRALIZANDO CONTEUDO*/
+body{
+    font-family: 'Nunito', Arial, Helvetica, sans-serif;
+    background-image: url('../imgs/foto_login.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+/*DEFININDO FONTE E COR DE FUNDO*/
+.form-login-geral {
+    position: relative;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    box-shadow: 0 1px 4px 0 rgba(0, 0, 0, .1);
+    width: 100%;
+}
+/*SECTION PRINCIPAL DA PÁGINA*/
+.form-log{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 40px 90px 40px 90px;
+}
+/*MODIFICANDO O FORMULÁRIO DA PÁGINA*/
+.titulo-login {
+    font-size: 1.8em;
+    margin-bottom: 10%;
+    text-align: center;
+}
+/*MODIFICANDO TÍTUO*/
+.input-login {
+    width: 100%;
+    border-radius: 22px;
+    border: 2px #005940 solid;
+    padding: 5px;
+    margin: 0px 0px 12px -5px;
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+}
+/*MODIFICANDO A DIV DO INPUT DA PÁGINA*/
+.input-login i{
+    font-size: 1.2em;
+    padding: 5px;
+}
+/*MODIFICANDO ICONE DA PÁGINA*/
+.input-login input{
+    width: 90%;
+    height: 2.2em;
+    border: none;
+    outline: none;
+}
+/*MODIFICANDO O INPUT DA PÁGINA*/
+.form-log label{
+    width: 100%;
+    box-sizing: border-box;
+}
+/*MODIFICNADO LABEL DO FORM*/
+.div-btn-login{
+    display: flex;
+    justify-content: center;
+    width: 60%;
+}
+/*MODIFICANDO BOTAO DE LOGIN*/
+.div-btn-login a{
+    width: 90%;
+    border-radius: 15px;
+    margin-top: 10%;
+}
+/*MODIFICANDO LINK DO BOTAO*/
+.btn-logar {
+    width: 100%;
+    height: 35px;
+    font-size: 1.2em;
+    font-weight: 600;
+    border: #005940 1px solid;
+    background-color: #00fa85;
+    border-radius: 15px;
+    padding: 5px 20px 5px 20px;
+    font-family: 'Nunito', Arial, Helvetica, sans-serif;
+    outline: none;
+}
+/*MODIFICANDO BOTAO DE LOGAR*/
+.btn-logar:hover{
+    background-color: #00d974;
+    cursor: pointer;
+}
+/*ALTERANDO BOTAO QUANDO O MOUSE ESTÁ EM CIMA DELE*/
+.link-login-cad{
+    font-size: .9em;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-top: 10px;
+}
+/*DIV DO LINK PARA A PÁGINA DE CADASTRO*/
+.link-login-cad a{
+    color: #005940;
+    text-align: start;
+}
+/*MODIFICANDO O LINK PARA A PÁGINA DE CADASTRO*/
+.link-login-cad a:hover{
+    color: #00d974;
+}
+/*ALTERANDO LINK QUANDO O MOUSE ESTÁ EM CIMA DELE*/
+.logo-img{
+    height: 50px;
+    margin-bottom: 30px;
+}
+/*ALTERANDO TAMANHO DA LOGO*/
+.logo{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+    margin-top: 10px;
+}
+/*MODIFICANDO DIV DA LOGO*/
+
+/*Celular*/
+@media (max-width: 400px) {
+    html, body {
+        height: auto;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        background-color: #005940;
+        display: block;
+        overflow-x: hidden;
+    }
+
+    .form-login-geral {
+        width: 100%;
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 30px 10px;
+        box-sizing: border-box;
+    }
+
+    .form-log {
+        width: 90%;
+        padding: 25px 20px;
+        border-radius: 10px;
+        background-color: #fff;
+        box-sizing: border-box;
+    }
+
+    .titulo-login {
+        font-size: 1.4em;
+        margin-bottom: 25px;
+        text-align: center;
+    }
+
+    .input-login {
+        width: 100%;
+        min-width: unset;
+        margin: 8px 0;
+    }
+
+    .form-log label {
+        min-width: unset;
+        width: 100%;
+    }
+
+    .btn-logar {
+        font-size: 1em;
+        padding: 10px;
+    }
+
+    .div-btn-login {
+        width: 100%;
+        margin-top: 25px;
+    }
+
+    .logo-img {
+        height: 45px;
+        margin-bottom: 20px;
+    }
+
+    .link-login-cad {
+        flex-direction: column;
+        text-align: center;
+        font-size: 0.9em;
+    }
+}
+
+/*Tablet*/
+@media (min-width: 768px) and (max-width: 1024px) {
+    html, body {
+        height: auto;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        background-color: #005940;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        overflow-x: hidden;
+    }
+
+    .form-login-geral {
+        width: 100%;
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 40px 20px;
+        box-sizing: border-box;
+    }
+
+    .form-log {
+        width: 75%;
+        max-width: 700px;
+        padding: 40px;
+        border-radius: 12px;
+    }
+
+    .titulo-login {
+        font-size: 1.8em;
+        margin-bottom: 40px;
+        text-align: center;
+    }
+
+    .input-login {
+        width: 100%;
+        min-width: unset;
+        margin: 10px 0;
+    }
+
+    .form-log label {
+        min-width: unset;
+        width: 100%;
+    }
+
+    .btn-logar {
+        font-size: 1.1em;
+        padding: 12px;
+        width: 100%;
+    }
+
+    .div-btn-login {
+        width: 80%;
+        margin-top: 30px;
+    }
+
+    .logo-img {
+        height: 60px;
+        margin-bottom: 30px;
+    }
+
+    .link-login-cad {
+        justify-content: center;
+        text-align: center;
+        font-size: 1em;
+    }
+}
+/* RESPONSIVIDADE */

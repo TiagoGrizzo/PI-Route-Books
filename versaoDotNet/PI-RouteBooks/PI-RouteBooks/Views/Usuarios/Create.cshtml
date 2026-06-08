@@ -1,0 +1,106 @@
+@model PI_RouteBooks.Models.Usuario
+
+@{
+    // Desativa a navbar/footer padrão para manter a tela de cadastro limpa e focada
+    Layout = null; 
+}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Route Books - Cadastre-se E Aventure-se!</title>
+    
+    <link rel="stylesheet" href="~/css/reset.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="~/css/style.css" />
+    <link rel="stylesheet" href="~/css/cadastro.css" />
+</head>
+<body>
+    <section class="form-cadastro-geral container-xxl">
+        
+        <form asp-controller="Usuarios" asp-action="Create" method="POST" class="form-cad">
+            
+            <div class="logo">
+                <img src="~/imgs/rb-logo1.png" class="logo-cadastro" alt="Logo Route Books" />
+            </div>
+            <h2 class="titulo-cadastro">Cadastre-se e Aventure-se!</h2>
+            
+            <div asp-validation-summary="ModelOnly" class="text-danger" style="margin-bottom: 15px; font-family: sans-serif; font-size: 14px;"></div>
+            
+            <div class="div-inputs">
+                <div class="dividir-inputs-1">
+                    <label for="Username">Nome de usuário:</label>
+                    <div class="input-cadastro">
+                        <i class="fa fa-user-o" aria-hidden="true"></i>
+                        <input class="input-username" name="Username" id="Username" type="text" placeholder="Insira seu nome de usuário..." required />
+                    </div>
+
+                    <label for="NomeCompleto">Nome completo:</label>
+                    <div class="input-cadastro">
+                        <i class="fa fa-user-o" aria-hidden="true"></i>
+                        <input class="input-nome" name="NomeCompleto" id="NomeCompleto" type="text" placeholder="Insira seu nome completo..." required />
+                    </div>
+
+                    <label for="Email">E-mail:</label>
+                    <div class="input-cadastro">
+                        <i class="fa fa-envelope-o" aria-hidden="true"></i>
+                        <input class="input-email" name="Email" id="Email" type="email" placeholder="Insira seu e-mail..." required />
+                    </div>
+
+                    <label for="Telefone">Telefone:</label>
+                    <div class="input-cadastro">
+                        <i class="fa fa-phone" aria-hidden="true"></i>
+                        <input class="input-telefone" name="Telefone" id="Telefone" type="text" placeholder="Insira seu número de telefone..." />
+                    </div>
+
+                    <label for="SenhaHash">Senha:</label>
+                    <div class="input-cadastro">
+                        <i class="fa fa-lock" aria-hidden="true"></i>
+                        <input class="input-senha" name="SenhaHash" id="SenhaHash" type="password" placeholder="Insira sua senha..." required />
+                    </div>
+                </div>
+
+                <div class="dividir-inputs-2">
+                    <label for="Cidade">Cidade:</label>
+                    <div class="input-cadastro">
+                        <i class="fa fa-building" aria-hidden="true"></i>
+                        <input class="input-cidade" name="Cidade" id="Cidade" type="text" placeholder="Insira a sua cidade..." />
+                    </div>
+
+                    <label for="Uf">Estado (UF):</label>
+                    <div class="input-cadastro">
+                        <i class="fa fa-map-marker" aria-hidden="true"></i>
+                        <input class="input-estado" name="Uf" id="Uf" type="text" maxlength="2" placeholder="Ex: SP" />
+                    </div>
+
+                    <label for="Pais">País:</label>
+                    <div class="input-cadastro">
+                        <i class="fa fa-globe" aria-hidden="true"></i>
+                        <select class="select-uf" name="Pais" id="Pais">
+                            <option value="">Selecione</option>
+                            <option value="Brasil">Brasil</option>
+                            <option value="Portugal">Portugal</option>
+                        </select>
+                    </div>
+                    
+                    <label for="conf_senha">Confirme sua senha:</label>
+                    <div class="input-cadastro">
+                        <i class="fa fa-lock" aria-hidden="true"></i>
+                        <input class="input-senha" name="conf_senha" id="conf_senha" type="password" placeholder="Insira novamente sua senha..." required />
+                    </div>
+                </div>
+            </div>
+
+            <div class="div-btn-cadastro">
+                <button type="submit" class="btn-cadastrar">Cadastrar</button>
+            </div>
+            <br />
+            <div class="link-login">
+                Já tem uma conta? <a asp-controller="Usuarios" asp-action="Login">Entre já!</a>
+            </div>
+        </form>
+    </section>
+</body>
+</html>
