@@ -37,6 +37,8 @@ body {
     align-items: center;
     justify-content: space-between;
     border: 2px #005940 solid;
+
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
     /*DIV PRINCIPAL DE CADA POST*/
     .relato-posts:hover {
@@ -48,3 +50,56 @@ body {
         width: 90%;
     }
 }
+
+
+
+
+/* ===================================================
+   DARK MODE - TELA DE POSTS (verposts.css)
+   =================================================== */
+
+/* 1. O Card Principal (.relato-posts) */
+body.dark-mode .relato-posts {
+    background-color: #252728 !important; /* Tom cinza escuro no card todo */
+    border: 1px solid #00fa85 !important;
+    border-radius: 15px !important; /* Mantém as bordas arredondadas */
+    overflow: hidden !important; /* Garante que o fundo não saia pelas pontas */
+}
+
+/* 2. Container da Esquerda (Texto do Post) */
+body.dark-mode .conteudo-card-index {
+    background-color: transparent !important;
+}
+
+/* 3. Container da Direita (Onde fica o Botão - REMOVE O BRANCO) */
+body.dark-mode .div-btn-relatos {
+    background-color: transparent !important; /* Tira o fundo branco do lado do botão */
+}
+
+/* 4. Títulos dos Posts */
+body.dark-mode .relato-posts .cor-titulo,
+body.dark-mode .relato-posts h3 {
+    color: #00fa85 !important; /* Verde neon com ótimo contraste */
+}
+
+/* 5. Texto de descrição (Parágrafo) */
+body.dark-mode .relato-posts p {
+    color: #e0e0e0 !important; /* Texto claro bem visível */
+}
+
+/* 6. Informações de Autor, Data e Categoria */
+body.dark-mode .post-info-index span {
+    color: #b0b0b5 !important;
+}
+
+/* 7. Botão "Ver Mais" (.btn-relatos) */
+body.dark-mode .btn-relatos {
+    background-color: #005940 !important;
+    color: #ffffff !important;
+    border: none !important;
+}
+
+    body.dark-mode .btn-relatos:hover {
+        background-color: #00fa85 !important;
+        color: #000000 !important;
+    }

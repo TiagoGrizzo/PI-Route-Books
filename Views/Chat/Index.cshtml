@@ -4,21 +4,119 @@
     ViewData["Title"] = "Conversa com " + ViewBag.AmigoNome;
 }
 
+<style>
+    /* ===================================================
+           ESTILOS EXCLUSIVOS DO CHAT (INTEGRADO AO COLOR.CSS)
+           =================================================== */
+
+    /* Header do Chat */
+    .chat-header {
+        background-color: var(--main-color) !important;
+    }
+
+    .chat-icon-user {
+        font-size: 1.6rem;
+        color: var(--secondary-color) !important;
+    }
+
+    /* Corpo da Caixa de Mensagens */
+    .chat-body {
+        background-color: #f8f9fa;
+    }
+
+    /* Mensagem MINHA (Light Mode) */
+    .msg-minha {
+        background-color: #27ae60 !important;
+        color: #ffffff !important;
+    }
+
+    /* Mensagem do OUTRO (Light Mode) */
+    .msg-outros {
+        background-color: #ffffff !important;
+        color: #333333 !important;
+    }
+
+    /* Rodapé e Input */
+    .chat-footer {
+        background-color: #ffffff;
+    }
+
+    .btn-enviar-chat {
+        background-color: #27ae60 !important;
+        color: #ffffff !important;
+    }
+
+    /* ===================================================
+           ADAPTAÇÕES AUTOMÁTICAS PARA O DARK MODE
+           =================================================== */
+
+    /* Fundo da área de chat no Dark Mode */
+    body.dark-mode .chat-body {
+        background-color: #2a2a2c !important;
+    }
+
+    /* Suas mensagens no Dark Mode (Verde Neon com texto escuro) */
+    body.dark-mode .msg-minha {
+        background-color: var(--secondary-color) !important; /* #00fa85 */
+        color: #000000 !important;
+        font-weight: 500;
+    }
+
+    /* Mensagens do amigo no Dark Mode (Fundo escuro do card) */
+    body.dark-mode .msg-outros {
+        background-color: var(--card-bg) !important; /* #1e1e1e */
+        color: var(--text-color) !important; /* #EBEBEB */
+        border: 1px solid #333333;
+    }
+
+    /* Área de digitação e footer no Dark Mode */
+    body.dark-mode .chat-footer {
+        background-color: var(--main-color) !important; /* #1f1f1f */
+    }
+
+    body.dark-mode .input-chat-msg {
+        background-color: #3a3a3c !important;
+        color: var(--text-color) !important;
+        border-color: #555555 !important;
+    }
+
+        body.dark-mode .input-chat-msg::placeholder {
+            color: #aaaaaa !important;
+        }
+
+    /* Botão Enviar no Dark Mode */
+    body.dark-mode .btn-enviar-chat {
+        background-color: var(--secondary-color) !important;
+        color: #000000 !important;
+    }
+
+    /* Tela Vazia (Sem mensagens) */
+    .chat-empty-box i, .chat-empty-box h6 {
+        color: var(--title-color);
+    }
+
+    body.dark-mode .chat-empty-box p {
+        color: var(--text-color);
+    }
+</style>
+
 <div class="container container-xxl mt-4 flex-grow-1">
     <div class="row justify-content-center">
         <div class="col-md-8">
 
-            <div class="card shadow-sm border-0" style="border-radius: 15px; overflow: hidden;">
+            <div class="card chat-card-main shadow-sm border-0" style="border-radius: 15px; overflow: hidden;">
 
-                <div class="card-header bg-dark text-white p-3 d-flex align-items-center justify-content-between" style="background-color: #2c3e50 !important;">
+                <!-- Cabeçalho do Chat -->
+                <div class="card-header chat-header p-3 d-flex align-items-center justify-content-between">
                     <div class="d-flex align-items-center">
-                        <i class="fa fa-user-circle-o me-2" style="font-size: 1.6rem; color: #27ae60;"></i>
-                        <h5 class="mb-0 titulo-font">@ViewBag.AmigoNome</h5>
+                        <i class="fa fa-user-circle-o me-2 chat-icon-user"></i>
+                        <h5 class="mb-0 titulo-font text-white">@ViewBag.AmigoNome</h5>
                     </div>
                     <span class="badge bg-success" style="font-size: 11px; border-radius: 10px;">Chat Privado</span>
                 </div>
 
-                <div class="card-body bg-light" id="chat-box" style="height: 430px; overflow-y: auto; padding: 20px;">
+                <!-- Corpo / Caixa de Mensagens -->
+                <div class="card-body chat-body" id="chat-box" style="height: 430px; overflow-y: auto; padding: 20px;">
                     @if (Model != null && Model.Any())
                     {
                         foreach (var msg in Model)
@@ -26,14 +124,12 @@
                             var ehMinhaMensagem = msg.RemetenteId == Context.Session.GetInt32("UsuarioId");
 
                             <div class="d-flex @(ehMinhaMensagem ? "justify-content-end" : "justify-content-start") mb-3">
-                                <div class="card p-2 px-3 shadow-sm"
-                                     style="max-width: 75%; border-radius: 15px;
-                                                    background-color: @(ehMinhaMensagem ? "#27ae60" : "#ffffff");
-                                                    color: @(ehMinhaMensagem ? "#ffffff" : "#333333");">
+                                <div class="card p-2 px-3 shadow-sm msg-balao @(ehMinhaMensagem ? "msg-minha" : "msg-outros")"
+                                     style="max-width: 75%; border-radius: 15px;">
 
                                     <p class="mb-0" style="font-size: 14px; word-break: break-word;">@msg.Texto</p>
 
-                                    <small class="d-block text-end mt-1" style="font-size: 9px; opacity: 0.7;">
+                                    <small class="d-block text-end mt-1 msg-tempo" style="font-size: 9px; opacity: 0.8;">
                                         @msg.EnviadoEm.ToString("HH:mm")
                                     </small>
                                 </div>
@@ -42,25 +138,26 @@
                     }
                     else
                     {
-                        <div class="text-center text-muted mt-5 py-5">
-                            <i class="fa fa-envelope-o d-block mb-3" style="font-size: 3.5rem; opacity: 0.2; color: #27ae60;"></i>
+                        <div class="text-center mt-5 py-5 chat-empty-box">
+                            <i class="fa fa-envelope-o d-block mb-3" style="font-size: 3.5rem;"></i>
                             <h6 class="titulo-font">Inicie a conversa!</h6>
-                            <p class="small text-secondary">Diga um "Olá" para @ViewBag.AmigoNome e comecem a conversar.</p>
+                            <p class="small">Diga um "Olá" para @ViewBag.AmigoNome e comecem a conversar.</p>
                         </div>
                     }
                 </div>
 
-                <div class="card-footer bg-white p-3 border-top-0">
+                <!-- Rodapé / Input de Envio -->
+                <div class="card-footer chat-footer p-3 border-top-0">
                     <form asp-controller="Chat" asp-action="Enviar" method="post" class="d-flex">
                         @Html.AntiForgeryToken()
 
                         <input type="hidden" name="destinatarioId" value="@ViewBag.AmigoId" />
 
-                        <input type="text" name="texto" class="form-control me-2 search-bar"
+                        <input type="text" name="texto" class="form-control me-2 search-bar input-chat-msg"
                                placeholder="Enviar mensagem para @ViewBag.AmigoNome..." autocomplete="off" required
                                style="border-radius: 20px; padding: 10px 20px;" />
 
-                        <button type="submit" class="btn btn-success px-4" style="border-radius: 20px; background-color: #27ae60; border: none;">
+                        <button type="submit" class="btn btn-success px-4 btn-enviar-chat" style="border-radius: 20px; border: none;">
                             <i class="fa fa-paper-plane" aria-hidden="true"></i>
                         </button>
                     </form>
