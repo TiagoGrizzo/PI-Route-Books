@@ -132,46 +132,46 @@ html, body {
     background-color: #005940;
     color: #00fa85;
     align-items: center;
-    text-align: center;
     justify-content: center;
+    text-align: center;
     gap: 20px;
-    min-height: 200px;
     width: 100%;
-    margin-top: 90px;
+    padding: 35px 0;
+    margin-top: auto; /* Trava o footer no final da página quando há pouco conteúdo */
 }
 /*MODIFICANDO FOOTER*/
-.itens-footer-geral{
+.itens-footer-geral {
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
     gap: 20px;
     flex-wrap: wrap;
-    width: 90%;
+    width: 100%;
 }
 /*ALINHANDO ITENS DO FOOTER*/
 .item-footer {
     display: flex;
     justify-content: center;
     align-items: center;
-    text-align: center;  
+    text-align: center;
     width: 30%;
 }
-/*MODIFICANDO CADA ITEM DO FOOTER*/
-.item-footer a {
-    color: #00fa85;
-    text-decoration: none;
-}
-/*LINKS DO FOOTER*/
-.item-footer a:hover {
-    color: #00d974;
-}
+    /*MODIFICANDO CADA ITEM DO FOOTER*/
+    .item-footer a {
+        color: #00fa85;
+        text-decoration: none;
+    }
+        /*LINKS DO FOOTER*/
+        .item-footer a:hover {
+            color: #00d974;
+        }
 /*HOVER DOS LINKS DO FOOTER*/
-.item-footer-direitos{
+.item-footer-direitos {
     max-width: 220px;
 }
 /*DIREITOS RESERVADOS DO FOOTER*/
-.logo-footer{
+.logo-footer {
     height: 50px;
 }
 /*MOD LOGO DO FOOTER*/
