@@ -1,16 +1,19 @@
+# Pastas de compilação e cache do .NET
+bin/
+obj/
 
-[Bb]in/
-[Oo]bj/
-
-
+# Pastas de configurações locais do Visual Studio
 .vs/
 *.user
 *.suo
 *.userosscache
 *.sln.docstates
 
-
-*.userprefs
+# VS Code e Logs
+.vscode/
 *.log
 
-.vscode/
+# Caches do Windows/Sistema
+Thumbs.db
+ehthumbs.db
+Desktop.ini
