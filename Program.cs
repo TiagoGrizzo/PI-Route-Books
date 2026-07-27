@@ -1,8 +1,10 @@
 using Microsoft.EntityFrameworkCore;
 using PI_RouteBooks.Data;
 using MongoDB.Driver;
+using PI_RouteBooks.Services; // E-mail
 
 var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddScoped<EmailService>(); // E-mail 
 
 // 1. CONFIGURAÇÃO DO BANCO DE DADOS (MySQL)
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");

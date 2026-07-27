@@ -113,10 +113,8 @@ namespace PI_RouteBooks.Controllers
                 _context.Add(usuario);
                 await _context.SaveChangesAsync();
 
-                HttpContext.Session.SetInt32("UsuarioId", usuario.IdUsuario);
-                HttpContext.Session.SetString("UsuarioNome", usuario.NomeCompleto ?? usuario.Username);
-
-                return RedirectToAction("Index", "Posts");
+                // Depois do cadastro, vai para a tela de login
+                return RedirectToAction("Login", "Usuarios");
             }
             return View(usuario);
         }

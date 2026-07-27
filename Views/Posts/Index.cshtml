@@ -8,9 +8,27 @@
     <link rel="stylesheet" href="~/css/index.css" asp-append-version="true" />
 }
 
-@if (TempData["MensagemSucesso"] != null)
+<!--TOAST-->
+@if (TempData["MensagemSucesso"] != null) 
 {
-    <div class="alert alert-success text-center container-xxl mt-3">@TempData["MensagemSucesso"]</div>
+    <div id="toastSucesso" class="toast-routebooks">
+
+        <div class="toast-icon">
+            <i class="fa fa-check"></i>
+        </div>
+
+        <div class="toast-content">                    
+            <h5>Route Books</h5>
+            <p>@TempData["MensagemSucesso"]</p>
+        </div>
+
+        <button class="toast-close">
+            <i class="fa fa-times"></i>
+        </button>
+
+        <div class="toast-progress"></div>
+
+    </div>
 }
 
 <div class="bg-criar-post">
@@ -167,3 +185,8 @@
         </a>
     </div>
 </div>
+
+
+@section Scripts {
+    <script src="~/js/site.js"></script>
+}

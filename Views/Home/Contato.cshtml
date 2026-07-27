@@ -6,6 +6,50 @@
     <link rel="stylesheet" href="~/css/contato.css" />
 }
 
+@if (TempData["MensagemSucesso"] != null) // TOAST
+{
+    <div class="toast-routebooks toast-sucesso">
+
+        <div class="toast-icon">
+            <i class="fa fa-check"></i>
+        </div>
+
+        <div class="toast-content">
+            <h5>Route Books</h5>
+            <p>@TempData["MensagemSucesso"]</p>
+        </div>
+
+        <button type="button" class="toast-close">
+            <i class="fa fa-times"></i>
+        </button>
+
+        <div class="toast-progress"></div>
+
+    </div>
+}
+
+@if (TempData["MensagemErro"] != null)
+{
+    <div class="toast-routebooks toast-erro">
+
+        <div class="toast-icon">
+            <i class="fa fa-exclamation"></i>
+        </div>
+
+        <div class="toast-content">
+            <h5>Route Books</h5>
+            <p>@TempData["MensagemErro"]</p>
+        </div>
+
+        <button type="button" class="toast-close">
+            <i class="fa fa-times"></i>
+        </button>
+
+        <div class="toast-progress"></div>
+
+    </div>
+}
+
 <main>
     <section class="contato-geral container-xxl mt-4">
         <div class="contato-titulo">
@@ -40,6 +84,7 @@
 
             <div class="contato-form">
                 <form asp-action="EnviarContato" asp-controller="Home" method="post">
+                    @Html.AntiForgeryToken()
                     <h2 class="titulo-font">Envie sua mensagem!</h2>
                     
                     <div class="input-div-contato">
@@ -65,3 +110,8 @@
         </div>
     </section>
 </main>
+
+
+@section Scripts {
+    <script src="~/js/ToastContato.js"></script>
+}

@@ -1,4 +1,23 @@
-﻿// Please see documentation at https://learn.microsoft.com/aspnet/core/client-side/bundling-and-minification
-// for details on configuring this project to bundle and minify static web assets.
+﻿
+// JS DO TOAST // 
+document.addEventListener("DOMContentLoaded", () => {
 
-// Write your JavaScript code.
+    const toast = document.querySelector(".toast-routebooks");
+
+    if (!toast) return;
+
+    toast.classList.add("show");
+
+    setTimeout(() => {
+        toast.classList.remove("show");
+    }, 4000);
+
+    const btn = document.querySelector(".toast-close");
+
+    if (btn) {
+        btn.onclick = () => {
+            toast.classList.remove("show");
+        };
+    }
+
+});

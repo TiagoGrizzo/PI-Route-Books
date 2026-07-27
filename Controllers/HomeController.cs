@@ -1,16 +1,19 @@
 using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using PI_RouteBooks.Models;
+using PI_RouteBooks.Services;
 
 namespace PI_RouteBooks.Controllers
 {
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private readonly EmailService _emailService;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger,EmailService emailService)
         {
             _logger = logger;
+            _emailService = emailService; // E-mail 
         }
 
         public IActionResult Index()
@@ -34,9 +37,33 @@ namespace PI_RouteBooks.Controllers
         }
 
         [HttpPost]
-        public IActionResult EnviarContato(string nome, string email, string mensagem)
+        [ValidateAntiForgeryToken] // E-MAIL 
+        public async Task<IActionResult> EnviarContato(string nome,string email,string mensagem)
         {
-            TempData["MensagemSucesso"] = "Sua mensagem foi enviada! Obrigado pelo contato.";
+            if (string.IsNullOrWhiteSpace(nome) ||
+                string.IsNullOrWhiteSpace(email) ||
+                string.IsNullOrWhiteSpace(mensagem))
+            {
+                TempData["MensagemErro"] = "Preencha todos os campos.";
+                return RedirectToAction("Contato");
+            }
+
+            try
+            {
+                await _emailService.EnviarContatoAsync(
+                    nome,
+                    email,
+                    mensagem
+                );
+
+                TempData["MensagemSucesso"] =
+                    "Sua mensagem foi enviada com sucesso! Obrigado pelo contato.";
+            }
+            catch
+            {
+                TempData["MensagemErro"] =
+                    "Não foi possível enviar sua mensagem. Tente novamente.";
+            }
 
             return RedirectToAction("Contato");
         }

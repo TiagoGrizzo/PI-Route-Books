@@ -3,41 +3,67 @@
   "WorkspaceRootPath": "C:\\PI-Route-Books\\",
   "Documents": [
     {
-<<<<<<< HEAD
-      "AbsoluteMoniker": "D:0:0:{B0F6F40D-C8AC-4003-7324-03F136ABD13B}|PI-RouteBooks.csproj|c:\\pi-route-books\\views\\posts\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{B0F6F40D-C8AC-4003-7324-03F136ABD13B}|PI-RouteBooks.csproj|solutionrelative:views\\posts\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{B0F6F40D-C8AC-4003-7324-03F136ABD13B}|PI-RouteBooks.csproj|c:\\pi-route-books\\views\\home\\contato.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{B0F6F40D-C8AC-4003-7324-03F136ABD13B}|PI-RouteBooks.csproj|solutionrelative:views\\home\\contato.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B0F6F40D-C8AC-4003-7324-03F136ABD13B}|PI-RouteBooks.csproj|c:\\pi-route-books\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B0F6F40D-C8AC-4003-7324-03F136ABD13B}|PI-RouteBooks.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B0F6F40D-C8AC-4003-7324-03F136ABD13B}|PI-RouteBooks.csproj|c:\\pi-route-books\\wwwroot\\css\\contato.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{B0F6F40D-C8AC-4003-7324-03F136ABD13B}|PI-RouteBooks.csproj|solutionrelative:wwwroot\\css\\contato.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\lucas\\AppData\\Roaming\\Microsoft\\UserSecrets\\84c7cead-652a-4ff7-acfe-a5c9f4ce63ed\\secrets.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B0F6F40D-C8AC-4003-7324-03F136ABD13B}|PI-RouteBooks.csproj|c:\\pi-route-books\\services\\emailservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B0F6F40D-C8AC-4003-7324-03F136ABD13B}|PI-RouteBooks.csproj|solutionrelative:services\\emailservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B0F6F40D-C8AC-4003-7324-03F136ABD13B}|PI-RouteBooks.csproj|c:\\pi-route-books\\models\\emailseetings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B0F6F40D-C8AC-4003-7324-03F136ABD13B}|PI-RouteBooks.csproj|solutionrelative:models\\emailseetings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B0F6F40D-C8AC-4003-7324-03F136ABD13B}|PI-RouteBooks.csproj|c:\\pi-route-books\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B0F6F40D-C8AC-4003-7324-03F136ABD13B}|PI-RouteBooks.csproj|solutionrelative:controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B0F6F40D-C8AC-4003-7324-03F136ABD13B}|PI-RouteBooks.csproj|c:\\pi-route-books\\wwwroot\\css\\cadastro.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{B0F6F40D-C8AC-4003-7324-03F136ABD13B}|PI-RouteBooks.csproj|solutionrelative:wwwroot\\css\\cadastro.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B0F6F40D-C8AC-4003-7324-03F136ABD13B}|PI-RouteBooks.csproj|c:\\pi-route-books\\wwwroot\\js\\toastcontato.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{B0F6F40D-C8AC-4003-7324-03F136ABD13B}|PI-RouteBooks.csproj|solutionrelative:wwwroot\\js\\toastcontato.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B0F6F40D-C8AC-4003-7324-03F136ABD13B}|PI-RouteBooks.csproj|c:\\pi-route-books\\wwwroot\\js\\site.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{B0F6F40D-C8AC-4003-7324-03F136ABD13B}|PI-RouteBooks.csproj|solutionrelative:wwwroot\\js\\site.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B0F6F40D-C8AC-4003-7324-03F136ABD13B}|PI-RouteBooks.csproj|c:\\pi-route-books\\wwwroot\\js\\toastcontato.js||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B0F6F40D-C8AC-4003-7324-03F136ABD13B}|PI-RouteBooks.csproj|solutionrelative:wwwroot\\js\\toastcontato.js||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B0F6F40D-C8AC-4003-7324-03F136ABD13B}|PI-RouteBooks.csproj|c:\\pi-route-books\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{B0F6F40D-C8AC-4003-7324-03F136ABD13B}|PI-RouteBooks.csproj|solutionrelative:views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{B0F6F40D-C8AC-4003-7324-03F136ABD13B}|PI-RouteBooks.csproj|c:\\pi-route-books\\controllers\\usuarioscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B0F6F40D-C8AC-4003-7324-03F136ABD13B}|PI-RouteBooks.csproj|solutionrelative:controllers\\usuarioscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-=======
-      "AbsoluteMoniker": "D:0:0:{B0F6F40D-C8AC-4003-7324-03F136ABD13B}|PI-RouteBooks.csproj|c:\\pi-route-books\\views\\posts\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{B0F6F40D-C8AC-4003-7324-03F136ABD13B}|PI-RouteBooks.csproj|solutionrelative:views\\posts\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B0F6F40D-C8AC-4003-7324-03F136ABD13B}|PI-RouteBooks.csproj|c:\\pi-route-books\\wwwroot\\css\\color.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
-      "RelativeMoniker": "D:0:0:{B0F6F40D-C8AC-4003-7324-03F136ABD13B}|PI-RouteBooks.csproj|solutionrelative:wwwroot\\css\\color.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B0F6F40D-C8AC-4003-7324-03F136ABD13B}|PI-RouteBooks.csproj|c:\\pi-route-books\\wwwroot\\css\\verposts.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
-      "RelativeMoniker": "D:0:0:{B0F6F40D-C8AC-4003-7324-03F136ABD13B}|PI-RouteBooks.csproj|solutionrelative:wwwroot\\css\\verposts.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{B0F6F40D-C8AC-4003-7324-03F136ABD13B}|PI-RouteBooks.csproj|c:\\pi-route-books\\views\\posts\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{B0F6F40D-C8AC-4003-7324-03F136ABD13B}|PI-RouteBooks.csproj|solutionrelative:views\\posts\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B0F6F40D-C8AC-4003-7324-03F136ABD13B}|PI-RouteBooks.csproj|c:\\pi-route-books\\views\\chat\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{B0F6F40D-C8AC-4003-7324-03F136ABD13B}|PI-RouteBooks.csproj|solutionrelative:views\\chat\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{B0F6F40D-C8AC-4003-7324-03F136ABD13B}|PI-RouteBooks.csproj|c:\\pi-route-books\\views\\posts\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{B0F6F40D-C8AC-4003-7324-03F136ABD13B}|PI-RouteBooks.csproj|solutionrelative:views\\posts\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B0F6F40D-C8AC-4003-7324-03F136ABD13B}|PI-RouteBooks.csproj|c:\\pi-route-books\\views\\posts\\verposts.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{B0F6F40D-C8AC-4003-7324-03F136ABD13B}|PI-RouteBooks.csproj|solutionrelative:views\\posts\\verposts.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B0F6F40D-C8AC-4003-7324-03F136ABD13B}|PI-RouteBooks.csproj|c:\\pi-route-books\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{B0F6F40D-C8AC-4003-7324-03F136ABD13B}|PI-RouteBooks.csproj|solutionrelative:views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
->>>>>>> origin/main
+      "AbsoluteMoniker": "D:0:0:{B0F6F40D-C8AC-4003-7324-03F136ABD13B}|PI-RouteBooks.csproj|c:\\pi-route-books\\wwwroot\\css\\index.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{B0F6F40D-C8AC-4003-7324-03F136ABD13B}|PI-RouteBooks.csproj|solutionrelative:wwwroot\\css\\index.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
     }
   ],
   "DocumentGroupContainers": [
@@ -47,128 +73,214 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
             },
             {
-<<<<<<< HEAD
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "UsuariosController.cs",
-              "DocumentMoniker": "C:\\PI-Route-Books\\Controllers\\UsuariosController.cs",
-              "RelativeDocumentMoniker": "Controllers\\UsuariosController.cs",
-              "ToolTip": "C:\\PI-Route-Books\\Controllers\\UsuariosController.cs",
-              "RelativeToolTip": "Controllers\\UsuariosController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACMAAAAiAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-07-24T16:49:47.109Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Details.cshtml",
-              "DocumentMoniker": "C:\\PI-Route-Books\\Views\\Posts\\Details.cshtml",
-              "RelativeDocumentMoniker": "Views\\Posts\\Details.cshtml",
-              "ToolTip": "C:\\PI-Route-Books\\Views\\Posts\\Details.cshtml",
-              "RelativeToolTip": "Views\\Posts\\Details.cshtml",
-              "ViewState": "AgIAADYAAAAAAAAAAAAAAA4AAAANAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-07-24T14:36:33.464Z",
-              "EditorCaption": ""
-=======
               "$type": "Bookmark",
               "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
             },
             {
               "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "ToastContato.js",
+              "DocumentMoniker": "C:\\PI-Route-Books\\wwwroot\\js\\ToastContato.js",
+              "RelativeDocumentMoniker": "wwwroot\\js\\ToastContato.js",
+              "ToolTip": "C:\\PI-Route-Books\\wwwroot\\js\\ToastContato.js",
+              "RelativeToolTip": "wwwroot\\js\\ToastContato.js",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABsAAAADAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2026-07-27T20:12:21.065Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "ToastContato.js",
+              "DocumentMoniker": "C:\\PI-Route-Books\\wwwroot\\js\\ToastContato.js",
+              "RelativeDocumentMoniker": "wwwroot\\js\\ToastContato.js",
+              "ToolTip": "C:\\PI-Route-Books\\wwwroot\\js\\ToastContato.js",
+              "RelativeToolTip": "wwwroot\\js\\ToastContato.js",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABsAAAADAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2026-07-27T20:12:00.22Z"
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "Create.cshtml",
-              "DocumentMoniker": "C:\\PI-Route-Books\\Views\\Posts\\Create.cshtml",
-              "RelativeDocumentMoniker": "Views\\Posts\\Create.cshtml",
-              "ToolTip": "C:\\PI-Route-Books\\Views\\Posts\\Create.cshtml",
-              "RelativeToolTip": "Views\\Posts\\Create.cshtml",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAAAE4AAAABAAAAAAAAAA==",
+              "Title": "Contato.cshtml",
+              "DocumentMoniker": "C:\\PI-Route-Books\\Views\\Home\\Contato.cshtml",
+              "RelativeDocumentMoniker": "Views\\Home\\Contato.cshtml",
+              "ToolTip": "C:\\PI-Route-Books\\Views\\Home\\Contato.cshtml",
+              "RelativeToolTip": "Views\\Home\\Contato.cshtml",
+              "ViewState": "AgIAAGMAAAAAAAAAAAAAAHAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-07-24T20:06:32.331Z",
+              "WhenOpened": "2026-07-27T20:08:10.448Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "verposts.css",
-              "DocumentMoniker": "C:\\PI-Route-Books\\wwwroot\\css\\verposts.css",
-              "RelativeDocumentMoniker": "wwwroot\\css\\verposts.css",
-              "ToolTip": "C:\\PI-Route-Books\\wwwroot\\css\\verposts.css",
-              "RelativeToolTip": "wwwroot\\css\\verposts.css",
-              "ViewState": "AgIAACoAAAAAAAAAAAAAACcAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2026-07-24T19:40:07.349Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\PI-Route-Books\\Views\\Chat\\Index.cshtml",
-              "RelativeDocumentMoniker": "Views\\Chat\\Index.cshtml",
-              "ToolTip": "C:\\PI-Route-Books\\Views\\Chat\\Index.cshtml",
-              "RelativeToolTip": "Views\\Chat\\Index.cshtml",
-              "ViewState": "AgIAAFEAAAAAAAAAAAAAALIAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-07-24T18:35:51.671Z"
+              "DocumentIndex": 6,
+              "Title": "HomeController.cs",
+              "DocumentMoniker": "C:\\PI-Route-Books\\Controllers\\HomeController.cs",
+              "RelativeDocumentMoniker": "Controllers\\HomeController.cs",
+              "ToolTip": "C:\\PI-Route-Books\\Controllers\\HomeController.cs",
+              "RelativeToolTip": "Controllers\\HomeController.cs",
+              "ViewState": "AgIAACUAAAAAAAAAAAAAwE0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-27T20:02:58.667Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "color.css",
-              "DocumentMoniker": "C:\\PI-Route-Books\\wwwroot\\css\\color.css",
-              "RelativeDocumentMoniker": "wwwroot\\css\\color.css",
-              "ToolTip": "C:\\PI-Route-Books\\wwwroot\\css\\color.css",
-              "RelativeToolTip": "wwwroot\\css\\color.css",
-              "ViewState": "AgIAAD0AAAAAAAAAAAAUwD8AAAAbAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2026-07-24T18:32:02.492Z",
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\PI-Route-Books\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "C:\\PI-Route-Books\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAYwDYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-27T20:00:00.088Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\PI-Route-Books\\Views\\Posts\\Index.cshtml",
-              "RelativeDocumentMoniker": "Views\\Posts\\Index.cshtml",
-              "ToolTip": "C:\\PI-Route-Books\\Views\\Posts\\Index.cshtml",
-              "RelativeToolTip": "Views\\Posts\\Index.cshtml",
-              "ViewState": "AgIAAJEAAAAAAAAAAAAAAKQAAAA3AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-07-24T17:59:55.972Z"
+              "Title": "secrets.json",
+              "DocumentMoniker": "C:\\Users\\lucas\\AppData\\Roaming\\Microsoft\\UserSecrets\\84c7cead-652a-4ff7-acfe-a5c9f4ce63ed\\secrets.json",
+              "RelativeDocumentMoniker": "..\\Users\\lucas\\AppData\\Roaming\\Microsoft\\UserSecrets\\84c7cead-652a-4ff7-acfe-a5c9f4ce63ed\\secrets.json",
+              "ToolTip": "C:\\Users\\lucas\\AppData\\Roaming\\Microsoft\\UserSecrets\\84c7cead-652a-4ff7-acfe-a5c9f4ce63ed\\secrets.json",
+              "RelativeToolTip": "..\\Users\\lucas\\AppData\\Roaming\\Microsoft\\UserSecrets\\84c7cead-652a-4ff7-acfe-a5c9f4ce63ed\\secrets.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAhAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2026-07-27T19:55:21.573Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 5,
+              "Title": "EmailSeetings.cs",
+              "DocumentMoniker": "C:\\PI-Route-Books\\Models\\EmailSeetings.cs",
+              "RelativeDocumentMoniker": "Models\\EmailSeetings.cs",
+              "ToolTip": "C:\\PI-Route-Books\\Models\\EmailSeetings.cs",
+              "RelativeToolTip": "Models\\EmailSeetings.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-27T19:54:54.311Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "EmailService.cs",
+              "DocumentMoniker": "C:\\PI-Route-Books\\Services\\EmailService.cs",
+              "RelativeDocumentMoniker": "Services\\EmailService.cs",
+              "ToolTip": "C:\\PI-Route-Books\\Services\\EmailService.cs",
+              "RelativeToolTip": "Services\\EmailService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAA+AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-27T19:48:48.276Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "cadastro.css",
+              "DocumentMoniker": "C:\\PI-Route-Books\\wwwroot\\css\\cadastro.css",
+              "RelativeDocumentMoniker": "wwwroot\\css\\cadastro.css",
+              "ToolTip": "C:\\PI-Route-Books\\wwwroot\\css\\cadastro.css",
+              "RelativeToolTip": "wwwroot\\css\\cadastro.css",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAABkAAAAVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2026-07-27T18:50:59.226Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "contato.css",
+              "DocumentMoniker": "C:\\PI-Route-Books\\wwwroot\\css\\contato.css",
+              "RelativeDocumentMoniker": "wwwroot\\css\\contato.css",
+              "ToolTip": "C:\\PI-Route-Books\\wwwroot\\css\\contato.css",
+              "RelativeToolTip": "wwwroot\\css\\contato.css",
+              "ViewState": "AgIAAFYBAAAAAAAAAAAwwKMBAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2026-07-27T18:36:57.863Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
               "Title": "_Layout.cshtml",
               "DocumentMoniker": "C:\\PI-Route-Books\\Views\\Shared\\_Layout.cshtml",
               "RelativeDocumentMoniker": "Views\\Shared\\_Layout.cshtml",
               "ToolTip": "C:\\PI-Route-Books\\Views\\Shared\\_Layout.cshtml",
               "RelativeToolTip": "Views\\Shared\\_Layout.cshtml",
-              "ViewState": "AgIAAJ4AAAAAAAAAAAAowKUAAAA5AAAAAAAAAA==",
+              "ViewState": "AgIAABUAAAAAAAAAAAAAAC4AAAB5AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-07-24T17:58:15.753Z"
+              "WhenOpened": "2026-07-27T18:35:46.248Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "VerPosts.cshtml",
-              "DocumentMoniker": "C:\\PI-Route-Books\\Views\\Posts\\VerPosts.cshtml",
-              "RelativeDocumentMoniker": "Views\\Posts\\VerPosts.cshtml",
-              "ToolTip": "C:\\PI-Route-Books\\Views\\Posts\\VerPosts.cshtml",
-              "RelativeToolTip": "Views\\Posts\\VerPosts.cshtml",
-              "ViewState": "AgIAANAAAAAAAAAAAAAowOIAAAAgAAAAAAAAAA==",
+              "DocumentIndex": 9,
+              "Title": "site.js",
+              "DocumentMoniker": "C:\\PI-Route-Books\\wwwroot\\js\\site.js",
+              "RelativeDocumentMoniker": "wwwroot\\js\\site.js",
+              "ToolTip": "C:\\PI-Route-Books\\wwwroot\\js\\site.js",
+              "RelativeToolTip": "wwwroot\\js\\site.js",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2026-07-27T18:06:35.143Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "index.css",
+              "DocumentMoniker": "C:\\PI-Route-Books\\wwwroot\\css\\index.css",
+              "RelativeDocumentMoniker": "wwwroot\\css\\index.css",
+              "ToolTip": "C:\\PI-Route-Books\\wwwroot\\css\\index.css",
+              "RelativeToolTip": "wwwroot\\css\\index.css",
+              "ViewState": "AgIAAOUBAAAAAAAAAAAgwB4CAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2026-07-27T18:05:39.955Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\PI-Route-Books\\Views\\Posts\\Index.cshtml",
+              "RelativeDocumentMoniker": "Views\\Posts\\Index.cshtml",
+              "ToolTip": "C:\\PI-Route-Books\\Views\\Posts\\Index.cshtml",
+              "RelativeToolTip": "Views\\Posts\\Index.cshtml",
+              "ViewState": "AgIAABUAAAAAAAAAAAAAAL4AAAAnAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-07-24T17:53:50.706Z"
->>>>>>> origin/main
+              "WhenOpened": "2026-07-27T18:00:26.734Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "UsuariosController.cs",
+              "DocumentMoniker": "C:\\PI-Route-Books\\Controllers\\UsuariosController.cs",
+              "RelativeDocumentMoniker": "Controllers\\UsuariosController.cs",
+              "ToolTip": "C:\\PI-Route-Books\\Controllers\\UsuariosController.cs",
+              "RelativeToolTip": "Controllers\\UsuariosController.cs",
+              "ViewState": "AgIAAKcAAAAAAAAAAAAUwHUAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-24T16:49:47.109Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "Details.cshtml",
+              "DocumentMoniker": "C:\\PI-Route-Books\\Views\\Posts\\Details.cshtml",
+              "RelativeDocumentMoniker": "Views\\Posts\\Details.cshtml",
+              "ToolTip": "C:\\PI-Route-Books\\Views\\Posts\\Details.cshtml",
+              "RelativeToolTip": "Views\\Posts\\Details.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-07-24T14:36:33.464Z"
             }
           ]
         }
