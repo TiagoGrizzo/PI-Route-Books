@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("PI-RouteBooks")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5b2005870e190ea9312afa6d045226b97e9fef81")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a7f460c2f0611e32a0f479343bdb45ddcf3f8d06")]
 [assembly: System.Reflection.AssemblyProductAttribute("PI-RouteBooks")]
 [assembly: System.Reflection.AssemblyTitleAttribute("PI-RouteBooks")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

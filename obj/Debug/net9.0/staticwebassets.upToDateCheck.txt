@@ -106,9 +106,15 @@ wwwroot\lib\jquery\dist\jquery.slim.js
 wwwroot\lib\jquery\dist\jquery.slim.min.js
 wwwroot\lib\jquery\dist\jquery.slim.min.map
 wwwroot\lib\jquery\LICENSE.txt
+<<<<<<< HEAD
 wwwroot\imgs\posts-usuarios\e58d9cbc-0571-46b9-bf4e-f6d920cb9154_meu-heroi.jpg
 C:\PI-Route-Books\wwwroot\lib\jquery-validation\dist\jquery.validate.js
 C:\PI-Route-Books\wwwroot\lib\jquery-validation-unobtrusive\dist\jquery.validate.unobtrusive.min.js
+=======
+C:\PI-Route-Books\wwwroot\lib\jquery-validation\dist\jquery.validate.min.js
+C:\PI-Route-Books\wwwroot\lib\jquery-validation-unobtrusive\LICENSE.txt
+C:\PI-Route-Books\wwwroot\lib\bootstrap\dist\js\bootstrap.min.js.map
+>>>>>>> origin/main
 C:\PI-Route-Books\wwwroot\lib\bootstrap\dist\js\bootstrap.min.js
 C:\PI-Route-Books\wwwroot\lib\bootstrap\dist\js\bootstrap.js.map
 C:\PI-Route-Books\wwwroot\lib\bootstrap\dist\js\bootstrap.js
@@ -168,9 +174,15 @@ C:\PI-Route-Books\wwwroot\css\login.css
 C:\PI-Route-Books\wwwroot\css\index.css
 C:\PI-Route-Books\wwwroot\css\esqsenha.css
 C:\PI-Route-Books\wwwroot\css\criarpost.css
+<<<<<<< HEAD
 C:\PI-Route-Books\wwwroot\css\contato.css
 C:\PI-Route-Books\wwwroot\css\color.css
 C:\PI-Route-Books\wwwroot\css\cadastro.css
+=======
+C:\PI-Route-Books\wwwroot\css\color.css
+C:\PI-Route-Books\wwwroot\css\cadastro.css
+C:\PI-Route-Books\wwwroot\css\contato.css
+>>>>>>> origin/main
 C:\PI-Route-Books\wwwroot\lib\jquery\LICENSE.txt
 C:\PI-Route-Books\wwwroot\lib\jquery\dist\jquery.slim.min.map
 C:\PI-Route-Books\wwwroot\lib\jquery\dist\jquery.slim.min.js
@@ -179,9 +191,17 @@ C:\PI-Route-Books\wwwroot\lib\jquery\dist\jquery.min.map
 C:\PI-Route-Books\wwwroot\lib\jquery\dist\jquery.min.js
 C:\PI-Route-Books\wwwroot\lib\jquery\dist\jquery.js
 C:\PI-Route-Books\wwwroot\lib\jquery-validation\LICENSE.md
+<<<<<<< HEAD
 C:\PI-Route-Books\wwwroot\lib\jquery-validation\dist\jquery.validate.min.js
 C:\PI-Route-Books\wwwroot\lib\jquery-validation\dist\additional-methods.min.js
 C:\PI-Route-Books\wwwroot\lib\jquery-validation\dist\additional-methods.js
 C:\PI-Route-Books\wwwroot\lib\jquery-validation-unobtrusive\LICENSE.txt
 C:\PI-Route-Books\wwwroot\lib\jquery-validation-unobtrusive\dist\jquery.validate.unobtrusive.js
 C:\PI-Route-Books\wwwroot\lib\bootstrap\dist\js\bootstrap.min.js.map
+=======
+C:\PI-Route-Books\wwwroot\lib\jquery-validation\dist\jquery.validate.js
+C:\PI-Route-Books\wwwroot\lib\jquery-validation\dist\additional-methods.min.js
+C:\PI-Route-Books\wwwroot\lib\jquery-validation\dist\additional-methods.js
+C:\PI-Route-Books\wwwroot\lib\jquery-validation-unobtrusive\dist\jquery.validate.unobtrusive.min.js
+C:\PI-Route-Books\wwwroot\lib\jquery-validation-unobtrusive\dist\jquery.validate.unobtrusive.js
+>>>>>>> origin/main

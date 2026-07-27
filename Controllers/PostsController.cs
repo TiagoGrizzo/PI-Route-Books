@@ -34,6 +34,17 @@ namespace PI_RouteBooks.Controllers
             return View(await applicationDbContext.ToListAsync());
         }
 
+        public async Task<IActionResult> VerPosts()
+        {
+            var posts = _context.posts
+                .Include(p => p.Autor)
+                .Include(p => p.CategoriaRef)
+                .Include(p => p.TipoRef)
+                .OrderByDescending(p => p.DataCriacao);
+
+            return View(await posts.ToListAsync());
+        }
+
         // GET: Posts/Details/5
         public async Task<IActionResult> Details(int? id)
         {

@@ -32,7 +32,8 @@
         costas. Aventuras, trilhas, paisagens de tirar o fôlego e experiências inesquecíveis esperam por você.
         Pronto para embarcar nessa jornada?
     </p>
-    <a asp-controller="Posts" asp-action="Index" class="btn-inicio text-decoration-none">Comece sua aventura</a>
+    <a asp-controller="Posts" asp-action="VerPosts" class="btn-inicio text-decoration-none">Comece sua aventura</a>
+
     <br><br><br>
     <div class="bg-conteudo">
         <div class="title-conteudo">
@@ -161,7 +162,7 @@
         </div>
     </div>
     <div class="div-btn-sobre">
-        <a href="#" class="text-decoration-none">
+        <a asp-controller= "Home" asp-action="QuemSomos" class="text-decoration-none">
             <button class="btn-relatos btn-ver-sobre">Ver Mais ></button>
         </a>
     </div>

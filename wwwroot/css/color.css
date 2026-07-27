@@ -36,3 +36,51 @@ body.dark-mode{
     background-color: var(--bg-color);
     color: var(--text-color);
 }
+
+
+
+    /* ===================================================
+   AJUSTES DO DARK MODE - TELA AVENTUREIROS (/Usuarios)
+   =================================================== */
+
+    /* --- TÍTULOS DA PÁGINA --- */
+    body.dark-mode h2,
+    body.dark-mode h3,
+    body.dark-mode h4,
+    body.dark-mode .cor-titulo,
+    body.dark-mode .titulo-font {
+        color: #00fa85 !important; /* Verde neon com excelente contraste no fundo escuro */
+    }
+
+    body.dark-mode .text-muted,
+    body.dark-mode p.lead,
+    body.dark-mode .subtitulo-aventura {
+        color: #d1d1d6 !important; /* Subtítulo cinza bem legível */
+    }
+
+    /* --- CARDS DE USUÁRIOS/AVENTUREIROS --- */
+    body.dark-mode .card {
+        background-color: var(--card-bg) !important; /* #1e1e1e (Escuro) */
+        border: 1px solid #2c2c2e !important;
+        color: var(--text-color) !important;
+    }
+
+        /* Nome do usuário dentro do card no Dark Mode */
+        body.dark-mode .card h5,
+        body.dark-mode .card strong,
+        body.dark-mode .card .fw-bold,
+        body.dark-mode .card p {
+            color: #ffffff !important;
+        }
+
+        /* Localização / Cidade (Jaú - SP) */
+        body.dark-mode .card small,
+        body.dark-mode .card .text-muted {
+            color: #b0b0b5 !important;
+        }
+
+        /* Ícone de perfil no card */
+        body.dark-mode .card i.fa-user-circle,
+        body.dark-mode .card svg {
+            color: #00fa85 !important;
+        }   
