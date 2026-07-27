@@ -1,114 +1,14 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\PI-Route-Books\\versaoDotNet\\PI-RouteBooks\\",
+  "WorkspaceRootPath": "C:\\PI-Route-Books\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{17080A0A-395A-41BB-AA2D-EE036754A2D2}|PI-RouteBooks\\PI-RouteBooks.csproj|c:\\pi-route-books\\versaodotnet\\pi-routebooks\\pi-routebooks\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{17080A0A-395A-41BB-AA2D-EE036754A2D2}|PI-RouteBooks\\PI-RouteBooks.csproj|solutionrelative:pi-routebooks\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{B0F6F40D-C8AC-4003-7324-03F136ABD13B}|PI-RouteBooks.csproj|c:\\pi-route-books\\views\\posts\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{B0F6F40D-C8AC-4003-7324-03F136ABD13B}|PI-RouteBooks.csproj|solutionrelative:views\\posts\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{17080A0A-395A-41BB-AA2D-EE036754A2D2}|PI-RouteBooks\\PI-RouteBooks.csproj|c:\\pi-route-books\\versaodotnet\\pi-routebooks\\pi-routebooks\\views\\posts\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{17080A0A-395A-41BB-AA2D-EE036754A2D2}|PI-RouteBooks\\PI-RouteBooks.csproj|solutionrelative:pi-routebooks\\views\\posts\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{17080A0A-395A-41BB-AA2D-EE036754A2D2}|PI-RouteBooks\\PI-RouteBooks.csproj|c:\\pi-route-books\\versaodotnet\\pi-routebooks\\pi-routebooks\\models\\post.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{17080A0A-395A-41BB-AA2D-EE036754A2D2}|PI-RouteBooks\\PI-RouteBooks.csproj|solutionrelative:pi-routebooks\\models\\post.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{17080A0A-395A-41BB-AA2D-EE036754A2D2}|PI-RouteBooks\\PI-RouteBooks.csproj|c:\\pi-route-books\\versaodotnet\\pi-routebooks\\pi-routebooks\\views\\usuarios\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{17080A0A-395A-41BB-AA2D-EE036754A2D2}|PI-RouteBooks\\PI-RouteBooks.csproj|solutionrelative:pi-routebooks\\views\\usuarios\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{17080A0A-395A-41BB-AA2D-EE036754A2D2}|PI-RouteBooks\\PI-RouteBooks.csproj|c:\\pi-route-books\\versaodotnet\\pi-routebooks\\pi-routebooks\\views\\chat\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{17080A0A-395A-41BB-AA2D-EE036754A2D2}|PI-RouteBooks\\PI-RouteBooks.csproj|solutionrelative:pi-routebooks\\views\\chat\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{17080A0A-395A-41BB-AA2D-EE036754A2D2}|PI-RouteBooks\\PI-RouteBooks.csproj|c:\\pi-route-books\\versaodotnet\\pi-routebooks\\pi-routebooks\\controllers\\chatscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{17080A0A-395A-41BB-AA2D-EE036754A2D2}|PI-RouteBooks\\PI-RouteBooks.csproj|solutionrelative:pi-routebooks\\controllers\\chatscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{17080A0A-395A-41BB-AA2D-EE036754A2D2}|PI-RouteBooks\\PI-RouteBooks.csproj|c:\\pi-route-books\\versaodotnet\\pi-routebooks\\pi-routebooks\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{17080A0A-395A-41BB-AA2D-EE036754A2D2}|PI-RouteBooks\\PI-RouteBooks.csproj|solutionrelative:pi-routebooks\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{17080A0A-395A-41BB-AA2D-EE036754A2D2}|PI-RouteBooks\\PI-RouteBooks.csproj|c:\\pi-route-books\\versaodotnet\\pi-routebooks\\pi-routebooks\\models\\mensagemchat.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{17080A0A-395A-41BB-AA2D-EE036754A2D2}|PI-RouteBooks\\PI-RouteBooks.csproj|solutionrelative:pi-routebooks\\models\\mensagemchat.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{17080A0A-395A-41BB-AA2D-EE036754A2D2}|PI-RouteBooks\\PI-RouteBooks.csproj|c:\\pi-route-books\\versaodotnet\\pi-routebooks\\pi-routebooks\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{17080A0A-395A-41BB-AA2D-EE036754A2D2}|PI-RouteBooks\\PI-RouteBooks.csproj|solutionrelative:pi-routebooks\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{17080A0A-395A-41BB-AA2D-EE036754A2D2}|PI-RouteBooks\\PI-RouteBooks.csproj|c:\\pi-route-books\\versaodotnet\\pi-routebooks\\pi-routebooks\\views\\posts\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{17080A0A-395A-41BB-AA2D-EE036754A2D2}|PI-RouteBooks\\PI-RouteBooks.csproj|solutionrelative:pi-routebooks\\views\\posts\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{17080A0A-395A-41BB-AA2D-EE036754A2D2}|PI-RouteBooks\\PI-RouteBooks.csproj|c:\\pi-route-books\\versaodotnet\\pi-routebooks\\pi-routebooks\\controllers\\usuarioscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{17080A0A-395A-41BB-AA2D-EE036754A2D2}|PI-RouteBooks\\PI-RouteBooks.csproj|solutionrelative:pi-routebooks\\controllers\\usuarioscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{17080A0A-395A-41BB-AA2D-EE036754A2D2}|PI-RouteBooks\\PI-RouteBooks.csproj|c:\\pi-route-books\\versaodotnet\\pi-routebooks\\pi-routebooks\\models\\usuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{17080A0A-395A-41BB-AA2D-EE036754A2D2}|PI-RouteBooks\\PI-RouteBooks.csproj|solutionrelative:pi-routebooks\\models\\usuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{17080A0A-395A-41BB-AA2D-EE036754A2D2}|PI-RouteBooks\\PI-RouteBooks.csproj|c:\\pi-route-books\\versaodotnet\\pi-routebooks\\pi-routebooks\\views\\usuarios\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{17080A0A-395A-41BB-AA2D-EE036754A2D2}|PI-RouteBooks\\PI-RouteBooks.csproj|solutionrelative:pi-routebooks\\views\\usuarios\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{17080A0A-395A-41BB-AA2D-EE036754A2D2}|PI-RouteBooks\\PI-RouteBooks.csproj|c:\\pi-route-books\\versaodotnet\\pi-routebooks\\pi-routebooks\\views\\usuarios\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{17080A0A-395A-41BB-AA2D-EE036754A2D2}|PI-RouteBooks\\PI-RouteBooks.csproj|solutionrelative:pi-routebooks\\views\\usuarios\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{17080A0A-395A-41BB-AA2D-EE036754A2D2}|PI-RouteBooks\\PI-RouteBooks.csproj|c:\\pi-route-books\\versaodotnet\\pi-routebooks\\pi-routebooks\\controllers\\postscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{17080A0A-395A-41BB-AA2D-EE036754A2D2}|PI-RouteBooks\\PI-RouteBooks.csproj|solutionrelative:pi-routebooks\\controllers\\postscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{17080A0A-395A-41BB-AA2D-EE036754A2D2}|PI-RouteBooks\\PI-RouteBooks.csproj|c:\\pi-route-books\\versaodotnet\\pi-routebooks\\pi-routebooks\\models\\tipo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{17080A0A-395A-41BB-AA2D-EE036754A2D2}|PI-RouteBooks\\PI-RouteBooks.csproj|solutionrelative:pi-routebooks\\models\\tipo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{17080A0A-395A-41BB-AA2D-EE036754A2D2}|PI-RouteBooks\\PI-RouteBooks.csproj|c:\\pi-route-books\\versaodotnet\\pi-routebooks\\pi-routebooks\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{17080A0A-395A-41BB-AA2D-EE036754A2D2}|PI-RouteBooks\\PI-RouteBooks.csproj|solutionrelative:pi-routebooks\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{17080A0A-395A-41BB-AA2D-EE036754A2D2}|PI-RouteBooks\\PI-RouteBooks.csproj|c:\\pi-route-books\\versaodotnet\\pi-routebooks\\pi-routebooks\\views\\home\\quemsomos.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{17080A0A-395A-41BB-AA2D-EE036754A2D2}|PI-RouteBooks\\PI-RouteBooks.csproj|solutionrelative:pi-routebooks\\views\\home\\quemsomos.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{17080A0A-395A-41BB-AA2D-EE036754A2D2}|PI-RouteBooks\\PI-RouteBooks.csproj|c:\\pi-route-books\\versaodotnet\\pi-routebooks\\pi-routebooks\\views\\home\\contato.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{17080A0A-395A-41BB-AA2D-EE036754A2D2}|PI-RouteBooks\\PI-RouteBooks.csproj|solutionrelative:pi-routebooks\\views\\home\\contato.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{17080A0A-395A-41BB-AA2D-EE036754A2D2}|PI-RouteBooks\\PI-RouteBooks.csproj|c:\\pi-route-books\\versaodotnet\\pi-routebooks\\pi-routebooks\\data\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{17080A0A-395A-41BB-AA2D-EE036754A2D2}|PI-RouteBooks\\PI-RouteBooks.csproj|solutionrelative:pi-routebooks\\data\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{17080A0A-395A-41BB-AA2D-EE036754A2D2}|PI-RouteBooks\\PI-RouteBooks.csproj|c:\\pi-route-books\\versaodotnet\\pi-routebooks\\pi-routebooks\\models\\posttag.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{17080A0A-395A-41BB-AA2D-EE036754A2D2}|PI-RouteBooks\\PI-RouteBooks.csproj|solutionrelative:pi-routebooks\\models\\posttag.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{17080A0A-395A-41BB-AA2D-EE036754A2D2}|PI-RouteBooks\\PI-RouteBooks.csproj|c:\\pi-route-books\\versaodotnet\\pi-routebooks\\pi-routebooks\\models\\curtida.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{17080A0A-395A-41BB-AA2D-EE036754A2D2}|PI-RouteBooks\\PI-RouteBooks.csproj|solutionrelative:pi-routebooks\\models\\curtida.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{17080A0A-395A-41BB-AA2D-EE036754A2D2}|PI-RouteBooks\\PI-RouteBooks.csproj|c:\\pi-route-books\\versaodotnet\\pi-routebooks\\pi-routebooks\\models\\seguidor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{17080A0A-395A-41BB-AA2D-EE036754A2D2}|PI-RouteBooks\\PI-RouteBooks.csproj|solutionrelative:pi-routebooks\\models\\seguidor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{17080A0A-395A-41BB-AA2D-EE036754A2D2}|PI-RouteBooks\\PI-RouteBooks.csproj|c:\\pi-route-books\\versaodotnet\\pi-routebooks\\pi-routebooks\\models\\categoria.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{17080A0A-395A-41BB-AA2D-EE036754A2D2}|PI-RouteBooks\\PI-RouteBooks.csproj|solutionrelative:pi-routebooks\\models\\categoria.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{17080A0A-395A-41BB-AA2D-EE036754A2D2}|PI-RouteBooks\\PI-RouteBooks.csproj|c:\\pi-route-books\\versaodotnet\\pi-routebooks\\pi-routebooks\\models\\comentario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{17080A0A-395A-41BB-AA2D-EE036754A2D2}|PI-RouteBooks\\PI-RouteBooks.csproj|solutionrelative:pi-routebooks\\models\\comentario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{17080A0A-395A-41BB-AA2D-EE036754A2D2}|PI-RouteBooks\\PI-RouteBooks.csproj|c:\\pi-route-books\\versaodotnet\\pi-routebooks\\pi-routebooks\\models\\contato.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{17080A0A-395A-41BB-AA2D-EE036754A2D2}|PI-RouteBooks\\PI-RouteBooks.csproj|solutionrelative:pi-routebooks\\models\\contato.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{17080A0A-395A-41BB-AA2D-EE036754A2D2}|PI-RouteBooks\\PI-RouteBooks.csproj|c:\\pi-route-books\\versaodotnet\\pi-routebooks\\pi-routebooks\\models\\tags.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{17080A0A-395A-41BB-AA2D-EE036754A2D2}|PI-RouteBooks\\PI-RouteBooks.csproj|solutionrelative:pi-routebooks\\models\\tags.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{B0F6F40D-C8AC-4003-7324-03F136ABD13B}|PI-RouteBooks.csproj|c:\\pi-route-books\\controllers\\usuarioscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B0F6F40D-C8AC-4003-7324-03F136ABD13B}|PI-RouteBooks.csproj|solutionrelative:controllers\\usuarioscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -118,7 +18,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 14,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Bookmark",
@@ -126,328 +26,29 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\PI-Route-Books\\versaoDotNet\\PI-RouteBooks\\PI-RouteBooks\\Views\\Usuarios\\Index.cshtml",
-              "RelativeDocumentMoniker": "PI-RouteBooks\\Views\\Usuarios\\Index.cshtml",
-              "ToolTip": "C:\\PI-Route-Books\\versaoDotNet\\PI-RouteBooks\\PI-RouteBooks\\Views\\Usuarios\\Index.cshtml",
-              "RelativeToolTip": "PI-RouteBooks\\Views\\Usuarios\\Index.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAFUAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-06-05T23:50:50.565Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "ChatsController.cs",
-              "DocumentMoniker": "C:\\PI-Route-Books\\versaoDotNet\\PI-RouteBooks\\PI-RouteBooks\\Controllers\\ChatsController.cs",
-              "RelativeDocumentMoniker": "PI-RouteBooks\\Controllers\\ChatsController.cs",
-              "ToolTip": "C:\\PI-Route-Books\\versaoDotNet\\PI-RouteBooks\\PI-RouteBooks\\Controllers\\ChatsController.cs",
-              "RelativeToolTip": "PI-RouteBooks\\Controllers\\ChatsController.cs",
-              "ViewState": "AgIAAEsAAAAAAAAAAAAAAF0AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-05T23:27:39.815Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\PI-Route-Books\\versaoDotNet\\PI-RouteBooks\\PI-RouteBooks\\Views\\Chat\\Index.cshtml",
-              "RelativeDocumentMoniker": "PI-RouteBooks\\Views\\Chat\\Index.cshtml",
-              "ToolTip": "C:\\PI-Route-Books\\versaoDotNet\\PI-RouteBooks\\PI-RouteBooks\\Views\\Chat\\Index.cshtml",
-              "RelativeToolTip": "PI-RouteBooks\\Views\\Chat\\Index.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAFIAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-06-05T23:20:27.626Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "MensagemChat.cs",
-              "DocumentMoniker": "C:\\PI-Route-Books\\versaoDotNet\\PI-RouteBooks\\PI-RouteBooks\\Models\\MensagemChat.cs",
-              "RelativeDocumentMoniker": "PI-RouteBooks\\Models\\MensagemChat.cs",
-              "ToolTip": "C:\\PI-Route-Books\\versaoDotNet\\PI-RouteBooks\\PI-RouteBooks\\Models\\MensagemChat.cs",
-              "RelativeToolTip": "PI-RouteBooks\\Models\\MensagemChat.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAfAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-05T22:52:27.238Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "Create.cshtml",
-              "DocumentMoniker": "C:\\PI-Route-Books\\versaoDotNet\\PI-RouteBooks\\PI-RouteBooks\\Views\\Usuarios\\Create.cshtml",
-              "RelativeDocumentMoniker": "PI-RouteBooks\\Views\\Usuarios\\Create.cshtml",
-              "ToolTip": "C:\\PI-Route-Books\\versaoDotNet\\PI-RouteBooks\\PI-RouteBooks\\Views\\Usuarios\\Create.cshtml",
-              "RelativeToolTip": "PI-RouteBooks\\Views\\Usuarios\\Create.cshtml",
-              "ViewState": "AgIAAFEAAAAAAAAAAAAowGoAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-06-05T17:18:44.229Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "Login.cshtml",
-              "DocumentMoniker": "C:\\PI-Route-Books\\versaoDotNet\\PI-RouteBooks\\PI-RouteBooks\\Views\\Usuarios\\Login.cshtml",
-              "RelativeDocumentMoniker": "PI-RouteBooks\\Views\\Usuarios\\Login.cshtml",
-              "ToolTip": "C:\\PI-Route-Books\\versaoDotNet\\PI-RouteBooks\\PI-RouteBooks\\Views\\Usuarios\\Login.cshtml",
-              "RelativeToolTip": "PI-RouteBooks\\Views\\Usuarios\\Login.cshtml",
-              "ViewState": "AgIAACUAAAAAAAAAAAAowD4AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-06-05T16:35:06.652Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 1,
               "Title": "UsuariosController.cs",
-              "DocumentMoniker": "C:\\PI-Route-Books\\versaoDotNet\\PI-RouteBooks\\PI-RouteBooks\\Controllers\\UsuariosController.cs",
-              "RelativeDocumentMoniker": "PI-RouteBooks\\Controllers\\UsuariosController.cs",
-              "ToolTip": "C:\\PI-Route-Books\\versaoDotNet\\PI-RouteBooks\\PI-RouteBooks\\Controllers\\UsuariosController.cs",
-              "RelativeToolTip": "PI-RouteBooks\\Controllers\\UsuariosController.cs",
-              "ViewState": "AgIAAFcAAAAAAAAAAAA4wFkAAAAaAAAAAAAAAA==",
+              "DocumentMoniker": "C:\\PI-Route-Books\\Controllers\\UsuariosController.cs",
+              "RelativeDocumentMoniker": "Controllers\\UsuariosController.cs",
+              "ToolTip": "C:\\PI-Route-Books\\Controllers\\UsuariosController.cs",
+              "RelativeToolTip": "Controllers\\UsuariosController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACMAAAAiAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-05T16:27:41.228Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 17,
-              "Title": "QuemSomos.cshtml",
-              "DocumentMoniker": "C:\\PI-Route-Books\\versaoDotNet\\PI-RouteBooks\\PI-RouteBooks\\Views\\Home\\QuemSomos.cshtml",
-              "RelativeDocumentMoniker": "PI-RouteBooks\\Views\\Home\\QuemSomos.cshtml",
-              "ToolTip": "C:\\PI-Route-Books\\versaoDotNet\\PI-RouteBooks\\PI-RouteBooks\\Views\\Home\\QuemSomos.cshtml",
-              "RelativeToolTip": "PI-RouteBooks\\Views\\Home\\QuemSomos.cshtml",
-              "ViewState": "AgIAADkAAAAAAAAAAAAkwEUAAAApAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-05-28T13:52:57.01Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 16,
-              "Title": "HomeController.cs",
-              "DocumentMoniker": "C:\\PI-Route-Books\\versaoDotNet\\PI-RouteBooks\\PI-RouteBooks\\Controllers\\HomeController.cs",
-              "RelativeDocumentMoniker": "PI-RouteBooks\\Controllers\\HomeController.cs",
-              "ToolTip": "C:\\PI-Route-Books\\versaoDotNet\\PI-RouteBooks\\PI-RouteBooks\\Controllers\\HomeController.cs",
-              "RelativeToolTip": "PI-RouteBooks\\Controllers\\HomeController.cs",
-              "ViewState": "AgIAAA4AAAAAAAAAAABQwB0AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-28T13:40:09.822Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 18,
-              "Title": "Contato.cshtml",
-              "DocumentMoniker": "C:\\PI-Route-Books\\versaoDotNet\\PI-RouteBooks\\PI-RouteBooks\\Views\\Home\\Contato.cshtml",
-              "RelativeDocumentMoniker": "PI-RouteBooks\\Views\\Home\\Contato.cshtml",
-              "ToolTip": "C:\\PI-Route-Books\\versaoDotNet\\PI-RouteBooks\\PI-RouteBooks\\Views\\Home\\Contato.cshtml",
-              "RelativeToolTip": "PI-RouteBooks\\Views\\Home\\Contato.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEMAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-05-28T13:36:29.08Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 19,
-              "Title": "ApplicationDbContext.cs",
-              "DocumentMoniker": "C:\\PI-Route-Books\\versaoDotNet\\PI-RouteBooks\\PI-RouteBooks\\Data\\ApplicationDbContext.cs",
-              "RelativeDocumentMoniker": "PI-RouteBooks\\Data\\ApplicationDbContext.cs",
-              "ToolTip": "C:\\PI-Route-Books\\versaoDotNet\\PI-RouteBooks\\PI-RouteBooks\\Data\\ApplicationDbContext.cs",
-              "RelativeToolTip": "PI-RouteBooks\\Data\\ApplicationDbContext.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAIBJwBEAAAArAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-23T23:35:47.388Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "PostsController.cs",
-              "DocumentMoniker": "C:\\PI-Route-Books\\versaoDotNet\\PI-RouteBooks\\PI-RouteBooks\\Controllers\\PostsController.cs",
-              "RelativeDocumentMoniker": "PI-RouteBooks\\Controllers\\PostsController.cs",
-              "ToolTip": "C:\\PI-Route-Books\\versaoDotNet\\PI-RouteBooks\\PI-RouteBooks\\Controllers\\PostsController.cs",
-              "RelativeToolTip": "PI-RouteBooks\\Controllers\\PostsController.cs",
-              "ViewState": "AgIAAGkAAAAAAAAAAAAswHEAAAAxAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-23T22:56:45.135Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "Create.cshtml",
-              "DocumentMoniker": "C:\\PI-Route-Books\\versaoDotNet\\PI-RouteBooks\\PI-RouteBooks\\Views\\Posts\\Create.cshtml",
-              "RelativeDocumentMoniker": "PI-RouteBooks\\Views\\Posts\\Create.cshtml",
-              "ToolTip": "C:\\PI-Route-Books\\versaoDotNet\\PI-RouteBooks\\PI-RouteBooks\\Views\\Posts\\Create.cshtml",
-              "RelativeToolTip": "PI-RouteBooks\\Views\\Posts\\Create.cshtml",
-              "ViewState": "AgIAABgAAAAAAAAAAIBJwE4AAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-05-23T22:48:19.37Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "_Layout.cshtml",
-              "DocumentMoniker": "C:\\PI-Route-Books\\versaoDotNet\\PI-RouteBooks\\PI-RouteBooks\\Views\\Shared\\_Layout.cshtml",
-              "RelativeDocumentMoniker": "PI-RouteBooks\\Views\\Shared\\_Layout.cshtml",
-              "ToolTip": "C:\\PI-Route-Books\\versaoDotNet\\PI-RouteBooks\\PI-RouteBooks\\Views\\Shared\\_Layout.cshtml",
-              "RelativeToolTip": "PI-RouteBooks\\Views\\Shared\\_Layout.cshtml",
-              "ViewState": "AgIAAFYAAAAAAAAAAAAuwFkAAAAOAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-05-22T02:24:10.39Z",
+              "WhenOpened": "2026-07-24T16:49:47.109Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\PI-Route-Books\\versaoDotNet\\PI-RouteBooks\\PI-RouteBooks\\Views\\Posts\\Index.cshtml",
-              "RelativeDocumentMoniker": "PI-RouteBooks\\Views\\Posts\\Index.cshtml",
-              "ToolTip": "C:\\PI-Route-Books\\versaoDotNet\\PI-RouteBooks\\PI-RouteBooks\\Views\\Posts\\Index.cshtml",
-              "RelativeToolTip": "PI-RouteBooks\\Views\\Posts\\Index.cshtml",
-              "ViewState": "AgIAAJQAAAAAAAAAAAAAAEIAAAAlAAAAAAAAAA==",
+              "DocumentIndex": 0,
+              "Title": "Details.cshtml",
+              "DocumentMoniker": "C:\\PI-Route-Books\\Views\\Posts\\Details.cshtml",
+              "RelativeDocumentMoniker": "Views\\Posts\\Details.cshtml",
+              "ToolTip": "C:\\PI-Route-Books\\Views\\Posts\\Details.cshtml",
+              "RelativeToolTip": "Views\\Posts\\Details.cshtml",
+              "ViewState": "AgIAADYAAAAAAAAAAAAAAA4AAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-05-22T02:17:07.388Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\PI-Route-Books\\versaoDotNet\\PI-RouteBooks\\PI-RouteBooks\\Program.cs",
-              "RelativeDocumentMoniker": "PI-RouteBooks\\Program.cs",
-              "ToolTip": "C:\\PI-Route-Books\\versaoDotNet\\PI-RouteBooks\\PI-RouteBooks\\Program.cs",
-              "RelativeToolTip": "PI-RouteBooks\\Program.cs",
-              "ViewState": "AgIAACsAAAAAAAAAAAAAADQAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-21T13:12:13.942Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "appsettings.json",
-              "DocumentMoniker": "C:\\PI-Route-Books\\versaoDotNet\\PI-RouteBooks\\PI-RouteBooks\\appsettings.json",
-              "RelativeDocumentMoniker": "PI-RouteBooks\\appsettings.json",
-              "ToolTip": "C:\\PI-Route-Books\\versaoDotNet\\PI-RouteBooks\\PI-RouteBooks\\appsettings.json",
-              "RelativeToolTip": "PI-RouteBooks\\appsettings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAyAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2026-05-21T13:11:12.05Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 23,
-              "Title": "Categoria.cs",
-              "DocumentMoniker": "C:\\PI-Route-Books\\versaoDotNet\\PI-RouteBooks\\PI-RouteBooks\\Models\\Categoria.cs",
-              "RelativeDocumentMoniker": "PI-RouteBooks\\Models\\Categoria.cs",
-              "ToolTip": "C:\\PI-Route-Books\\versaoDotNet\\PI-RouteBooks\\PI-RouteBooks\\Models\\Categoria.cs",
-              "RelativeToolTip": "PI-RouteBooks\\Models\\Categoria.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAEAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-21T13:10:23.479Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 24,
-              "Title": "Comentario.cs",
-              "DocumentMoniker": "C:\\PI-Route-Books\\versaoDotNet\\PI-RouteBooks\\PI-RouteBooks\\Models\\Comentario.cs",
-              "RelativeDocumentMoniker": "PI-RouteBooks\\Models\\Comentario.cs",
-              "ToolTip": "C:\\PI-Route-Books\\versaoDotNet\\PI-RouteBooks\\PI-RouteBooks\\Models\\Comentario.cs",
-              "RelativeToolTip": "PI-RouteBooks\\Models\\Comentario.cs",
-              "ViewState": "AgIAAAwAAAAAAAAAAAAmwCEAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-21T13:09:22.499Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 25,
-              "Title": "Contato.cs",
-              "DocumentMoniker": "C:\\PI-Route-Books\\versaoDotNet\\PI-RouteBooks\\PI-RouteBooks\\Models\\Contato.cs",
-              "RelativeDocumentMoniker": "PI-RouteBooks\\Models\\Contato.cs",
-              "ToolTip": "C:\\PI-Route-Books\\versaoDotNet\\PI-RouteBooks\\PI-RouteBooks\\Models\\Contato.cs",
-              "RelativeToolTip": "PI-RouteBooks\\Models\\Contato.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-21T13:06:51.188Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 21,
-              "Title": "Curtida.cs",
-              "DocumentMoniker": "C:\\PI-Route-Books\\versaoDotNet\\PI-RouteBooks\\PI-RouteBooks\\Models\\Curtida.cs",
-              "RelativeDocumentMoniker": "PI-RouteBooks\\Models\\Curtida.cs",
-              "ToolTip": "C:\\PI-Route-Books\\versaoDotNet\\PI-RouteBooks\\PI-RouteBooks\\Models\\Curtida.cs",
-              "RelativeToolTip": "PI-RouteBooks\\Models\\Curtida.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAIBJwBoAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-21T13:05:20.644Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Post.cs",
-              "DocumentMoniker": "C:\\PI-Route-Books\\versaoDotNet\\PI-RouteBooks\\PI-RouteBooks\\Models\\Post.cs",
-              "RelativeDocumentMoniker": "PI-RouteBooks\\Models\\Post.cs",
-              "ToolTip": "C:\\PI-Route-Books\\versaoDotNet\\PI-RouteBooks\\PI-RouteBooks\\Models\\Post.cs",
-              "RelativeToolTip": "PI-RouteBooks\\Models\\Post.cs",
-              "ViewState": "AgIAABYAAAAAAAAAAAAAACsAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-21T13:02:31.112Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 20,
-              "Title": "PostTag.cs",
-              "DocumentMoniker": "C:\\PI-Route-Books\\versaoDotNet\\PI-RouteBooks\\PI-RouteBooks\\Models\\PostTag.cs",
-              "RelativeDocumentMoniker": "PI-RouteBooks\\Models\\PostTag.cs",
-              "ToolTip": "C:\\PI-Route-Books\\versaoDotNet\\PI-RouteBooks\\PI-RouteBooks\\Models\\PostTag.cs",
-              "RelativeToolTip": "PI-RouteBooks\\Models\\PostTag.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-21T13:01:35.161Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 22,
-              "Title": "Seguidor.cs",
-              "DocumentMoniker": "C:\\PI-Route-Books\\versaoDotNet\\PI-RouteBooks\\PI-RouteBooks\\Models\\Seguidor.cs",
-              "RelativeDocumentMoniker": "PI-RouteBooks\\Models\\Seguidor.cs",
-              "ToolTip": "C:\\PI-Route-Books\\versaoDotNet\\PI-RouteBooks\\PI-RouteBooks\\Models\\Seguidor.cs",
-              "RelativeToolTip": "PI-RouteBooks\\Models\\Seguidor.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABkAAAAfAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-21T13:00:53.195Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 26,
-              "Title": "Tags.cs",
-              "DocumentMoniker": "C:\\PI-Route-Books\\versaoDotNet\\PI-RouteBooks\\PI-RouteBooks\\Models\\Tags.cs",
-              "RelativeDocumentMoniker": "PI-RouteBooks\\Models\\Tags.cs",
-              "ToolTip": "C:\\PI-Route-Books\\versaoDotNet\\PI-RouteBooks\\PI-RouteBooks\\Models\\Tags.cs",
-              "RelativeToolTip": "PI-RouteBooks\\Models\\Tags.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-21T12:59:22.945Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 15,
-              "Title": "Tipo.cs",
-              "DocumentMoniker": "C:\\PI-Route-Books\\versaoDotNet\\PI-RouteBooks\\PI-RouteBooks\\Models\\Tipo.cs",
-              "RelativeDocumentMoniker": "PI-RouteBooks\\Models\\Tipo.cs",
-              "ToolTip": "C:\\PI-Route-Books\\versaoDotNet\\PI-RouteBooks\\PI-RouteBooks\\Models\\Tipo.cs",
-              "RelativeToolTip": "PI-RouteBooks\\Models\\Tipo.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAfAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-21T12:58:28.642Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "Usuario.cs",
-              "DocumentMoniker": "C:\\PI-Route-Books\\versaoDotNet\\PI-RouteBooks\\PI-RouteBooks\\Models\\Usuario.cs",
-              "RelativeDocumentMoniker": "PI-RouteBooks\\Models\\Usuario.cs",
-              "ToolTip": "C:\\PI-Route-Books\\versaoDotNet\\PI-RouteBooks\\PI-RouteBooks\\Models\\Usuario.cs",
-              "RelativeToolTip": "PI-RouteBooks\\Models\\Usuario.cs",
-              "ViewState": "AgIAABMAAAAAAAAAAAAgwC0AAAArAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-21T12:46:31.521Z"
+              "WhenOpened": "2026-07-24T14:36:33.464Z",
+              "EditorCaption": ""
             }
           ]
         }

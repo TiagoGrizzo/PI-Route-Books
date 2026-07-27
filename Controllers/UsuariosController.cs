@@ -44,7 +44,7 @@ namespace PI_RouteBooks.Controllers
             if (usuario != null && BCrypt.Net.BCrypt.Verify(senha, usuario.SenhaHash))
             {
                 HttpContext.Session.SetInt32("UsuarioId", usuario.IdUsuario);
-                HttpContext.Session.SetString("UsuarioNome", usuario.NomeCompleto ?? usuario.Username);
+                HttpContext.Session.SetString("UsuarioNome", usuario.Username ?? usuario.NomeCompleto);
 
                 return RedirectToAction("Index", "Posts");
             }
