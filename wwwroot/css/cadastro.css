@@ -296,3 +296,111 @@ html, body {
 
 
 
+
+
+
+/* ========================================= */
+/* VALIDAÇÃO DA SENHA */
+/* ========================================= */
+
+.regras-senha {
+    margin-top: 8px;
+    margin-bottom: 15px;
+    font-family: Arial, sans-serif;
+    font-size: 13px;
+}
+
+    .regras-senha strong {
+        display: block;
+        margin-bottom: 5px;
+    }
+
+.regra {
+    margin: 3px 0;
+    transition: 0.2s ease;
+}
+
+    /* Regra ainda não cumprida */
+    .regra.invalido {
+        color: #d9534f;
+    }
+
+    /* Regra cumprida */
+    .regra.valido {
+        color: #00a759;
+        font-weight: 600;
+    }
+
+
+
+/* ========================================= */
+/* CONFIRMAÇÃO DA SENHA */
+/* ========================================= */
+
+.mensagem-confirmacao {
+    font-family: Arial, sans-serif;
+    font-size: 13px;
+    margin-top: 5px;
+    min-height: 18px;
+}
+
+.senha-correta {
+    color: #00a759;
+    font-weight: 600;
+}
+
+.senha-incorreta {
+    color: #d9534f;
+    font-weight: 600;
+}
+
+
+
+
+/* ========================================= */
+/* OLHO PARA MOSTRAR / OCULTAR SENHA         */
+/* ========================================= */
+
+
+.senha-container {
+    position: relative;
+}
+
+    /* Deixa espaço para o olho dentro do input */
+    .senha-container .input-senha {
+        padding-right: 45px !important;
+    }
+
+/* Botão do olho */
+.btn-olho {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    border: none;
+    background: transparent;
+    padding: 5px;
+    margin: 0;
+    color: #005940;
+    font-size: 18px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+}
+
+    /* Quando passa o mouse */
+    .btn-olho:hover {
+        color: #00a759;
+    }
+
+    /* Remove efeitos padrão do botão */
+    .btn-olho:focus {
+        outline: none;
+    }
+
+/* Olho no dark mode, caso você use depois */
+body.dark-mode .btn-olho {
+    color: #00fa85;
+}

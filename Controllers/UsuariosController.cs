@@ -98,24 +98,69 @@ namespace PI_RouteBooks.Controllers
             usuario.CriadoEm = DateTime.Now;
             usuario.EstadoConta = "Ativo";
 
-            // 👉 CRIPTOGRAFIA: Transforma a senha comum em Hash antes de enviar para o MySQL
-            if (!string.IsNullOrEmpty(usuario.SenhaHash))
-            {
-                usuario.SenhaHash = BCrypt.Net.BCrypt.HashPassword(usuario.SenhaHash);
-            }
-
+            // Remove validações de campos que são preenchidos automaticamente
             ModelState.Remove("CriadoEm");
             ModelState.Remove("AlteradoEm");
             ModelState.Remove("EstadoConta");
 
+            // ==========================================
+            // VALIDAÇÃO DA SENHA
+            // ==========================================
+
+            string senha = usuario.SenhaHash ?? "";
+
+            if (senha.Length < 8)
+            {
+                ModelState.AddModelError("SenhaHash",
+                    "A senha deve ter no mínimo 8 caracteres.");
+            }
+
+            if (senha.Length > 30)
+            {
+                ModelState.AddModelError("SenhaHash",
+                    "A senha deve ter no máximo 30 caracteres.");
+            }
+
+            if (!senha.Any(char.IsUpper))
+            {
+                ModelState.AddModelError("SenhaHash",
+                    "A senha deve conter pelo menos uma letra maiúscula.");
+            }
+
+            if (!senha.Any(char.IsLower))
+            {
+                ModelState.AddModelError("SenhaHash",
+                    "A senha deve conter pelo menos uma letra minúscula.");
+            }
+
+            if (!senha.Any(char.IsDigit))
+            {
+                ModelState.AddModelError("SenhaHash",
+                    "A senha deve conter pelo menos um número.");
+            }
+
+            if (!senha.Any(ch => !char.IsLetterOrDigit(ch)))
+            {
+                ModelState.AddModelError("SenhaHash",
+                    "A senha deve conter pelo menos um caractere especial.");
+            }
+
+            // ==========================================
+            // SE TUDO ESTIVER CORRETO
+            // ==========================================
+
             if (ModelState.IsValid)
             {
+                // 🔐 Só transforma em Hash DEPOIS de validar a senha
+                usuario.SenhaHash = BCrypt.Net.BCrypt.HashPassword(senha);
+
                 _context.Add(usuario);
                 await _context.SaveChangesAsync();
 
                 // Depois do cadastro, vai para a tela de login
                 return RedirectToAction("Login", "Usuarios");
             }
+
             return View(usuario);
         }
 

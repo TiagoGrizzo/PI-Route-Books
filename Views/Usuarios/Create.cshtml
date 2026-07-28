@@ -1,8 +1,7 @@
 @model PI_RouteBooks.Models.Usuario
 
 @{
-    // Desativa a navbar/footer padrão para manter a tela de cadastro limpa e focada
-    Layout = null; 
+    Layout = null; // Retira o layout do footer e da navbar 
 }
 
 <!DOCTYPE html>
@@ -11,96 +10,293 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Route Books - Cadastre-se E Aventure-se!</title>
-    
+
     <link rel="stylesheet" href="~/css/reset.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
     <link rel="stylesheet" href="~/css/style.css" />
     <link rel="stylesheet" href="~/css/cadastro.css" />
 </head>
+
 <body>
+
     <section class="form-cadastro-geral container-xxl">
-        
-        <form asp-controller="Usuarios" asp-action="Create" method="POST" class="form-cad">
-            
+
+        <form asp-controller="Usuarios"
+              asp-action="Create"
+              method="POST"
+              class="form-cad">
+
             <div class="logo">
-                <img src="~/imgs/rb-logo1.png" class="logo-cadastro" alt="Logo Route Books" />
+                <img src="~/imgs/rb-logo1.png"
+                     class="logo-cadastro"
+                     alt="Logo Route Books" />
             </div>
-            <h2 class="titulo-cadastro">Cadastre-se e Aventure-se!</h2>
-            
-            <div asp-validation-summary="ModelOnly" class="text-danger" style="margin-bottom: 15px; font-family: sans-serif; font-size: 14px;"></div>
-            
+
+            <h2 class="titulo-cadastro">
+                Cadastre-se e Aventure-se!
+            </h2>
+
+            <div asp-validation-summary="ModelOnly"
+                 class="text-danger"
+                 style="margin-bottom: 15px; font-family: sans-serif; font-size: 14px;">
+            </div>
+
             <div class="div-inputs">
+
+                <!-- ========================= -->
+                <!-- PRIMEIRA COLUNA -->
+                <!-- ========================= -->
+
                 <div class="dividir-inputs-1">
+
                     <label for="Username">Nome de usuário:</label>
+
                     <div class="input-cadastro">
                         <i class="fa fa-user-o" aria-hidden="true"></i>
-                        <input class="input-username" name="Username" id="Username" type="text" placeholder="Insira seu nome de usuário..." required />
+
+                        <input class="input-username"
+                               name="Username"
+                               id="Username"
+                               type="text"
+                               maxlength="50"
+                               placeholder="Insira seu nome de usuário..."
+                               required />
                     </div>
+
 
                     <label for="NomeCompleto">Nome completo:</label>
+
                     <div class="input-cadastro">
                         <i class="fa fa-user-o" aria-hidden="true"></i>
-                        <input class="input-nome" name="NomeCompleto" id="NomeCompleto" type="text" placeholder="Insira seu nome completo..." required />
+
+                        <input class="input-nome"
+                               name="NomeCompleto"
+                               id="NomeCompleto"
+                               type="text"
+                               maxlength="100"
+                               placeholder="Insira seu nome completo..."
+                               required />
                     </div>
+
 
                     <label for="Email">E-mail:</label>
+
                     <div class="input-cadastro">
                         <i class="fa fa-envelope-o" aria-hidden="true"></i>
-                        <input class="input-email" name="Email" id="Email" type="email" placeholder="Insira seu e-mail..." required />
+
+                        <input class="input-email"
+                               name="Email"
+                               id="Email"
+                               type="email"
+                               maxlength="150"
+                               placeholder="Insira seu e-mail..."
+                               required />
                     </div>
+
 
                     <label for="Telefone">Telefone:</label>
+
                     <div class="input-cadastro">
                         <i class="fa fa-phone" aria-hidden="true"></i>
-                        <input class="input-telefone" name="Telefone" id="Telefone" type="text" placeholder="Insira seu número de telefone..." />
+
+                        <input class="input-telefone"
+                               name="Telefone"
+                               id="Telefone"
+                               type="text"
+                               maxlength="20"
+                               placeholder="Insira seu número de telefone..." />
                     </div>
+
+
+                    <!-- ========================= -->
+                    <!-- SENHA -->
+                    <!-- ========================= -->
 
                     <label for="SenhaHash">Senha:</label>
-                    <div class="input-cadastro">
+
+                    <div class="input-cadastro senha-container">
+
                         <i class="fa fa-lock" aria-hidden="true"></i>
-                        <input class="input-senha" name="SenhaHash" id="SenhaHash" type="password" placeholder="Insira sua senha..." required />
+
+                        <input class="input-senha"
+                               name="SenhaHash"
+                               id="SenhaHash"
+                               type="password"
+                               maxlength="30"
+                               placeholder="Insira sua senha..."
+                               required />
+
+                        <button type="button"
+                                class="btn-olho"
+                                id="btnOlhoSenha"
+                                aria-label="Mostrar senha">
+
+                            <i class="fa fa-eye"></i>
+
+                        </button>
+
                     </div>
+
+
+                    <!-- REGRAS DA SENHA -->
+
+                    <div class="regras-senha">
+
+                        <strong>A senha deve conter:</strong>
+
+                        <div id="regra-tamanho" class="regra">
+                            <i class="fa fa-times"></i>
+                            Entre 8 e 30 caracteres
+                        </div>
+
+                        <div id="regra-maiuscula" class="regra">
+                            <i class="fa fa-times"></i>
+                            Uma letra maiúscula
+                        </div>
+
+                        <div id="regra-minuscula" class="regra">
+                            <i class="fa fa-times"></i>
+                            Uma letra minúscula
+                        </div>
+
+                        <div id="regra-numero" class="regra">
+                            <i class="fa fa-times"></i>
+                            Um número
+                        </div>
+
+                        <div id="regra-especial" class="regra">
+                            <i class="fa fa-times"></i>
+                            Um caractere especial
+                        </div>
+
+                    </div>
+
                 </div>
 
+
+                <!-- ========================= -->
+                <!-- SEGUNDA COLUNA -->
+                <!-- ========================= -->
+
                 <div class="dividir-inputs-2">
+
                     <label for="Cidade">Cidade:</label>
+
                     <div class="input-cadastro">
                         <i class="fa fa-building" aria-hidden="true"></i>
-                        <input class="input-cidade" name="Cidade" id="Cidade" type="text" placeholder="Insira a sua cidade..." />
+
+                        <input class="input-cidade"
+                               name="Cidade"
+                               id="Cidade"
+                               type="text"
+                               maxlength="100"
+                               placeholder="Insira a sua cidade..." />
                     </div>
+
 
                     <label for="Uf">Estado (UF):</label>
+
                     <div class="input-cadastro">
                         <i class="fa fa-map-marker" aria-hidden="true"></i>
-                        <input class="input-estado" name="Uf" id="Uf" type="text" maxlength="2" placeholder="Ex: SP" />
+
+                        <input class="input-estado"
+                               name="Uf"
+                               id="Uf"
+                               type="text"
+                               maxlength="2"
+                               placeholder="Ex: SP" />
                     </div>
 
+
                     <label for="Pais">País:</label>
+
                     <div class="input-cadastro">
+
                         <i class="fa fa-globe" aria-hidden="true"></i>
-                        <select class="select-uf" name="Pais" id="Pais">
+
+                        <select class="select-uf"
+                                name="Pais"
+                                id="Pais">
+
                             <option value="">Selecione</option>
                             <option value="Brasil">Brasil</option>
                             <option value="Portugal">Portugal</option>
+
                         </select>
+
                     </div>
-                    
-                    <label for="conf_senha">Confirme sua senha:</label>
-                    <div class="input-cadastro">
+
+
+                    <!-- CONFIRMAÇÃO DA SENHA -->
+
+                    <label for="conf_senha">
+                        Confirme sua senha:
+                    </label>
+
+                    <div class="input-cadastro senha-container">
+
                         <i class="fa fa-lock" aria-hidden="true"></i>
-                        <input class="input-senha" name="conf_senha" id="conf_senha" type="password" placeholder="Insira novamente sua senha..." required />
+
+                        <input class="input-senha"
+                               name="conf_senha"
+                               id="conf_senha"
+                               type="password"
+                               maxlength="30"
+                               placeholder="Insira novamente sua senha..."
+                               required />
+
+                        <button type="button"
+                                class="btn-olho"
+                                id="btnOlhoConfirmar"
+                                aria-label="Mostrar confirmação da senha">
+
+                            <i class="fa fa-eye"></i>
+
+                        </button>
+
                     </div>
+
+                    <div id="mensagemConfirmacao"
+                         class="mensagem-confirmacao">
+                    </div>
+
                 </div>
+
             </div>
 
+
             <div class="div-btn-cadastro">
-                <button type="submit" class="btn-cadastrar">Cadastrar</button>
+
+                <button type="submit"
+                        class="btn-cadastrar"
+                        id="btnCadastrar">
+
+                    Cadastrar
+
+                </button>
+
             </div>
+
             <br />
+
             <div class="link-login">
-                Já tem uma conta? <a asp-controller="Usuarios" asp-action="Login">Entre já!</a>
+
+                Já tem uma conta?
+
+                <a asp-controller="Usuarios"
+                   asp-action="Login">
+
+                    Entre já!
+
+                </a>
+
             </div>
+
         </form>
+
+
     </section>
+    <script src="~/js/ValidacaoSenha.js"></script>
 </body>
 </html>
+

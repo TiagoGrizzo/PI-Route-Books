@@ -154,50 +154,67 @@ body.dark-mode .contato-form h2::after {
    min-height: 160px;
 }
 /*MODIFICANDO O TEXTAREA DA DIV DOS INPUTS*/
-.btn-contato{
-   width: 100%;
-   padding: 8px 0;
-   font-size: 16px;
-   border: 2px #005940 solid;
-   border-radius: 12px;
-   background: linear-gradient(135deg,#00fa85,#00d974);
-   color: #003d2b;
-   font-weight: bold;
-   cursor: pointer;
-   transition: all 0.25s ease;
-   box-shadow: 0 5px 10px rgba(0,0,0,0.2);
 
-   position: relative;
-   overflow: hidden;
+
+/* ========================================= */
+/* BOTÃO ENVIAR                              */
+/* ========================================= */
+
+.btn-contato {
+    width: 100%;
+    padding: 8px 0;
+    font-size: 15px;
+    font-weight: 600;
+    border: 2px solid #004230;
+    border-radius: 12px;
+    background: linear-gradient(135deg,#005940,#007554);
+    color: #fff;
+    cursor: pointer;
+    transition: all .25s ease;
+    box-shadow: 0 6px 15px rgba(0,0,0,.20);
+    position: relative;
+    overflow: hidden;
 }
 
-/* Quando passa o mouse */ 
-.btn-contato:hover{
-   transform: translateY(-3px) scale(1.03);
-   box-shadow: 0 8px 16px rgba(0,0,0,0.3);
-   background: linear-gradient(135deg,#00e67a,#00c96b);
+    /* Brilho passando no botão */
+    .btn-contato::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -75%;
+        width: 45%;
+        height: 100%;
+        background: rgba(255,255,255,.25);
+        transform: skewX(-25deg);
+        transition: .5s;
+    }
+
+    .btn-contato:hover::before {
+        left: 130%;
+    }
+
+    /* Hover */
+    .btn-contato:hover {
+        background: linear-gradient(135deg,#007554,#00996e);
+        transform: translateY(-2px);
+        box-shadow: 0 10px 20px rgba(0,0,0,.25);
+    }
+
+    /* Clique */
+    .btn-contato:active {
+        transform: scale(.97);
+    }
+
+/* Dark Mode (mantém exatamente o mesmo estilo) */
+body.dark-mode .btn-contato {
+    background: linear-gradient(135deg,#005940,#007554);
+    border-color: #004230;
+    color: #fff;
 }
 
-/* Clique (efeito pressionar) */ 
-.btn-contato:active{
-   transform: scale(0.96);
-}
-
-.btn-contato::before{
-   content: "";
-   position: absolute;
-   top: 0;
-   left: -75%;
-   width: 50%;
-   height: 100%;
-   background: rgba(255,255,255,0.4);
-   transform: skewX(-25deg);
-   transition: 0.5s;
-}
-.btn-contato:hover::before{
-   left: 125%;
-}
-
+    body.dark-mode .btn-contato:hover {
+        background: linear-gradient(135deg,#007554,#00996e);
+    }
 
 /*DIV DO BOTAO DO FORM DO CONTATO*/
 .div-btn-contato a{
@@ -206,26 +223,9 @@ body.dark-mode .contato-form h2::after {
     text-decoration: none;
 }
 /*MODIFICANDO O LINK DO BOTAO DA DIV DO BOTAO*/
-.btn-contato{
-   width: 100%;
-   padding: 5px 0;
-   font-size: 16px;
-   border: 2px #005940 solid;
-   border-radius: 10px;
-   background-color: #FFF;
-   background-color: #00fa85;
-}
-/*MODIFICANDO O BOTAO DO FORM*/
-.btn-contato:hover{
-   background-color: #00d974;
-   cursor: pointer;
-}
-/*MODIFICANDO A COR E O CURSOR DO MOUSE QUANDO O MOUSE PASSA EM CIMA DO BOTAO*/
 
-/* Muda a cor das escritas */
-body.dark-mode .titulo-font {
-   color: #EBEBEB !important;
-}
+
+
 
 
 
