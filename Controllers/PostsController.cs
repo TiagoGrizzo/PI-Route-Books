@@ -29,7 +29,8 @@ namespace PI_RouteBooks.Controllers
                 .Include(p => p.Autor)
                 .Include(p => p.CategoriaRef)
                 .Include(p => p.TipoRef)
-                .OrderByDescending(p => p.DataCriacao);
+                .OrderByDescending(p => p.DataCriacao)
+                .Take(3);
 
             return View(await applicationDbContext.ToListAsync());
         }

@@ -1,3 +1,5 @@
+@model IEnumerable<PI_RouteBooks.Models.Post>
+
 @{
     ViewData["Title"] = "Route Books - Posts De Outros Aventureiros!";
 }
@@ -21,215 +23,63 @@
     <div class="container-posts">
 
 
-        <div class="relato-posts">
+        <div class="container-posts">
 
-            <div class="conteudo-card-index">
+            @if (Model != null && Model.Any())
+            {
+                foreach (var p in Model)
+                {
 
-                <h3 class="titulo-font cor-titulo">
-                    Mochilão pela América do Sul: Roteiro e Dicas
-                </h3>
+                    <div class="relato-posts">
 
-                <p>
-                    Descubra nosso roteiro econômico passando por Peru,
-                    Bolívia e Chile, com dicas para mochileiros iniciantes.
+                        <div class="conteudo-card-index">
+
+                            <h3 class="titulo-font cor-titulo">
+                                @p.Titulo
+                            </h3>
+
+                            <p>
+                                @p.Resumo
+                            </p>
+
+
+                            <div class="post-info-index">
+
+                                <span>
+                                    Por @(p.Autor?.NomeCompleto ?? p.Autor?.Username ?? "Aventureiro")
+                                    •
+                                    @p.DataCriacao.ToString("dd 'de' MMMM, yyyy")
+                                </span>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="div-btn-relatos">
+
+                            <a asp-controller="Posts"
+                               asp-action="Details"
+                               asp-route-id="@p.IdPost">
+
+                                <button class="btn-relatos">
+                                    Ver Mais
+                                </button>
+
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                }
+            }
+            else
+            {
+                <p style="text-align:center;">
+                    Ainda não existem posts publicados.
                 </p>
-
-                <div class="post-info-index">
-                    <span>
-                        Por Mariana Reis • 16 de Junho, 2025 • Roteiro
-                    </span>
-                </div>
-
-            </div>
-
-
-            <div class="div-btn-relatos">
-
-                <a asp-controller="Posts"
-                   asp-action="Details"
-                   asp-route-id="1">
-
-                    <button class="btn-relatos">
-                        Ver Mais
-                    </button>
-
-                </a>
-
-            </div>
-
-        </div>
-
-
-
-        <div class="relato-posts">
-
-            <div class="conteudo-card-index">
-
-                <h3 class="titulo-font cor-titulo">
-                    Trilha Incrível na Chapada Diamantina
-                </h3>
-
-                <p>
-                    Confira como foi nossa aventura de 5 dias explorando
-                    cachoeiras, grutas e paisagens de tirar o fôlego na Chapada Diamantina.
-                </p>
-
-
-                <div class="post-info-index">
-
-                    <span>
-                        Por João Aventureiro • 13 de Junho, 2025 • Relato
-                    </span>
-
-                </div>
-
-            </div>
-
-
-            <div class="div-btn-relatos">
-
-                <a asp-controller="Posts"
-                   asp-action="Details"
-                   asp-route-id="1">
-
-                    <button class="btn-relatos">
-                        Ver Mais
-                    </button>
-
-                </a>
-
-            </div>
-
-        </div>
-
-
-
-        <div class="relato-posts">
-
-            <div class="conteudo-card-index">
-
-                <h3 class="titulo-font cor-titulo">
-                    Patagônia: Trilhas e Glaciares
-                </h3>
-
-                <p>
-                    Uma jornada incrível pelas paisagens geladas da Patagônia.
-                    Veja dicas de trilhas, equipamentos e como economizar durante o mochilão!
-                </p>
-
-
-                <div class="post-info-index">
-
-                    <span>
-                        Por Ana Souza • 16 de Junho, 2025 • Dicas
-                    </span>
-
-                </div>
-
-            </div>
-
-
-            <div class="div-btn-relatos">
-
-                <a asp-controller="Posts"
-                   asp-action="Details"
-                   asp-route-id="1">
-
-                    <button class="btn-relatos">
-                        Ver Mais
-                    </button>
-
-                </a>
-
-            </div>
-
-        </div>
-
-
-
-
-        <div class="relato-posts">
-
-            <div class="conteudo-card-index">
-
-                <h3 class="titulo-font cor-titulo">
-                    Alguém aí sabe lugares legais para se fazer mochilão na Ásia?
-                </h3>
-
-                <p>
-                    Tô doida pra fazer um mochilão pela Ásia, mas não sei onde ir,
-                    alguém aí com dicas?
-                </p>
-
-
-                <div class="post-info-index">
-
-                    <span>
-                        Por Carla Mendes • 16 de Junho, 2025 • Dúvida
-                    </span>
-
-                </div>
-
-            </div>
-
-
-            <div class="div-btn-relatos">
-
-                <a asp-controller="Posts"
-                   asp-action="Details"
-                   asp-route-id="1">
-
-                    <button class="btn-relatos">
-                        Ver Mais
-                    </button>
-
-                </a>
-
-            </div>
-
-        </div>
-
-
-
-
-        <div class="relato-posts">
-
-            <div class="conteudo-card-index">
-
-                <h3 class="titulo-font cor-titulo">
-                    Europa de Trem: 30 Dias, 10 Países
-                </h3>
-
-                <p>
-                    Veja como planejar um mochilão econômico pela Europa usando trens.
-                    Dicas de passes, hostels e roteiros imperdíveis!
-                </p>
-
-
-                <div class="post-info-index">
-
-                    <span>
-                        Por Lucas Lima • 15 de Junho, 2025 • Guia
-                    </span>
-
-                </div>
-
-            </div>
-
-
-            <div class="div-btn-relatos">
-
-                <a asp-controller="Posts"
-                   asp-action="Details"
-                   asp-route-id="1">
-
-                    <button class="btn-relatos">
-                        Ver Mais
-                    </button>
-
-                </a>
-
-            </div>
+            }
 
         </div>
 
