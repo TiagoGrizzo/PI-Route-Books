@@ -35,15 +35,37 @@ namespace PI_RouteBooks.Controllers
             return View(await applicationDbContext.ToListAsync());
         }
 
-        public async Task<IActionResult> VerPosts()
+        [HttpGet]
+        public async Task<IActionResult> VerPosts(string busca) // MUDANÇA NO VERPOST() PARA A BARRA DE PESQUISA DIRECIONAR A GENTE PARA LÁ E VERMOS OS RESULTADOS 
         {
-            var posts = _context.posts
+            // Passa o termo pesquisado para a View (para preencher o input e mostrar a mensagem)
+            ViewBag.Busca = busca;
+
+            // Começamos criando a query base (IQueryable - ainda não foi no banco)
+            var postsQuery = _context.posts
                 .Include(p => p.Autor)
                 .Include(p => p.CategoriaRef)
                 .Include(p => p.TipoRef)
-                .OrderByDescending(p => p.DataCriacao);
+                .AsQueryable();
 
-            return View(await posts.ToListAsync());
+            // Se o usuário digitou algo na busca, aplicamos o filtro
+            if (!string.IsNullOrWhiteSpace(busca))
+            {
+                // Converte tudo para minúsculo para garantir a busca sem case-sensitive
+                string termo = busca.Trim().ToLower();
+
+                postsQuery = postsQuery.Where(p =>
+                    p.Titulo.ToLower().Contains(termo) ||
+                    (p.Resumo != null && p.Resumo.ToLower().Contains(termo))
+                );
+            }
+
+            // Aplica a ordenação e executa a busca no banco de dados de forma assíncrona
+            var posts = await postsQuery
+                .OrderByDescending(p => p.DataCriacao)
+                .ToListAsync();
+
+            return View(posts);
         }
 
         // GET: Posts/Details/5

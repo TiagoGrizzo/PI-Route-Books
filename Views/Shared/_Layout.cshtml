@@ -48,12 +48,25 @@
                         </li>
                     </ul>
 
-                    <form class="d-flex barra-pesquisa" role="search">
-                        <input class="form-control me-2 search-bar" type="search" placeholder="Pesquisar" aria-label="Search" />
+                    <!-- MUDANÇA NA BARRA DE PESQUISA, AGR ELA PEGA OS POSTS DO BANCO E NOS LEVA PARA A PAGINA DE VER POSTS. AGR A BARRA FUNCIONA! -->
+                    <form class="d-flex barra-pesquisa" 
+                          asp-controller="Posts"
+                          asp-action="VerPosts"
+                          method="get">
+
+                        <input class="form-control me-2 search-bar"
+                               type="search"
+                               name="busca"
+                               value="@ViewBag.Busca"   
+                               placeholder="Pesquisar"
+                               aria-label="Search" />
+
                         <button class="btn btn-outline-success" type="submit">
                             <i class="fa fa-search" aria-hidden="true"></i>
                         </button>
+
                     </form>
+
                 </div>
 
                 <div class="dropdown perfil-geral">

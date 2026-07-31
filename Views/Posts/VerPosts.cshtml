@@ -20,9 +20,6 @@
     </div>
 
 
-    <div class="container-posts">
-
-
         <div class="container-posts">
 
             @if (Model != null && Model.Any())
@@ -74,16 +71,29 @@
 
                 }
             }
-            else
+            else // MOSTRA QUANDO NÃO FOI ENCONTRADO NENHUM POST SOBRE O ASSUNTO 
             {
-                <p style="text-align:center;">
-                    Ainda não existem posts publicados.
-                </p>
+                if (!string.IsNullOrWhiteSpace(ViewBag.Busca))
+                {
+                    <div style="text-align:center; padding:40px 0;">
+
+                        <h3 class="titulo-font cor-titulo">
+                            Nenhum resultado encontrado
+                        </h3>
+
+                        <p>
+                            Não encontramos nenhum post relacionado a
+                            <strong>"@ViewBag.Busca"</strong>.
+                        </p>
+
+                    </div>
+                }
+                
             }
 
         </div>
 
 
-    </div>
+    
 
 </section>
