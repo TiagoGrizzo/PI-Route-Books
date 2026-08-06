@@ -101,48 +101,87 @@ body{
     font-size: 1.8em;
 }
 /*ICONES DA REDES SOCIAIS*/
+
 /*RESPONSIVIDADE*/
 /*Tablet*/
-@media (max-width: 920px) {
-    .sobre-texto-geral{
+@media (max-width: 1024px) {
+    .sobre-texto-geral {
         display: flex;
         flex-direction: column;
+        align-items: center;
+        gap: 30px;
     }
     .logo-sobre{
-        height: 70px;
+        height: 90px;
     }
-    .sobre-geral-integrantes{
+    .sobre-geral-integrantes {
         display: flex;
+        align-items: center;
+        gap: 60px;
     }
     .sobre-integrantes h1{
-        padding-bottom: 50px;
+        padding-bottom: 30px;
+    }
+    .perfil-sobre-integrantes img {
+        height: 150px;
+        width: 150px;
+        object-fit: cover;
+        border-radius: 50%;
+        
+    }
+    .sobre-texto {
+        width: 65%;
+    }
+    .perfil-sobre-integrantes {
+        width: 35%;
+    }
+    .perfil-sobre-integrantes img{
+        height: 140px;
+        width: 140px;
+        object-fit: cover;
+        border-radius: 50%;
     }
 }
 
 /*Celular*/
-@media (max-width: 500px)
-{
-    .perfil-sobre-integrantes img{
-        height: 0px;
-        width: 0px;    
+
+
+@media (max-width: 767px) {
+
+    .perfil-sobre-integrantes img {
+        height: 150px;
+        width: 150px;
+        object-fit: cover;
+        border-radius: 50%;
     }
-    .perfil-sobre-integrantes{
+    .perfil-sobre-integrantes {
         width: fit-content;
         height: fit-content;
+        margin: auto;
     }
-    .sobre-texto{
-        width: 80%;
+    .sobre-texto {
+        width: 100%;
     }
-    .sobre-geral-integrantes h1{
-        width: 80%;
+    .logo-sobre img {
+        height: 50px;
+        width: auto;
     }
-    .logo-sobre img{
-        height: 0px;
-        width: 0px;
-    }
-    .sobre-texto-geral{
+    .sobre-texto-geral {
         width: 90%;
         text-align: center;
+        margin: auto;
+    }
+
+    .sobre-geral-integrantes h1,
+    .sobre-integrantes h1, 
+    .titulo-font h1
+    {
+        width: 100%; /* Ocupa a largura total da div pai */
+        max-width: 100%; /* Evita que transborde */
+        text-align: center;
+        font-size: clamp(2rem, 8vw, 2.8rem); /* Diminui a fonte dinamicamente em telas muito pequenas */
+        word-wrap: break-word; /* Garante que o texto não estoure a tela se for muito longo */
+        padding-bottom: 15px;
     }
 }
 

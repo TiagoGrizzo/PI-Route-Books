@@ -1,0 +1,97 @@
+﻿/* ===================================================
+           ESTILOS EXCLUSIVOS DO CHAT (INTEGRADO AO COLOR.CSS)
+           =================================================== */
+
+/* Header do Chat */
+.chat-header {
+    background-color: var(--main-color) !important;
+}
+
+.chat-icon-user {
+    font-size: 1.6rem;
+    color: var(--secondary-color) !important;
+}
+
+/* Corpo da Caixa de Mensagens */
+.chat-body {
+    background-color: #f8f9fa;
+}
+
+/* Mensagem MINHA (Light Mode) */
+.msg-minha {
+    background-color: #27ae60 !important;
+    color: #ffffff !important;
+}
+
+/* Mensagem do OUTRO (Light Mode) */
+.msg-outros {
+    background-color: #ffffff !important;
+    color: #333333 !important;
+}
+
+/* Rodapé e Input */
+.chat-footer {
+    background-color: #ffffff;
+}
+
+.btn-enviar-chat {
+    background-color: #27ae60 !important;
+    color: #ffffff !important;
+}
+
+/* ===================================================
+           ADAPTAÇÕES AUTOMÁTICAS PARA O DARK MODE
+           =================================================== */
+
+/* Fundo da área de chat no Dark Mode */
+body.dark-mode .chat-body {
+    background-color: #2a2a2c !important;
+}
+
+/* Suas mensagens no Dark Mode (Verde Neon com texto escuro) */
+body.dark-mode .msg-minha {
+    background-color: var(--secondary-color) !important; /* #00fa85 */
+    color: #000000 !important;
+    font-weight: 500;
+}
+
+/* Mensagens do amigo no Dark Mode (Fundo escuro do card) */
+body.dark-mode .msg-outros {
+    background-color: var(--card-bg) !important; /* #1e1e1e */
+    color: var(--text-color) !important; /* #EBEBEB */
+    border: 1px solid #333333;
+}
+
+/* Área de digitação e footer no Dark Mode */
+body.dark-mode .chat-footer {
+    background-color: var(--main-color) !important; /* #1f1f1f */
+}
+
+body.dark-mode .input-chat-msg {
+    background-color: #3a3a3c !important;
+    color: var(--text-color) !important;
+    border-color: #555555 !important;
+}
+
+    body.dark-mode .input-chat-msg::placeholder {
+        color: #aaaaaa !important;
+    }
+
+/* Botão Enviar no Dark Mode */
+body.dark-mode .btn-enviar-chat {
+    background-color: var(--secondary-color) !important;
+    color: #000000 !important;
+}
+
+/* Tela Vazia (Sem mensagens) */
+.chat-empty-box i, .chat-empty-box h6 {
+    color: var(--title-color);
+}
+
+body.dark-mode .chat-empty-box p {
+    color: var(--text-color);
+}
+
+
+
+

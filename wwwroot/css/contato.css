@@ -80,7 +80,7 @@ body.dark-mode .icone-contato i {
 .info-contato{
    display: flex;
    margin-left: 20px;
-   font-size: 16px;
+   font-size: 22px;
    flex-direction: column;
    font-weight: 300;  
 }
@@ -249,8 +249,8 @@ body.dark-mode .btn-contato {
 }
 @media (max-width: 1400px) {
    .contato-geral{
-      padding-left: 40px;
-      padding-right: 40px;
+      padding-left: 30px;
+      padding-right: 30px;
       margin-bottom: 30px;
    }
    /*AUMENTANDO O PADDING E O MARGIN DO CONTATO-GERAL*/
@@ -259,7 +259,7 @@ body.dark-mode .btn-contato {
    .container-contato {
       width: 95%;
       flex-wrap: wrap;
-      padding: 20px;
+      padding: 15px;
    }
 
    .contato-texto,
@@ -268,15 +268,15 @@ body.dark-mode .btn-contato {
    }
 
    .contato-texto {
-      margin-bottom: 20px; /* Espaço entre texto e formulário */
+      margin-bottom: 25px; /* Espaço entre texto e formulário */
    }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 767px) {
 
    .contato-geral {
-      padding-left: 20px;
-      padding-right: 20px;
+      padding-left: 15px;
+      padding-right: 15px;
    }
 
    .contato-texto h1 {
@@ -284,22 +284,78 @@ body.dark-mode .btn-contato {
       text-align: center;
    }
 
-   .contato-texto p {
-      text-align: center;
-   }
+    .contato-texto p {
+        text-align: center;
+        font-size: 0.95rem;
+    }
 
    .contato-form {
       padding: 15px;
    }
+
+    /* Alinha o container das opções totalmente à esquerda */
+    .contato-texto .d-flex,
+    .contato-texto > div {
+        display: flex !important;
+        flex-direction: row !important;
+        align-items: center !important;
+        justify-content: flex-start !important; /* Alinha no começo */
+        gap: 15px !important;
+        width: 100% !important;
+        text-align: left !important;
+    }
+
+        /* Ícones na bolinha com tamanho proporcional */
+        .contato-texto .icon,
+        .contato-texto img,
+        .contato-texto svg,
+        .contato-texto .d-flex > div:first-child,
+        .contato-texto > div > div:first-child {
+            width: 44px !important;
+            height: 44px !important;
+            min-width: 44px !important;
+            max-width: 44px !important;
+            flex-shrink: 0 !important;
+            border-radius: 50% !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+        }
+
+    /* Container de texto alinhado à esquerda */
+    .contato-texto .info-conteudo,
+    .contato-texto div > div:last-child {
+        flex: 1;
+        min-width: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start !important; /* Texto grudado na esquerda */
+        text-align: left !important;
+    }
+
+    /* Títulos "E-mail" e "Telefone" maiores */
+    .contato-texto h2,
+    .contato-texto h3,
+    .contato-texto strong {
+        font-size: 1.15rem !important; /* Aumentado */
+        font-weight: 600;
+        margin-bottom: 2px !important;
+        text-align: left !important;
+    }
+
+    /* E-mail e Telefone em tamanho legível/grande */
+    .contato-texto p,
+    .contato-texto span,
+    .contato-texto a {
+        font-size: 0.95rem !important; /* Aumentado pra ficar bem visível */
+        text-align: left !important;
+        margin: 0 !important;
+        word-break: break-all; /* Se o e-mail não couber no S9+, ele quebra só o finalzinho sem sumir */
+    }
 }
 
 
-@media (max-height: 820px) {
-   .contato-geral{
-      height: 100%;
-   }
-   /*MODIFICANDO O HEIGHT PARA 100%*/
-}
+
 
 
 
