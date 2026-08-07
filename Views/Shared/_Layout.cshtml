@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="~/css/reset.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/color.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/style.css" asp-append-version="true" />
+    
 
     @await RenderSectionAsync("Styles", required: false)
 </head>
@@ -41,7 +42,7 @@
                             <a class="nav-link text-color-navbar titulo-font" asp-controller="Usuarios" asp-action="Index">Aventureiros</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-color-navbar titulo-font" asp-controller="Home" asp-action="QuemSomos">Quem Somos</a>
+                            <a class="nav-link text-color-navbar titulo-font" asp-controller="Home" asp-action="QuemSomos">Sobre</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-color-navbar titulo-font" asp-controller="Home" asp-action="Contato">Contato</a>
@@ -95,14 +96,17 @@
                             <li><a class="dropdown-item perfil-item" asp-controller="Usuarios" asp-action="Create">Cadastre-se</a></li>
                         }
                     </ul>
+
+                    <div class="dark-mode-toggle">
+                        <button class="btn-dark-mode" onclick="toggleDarkMode()">
+                            <i class="fa fa-moon-o dark-icon" aria-hidden="true"></i>
+                            <i class="fa fa-sun-o light-icon" aria-hidden="true"></i>
+                        </button>
+                    </div>
+
                 </div>
 
-                <div class="dark-mode-toggle">
-                    <button class="btn-dark-mode" onclick="toggleDarkMode()">
-                        <i class="fa fa-moon-o dark-icon" aria-hidden="true"></i>
-                        <i class="fa fa-sun-o light-icon" aria-hidden="true"></i>
-                    </button>
-                </div>
+                
             </div>
         </nav>
     </header>
