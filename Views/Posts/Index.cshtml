@@ -9,7 +9,7 @@
 }
 
 <!--TOAST-->
-@if (TempData["MensagemSucesso"] != null) 
+@if (TempData["MensagemSucesso"] != null)
 {
     <div id="toastSucesso" class="toast-routebooks">
 
@@ -17,12 +17,12 @@
             <i class="fa fa-check"></i>
         </div>
 
-        <div class="toast-content">                    
+        <div class="toast-content">
             <h5>Route Books</h5>
             <p>@TempData["MensagemSucesso"]</p>
         </div>
 
-        <button class="toast-close">
+        <button type="button" class="toast-close">
             <i class="fa fa-times"></i>
         </button>
 

@@ -22,8 +22,8 @@ namespace PI_RouteBooks.Models
         public string? ImagemUrl { get; set; }
 
         // Chaves Estrangeiras
-        public int TiposIdTipo { get; set; }
-        public int CategoriasIdCategoria { get; set; }
+        public int? TiposIdTipo { get; set; }
+        public int? CategoriasIdCategoria { get; set; }
         public int UsuariosIdUsuario { get; set; }
 
         // Relacionamentos - Propriedades de Navegação

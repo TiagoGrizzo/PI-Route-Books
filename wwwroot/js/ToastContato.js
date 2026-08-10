@@ -1,28 +1,23 @@
 ﻿document.addEventListener("DOMContentLoaded", function () {
-
     const toast = document.querySelector(".toast-routebooks");
 
-    if (!toast) {
-        return;
-    }
+    if (!toast) return;
 
-    // Mostra o Toast
-    setTimeout(function () {
+    // Dispara a animação na hora (sem o delay de 100ms)
+    requestAnimationFrame(() => {
         toast.classList.add("show");
-    }, 100);
+    });
 
-    // Fecha automaticamente depois de 4 segundos
+    // Fecha automaticamente após 4 segundos
     setTimeout(function () {
         toast.classList.remove("show");
-    }, 4100);
+    }, 4000);
 
     // Botão X
     const botaoFechar = toast.querySelector(".toast-close");
-
     if (botaoFechar) {
         botaoFechar.addEventListener("click", function () {
             toast.classList.remove("show");
         });
     }
-
 });

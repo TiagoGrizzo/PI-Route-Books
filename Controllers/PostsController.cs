@@ -26,6 +26,7 @@ namespace PI_RouteBooks.Controllers
         {
             // Ordenando pelos posts mais recentes para o feed ficar dinâmico
             var applicationDbContext = _context.posts
+                .Where(p => p.Status == "Ativo") // Serve para filtrar quais posts são ativos ou rascunhos 
                 .Include(p => p.Autor)
                 .Include(p => p.CategoriaRef)
                 .Include(p => p.TipoRef)
@@ -43,6 +44,7 @@ namespace PI_RouteBooks.Controllers
 
             // Começamos criando a query base (IQueryable - ainda não foi no banco)
             var postsQuery = _context.posts
+                .Where(p => p.Status == "Ativo")
                 .Include(p => p.Autor)
                 .Include(p => p.CategoriaRef)
                 .Include(p => p.TipoRef)
@@ -89,73 +91,258 @@ namespace PI_RouteBooks.Controllers
             return View(post);
         }
 
-        // GET: Posts/Create
-        public IActionResult Create()
+        // GET: Posts/Create - mudei aqui !!!!
+        [HttpGet]
+        public async Task<IActionResult> Create()
         {
-            // Removeu a listagem de usuários para o criador do post não escolher "quem" ele é.
-            ViewBag.CategoriasIdCategoria = new SelectList(_context.categorias, "Id", "Nome");
-            ViewBag.TiposIdTipo = new SelectList(_context.Set<Tipo>(), "IdTipo", "nomeTipo"); // Ajustado para exibir o Nome do Tipo se houver essa coluna
-            return View();
+            // Temporariamente utilizando o primeiro usuário do banco,
+            // seguindo a lógica que já existe no projeto.
+            var primeiroUsuario = await _context.usuarios.FirstOrDefaultAsync();
+
+            Post? rascunho = null;
+
+            if (primeiroUsuario != null)
+            {
+                rascunho = await _context.posts
+                    .FirstOrDefaultAsync(p =>
+                        p.UsuariosIdUsuario == primeiroUsuario.IdUsuario &&
+                        p.Status == "Rascunho");
+            }
+
+            ViewBag.CategoriasIdCategoria = new SelectList(
+                _context.categorias,
+                "Id",
+                "Nome",
+                rascunho?.CategoriasIdCategoria
+            );
+
+            ViewBag.TiposIdTipo = new SelectList(
+                _context.Set<Tipo>(),
+                "IdTipo",
+                "nomeTipo",
+                rascunho?.TiposIdTipo
+            );
+
+            return View(rascunho);
         }
 
-        // POST: Posts/Create
+        // POST: Posts/Create - MUDEI AQUI !!!!!
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Titulo,Resumo,Conteudo,TiposIdTipo,CategoriasIdCategoria")] Post post, IFormFile fotoPost)
+        public async Task<IActionResult> Create([Bind("IdPost,Titulo,Resumo,Conteudo,TiposIdTipo,CategoriasIdCategoria")] Post post, IFormFile? fotoPost, string acao)
         {
-            // 1. Injeta a data de criação atualizada pelo C#
-            post.DataCriacao = DateTime.Now;
-            post.Status = "Ativo"; // Define um status padrão para a postagem
-
-            // 2. Temporário: Associa ao primeiro usuário do banco até fazermos o sistema de login
+            // Temporariamente utilizando o primeiro usuário do banco,
+            // seguindo a lógica atual do projeto.
             var primeiroUsuario = await _context.usuarios.FirstOrDefaultAsync();
+
             if (primeiroUsuario != null)
             {
                 post.UsuariosIdUsuario = primeiroUsuario.IdUsuario;
             }
 
-            // Removendo TODOS os campos que não vêm do formulário para o C# não travar a validação
+
+            // ==========================================
+            // SALVAR RASCUNHO
+            // ==========================================
+
+            if (acao == "rascunho")
+            {
+                // Remove validações de propriedades de navegação
+                ModelState.Remove("UsuariosIdUsuario");
+                ModelState.Remove("Autor");
+                ModelState.Remove("CategoriaRef");
+                ModelState.Remove("TipoRef");
+                ModelState.Remove("ImagemUrl");
+
+                post.Status = "Rascunho";
+                post.DataCriacao = DateTime.Now;
+
+                // Busca valores padrão no banco para fallback
+                var primeiraCategoria = await _context.categorias.FirstOrDefaultAsync();
+                var primeiroTipo = await _context.Set<Tipo>().FirstOrDefaultAsync();
+
+                // Se nenhuma categoria foi selecionada, pega o Id da primeira categoria cadastrada
+                if ((post.CategoriasIdCategoria == null || post.CategoriasIdCategoria == 0) && primeiraCategoria != null)
+                {
+                    post.CategoriasIdCategoria = primeiraCategoria.Id; // Usando .Id correto
+                }
+
+                // Se nenhum tipo foi selecionado, pega o IdTipo do primeiro tipo cadastrado
+                if ((post.TiposIdTipo == null || post.TiposIdTipo == 0) && primeiroTipo != null)
+                {
+                    post.TiposIdTipo = primeiroTipo.IdTipo;
+                }
+
+                // Se já existir um rascunho desse usuário no banco, atualiza ele.
+                var rascunhoExistente = await _context.posts
+                    .FirstOrDefaultAsync(p =>
+                        p.UsuariosIdUsuario == post.UsuariosIdUsuario &&
+                        p.Status == "Rascunho");
+
+                if (rascunhoExistente != null)
+                {
+                    rascunhoExistente.Titulo = post.Titulo;
+                    rascunhoExistente.Resumo = post.Resumo;
+                    rascunhoExistente.Conteudo = post.Conteudo;
+                    rascunhoExistente.DataCriacao = DateTime.Now;
+
+                    // Atribui a categoria/tipo atualizada ou o fallback padrão se estivesse nulo
+                    rascunhoExistente.CategoriasIdCategoria = post.CategoriasIdCategoria ?? primeiraCategoria?.Id;
+                    rascunhoExistente.TiposIdTipo = post.TiposIdTipo ?? primeiroTipo?.IdTipo;
+
+                    // Upload da foto para o rascunho existente
+                    if (fotoPost != null && fotoPost.Length > 0)
+                    {
+                        string pastaImagens = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "imgs", "posts-usuarios");
+                        if (!Directory.Exists(pastaImagens))
+                        {
+                            Directory.CreateDirectory(pastaImagens);
+                        }
+
+                        string nomeUnicoArquivo = Guid.NewGuid().ToString() + "_" + Path.GetFileName(fotoPost.FileName);
+                        string caminhoCompleto = Path.Combine(pastaImagens, nomeUnicoArquivo);
+
+                        using (var stream = new FileStream(caminhoCompleto, FileMode.Create))
+                        {
+                            await fotoPost.CopyToAsync(stream);
+                        }
+
+                        rascunhoExistente.ImagemUrl = "/imgs/posts-usuarios/" + nomeUnicoArquivo;
+                    }
+                }
+                else
+                {
+                    // Primeiro salvamento do rascunho
+                    if (fotoPost != null && fotoPost.Length > 0)
+                    {
+                        string pastaImagens = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "imgs", "posts-usuarios");
+                        if (!Directory.Exists(pastaImagens))
+                        {
+                            Directory.CreateDirectory(pastaImagens);
+                        }
+
+                        string nomeUnicoArquivo = Guid.NewGuid().ToString() + "_" + Path.GetFileName(fotoPost.FileName);
+                        string caminhoCompleto = Path.Combine(pastaImagens, nomeUnicoArquivo);
+
+                        using (var stream = new FileStream(caminhoCompleto, FileMode.Create))
+                        {
+                            await fotoPost.CopyToAsync(stream);
+                        }
+
+                        post.ImagemUrl = "/imgs/posts-usuarios/" + nomeUnicoArquivo;
+                    }
+
+                    _context.posts.Add(post);
+                }
+
+                await _context.SaveChangesAsync();
+
+                TempData["MensagemSucesso"] = "Rascunho salvo com sucesso! Você poderá continuar depois, clique no botão criar post! ";
+
+                return RedirectToAction(nameof(Index));
+            }
+
+
+            // ==========================================
+            // PUBLICAR RELATO
+            // ==========================================
+
+            post.Status = "Ativo";
+            post.DataCriacao = DateTime.Now;
+
             ModelState.Remove("UsuariosIdUsuario");
             ModelState.Remove("Autor");
-            ModelState.Remove("CategoriaRef"); // ADICIONADO: Remove a validação do objeto de relacionamento
-            ModelState.Remove("TipoRef");      // ADICIONADO: Remove a validação do objeto de relacionamento
-            ModelState.Remove("ImagemUrl");    // ADICIONADO: Remove se estiver como obrigatório na Model
+            ModelState.Remove("CategoriaRef");
+            ModelState.Remove("TipoRef");
+            ModelState.Remove("ImagemUrl");
 
             if (ModelState.IsValid)
             {
-                // 3. Processamento do Upload da Imagem
+                // Upload da imagem
                 if (fotoPost != null && fotoPost.Length > 0)
                 {
-                    string pastaImagens = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "imgs", "posts-usuarios");
+                    string pastaImagens = Path.Combine(
+                        Directory.GetCurrentDirectory(),
+                        "wwwroot",
+                        "imgs",
+                        "posts-usuarios"
+                    );
 
                     if (!Directory.Exists(pastaImagens))
                     {
                         Directory.CreateDirectory(pastaImagens);
                     }
 
-                    string nomeUnicoArquivo = Guid.NewGuid().ToString() + "_" + Path.GetFileName(fotoPost.FileName);
-                    string caminhoCompletoDefinitivo = Path.Combine(pastaImagens, nomeUnicoArquivo);
+                    string nomeUnicoArquivo =
+                        Guid.NewGuid().ToString() + "_" +
+                        Path.GetFileName(fotoPost.FileName);
 
-                    using (var stream = new FileStream(caminhoCompletoDefinitivo, FileMode.Create))
+                    string caminhoCompleto =
+                        Path.Combine(pastaImagens, nomeUnicoArquivo);
+
+                    using (var stream = new FileStream(
+                        caminhoCompleto,
+                        FileMode.Create))
                     {
                         await fotoPost.CopyToAsync(stream);
                     }
 
-                    post.ImagemUrl = "/imgs/posts-usuarios/" + nomeUnicoArquivo;
+                    post.ImagemUrl =
+                        "/imgs/posts-usuarios/" + nomeUnicoArquivo;
                 }
 
-                _context.Add(post);
+                // Verifica se existe um rascunho do usuário.
+                var rascunhoExistente = await _context.posts
+                    .FirstOrDefaultAsync(p =>
+                        p.UsuariosIdUsuario == post.UsuariosIdUsuario &&
+                        p.Status == "Rascunho");
+
+                if (rascunhoExistente != null)
+                {
+                    // Transforma o rascunho na postagem publicada.
+                    rascunhoExistente.Titulo = post.Titulo;
+                    rascunhoExistente.Resumo = post.Resumo;
+                    rascunhoExistente.Conteudo = post.Conteudo;
+                    rascunhoExistente.TiposIdTipo = post.TiposIdTipo;
+                    rascunhoExistente.CategoriasIdCategoria = post.CategoriasIdCategoria;
+                    rascunhoExistente.Status = "Ativo";
+                    rascunhoExistente.DataCriacao = DateTime.Now;
+
+                    if (!string.IsNullOrEmpty(post.ImagemUrl))
+                    {
+                        rascunhoExistente.ImagemUrl = post.ImagemUrl;
+                    }
+                }
+                else
+                {
+                    _context.posts.Add(post);
+                }
+
                 await _context.SaveChangesAsync();
 
-                TempData["MensagemSucesso"] = "Postagem criada com sucesso!";
+                TempData["MensagemSucesso"] =
+                    "Postagem criada com sucesso! Confira na página INICIAL ou na COMECE SUA AVENTURA ";
+
                 return RedirectToAction(nameof(Index));
             }
 
-            // SE CHEGAR AQUI, RETORNA PARA A TELA SEM BUGAR OS CAMPOS:
-            ViewBag.CategoriasIdCategoria = new SelectList(_context.categorias, "Id", "Nome", post.CategoriasIdCategoria);
+            // ==========================================
+            // RETORNA PARA A TELA CASO TENHA ERRO
+            // ==========================================
 
-            // CORRIGIDO: Trocado o terceiro parâmetro de "IdTipo" para "nomeTipo" (com n minúsculo)
-            ViewBag.TiposIdTipo = new SelectList(_context.tipo, "IdTipo", "nomeTipo", post.TiposIdTipo);
+            ViewBag.CategoriasIdCategoria = new SelectList(
+                _context.categorias,
+                "Id",
+                "Nome",
+                post.CategoriasIdCategoria
+            );
+
+            ViewBag.TiposIdTipo = new SelectList(
+                _context.tipo,
+                "IdTipo",
+                "nomeTipo",
+                post.TiposIdTipo
+            );
 
             return View(post);
         }

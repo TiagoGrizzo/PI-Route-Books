@@ -103,6 +103,18 @@ body{
 }
 /*ALTERANDO BOTAO DE CANCELAR QUANDO O MOUSE ESTÁ EM CIMA DELE*/
 
+.btn-rascunho {
+    background-color: #4B9936;
+    color: #fff;
+    border: none;
+    margin-right: 10px;
+}
+
+    .btn-rascunho:hover {
+        background-color: #346928;
+        color: #fff;
+    }
+
 /*ABAIXO É RESPONSIVIDADE*/
 @media (max-width: 700px) {
     .post-container {
