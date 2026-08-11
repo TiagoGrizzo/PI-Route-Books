@@ -129,6 +129,25 @@ body {
 }
 /*MODIFICANDO DIV DA LOGO*/
 
+.btn-mostrar-senha {
+    background: none;
+    border: none;
+    padding: 0;
+    margin-left: auto;
+    cursor: pointer;
+    color: #005940;
+    font-size: 18px;
+}
+
+    .btn-mostrar-senha:hover {
+        color: #009e6b;
+    }
+
+
+
+
+/* RESPONSIVIDADE */
+
 /*Celular*/
 @media (max-width: 767px) {
     html, body {

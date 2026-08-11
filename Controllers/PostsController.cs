@@ -95,17 +95,15 @@ namespace PI_RouteBooks.Controllers
         [HttpGet]
         public async Task<IActionResult> Create()
         {
-            // Temporariamente utilizando o primeiro usuário do banco,
-            // seguindo a lógica que já existe no projeto.
-            var primeiroUsuario = await _context.usuarios.FirstOrDefaultAsync();
+            var usuarioLogado = HttpContext.Session.GetInt32("UsuarioId");
 
             Post? rascunho = null;
 
-            if (primeiroUsuario != null)
+            if (usuarioLogado != null)
             {
                 rascunho = await _context.posts
                     .FirstOrDefaultAsync(p =>
-                        p.UsuariosIdUsuario == primeiroUsuario.IdUsuario &&
+                        p.UsuariosIdUsuario == usuarioLogado.Value &&
                         p.Status == "Rascunho");
             }
 
@@ -131,13 +129,22 @@ namespace PI_RouteBooks.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("IdPost,Titulo,Resumo,Conteudo,TiposIdTipo,CategoriasIdCategoria")] Post post, IFormFile? fotoPost, string acao)
         {
-            // Temporariamente utilizando o primeiro usuário do banco,
-            // seguindo a lógica atual do projeto.
-            var primeiroUsuario = await _context.usuarios.FirstOrDefaultAsync();
+            // Verifica se existe um usuário logado
+            var usuarioLogado = HttpContext.Session.GetInt32("UsuarioId");
 
-            if (primeiroUsuario != null)
+            // Se não estiver logado e tentou salvar rascunho
+            if (acao == "rascunho" && usuarioLogado == null)
             {
-                post.UsuariosIdUsuario = primeiroUsuario.IdUsuario;
+                TempData["MensagemAviso"] =
+                    "Faça login ou cadastre-se para continuar essa aventura!";
+
+                return RedirectToAction(nameof(Create));
+            }
+
+            // Se estiver logado, associa o post ao usuário logado
+            if (usuarioLogado != null)
+            {
+                post.UsuariosIdUsuario = usuarioLogado.Value;
             }
 
 

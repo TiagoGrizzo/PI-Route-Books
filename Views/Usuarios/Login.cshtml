@@ -38,11 +38,23 @@
             <input class="input-email" name="email" type="email" placeholder="Insira seu e-mail..." required />
         </div>
 
-        <label for="senha">Senha:</label>
-        <div class="input-login">
-            <i class="fa fa-lock" aria-hidden="true"></i>
-            <input class="input-senha" name="senha" type="password" placeholder="Insira sua senha..." required />
-        </div>
+            <label for="senha">Senha:</label>
+            <div class="input-login">
+                <i class="fa fa-lock" aria-hidden="true"></i>
+
+                <input id="senha"
+                       class="input-senha"
+                       name="senha"
+                       type="password"
+                       placeholder="Insira sua senha..."
+                       required />
+
+                <button type="button" id="mostrarSenha" class="btn-mostrar-senha">
+                    <i class="fa fa-eye" aria-hidden="true"></i>
+                </button>
+            </div>
+
+                
 
         <div class="link-login">
             <a href="#">Esqueci minha senha</a>
@@ -58,5 +70,6 @@
         </div>
     </form>
 </section>
+    <script src="~/js/login.js"></script>
 </body>
 </html>
