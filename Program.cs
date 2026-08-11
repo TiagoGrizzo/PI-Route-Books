@@ -11,10 +11,10 @@ var connectionString = builder.Configuration.GetConnectionString("DefaultConnect
 
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseMySql(
-        connectionString,
+       connectionString,
         Microsoft.EntityFrameworkCore.ServerVersion.AutoDetect(connectionString)
     )
-);
+); 
 
 // 2. CONFIGURAÇÃO DO CHAT (MongoDB)
 var mongoConnectionString = builder.Configuration.GetConnectionString("MongoConnection");
