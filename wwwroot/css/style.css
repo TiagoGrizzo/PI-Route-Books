@@ -504,3 +504,31 @@ body.dark-mode .btn-dark-mode:hover {
     transform: scale(1.05); /* efeito de leve “zoom” */
     transition: width 0.4s ease;
 }
+
+
+
+
+
+
+.notificacao-navbar {
+    position: absolute;
+    top: 2px; /* Ajuste a altura em relação ao topo do texto */
+    right: -2px; /* Gruda ela na pontinha direita sem esticar o link */
+    width: 8px;
+    height: 8px;
+    background-color: #ff3030;
+    border-radius: 50%;
+    box-shadow: 0 0 6px #ff3030;
+    pointer-events: none; /* Evita atrapalhar o clique no link */
+}
+
+
+@keyframes brilhoNotificacao {
+    0%, 100% {
+        box-shadow: 0 0 3px #ff3030;
+    }
+
+    50% {
+        box-shadow: 0 0 9px #ff3030;
+    }
+}

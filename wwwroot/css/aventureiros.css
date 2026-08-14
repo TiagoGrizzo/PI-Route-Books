@@ -1,0 +1,54 @@
+﻿.card-aventureiro {
+    border-radius: 15px;
+    transition: transform 0.2s, box-shadow 0.2s;
+    background-color: #ffffff;
+}
+
+    .card-aventureiro:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 15px rgba(0,0,0,0.1) !important;
+    }
+
+.btn-conversar {
+    border-radius: 20px;
+    background-color: #27ae60;
+    border: none;
+    padding: 8px 18px;
+    font-size: 13px;
+}
+
+    .btn-conversar:hover {
+        background-color: #219150 !important;
+    }
+
+
+.notificacao-chat {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 22px;
+    height: 22px;
+    padding: 2px 4px;
+    background-color: #e74c3c;
+    color: white;
+    border-radius: 50%;
+    font-size: 11px;
+    font-weight: bold;
+    border: 2px solid #ffffff; /* Borda branca para destacar do botão */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    z-index: 10;
+    animation: brilhoNotificacao 1.5s infinite;
+}
+
+@keyframes brilhoNotificacao {
+    0%, 100% {
+        box-shadow: 0 0 2px rgba(231, 76, 60, 0.5);
+    }
+
+    50% {
+        box-shadow: 0 0 8px rgba(231, 76, 60, 0.9);
+    }
+}

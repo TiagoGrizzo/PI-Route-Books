@@ -63,6 +63,21 @@ namespace PI_RouteBooks.Controllers
                                             .SortBy(m => m.EnviadoEm)
                                             .ToListAsync();
 
+            // Marca como lidas as mensagens que o usuário recebeu
+            var filtroNaoLidas = Builders<MensagemChat>.Filter.And(
+                Builders<MensagemChat>.Filter.Eq(m => m.RemetenteId, idDoAmigo.Value),
+                Builders<MensagemChat>.Filter.Eq(m => m.DestinatarioId, meuId.Value),
+                Builders<MensagemChat>.Filter.Eq(m => m.Lida, false)
+            );
+
+            var atualizacaoLidas = Builders<MensagemChat>.Update
+                .Set(m => m.Lida, true);
+
+            await _mensagens.UpdateManyAsync(
+                filtroNaoLidas,
+                atualizacaoLidas
+            );
+
             return View(historico);
         }
 
@@ -82,13 +97,63 @@ namespace PI_RouteBooks.Controllers
                     RemetenteNome = meuNome ?? "Aventureiro",
                     DestinatarioId = destinatarioId,
                     Texto = texto,
-                    EnviadoEm = DateTime.Now
+                    EnviadoEm = DateTime.Now,
+                    Lida = false
                 };
 
                 await _mensagens.InsertOneAsync(novaMensagem);
             }
 
             return RedirectToAction("Index", new { idDoAmigo = destinatarioId });
+        }
+
+        private async Task<long> ContarMensagensNaoLidas(int usuarioId)
+        {
+            var filtro = Builders<MensagemChat>.Filter.And(
+                Builders<MensagemChat>.Filter.Eq(m => m.DestinatarioId, usuarioId),
+                Builders<MensagemChat>.Filter.Eq(m => m.Lida, false)
+            );
+
+            return await _mensagens.CountDocumentsAsync(filtro);
+        }
+
+
+        private async Task<Dictionary<int, int>> ContarMensagensNaoLidasPorRemetente(int usuarioId)
+        {
+            var filtro = Builders<MensagemChat>.Filter.And(
+                Builders<MensagemChat>.Filter.Eq(m => m.DestinatarioId, usuarioId),
+                Builders<MensagemChat>.Filter.Eq(m => m.Lida, false)
+            );
+
+            var mensagens = await _mensagens
+                .Find(filtro)
+                .ToListAsync();
+
+            return mensagens
+                .GroupBy(m => m.RemetenteId)
+                .ToDictionary(
+                    grupo => grupo.Key,
+                    grupo => grupo.Count()
+                );
+        }
+
+
+        [HttpGet]
+        [Route("Chats/ObterTotalMensagensNaoLidas")]
+        public async Task<IActionResult> ObterTotalMensagensNaoLidas()
+        {
+            var meuId = HttpContext.Session.GetInt32("UsuarioId");
+
+            // Se o usuário não estiver logado, não tem notificação
+            if (meuId == null || meuId == 0)
+            {
+                return Json(new { qtd = 0 });
+            }
+
+            // Usa a sua própria função de MongoDB que já está pronta nesse arquivo!
+            long totalNaoLidas = await ContarMensagensNaoLidas(meuId.Value);
+
+            return Json(new { qtd = totalNaoLidas });
         }
     }
 }

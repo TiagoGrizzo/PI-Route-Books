@@ -16,4 +16,7 @@ public class MensagemChat
 
     public string Texto { get; set; } = string.Empty;
     public DateTime EnviadoEm { get; set; }
+
+    // Indica se o destinatário já visualizou a mensagem
+    public bool Lida { get; set; } = false;
 }

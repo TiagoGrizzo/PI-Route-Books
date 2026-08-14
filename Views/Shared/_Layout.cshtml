@@ -38,9 +38,14 @@
                         <li class="nav-item">
                             <a class="nav-link active text-color-navbar titulo-font" asp-controller="Posts" asp-action="Index">Home</a>
                         </li>
+
                         <li class="nav-item">
-                            <a class="nav-link text-color-navbar titulo-font" asp-controller="Usuarios" asp-action="Index">Aventureiros</a>
+                            <a class="nav-link text-color-navbar titulo-font position-relative" asp-controller="Usuarios" asp-action="Index">
+                                Aventureiros
+                                <span id="notificacaoNavbarGlobal" class="notificacao-navbar" style="display: none;"></span>
+                            </a>
                         </li>
+
                         <li class="nav-item">
                             <a class="nav-link text-color-navbar titulo-font" asp-controller="Home" asp-action="QuemSomos">Sobre</a>
                         </li>
@@ -181,6 +186,32 @@
             if (temaSalvo === 'dark') {
                 aplicarTema(true);
             }
+        });
+
+
+
+        function checarNotificacoes() 
+        {
+            fetch('/Chats/ObterTotalMensagensNaoLidas')
+                .then(response => response.json())
+                .then(data => {
+                    const badge = document.getElementById('notificacaoNavbarGlobal');
+                    if (badge) {
+                        // Se a quantidade for maior que 0, mostra a bolinha
+                        if (data.qtd > 0) {
+                            badge.style.display = 'inline-block';
+                        } else {
+                            badge.style.display = 'none';
+                        }
+                    }
+                })
+                .catch(err => console.error("Erro ao buscar notificações:", err));
+        }
+
+        // Executa assim que a página carrega
+        document.addEventListener('DOMContentLoaded', function() {
+            checarNotificacoes();
+
         });
     </script>
     @await RenderSectionAsync("Scripts", required: false)

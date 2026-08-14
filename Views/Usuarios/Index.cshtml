@@ -5,31 +5,9 @@
 }
 
 @section Styles {
-    <style>
-        .card-aventureiro {
-            border-radius: 15px;
-            transition: transform 0.2s, box-shadow 0.2s;
-            background-color: #ffffff;
-        }
-
-            .card-aventureiro:hover {
-                transform: translateY(-5px);
-                box-shadow: 0 8px 15px rgba(0,0,0,0.1) !important;
-            }
-
-        .btn-conversar {
-            border-radius: 20px;
-            background-color: #27ae60;
-            border: none;
-            padding: 8px 18px;
-            font-size: 13px;
-        }
-
-            .btn-conversar:hover {
-                background-color: #219150 !important;
-            }
-    </style>
+    <link rel="stylesheet" href="~/css/aventureiros.css" asp-append-version="true" />
 }
+
 
 <div class="container container-xxl mt-5 flex-grow-1">
     <div class="d-flex align-items-center mb-4">
@@ -57,18 +35,29 @@
                                     <h6 class="mb-1 titulo-font" style="font-weight: 600; color: #2c3e50;">
                                         @(usuario.NomeCompleto ?? usuario.Username)
                                     </h6>
+
+                                    
+
                                     <small class="text-muted d-block">
                                         <i class="fa fa-map-marker me-1" style="color: #e74c3c;"></i>
                                         @usuario.Cidade - @usuario.Uf
                                     </small>
                                 </div>
                             </div>
-
-                            <a asp-controller="Chat" asp-action="Index" asp-route-idDoAmigo="@usuario.IdUsuario"
-                               class="btn btn-success btn-conversar text-white">
-                                <i class="fa fa-paper-plane me-1"></i> Conversar
-                            </a>
-
+                            <div class="position-relative d-inline-block">
+                                <a asp-controller="Chat" asp-action="Index" asp-route-idDoAmigo="@usuario.IdUsuario"
+                                   class="btn btn-success btn-conversar text-white">
+                                    <i class="fa fa-paper-plane me-1"></i> Conversar
+                                </a>
+                                @if (ViewBag.MensagensNaoLidasPorRemetente != null &&
+                                                        ViewBag.MensagensNaoLidasPorRemetente.ContainsKey(usuario.IdUsuario))
+                                {
+                                    <span class="notificacao-chat">
+                                        @ViewBag.MensagensNaoLidasPorRemetente[usuario.IdUsuario]
+                                    </span>
+                                }
+                            </div>
+                            
                         </div>
                     </div>
                 </div>

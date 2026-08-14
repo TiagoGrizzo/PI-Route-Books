@@ -9,16 +9,21 @@ using Microsoft.EntityFrameworkCore;
 using PI_RouteBooks.Data;
 using PI_RouteBooks.Models;
 using BCrypt.Net; // Biblioteca de criptografia de senhas
+using MongoDB.Driver; 
 
 namespace PI_RouteBooks.Controllers
 {
     public class UsuariosController : Controller
     {
         private readonly ApplicationDbContext _context;
+        private readonly IMongoCollection<MensagemChat> _mensagens;
 
-        public UsuariosController(ApplicationDbContext context)
+        public UsuariosController(ApplicationDbContext context, IMongoClient mongoclient)
         {
             _context = context;
+
+            var database = mongoclient.GetDatabase("RouteBooksChat");
+            _mensagens = database.GetCollection<MensagemChat>("Mensagens"); 
         }
 
         // GET: Usuarios/Login
@@ -60,11 +65,48 @@ namespace PI_RouteBooks.Controllers
             return RedirectToAction("Login");
         }
 
+
         // GET: Usuarios
         public async Task<IActionResult> Index()
         {
-            return View(await _context.usuarios.ToListAsync());
+            var usuarios = await _context.usuarios.ToListAsync();
+
+            var usuarioLogado = HttpContext.Session.GetInt32("UsuarioId");
+
+            if (usuarioLogado != null)
+            {
+                // Conta TODAS as mensagens não lidas recebidas
+                var filtroTotal = Builders<MensagemChat>.Filter.And(
+                    Builders<MensagemChat>.Filter.Eq(
+                        m => m.DestinatarioId,
+                        usuarioLogado.Value
+                    ),
+                    Builders<MensagemChat>.Filter.Eq(
+                        m => m.Lida,
+                        false
+                    )
+                );
+
+                var totalNaoLidas =
+                    await _mensagens.CountDocumentsAsync(filtroTotal);
+
+                ViewBag.MensagensNaoLidas = totalNaoLidas;
+
+                // Conta as mensagens não lidas separadas por remetente
+                ViewBag.MensagensNaoLidasPorRemetente =
+                    await ContarMensagensNaoLidasPorRemetente(usuarioLogado.Value);
+            }
+            else
+            {
+                ViewBag.MensagensNaoLidas = 0;
+
+                ViewBag.MensagensNaoLidasPorRemetente =
+                    new Dictionary<int, int>();
+            }
+
+            return View(usuarios);
         }
+
 
         // GET: Usuarios/Details/5
         public async Task<IActionResult> Details(int? id)
@@ -249,6 +291,26 @@ namespace PI_RouteBooks.Controllers
 
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
+        }
+
+        // Conta as mensagens não lidas de cada remetente
+        private async Task<Dictionary<int, int>> ContarMensagensNaoLidasPorRemetente(int usuarioId)
+        {
+            var filtro = Builders<MensagemChat>.Filter.And(
+                Builders<MensagemChat>.Filter.Eq(m => m.DestinatarioId, usuarioId),
+                Builders<MensagemChat>.Filter.Eq(m => m.Lida, false)
+            );
+
+            var mensagens = await _mensagens
+                .Find(filtro)
+                .ToListAsync();
+
+            return mensagens
+                .GroupBy(m => m.RemetenteId)
+                .ToDictionary(
+                    grupo => grupo.Key,
+                    grupo => grupo.Count()
+                );
         }
 
         private bool UsuarioExists(int id)

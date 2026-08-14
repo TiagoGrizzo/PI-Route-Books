@@ -21,6 +21,7 @@ namespace PI_RouteBooks.Data
         public DbSet<Curtida> curtidas { get; set; }
         public DbSet<Tag> tags { get; set; }
         public DbSet<PostTag> poststags { get; set; }
+        
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -39,6 +40,7 @@ namespace PI_RouteBooks.Data
             modelBuilder.Entity<Curtida>().ToTable("curtidas");
             modelBuilder.Entity<Tag>().ToTable("tags");
             modelBuilder.Entity<PostTag>().ToTable("poststags");
+            
 
             // Configuração da relação de Seguidores para evitar erro de Ciclo/Cascata no SQL Server
             // Usando os nomes exatos da sua classe: UsuarioSeguidor e UsuarioSeguido
