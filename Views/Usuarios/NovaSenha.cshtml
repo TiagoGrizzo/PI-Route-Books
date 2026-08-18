@@ -1,0 +1,104 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Route Books - Nova Senha</title>
+
+    <link rel="stylesheet" href="~/css/reset.css">
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="~/css/style.css">
+    <link rel="stylesheet" href="~/css/novasenha.css">
+
+</head>
+
+<body>
+
+    <section class="form-nova-geral container-xxl">
+
+        <form asp-controller="Usuarios"
+              asp-action="NovaSenha"
+              method="post"
+              class="form-nov">
+
+            @Html.AntiForgeryToken()
+
+            <div class="logo">
+
+                <img src="~/imgs/rb-logo1.png"
+                     class="logo-img"
+                     alt="Logo Route Books">
+
+            </div>
+
+            <h2 class="titulo-nova">
+                Nova senha
+            </h2>
+
+            <label for="novaSenha">
+                Nova senha:
+            </label>
+
+            <div class="input-nova">
+                <i class="fa fa-lock" aria-hidden="true"></i>
+
+                <input class="input-senha"
+                       id="novaSenha"
+                       name="novaSenha"
+                       type="password"
+                       placeholder="Insira sua nova senha..."
+                       required />
+
+                <button type="button" id="mostrarSenha1" class="btn-mostrar-senha">
+                    <i class="fa fa-eye" aria-hidden="true"></i>
+                </button>
+            </div>
+
+            <label for="confirmarSenha">
+                Confirmar nova senha:
+            </label>
+
+            <div class="input-nova">
+                <i class="fa fa-lock" aria-hidden="true"></i>
+
+                <input class="input-senha"
+                       id="confirmarSenha"
+                       name="confirmarSenha"
+                       type="password"
+                       placeholder="Confirme sua nova senha..."
+                       required />
+
+                <button type="button" id="mostrarSenha2" class="btn-mostrar-senha">
+                    <i class="fa fa-eye" aria-hidden="true"></i>
+                </button>
+            </div>
+
+            @if (ViewBag.Erro != null)
+            {
+                <div class="text-danger">
+                    @ViewBag.Erro
+                </div>
+            }
+
+            <div class="div-btn-nova">
+
+                <button type="submit"
+                        class="btn-enviar-nova">
+                    Trocar senha
+                </button>
+
+            </div>
+
+        </form>
+
+    </section>
+    <script src="~/js/novasenha.js"></script>
+</body>
+</html>

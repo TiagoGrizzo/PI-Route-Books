@@ -9,7 +9,8 @@ using Microsoft.EntityFrameworkCore;
 using PI_RouteBooks.Data;
 using PI_RouteBooks.Models;
 using BCrypt.Net; // Biblioteca de criptografia de senhas
-using MongoDB.Driver; 
+using MongoDB.Driver;
+using AspNetCoreGeneratedDocument;
 
 namespace PI_RouteBooks.Controllers
 {
@@ -64,6 +65,97 @@ namespace PI_RouteBooks.Controllers
             HttpContext.Session.Clear();
             return RedirectToAction("Login");
         }
+
+
+
+        // GET: Usuarios/EsqueceuSenha
+        [HttpGet]
+        public IActionResult EsqueceuSenha()
+        {
+            return View(); 
+        }
+
+        // POST: Usuarios/EsqueceuSenha
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> EsqueceuSenha(string email)
+        {
+            var usuario = await _context.usuarios
+                .FirstOrDefaultAsync(u => u.Email == email); 
+
+            if (usuario == null)
+            {
+                ViewBag.Erro = "Não encontramos uma conta com esse e-mail.";
+                return View();
+            }
+
+            HttpContext.Session.SetInt32(
+                "UsuarioRecuperacaoId",
+                usuario.IdUsuario
+    );
+
+            return RedirectToAction(nameof(NovaSenha));
+        } // Fim do método Esqueceu Senha 
+
+
+        // GET: Usuarios/NovaSenha
+        [HttpGet]
+        public IActionResult NovaSenha()
+        {
+            var usuarioId = HttpContext.Session.GetInt32("UsuarioRecuperacaoId");
+
+            if (usuarioId == null)
+            {
+                return RedirectToAction(nameof(EsqueceuSenha));
+            }
+
+            return View();
+        }
+
+        // POST: Usuarios/NovaSenha
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> NovaSenha(
+            string novaSenha,
+            string confirmarSenha)
+        {
+            var usuarioId = HttpContext.Session.GetInt32("UsuarioRecuperacaoId");
+
+            if (usuarioId == null)
+            {
+                return RedirectToAction(nameof(EsqueceuSenha));
+            }
+
+            if (novaSenha != confirmarSenha)
+            {
+                ViewBag.Erro = "As senhas não coincidem.";
+                return View();
+            }
+
+            if (novaSenha.Length < 8)
+            {
+                ViewBag.Erro = "A senha deve ter no mínimo 8 caracteres.";
+                return View();
+            }
+
+            var usuario = await _context.usuarios
+                .FirstOrDefaultAsync(u => u.IdUsuario == usuarioId.Value);
+
+            if (usuario == null)
+            {
+                return RedirectToAction(nameof(EsqueceuSenha));
+            }
+
+            usuario.SenhaHash = BCrypt.Net.BCrypt.HashPassword(novaSenha);
+
+            await _context.SaveChangesAsync();
+
+            HttpContext.Session.Remove("UsuarioRecuperacaoId");
+
+            return RedirectToAction(nameof(Login));
+        } // Fim do método Nova Senha
+
+
 
 
         // GET: Usuarios

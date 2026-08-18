@@ -1,0 +1,74 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Route Books - Esqueci Minha Senha</title>
+
+    <link rel="stylesheet" href="~/css/reset.css">
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="~/css/style.css">
+    <link rel="stylesheet" href="~/css/esqsenha.css">
+</head>
+
+<body>
+
+    <section class="form-esqueceu-geral container-xxl">
+
+        <form asp-controller="Usuarios"
+              asp-action="EsqueceuSenha"
+              method="post"
+              class="form-esq">
+
+            @Html.AntiForgeryToken()
+
+            <div class="logo-esq">
+                <img src="~/imgs/rb-logo1.png"
+                     class="logo-img"
+                     alt="Logo Route Books">
+            </div>
+
+            <h4 class="titulo-esqueceu">
+                Informe o e-mail que foi cadastrado previamente na sua conta
+            </h4>
+
+            <label for="email">E-mail:</label>
+
+            <div class="input-esqueceu">
+                <i class="fa fa-envelope-o" aria-hidden="true"></i>
+
+                <input class="input-email"
+                       id="email"
+                       name="email"
+                       type="email"
+                       placeholder="Insira seu e-mail..."
+                       required>
+            </div>
+
+            @if (ViewBag.Erro != null)
+            {
+                <div class="text-danger">
+                    @ViewBag.Erro
+                </div>
+            }
+
+            <div class="div-btn-enviar">
+
+                <button type="submit"
+                        class="btn-enviar">
+                    Enviar
+                </button>
+
+            </div>
+
+        </form>
+
+    </section>
+
+</body>
+</html>
