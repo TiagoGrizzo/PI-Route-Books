@@ -1,11 +1,14 @@
 ﻿/* ===================================================
            ESTILOS EXCLUSIVOS DO CHAT (INTEGRADO AO COLOR.CSS)
-           =================================================== */
+   =================================================== */
 
 /* Header do Chat */
 .chat-header {
     background-color: var(--main-color) !important;
+
 }
+
+
 
 .chat-icon-user {
     font-size: 1.6rem;

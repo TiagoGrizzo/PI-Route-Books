@@ -68,10 +68,15 @@ body.dark-mode{
         /* Nome do usuário dentro do card no Dark Mode */
         body.dark-mode .card h5,
         body.dark-mode .card strong,
-        body.dark-mode .card .fw-bold,
-        body.dark-mode .card p {
+        body.dark-mode .card .fw-bold {
             color: #ffffff !important;
         }
+
+    /* Força o texto do conteúdo dos posts recentes a ficar preto no Dark Mode */
+    body.dark-mode .fundo-relatos .relatos p, /* Navegador entende que essa regra é apenas para parágrafos específicos dentro daquela estrura dos relatos na home page*/
+    body.dark-mode .relatos p {
+        color: #000000 !important; /* Ou #333333 se preferir um preto um pouco mais suave */
+    }
 
         /* Localização / Cidade (Jaú - SP) */
         body.dark-mode .card small,

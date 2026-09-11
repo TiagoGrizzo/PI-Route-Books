@@ -95,6 +95,8 @@ html, body {
 /*DIV DO BOTAO DE PERFIL*/
 .menu-perfil {
     justify-items: center;
+     
+    
 }
 /*CENTRALIZANDO CONTEUDO DO BOTA DE PERFIL*/
 .perfil-item {
@@ -107,10 +109,11 @@ html, body {
 }
 /*HOVER DOS LINKS DO BOTAO DE PERFIL*/
 .btn-perfil {
-     border-radius: 400px;
-     border: 0;
-     transition: transform 0.2s ease, filter 0.2s ease;
-     background: linear-gradient(90deg,#00fa85,#009e6b);
+    border-radius: 400px;
+    border: 0;
+    transition: transform 0.2s ease, filter 0.2s ease;
+    background: linear-gradient(90deg,#00fa85,#009e6b);
+    
 }
 
 .btn-perfil:hover {
@@ -122,6 +125,7 @@ html, body {
     padding-left: 18px;
     display: flex;
     align-items: center;
+    
 }
 /*MODIFICANDO BOTAO DE PERFIL*/
 .btn.show{
@@ -131,6 +135,17 @@ html, body {
     background-color: #008d5c;
 }
 /*HOVER DO BOTAO DE PERFIL*/
+
+/* Usado para ajustar o dropdown (card do chat ficava na frente do drop, agr o drop fica na frente de qualquer elemento) */
+header, .navbar {
+    position: relative;
+    z-index: 2000; /* Define profundidade visual da barra de navegação */
+}
+
+.dropdown-menu {
+    z-index: 2050; /* Garante que o dropdown tenha uma camada maior que a barra de navegação, forçando-o a aparecer na frente de qualquer outro elemento */
+}
+
 /*fim da navbar*/
 
 /*Inicio footer*/
