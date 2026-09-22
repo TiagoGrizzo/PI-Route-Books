@@ -100,18 +100,21 @@ O sistema permite que o usuário faça uma publicação no nosso site, relaciona
 
 ### RF7 - Logout
 O sistema deve permitir que os usuários possam se desconectar da sua conta.
-</details>
-
-<details><summary><h3>Requisitos que serão trabalhados</h3></summary>
 
 ### RF8 - Exibir dicas de pontos turísticos e atividades. 
 Exibir dicas de pontos turísticos cadastrados no site: nome, descrição, localização etc. (Explorar melhor o lugar que pretende visitar)
 
 ### RF9 - Disponibilizar sistema de busca 
 O sistema deve permitir busca dos pontos turísticos, por meio de: Local, nome (parte do nome), categoria (restaurante, hotel, cidade, ponto turístico etc.) – Mais agilidade para o cliente
+</details>
+
+<details><summary><h3>Requisitos que serão trabalhados</h3></summary>
 
 ### RF10 - Exibir busca mais populares 
 O sistema deve exibir as avaliações mais frequentes: id_pontoturistico, data, localização, comentário (conter um campo onde contenha as postagens mais populares)
+
+### RF11 - Adicionar amizades e curtir postagens 
+O sistema deve permitir que os usuários possam criar uma networking e possam curtir postagens de outros usuários para engajar e ajudar na divulgação 
 </details>
 
 
