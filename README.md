@@ -444,6 +444,26 @@ Na figura 5 temos o nosso modelo físico, com relacionamento entre tabelas, chav
     <img src="./wwwroot/imgs/modelagem-PI-completa.png" alt="Figura 5 - Modelo Físico" width="550">
   </div>
 
+  <div align="center">
+
+### Figura 6 - Modelo Banco de Dados NoSql (MongoDB)
+
+Na figura 6 temos o nosso banco de dados não relacional, utilizamos MongoDB para a parte do chat entre os aventureiros da plataforma
+</div>
+
+  <div align="center">
+   <table>
+  <tr>
+    <td valign="top">
+      <img width="500" height="315" alt="Coleção_Mongo-RB" src="https://github.com/user-attachments/assets/5c7ff262-5cad-471a-93b2-3c0d5965df79" />
+    </td>
+    <td valign="top">
+      &nbsp;&nbsp;&nbsp;
+      <img width="450" height="202" alt="Print_RouteBooksChat" src="https://github.com/user-attachments/assets/b8def755-3fb2-4054-9c25-c0473ad9bddf" />
+    </td>
+  </tr>
+</table>
+
 [Voltar para o início](#inicio) 
 
 
@@ -452,11 +472,11 @@ Na figura 5 temos o nosso modelo físico, com relacionamento entre tabelas, chav
 - ### Link dos protótipos com a ferramenta Figma: [Figma - Route Books](https://www.figma.com/design/8UFfrEyZOdytMzzJvd0jSB/Mockup-do-site-PI?node-id=0-1&p=f&t=6UuWB1YErd0NN2MF-0)
 
 
-Na figura 6, é possível visualizar o protótipo da homepage, de como ela seria na aplicação final (Fizemos mais telas, mas coloquei apenas uma para visualização).
+Na figura 7, é possível visualizar o protótipo da homepage, de como ela seria na aplicação final (Fizemos mais telas, mas coloquei apenas uma para visualização).
 
 <div align="center">
 
-### Figura 6 - Protótipo da home
+### Figura 7 - Protótipo da home
 
 </div>
 
