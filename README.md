@@ -451,7 +451,6 @@ Na figura 5 temos o nosso modelo físico, com relacionamento entre tabelas, chav
 Na figura 6 temos o nosso banco de dados não relacional, utilizamos MongoDB para a parte do chat entre os aventureiros da plataforma
 </div>
 
-  <div align="center">
    <table>
   <tr>
     <td valign="top">
