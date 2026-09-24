@@ -448,7 +448,7 @@ Na figura 5 temos o nosso modelo físico, com relacionamento entre tabelas, chav
 
 ### Figura 6 - Modelo Banco de Dados NoSql (MongoDB)
 
-Na figura 6 temos o nosso banco de dados não relacional, utilizamos MongoDB para a parte do chat entre os aventureiros da plataforma
+Na figura 6 temos o nosso banco de dados não relacional, utilizamos MongoDB para a parte do chat entre os aventureiros da plataforma. Nela existe apenas a coleção Mensagens. 
 </div>
 
    <table>
@@ -534,15 +534,19 @@ HOME TOUR. Disponível em: [https://hometour.com.br/](https://hometour.com.br/)
 ## 📸 Imagens do Projeto
 
 **Home Page**
-![Tela inicial do Route Books](https://github.com/user-attachments/assets/f199aa55-6505-4e6a-8752-2da5dc8af263)
+![Tela inicial do Route Books](https://github.com/user-attachments/assets/402b4098-623c-4117-8952-a2ce44c27882)
 
 
-**Tela de Perfil de Usuário**
-![Tela de Perfil](https://github.com/user-attachments/assets/704f4e6c-f044-4615-9189-382ebe622a7d)
+**Tela dos aventureiros, o chat de bate papo (Com dark mode ativado)**
+![Tela de Perfil](https://github.com/user-attachments/assets/9403bc04-b85b-4329-a0b3-a38bfecbcbb5)
+
+
+**Tela de Cadastro**
+![Tela de Cadastro](https://github.com/user-attachments/assets/1d924dca-b04d-438a-aba9-0338a40bdddf)
 
 
 **Tela de Login**
-![Tela de Login](https://github.com/user-attachments/assets/109a656f-9dce-41a0-94f2-b238f246fb00)
+![Tela de Login](https://github.com/user-attachments/assets/f7c015f6-e128-46cd-8e25-f30b53d50adf)
 
 ## 🚀 Como Usar
   
