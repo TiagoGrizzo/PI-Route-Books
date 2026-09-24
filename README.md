@@ -7,7 +7,7 @@
   ### Centro Paula Souza
   ### Faculdade de Tecnologia de Jahu - FATEC JAHU 
   ### Curso de Tecnologia em Desenvolvimento de Software Multiplataforma
-  ### Feito por Lucas Eduardo e Tiago Augusto 
+  ### Feito por Lucas Eduardo, Tiago Augusto, Luis Abdo e João Pascuci  
   ### Jaú-SP, Brasil. 
   ### Início: 1º Semestre / 2025
   # Documento da aplicação web
@@ -37,31 +37,35 @@
 </details>
 
 # 1. Resumo da aplicação web
-Este projeto tem por objetivo facilitar que pessoas apaixonadas por lugares históricos e cativantes, consigam achar grandes aventuras, com dicas sobre pontos turísticos, restaurantes tradicionais, entre outras variedades. Falaremos sobre pontos REGIONAIS, NACIONAIS E MUNDIAIS. A ideia é que a plataforma seja de utilização simples, com informações claras e objetivas, que não deixe os clientes confusos ou perdidos (Pesquisar determinado local e achar ele com agilidade). Os usuários podem deixar seus relatos (posts) e comentários nesses posts também.
-Utilizamos alguns sites que existem nesta área e juntamos com nosso interesse por lugares turísticos, que contam sua história e valorizam o que tem.
+Este projeto visa facilitar na busca e na organização de viagens, com dicas de locais e comportamentos, e na criação de networking com pessoas de todos os lugares. É um blog editável onde você tem disponibilidade de criar seus próprios posts e filtrar ele com o tipo e categoria na qual você vivenciou, com o intuito de ajudar outros viajantes com informações atualizadas sobre aquele destino. Você é livre para que possa montar roteiros, pedir dicas, apenas contar um relato, entre outras atividades.  
+A aplicação tem a intenção de ajudar viajantes a ter uma aventura segura e consciente e que você possa vivenciar novas experiências sozinho ou acompanhado. 
 
 ## 1.1. Objetivos
 USUÁRIOS/CLIENTES: 
-Facilitar que pessoas apaixonadas por viagens consigam encontrar grandes aventuras, com dicas sobre pontos turísticos, restaurantes tradicionais, entre outras variedades.
+Facilitar que pessoas apaixonadas por viagens consigam encontrar grandes aventuras, com dicas sobre pontos turísticos, dicas de comportamentos e relatos, dúvidas, guias de pessoas reais dentro da plataforma, com o intuito de ajudar o usuário a organizar e entender para onde ele quer ir. 
 
 
 EMPRESA/EQUIPE
-Fortalecer a marca, se colocando no mercado.
-A nossa felicidade é deixar os nossos clientes satisfeitos e encantados, críticas são bem-vindas para a melhoria da equipe e do nosso Website, para que problemas sejam resolvidos e nossa evolução seja contínua.
+O objetivo da empresa é entregar uma plataforma intuitiva e de fácil acesso, para que pessoas de diversos locais diferentes possam se interligar e ter experiências marcantes. Conquistar a confiança dos usuários e se fortalacer dentro do nicho de turismo e vivências.
+A nossa felicidade é deixar os nossos clientes satisfeitos e encantados, críticas são bem-vindas para a melhoria da equipe e do nosso website, para que problemas sejam resolvidos e nossa evolução seja contínua para ajudar os viajantes da melhor forma e trazer segurança.
  
 
 ## 1.2. Métodos da pesquisa
 A pesquisa e o desenvolvimento do projeto estão sendo realizados com o apoio da infraestrutura disponibilizada pela Fatec de Jahu. As atividades ocorrem tanto durante as aulas quanto nos períodos livres, utilizando os computadores dos laboratórios da instituição, bem como os computadores pessoais dos integrantes da equipe. 
 
-As tecnologias utilizadas até o momento incluem HTML, CSS, JS, Bootstrap para a construção da interface e estrutura da aplicação. O protótipo visual está sendo desenvolvido por meio da ferramenta Figma, que permite a criação colaborativa de interfaces. Além disso, está sendo utilizada a biblioteca Font Awesome para a inserção de ícones que enriquecem a experiência do usuário. Para o desenvolvimento do back-end, será empregado PHP em conjunto com MySQL e XAMPP, e continuaremos o aprofundamento de BD não relacional com mongoDB e aperfeiçoamento com C# em algumas partes. O código é desenvolvido no VS Code e versionado com Git, garantindo organização e controle das alterações.
+As tecnologias utilizadas até o momento incluem HTML, CSS, JS e C#, nesse semestre (Ago/2026 - Dez/2026) iremos SEPARAR o frontend do backend, será utilizado REACT e NODE.JS para realização do frontend e do backend (Postman para testes do backend), com ligações com APIs e Tailwind CSS para a construção da interface, estrutura e lógica da aplicação. Protótipo visual foi desenvolvivido na ferramenta FIGMA, que permite a criação de interfaces e esboços. Estamos utilizando a biblioteca FONT AWESOME para a inserção de ícones, ApexCharts para a adição de gráficos, com base nos dados do projeto, adicionamos animações, avisos (TOAST) e outros elementos visuais que enriquecem a experiência do usuário. Utilizamos dois estilos de banco de dados, o relacional que seria o MYSQL junto com o XAMPP para rodar o projeto e com isso ele guarda usuários, posts, contatos... E o não relacional (NoSQL) MongoDB para a parte do bate papo dos usuários. O código foi desenvolvido já pelo VS CODE e VS e versionado com o Git que faz a ligação com o Github para melhor organização, controle das alterações e divulgação do projeto. Criação de personas e utilização de ferramentas do Github (Organization, actions...) estão sendo utilizadas e ensinadas, além do Docker e Kubernetes com Kind. 
 
 <h3 align="center">
   <a href="#"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg" alt="HTML" align="center" width="35"></a> &nbsp;&nbsp;
   <a href="#"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg" alt="CSS" align="center" width="35"></a> &nbsp;&nbsp;
-  <a href="#"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg" 
-  alt="JS" align="center" width="35"></a> &nbsp;&nbsp;
+  <a href="#"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg" alt="JS" align="center" width="35"></a> &nbsp;&nbsp;
+  <a href="#"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg" alt="React" align="center" width="35"></a> &nbsp;&nbsp;
+  <a href="#"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original.svg" alt="Node.js" align="center" width="35"></a> &nbsp;&nbsp;
   <a href="#"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/bootstrap/bootstrap-original.svg" alt="BOOTSTRAP" align="center" width="35"></a> &nbsp;&nbsp;
   <a href="#"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/csharp/csharp-original.svg" alt="C#" align="center" width="35"></a> &nbsp;&nbsp;
+  <a href="#"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-original.svg" alt="Docker" align="center" width="35"></a> &nbsp;&nbsp;
+  <a href="#"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/kubernetes/kubernetes-original.svg" alt="Kubernetes" align="center" width="35"></a> &nbsp;&nbsp;
+  <a href="#"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postman/postman-original.svg" alt="Postman" align="center" width="35"></a> &nbsp;&nbsp;
   <a href="#"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/figma/figma-original.svg" alt="Figma" align="center" width="35"></a> &nbsp;&nbsp;
   <a href="#"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original.svg" alt="MySQL" align="center" width="35"></a> &nbsp;&nbsp;
   <a href="#"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vscode/vscode-original.svg" alt="Visual Studio Code" align="center" width="35"></a> &nbsp;&nbsp;
@@ -219,13 +223,13 @@ Na Figura 1, podemos visualizar o modelo de negócios, utilizado para melhor ide
 
 # 4. Estudo de viabilidade
 ### Viabilidade técnica: 
-Sim, temos os equipamentos necessários fornecidos pela FATEC JAHU, computadores, internet, ferramentas web e um ambiente adequado para a realização do projeto.
+Sim, temos os equipamentos necessários fornecidos pela FATEC JAHU, computadores, internet, ferramentas web e um ambiente adequado para a realização do projeto, além dos equipamentos pessoais dos integrantes.
 
 ### Viabilidade financeira: 
-É viável pelo fato que vai ser mão de obra dos integrantes do grupo, não iremos contratar ninguém de fora no momento. Ele irá nos retornar um aprendizado grande nessa área e uma boa evolução.
+É viável pelo fato que vai ser mão de obra dos integrantes do grupo, não iremos contratar ninguém de fora no momento. Ele irá nos retornar um aprendizado grande na área, evolução e oportunidades.
 
 ### Viabilidade de mercado: 
-Foi feita à análise, no começo erámos uma vitrine para viagens e percebemos que já existiam muitas nesse mesmo estilo, então nos renovamos, pegamos um nicho em específico e hoje somos um tipo de blog/guia turístico para relatos de mochileiros(as), empresas, entre outros, que gostam de viajar e divulgar o seu trabalho e conhecer o que aquele lugar os oferece.
+Foi feita à análise, no começo erámos uma vitrine para viagens e percebemos que já existiam muitas nesse mesmo estilo, então nos renovamos, pegamos um nicho em específico e hoje somos um blog editável/guia turístico para relatos de mochileiros(as), empresas, entre outros, que gostam de viajar e divulgar o seu trabalho e conhecer o que aquele lugar os oferece.
 
 ### Viabilidade operacional: 
 É viavel, pois o sistema é intuitivo e de fácil uso, a equipe é qualificada para usar e testar o sistema no dia a dia. O sistema é leve e qualquer computador suporta rodar a aplicação.
@@ -494,7 +498,7 @@ A aplicação Route Books, visa facilitar o encontro de atividades atrativas reg
 
 
 # 10. Considerações finais
-O processo de desenvolvimento foi tudo dentro dos conformes, todos os integrantes foram participativos em diferentes áreas do projeto, protótipos, html, css, documentação, entre outros. No início, tínhamos uma ideia de ser uma vitrine de viagens, com o objetivo de mostrar as agências mais confiáveis para viagens dentro ou fora do Brasil, mas após algumas reuniões decidimos mudar o escopo do nosso projeto, assim se transformando em um guia de viagens, um site para que as pessoas possam dar seus feedbacks e contar suas experiências para os demais, sobre determinados locais e com diferentes culturas, na qual as pessoas podem se interessar e querer viver essa experiência. Ocorreram algumas limitações, principalmente com a internet da instituição, em alguns momentos não conseguíamos progredir ou até concluir certas partes do projeto, as máquinas de alguns laboratórios também eram lentos, então ficava difícil trabalhar, mas conseguimos avançar, pelo fator que fazíamos em casa, isso ajudava. Tivemos algumas dificuldades, algo normal, porque muitos assuntos e tarefas foram novidades para os integrantes, fazendo com que ficássemos com um pouco de receio de errar. A aplicação terá um papel importante para o conhecimento de novos costumes, origens, histórias e importância para os integrantes do grupo, fazer um projeto desse envolve muita paciência e dedicação, isso faz com que criemos um certo tipo de maturidade e costume com esse tipo de vivência.  
+O processo de desenvolvimento foi tudo dentro dos conformes, todos os integrantes foram participativos em diferentes áreas do projeto, protótipos, html, css, documentação, entre outros. No início, tínhamos uma ideia de ser uma vitrine de viagens, com o objetivo de mostrar as agências mais confiáveis para viagens dentro ou fora do Brasil, mas após algumas reuniões decidimos mudar o escopo do nosso projeto, assim se transformando em um guia de viagens, um site para que as pessoas possam dar seus feedbacks e contar suas experiências para os demais, sobre determinados locais e com diferentes culturas, na qual as pessoas podem se interessar e querer viver essa experiência. Ocorreram algumas limitações, principalmente com a internet da instituição, em alguns momentos não conseguíamos progredir ou até concluir certas partes do projeto, as máquinas de alguns laboratórios também eram lentos, então ficava difícil trabalhar, mas conseguimos avançar, pelo fator que fazíamos em casa, isso ajudava. Tivemos algumas dificuldades, algo normal, porque muitos assuntos e tarefas foram novidades para os integrantes, fazendo com que ficássemos com um pouco de receio de errar. A aplicação terá um papel importante para o conhecimento de novos costumes, origens, histórias e importância para os integrantes do grupo, fazer um projeto desse envolve muita paciência e dedicação, isso faz com que criemos um certo tipo de maturidade e costume com esse tipo de vivência. (Será atuializado com base na vivência dos semestres).  
 
 [Voltar para o início](#inicio)
 
