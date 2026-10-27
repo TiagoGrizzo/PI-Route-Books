@@ -1,0 +1,90 @@
+@model IEnumerable<PI_RouteBooks.Models.MensagemChat>
+
+@{
+    ViewData["Title"] = "Conversa com " + ViewBag.AmigoNome;
+}
+
+@section Styles {
+    <link rel="stylesheet" href="~/css/chat.css" asp-append-version="true" />
+}
+
+
+
+
+<div class="container container-xxl mt-4 flex-grow-1">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+
+            <div class="card chat-card-main shadow-sm border-0" style="border-radius: 15px; overflow: hidden;">
+
+                <!-- Cabeçalho do Chat -->
+                <div class="card-header chat-header p-3 d-flex align-items-center justify-content-between">
+                    <div class="d-flex align-items-center">
+                        <i class="fa fa-user-circle-o me-2 chat-icon-user"></i>
+                        <h5 class="mb-0 titulo-font text-white">@ViewBag.AmigoNome</h5>
+                    </div>
+                    <span class="badge bg-success" style="font-size: 11px; border-radius: 10px;">Chat Privado</span>
+                </div>
+
+                <!-- Corpo / Caixa de Mensagens -->
+                <div class="card-body chat-body" id="chat-box" style="height: 430px; overflow-y: auto; padding: 20px;">
+                    @if (Model != null && Model.Any())
+                    {
+                        foreach (var msg in Model)
+                        {
+                            var ehMinhaMensagem = msg.RemetenteId == Context.Session.GetInt32("UsuarioId");
+
+                            <div class="d-flex @(ehMinhaMensagem ? "justify-content-end" : "justify-content-start") mb-3">
+                                <div class="card p-2 px-3 shadow-sm msg-balao @(ehMinhaMensagem ? "msg-minha" : "msg-outros")"
+                                     style="max-width: 75%; border-radius: 15px;">
+
+                                    <p class="mb-0" style="font-size: 14px; word-break: break-word;">@msg.Texto</p>
+
+                                    <small class="d-block text-end mt-1 msg-tempo" style="font-size: 9px; opacity: 0.8;">
+                                        @msg.EnviadoEm.ToString("HH:mm")
+                                    </small>
+                                </div>
+                            </div>
+                        }
+                    }
+                    else
+                    {
+                        <div class="text-center mt-5 py-5 chat-empty-box">
+                            <i class="fa fa-envelope-o d-block mb-3" style="font-size: 3.5rem;"></i>
+                            <h6 class="titulo-font">Inicie a conversa!</h6>
+                            <p class="small">Diga um "Olá" para @ViewBag.AmigoNome e comecem a conversar.</p>
+                        </div>
+                    }
+                </div>
+
+                <!-- Rodapé / Input de Envio -->
+                <div class="card-footer chat-footer p-3 border-top-0">
+                    <form asp-controller="Chat" asp-action="Enviar" method="post" class="d-flex">
+                        @Html.AntiForgeryToken()
+
+                        <input type="hidden" name="destinatarioId" value="@ViewBag.AmigoId" />
+
+                        <input type="text" name="texto" class="form-control me-2 search-bar input-chat-msg"
+                               placeholder="Enviar mensagem para @ViewBag.AmigoNome..." autocomplete="off" required
+                               style="border-radius: 20px; padding: 10px 20px;" />
+
+                        <button type="submit" class="btn btn-success px-4 btn-enviar-chat" style="border-radius: 20px; border: none;">
+                            <i class="fa fa-paper-plane" aria-hidden="true"></i>
+                        </button>
+                    </form>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        var chatBox = document.getElementById("chat-box");
+        if (chatBox) {
+            chatBox.scrollTop = chatBox.scrollHeight;
+        }
+    </script>
+}

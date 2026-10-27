@@ -1,0 +1,95 @@
+@model IEnumerable<PI_RouteBooks.Models.Post>
+
+@{
+    ViewData["Title"] = "Route Books - Posts De Outros Aventureiros!";
+}
+
+@section Styles {
+    <link rel="stylesheet" href="~/css/color.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/style.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/verposts.css" asp-append-version="true" />
+}
+
+
+<section class="sec-posts container-xxl">
+
+    <div class="titulo-posts">
+        <h3 class="titulo-font cor-titulo">
+            Veja os post de outros aventureiros!
+        </h3>
+    </div>
+
+
+        <div class="container-posts">
+
+            @if (Model != null && Model.Any())
+            {
+                foreach (var p in Model)
+                {
+
+                    <div class="relato-posts">
+
+                        <div class="conteudo-card-index">
+
+                            <h3 class="titulo-font cor-titulo">
+                                @p.Titulo
+                            </h3>
+
+                            <p>
+                                @p.Resumo
+                            </p>
+
+
+                            <div class="post-info-index">
+
+                                <span>
+                                    Por @(p.Autor?.NomeCompleto ?? p.Autor?.Username ?? "Aventureiro")
+                                    •
+                                    @p.DataCriacao.ToString("dd 'de' MMMM, yyyy")
+                                </span>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="div-btn-relatos">
+
+                            <a asp-controller="Posts"
+                               asp-action="Details"
+                               asp-route-id="@p.IdPost">
+
+                                <button class="btn-relatos">
+                                    Ver Mais
+                                </button>
+
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                }
+            }
+            else // MOSTRA QUANDO NÃO FOI ENCONTRADO NENHUM POST SOBRE O ASSUNTO 
+            {
+                if (!string.IsNullOrWhiteSpace(ViewBag.Busca))
+                {
+                    <div style="text-align:center; padding:40px 0;">
+
+                        <h3 class="titulo-font cor-titulo">
+                            Nenhum resultado encontrado
+                        </h3>
+
+                        <p>
+                            Não encontramos nenhum post relacionado a
+                            <strong>"@ViewBag.Busca"</strong>.
+                        </p>
+
+                    </div>
+                }
+                
+            }
+
+        </div>
+</section>
