@@ -1,0 +1,34 @@
+version: '3.8'
+
+services:
+  # Container do Banco de Dados MySQL
+  mysql-db:
+    image: mysql:8.0
+    container_name: routebooks_mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpassword
+      MYSQL_DATABASE: routebooks_db
+      MYSQL_USER: appuser
+      MYSQL_PASSWORD: apppassword
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+
+  # Container do Banco de Dados MongoDB
+  mongodb:
+    image: mongo:latest
+    container_name: routebooks_mongodb
+    restart: always
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: mongoadmin
+      MONGO_INITDB_ROOT_PASSWORD: mongopassword
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo_data:/data/db
+
+volumes:
+  mysql_data:
+  mongo_data:

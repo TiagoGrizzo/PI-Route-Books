@@ -1,0 +1,239 @@
+/* Ajustes de apresentação para aproximar as telas das referências Route Books. */
+html, body { height: 100%; margin: 0; padding: 0; width: 100%; display: block; overflow-x: hidden; }
+html { align-items: initial; justify-content: initial; }
+body { min-height: 100vh; display: block; background: var(--bg-color, #fff) !important; color: var(--text-color, #17232d); }
+#root { min-height: 100vh; width: 100%; display: flex; flex-direction: column; }
+#root > main:not(.contato-page) { flex: 1 0 auto; }
+.header-navbar { flex: 0 0 auto; }
+.navbar.container-xxl { max-width: 1650px; min-height: 78px; padding-left: 24px; padding-right: 24px; }
+.logo-tamanho { height: 42px; width: auto; }
+.navbar-center { gap: clamp(20px, 2vw, 40px) !important; }
+.navbar-nav .nav-link { font-size: 25px; }
+.navbar-search .search-bar { width: clamp(190px, 17vw, 280px); height: 48px; }
+.navbar .btn-outline-success { width: 50px; height: 48px; border-radius: 8px !important; }
+.perfil-geral { padding-left: 10px; }
+.btn-perfil { min-height: 44px; padding: 8px 18px; font-size: 17px; }
+.btn-dark-mode { height: 54px; width: 62px; border: 2px solid #ec4772; }
+.footer-index { min-height: 205px; padding: 30px 0; box-sizing: border-box; }
+.itens-footer-geral { max-width: 1220px; margin: 0 auto; gap: 22px; }
+.item-footer { width: 32%; }
+.item-footer h4 { margin: 0; font-size: 29px; line-height: 1.22; }
+.logo-footer { height: 62px; width: auto; }
+
+/* Home */
+.bg-criar-post { min-height: 62px; background: #71b3a1; }
+.div-criar-post-geral { max-width: 1650px; height: 62px; padding-right: 34px; }
+.btn-criar-post { padding: 8px 11px; font-size: 24px; }
+.inicio-index { min-height: auto; padding: 55px 20px 24px; }
+.inicio-index > img { width: 220px; height: 220px; object-fit: contain; margin-bottom: 28px; }
+.inicio-index > h2 { font-size: 2.7rem; margin-bottom: 22px; }
+.inicio-index > p { max-width: 760px; font-size: 1.45rem; line-height: 1.55; margin-bottom: 38px; }
+.btn-inicio { padding: 20px 48px; font-size: 1.35rem; }
+.inicio-index .bg-conteudo { width: 100%; }
+.fundo-relatos { width: min(100%, 1300px); }
+.relatos { align-items: center; }
+
+/* Lista de posts */
+.sec-posts { max-width: 1250px; padding-top: 44px; padding-bottom: 60px; }
+.titulo-posts { text-align: center; margin-bottom: 48px; }
+.titulo-posts h3 { font-size: 34px; margin: 0; }
+.container-posts { display: flex; flex-direction: column; gap: 24px; }
+.relato-posts { display: flex; align-items: center; min-height: 168px; padding: 0 26px; border: 2px solid #006348; border-radius: 13px; background: #fff; }
+.relato-posts .conteudo-card-index { padding: 22px 0; }
+.relato-posts .conteudo-card-index h3 { font-size: 24px; color: #007554; }
+.relato-posts .conteudo-card-index p { font-size: 20px; margin-bottom: 20px; }
+.relato-posts .post-info-index { font-size: 17px; }
+.relato-posts .div-btn-relatos { padding: 0; }
+.relato-posts .btn-relatos { width: 150px; height: 56px; font-size: 20px; }
+
+/* Criação de post */
+.criar-post-page { min-height: auto; align-items: flex-start; justify-content: center; padding: 56px 24px 60px; background: #e9faf3; }
+.cad-post-box { width: min(100%, 1100px); padding: 0; border: 0; border-radius: 0; background: transparent; box-shadow: none; backdrop-filter: none; }
+.criar-post-header { margin-bottom: 32px; }
+.criar-post-header h1 { color: #007554; font-size: 38px; font-weight: 700; }
+.criar-post-form { gap: 22px; }
+.criar-post-field { gap: 4px; }
+.criar-post-field label { color: #17232d; font-size: 20px; font-weight: 400; }
+.criar-post-control { min-height: 48px; padding: 9px 14px; border-radius: 8px; font-size: 20px; }
+.criar-post-textarea { min-height: 197px; }
+.criar-post-taxonomia { gap: 30px; }
+.criar-post-upload small { color: #718078; font-size: 17px; }
+.criar-post-upload input[type="file"] { padding: 0; }
+.criar-post-upload input[type="file"]::file-selector-button { margin: 0 12px 0 0; padding: 9px 13px; border-radius: 0; font-weight: 400; }
+.criar-post-actions { margin-top: 8px; padding: 0; border: 0; }
+.criar-post-back { padding: 11px 16px; border-radius: 8px; background: #6c757d; color: #fff; font-size: 18px; font-weight: 400; }
+.criar-post-buttons { gap: 16px; }
+.criar-post-button { min-height: 47px; padding: 9px 16px; border-radius: 8px; font-size: 18px; font-weight: 500; }
+.criar-post-draft { border: 0; background: #4d9d36; color: #fff; }
+.criar-post-publish { background: #168859; }
+
+/* Aventureiros e chat */
+.aventureiros-page { width: min(100% - 48px, 1620px); max-width: 1620px; padding: 0; }
+.aventureiros-page > .d-flex h3 { font-size: 34px; color: #263b4d; }
+.aventureiros-page > .d-flex small { font-size: 18px; }
+.aventureiros-page .row { --bs-gutter-x: 28px; }
+.card-aventureiro { min-height: 120px; border-radius: 20px; box-shadow: 0 3px 6px rgba(0,0,0,.10) !important; }
+.card-aventureiro .card-body { padding: 16px 20px !important; }
+.card-aventureiro .fa-user-circle { font-size: 3.5rem !important; }
+.card-aventureiro h6 { font-size: 20px; line-height: 1.2; }
+.card-aventureiro small { font-size: 16px; }
+.btn-conversar { min-width: 142px; min-height: 70px; border-radius: 25px; background: #27ae60; font-size: 16px; }
+.card-aventureiro .position-relative .notificacao-chat { top: -9px; right: -9px; }
+.chat-card-main { max-width: 950px; margin: 0 auto 34px; }
+
+/* Contato: tela independente, sem barra de navegação ou rodapé. */
+.contato-page { min-height: auto; width: 100%; background: #fff; color: #101820; }
+.contato-geral { display: flex; flex-direction: column; align-items: center; padding: 42px 24px 50px; margin: 0 auto; }
+.contato-geral .contato-titulo { max-width: 100%; text-align: center; }
+.fale-contato { margin: 0 0 12px; color: #080808; font-size: 44px; font-weight: 600; }
+.p-contato { margin: 0; color: #283342; font-size: 20px; font-weight: 300; line-height: 1.45; }
+.container-contato { width: min(100%, 1296px); min-height: 798px; margin: 58px auto 0; padding: 45px 64px; display: grid; grid-template-columns: 1fr 390px; align-items: center; gap: 56px; border: 2px solid #005940; border-radius: 24px; background: #fff; box-shadow: 5px 5px 3px #357e64; }
+.contato-texto { width: 100%; padding-left: 34px; }
+.icone-geral-contato { align-items: center; padding: 24px 0; }
+.icone-contato { width: 75px; min-width: 75px; height: 75px; font-size: 25px; }
+.info-contato { margin-left: 24px; font-size: 27px; }
+.info-contato h3 { margin-bottom: 6px; font-size: 34px; }
+.info-contato p { margin: 0; }
+.contato-form { width: 100%; padding: 0; }
+.contato-form h2 { margin: 0 0 24px; padding: 0 0 4px; color: #004230; font-size: 36px; line-height: 1.25; }
+.contato-form h2::after { width: 100%; height: 5px; margin-top: 2px; }
+.contato-form label { color: #004230; font-size: 18px; }
+.input-div-contato { margin-top: 0; margin-bottom: 14px; }
+.input-div-contato input, .input-div-contato textarea { box-sizing: border-box; margin: 8px 0 0; padding: 9px 8px; border: 2px solid #005940; border-radius: 12px; font: inherit; font-size: 18px; }
+.input-div-contato input { height: 48px; }
+.input-div-contato textarea { min-height: 198px; resize: vertical; }
+.btn-contato { height: 53px; font-size: 18px; }
+
+/* Detalhe do post conforme a tela de referência. */
+.post-details { min-height: calc(100vh - 283px); padding: 0; color: #212529; background: #fff; }
+.post-details h1 { margin: 0 0 12px; font-size: 50px; font-weight: 400; }
+.post-details h2 { margin: 0 0 20px; font-size: 30px; font-weight: 400; }
+.post-details hr { margin: 18px 0; border: 0; border-top: 1px solid #ccc; opacity: 1; }
+.post-details-list { display: grid; grid-template-columns: 325px minmax(0,1fr); row-gap: 13px; margin: 22px 0 36px; font-size: 20px; }
+.post-details-list dt { font-weight: 700; }
+.post-details-list dd { margin: 0; }
+.post-details-links { font-size: 20px; }
+.post-details-links a { color: #06f; text-decoration: underline; }
+
+/* Autenticação: fundos aplicados ao cartão de página para não vazar às outras rotas. */
+.auth-page { min-height: 100vh; width: 100%; box-sizing: border-box; display: flex; justify-content: center; align-items: center; padding: 26px 16px; background-size: cover; background-position: center; background-repeat: no-repeat; font-family: 'Nunito', Arial, sans-serif; }
+.auth-login { background-image: url('./assets/imgs/foto_login.jpg'); }
+.auth-cadastro { background-image: url('./assets/imgs/foto_cadastro.jpg'); }
+.auth-recuperar { background-image: url('./assets/imgs/foto_esqsenha.jpg'); }
+.auth-nova { background-image: url('./assets/imgs/foto_esqsenha2.jpg'); }
+.auth-login .form-log { width: min(100%, 602px); padding: 40px 108px 48px; box-sizing: border-box; }
+.auth-login .logo-img, .auth-recuperar .logo-img, .auth-nova .logo-img { width: 300px; height: auto; max-width: 100%; }
+.auth-login .logo { margin: 0 0 54px; }
+.auth-login .titulo-login { margin: 0 0 38px; font-size: 36px; white-space: nowrap; }
+.auth-login .form-log label { width: 100%; font-size: 20px; }
+.auth-login .input-login { width: 100%; min-height: 53px; margin: 0 0 16px; }
+.auth-login .input-login input { font: inherit; font-size: 17px; }
+.auth-login .link-login { width: 100%; text-align: center; font-size: 20px; }
+.auth-login .div-btn-login { width: 60%; }
+.auth-login .btn-logar { height: 45px; font-size: 22px; font-weight: 500; }
+.auth-login .link-login-cad { gap: 6px; margin-top: 30px; font-size: 17px; }
+.auth-cadastro { padding: 28px 16px; }
+.auth-cadastro .form-cad { width: min(100%, 876px); min-width: 0; box-sizing: border-box; padding: 24px 44px 26px; }
+.auth-cadastro .logo { margin: 20px 0 12px; }
+.auth-cadastro .logo-cadastro { width: 300px; max-width: 100%; height: auto; }
+.auth-cadastro .titulo-cadastro { margin: 0 0 52px; font-size: 36px; }
+.auth-cadastro .div-inputs { width: 100%; justify-content: center; gap: 30px; }
+.auth-cadastro .dividir-inputs-1, .auth-cadastro .dividir-inputs-2 { flex: 1; min-width: 0; }
+.auth-cadastro .input-cadastro { width: 100%; min-width: 0; min-height: 53px; box-sizing: border-box; margin: 2px 0 10px; }
+.auth-cadastro .input-cadastro input, .auth-cadastro .select-uf { font: inherit; font-size: 16px; }
+.auth-cadastro .div-btn-cadastro { width: 65%; }
+.auth-cadastro .btn-cadastrar { height: 44px; font-size: 23px; font-weight: 500; }
+.auth-cadastro .link-login { display: flex; justify-content: center; gap: 5px; font-size: 17px; }
+.auth-recuperar .form-esq { width: min(100%, 638px); max-width: none; box-sizing: border-box; padding: 34px 78px 30px; }
+.auth-recuperar .logo-esq { margin: 0 0 56px; }
+.auth-recuperar .titulo-esqueceu { width: 85%; margin: 0 0 50px; padding: 0; font-size: 28px; line-height: 1.35; }
+.auth-recuperar .form-esq label, .auth-recuperar .input-esqueceu { width: 100%; min-width: 0; box-sizing: border-box; font-size: 20px; }
+.auth-recuperar .input-esqueceu { min-height: 53px; margin: 0 0 15px; }
+.auth-recuperar .div-btn-enviar { width: 80%; }
+.auth-recuperar .btn-enviar { height: 44px; font-size: 22px; font-weight: 500; }
+.auth-nova .form-nov { width: min(100%, 688px); max-width: none; box-sizing: border-box; padding: 34px 78px 38px; }
+.auth-nova .logo { margin: 0 0 42px; }
+.auth-nova .titulo-nova { margin: 0 0 38px; font-size: 36px; }
+.auth-nova .form-nov label, .auth-nova .input-nova { width: 100%; max-width: 475px; box-sizing: border-box; font-size: 20px; }
+.auth-nova .input-nova { min-height: 53px; margin: 0 0 16px; }
+.auth-nova .div-btn-nova { width: 70%; margin-top: 0; }
+.auth-nova .btn-enviar-nova { height: 44px; font-size: 22px; font-weight: 500; }
+
+@media (max-width: 1100px) {
+  .navbar.container-xxl { min-height: 70px; }
+  .navbar-nav .nav-link { font-size: 18px; }
+  .container-contato { grid-template-columns: 1fr 1fr; gap: 20px; padding: 32px; }
+  .contato-texto { padding-left: 0; }
+  .info-contato { font-size: 20px; }
+  .info-contato h3 { font-size: 26px; }
+  .item-footer h4 { font-size: 23px; }
+  .auth-login .form-log { padding: 36px 64px; }
+  .auth-cadastro .form-cad { padding: 24px 30px; }
+  .auth-cadastro .titulo-cadastro { margin-bottom: 35px; }
+}
+@media (max-width: 767px) {
+  .navbar.container-xxl { min-height: 62px; }
+  .logo-tamanho { height: 32px; }
+  .navbar-collapse { background: #005940; }
+  .navbar-nav .nav-link { font-size: 18px; }
+  .footer-index { min-height: 0; padding: 28px 16px; }
+  .itens-footer-geral { flex-direction: column; gap: 18px; }
+  .item-footer { width: 100%; }
+  .item-footer h4 { font-size: 21px; }
+  .logo-footer { height: 48px; }
+  .inicio-index { padding: 36px 18px 20px; }
+  .inicio-index > img { width: 160px; height: 160px; }
+  .inicio-index > h2 { font-size: 1.8rem; }
+  .inicio-index > p { font-size: 1.05rem; }
+  .btn-inicio { padding: 14px 28px; font-size: 1.05rem; }
+  .sec-posts { padding: 30px 18px; }
+  .titulo-posts { margin-bottom: 28px; }
+  .titulo-posts h3 { font-size: 25px; }
+  .relato-posts { align-items: flex-start; flex-direction: column; padding: 0 18px 18px; }
+  .relato-posts .conteudo-card-index { padding-bottom: 8px; }
+  .relato-posts .div-btn-relatos { align-self: flex-end; }
+  .criar-post-page { padding: 34px 16px; }
+  .criar-post-header h1 { font-size: 30px; }
+  .criar-post-actions { align-items: stretch; flex-direction: column; }
+  .criar-post-buttons { display: grid; grid-template-columns: 1fr; }
+  .criar-post-back { text-align: center; }
+  .aventureiros-page { width: calc(100% - 32px); margin-top: 28px !important; }
+  .aventureiros-page > .d-flex h3 { font-size: 25px; }
+  .aventureiros-page .row { --bs-gutter-x: 16px; }
+  .card-aventureiro { min-height: 100px; }
+  .card-aventureiro .card-body { gap: 10px; flex-wrap: wrap; }
+  .card-aventureiro h6 { font-size: 17px; }
+  .btn-conversar { min-width: 112px; min-height: 48px; }
+  .contato-geral { padding: 30px 16px; }
+  .fale-contato { font-size: 34px; }
+  .p-contato { font-size: 16px; }
+  .container-contato { grid-template-columns: 1fr; min-height: 0; margin-top: 30px; padding: 24px 18px; gap: 16px; }
+  .contato-texto { margin: 0; }
+  .icone-contato { width: 52px; min-width: 52px; height: 52px; }
+  .info-contato { margin-left: 14px; font-size: 17px; }
+  .info-contato h3 { font-size: 24px; }
+  .contato-form { padding: 0; }
+  .contato-form h2 { font-size: 28px; }
+  .post-details { min-height: calc(100vh - 260px); padding: 0 10px 20px; }
+  .post-details h1 { font-size: 42px; }
+  .post-details h2 { font-size: 25px; }
+  .post-details-list { grid-template-columns: 115px minmax(0,1fr); row-gap: 12px; font-size: 16px; overflow-wrap: anywhere; }
+  .auth-page { padding: 18px 14px; }
+  .auth-login .form-log, .auth-recuperar .form-esq, .auth-nova .form-nov, .auth-cadastro .form-cad { width: 100%; max-width: 500px; padding: 25px 22px; }
+  .auth-login .logo { margin-bottom: 28px; }
+  .auth-login .titulo-login { font-size: 25px; white-space: normal; margin-bottom: 25px; }
+  .auth-login .link-login-cad { flex-wrap: wrap; margin-top: 20px; }
+  .auth-login .div-btn-login { width: 80%; }
+  .auth-cadastro .div-inputs { flex-direction: column; gap: 0; }
+  .auth-cadastro .titulo-cadastro { font-size: 26px; margin-bottom: 25px; }
+  .auth-cadastro .div-btn-cadastro { width: 100%; }
+  .auth-recuperar .logo-esq, .auth-nova .logo { margin-bottom: 28px; }
+  .auth-recuperar .titulo-esqueceu { width: 100%; margin-bottom: 30px; font-size: 23px; }
+  .auth-recuperar .div-btn-enviar, .auth-nova .div-btn-nova { width: 100%; }
+  .auth-nova .titulo-nova { margin-bottom: 28px; font-size: 30px; }
+}
+
+@media (min-width: 992px) {
+  /* O menu móvel usa markup próprio e permanece fechado no desktop. */
+  .header-navbar .navbar-collapse { display: none !important; }
+}

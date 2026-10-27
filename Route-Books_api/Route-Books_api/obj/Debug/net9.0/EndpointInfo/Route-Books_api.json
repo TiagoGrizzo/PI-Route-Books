@@ -1,0 +1,1333 @@
+{
+  "openapi": "3.0.4",
+  "info": {
+    "title": "Route-Books_api",
+    "version": "1.0"
+  },
+  "paths": {
+    "/api/Chat/historico": {
+      "get": {
+        "tags": [
+          "Chat"
+        ],
+        "summary": "Obter histórico de chat",
+        "description": "Retorna as mensagens entre dois usuários e marca as recebidas como lidas.",
+        "parameters": [
+          {
+            "name": "meuId",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "idDoAmigo",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Chat/enviar": {
+      "post": {
+        "tags": [
+          "Chat"
+        ],
+        "summary": "Enviar mensagem de chat",
+        "description": "Salva uma nova mensagem no MongoDB recebendo diretamente a model.",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/MensagemChat"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/MensagemChat"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/MensagemChat"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Chat/nao-lidas/{usuarioId}": {
+      "get": {
+        "tags": [
+          "Chat"
+        ],
+        "summary": "Total de mensagens não lidas",
+        "description": "Retorna a quantidade de mensagens não lidas para o usuário.",
+        "parameters": [
+          {
+            "name": "usuarioId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Home/enviar-contato": {
+      "post": {
+        "tags": [
+          "Home"
+        ],
+        "summary": "Enviar mensagem de contato",
+        "description": "Envia um e-mail através do serviço configurado recebendo um dicionário de dados.",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "additionalProperties": {
+                  "type": "string"
+                }
+              }
+            },
+            "text/json": {
+              "schema": {
+                "type": "object",
+                "additionalProperties": {
+                  "type": "string"
+                }
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "type": "object",
+                "additionalProperties": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Posts": {
+      "get": {
+        "tags": [
+          "Posts"
+        ],
+        "summary": "Listar posts ativos",
+        "description": "Retorna os posts mais recentes com status ativo, permitindo busca opcional.",
+        "parameters": [
+          {
+            "name": "busca",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Posts"
+        ],
+        "summary": "Criar ou salvar rascunho de post",
+        "description": "Cria uma postagem ou rascunho com suporte a upload de imagem.",
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "required": [
+                  "Autor.Email",
+                  "Autor.SenhaHash",
+                  "Autor.Username",
+                  "CategoriaRef.Nome"
+                ],
+                "type": "object",
+                "properties": {
+                  "IdPost": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "Titulo": {
+                    "type": "string"
+                  },
+                  "Resumo": {
+                    "type": "string"
+                  },
+                  "Conteudo": {
+                    "type": "string"
+                  },
+                  "TipoPostagem": {
+                    "type": "string"
+                  },
+                  "Categoria": {
+                    "type": "string"
+                  },
+                  "Status": {
+                    "type": "string"
+                  },
+                  "CategoriaEspecifica": {
+                    "type": "string"
+                  },
+                  "TipoEspecifico": {
+                    "type": "string"
+                  },
+                  "DataCriacao": {
+                    "type": "string",
+                    "format": "date-time"
+                  },
+                  "ImagemUrl": {
+                    "type": "string"
+                  },
+                  "TiposIdTipo": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "CategoriasIdCategoria": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "UsuariosIdUsuario": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "Autor.IdUsuario": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "Autor.Username": {
+                    "maxLength": 50,
+                    "minLength": 0,
+                    "type": "string"
+                  },
+                  "Autor.NomeCompleto": {
+                    "maxLength": 100,
+                    "minLength": 0,
+                    "type": "string"
+                  },
+                  "Autor.Email": {
+                    "maxLength": 150,
+                    "minLength": 0,
+                    "type": "string"
+                  },
+                  "Autor.Telefone": {
+                    "maxLength": 20,
+                    "minLength": 0,
+                    "type": "string"
+                  },
+                  "Autor.SenhaHash": {
+                    "maxLength": 255,
+                    "minLength": 0,
+                    "type": "string"
+                  },
+                  "Autor.Uf": {
+                    "maxLength": 2,
+                    "minLength": 0,
+                    "type": "string"
+                  },
+                  "Autor.Biografia": {
+                    "type": "string"
+                  },
+                  "Autor.Cidade": {
+                    "type": "string"
+                  },
+                  "Autor.Pais": {
+                    "type": "string"
+                  },
+                  "Autor.FotoPerfil": {
+                    "type": "string"
+                  },
+                  "Autor.CriadoEm": {
+                    "type": "string",
+                    "format": "date-time"
+                  },
+                  "Autor.AlteradoEm": {
+                    "type": "string",
+                    "format": "date-time"
+                  },
+                  "Autor.EstadoConta": {
+                    "type": "string"
+                  },
+                  "Autor.DataFimSuspensao": {
+                    "type": "string",
+                    "format": "date-time"
+                  },
+                  "Autor.DeletadoEm": {
+                    "type": "string",
+                    "format": "date-time"
+                  },
+                  "Autor.PerfilEstaCompleto": {
+                    "type": "boolean"
+                  },
+                  "Autor.Posts": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/Post"
+                    }
+                  },
+                  "Autor.Curtidas": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/Curtida"
+                    }
+                  },
+                  "Autor.Comentarios": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/Comentario"
+                    }
+                  },
+                  "CategoriaRef.Id": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "CategoriaRef.Nome": {
+                    "maxLength": 100,
+                    "minLength": 0,
+                    "type": "string"
+                  },
+                  "CategoriaRef.OrdemExibicao": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "CategoriaRef.DataCriacao": {
+                    "type": "string",
+                    "format": "date-time"
+                  },
+                  "TipoRef.IdTipo": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "TipoRef.nomeTipo": {
+                    "type": "string"
+                  },
+                  "TipoRef.Descricao": {
+                    "type": "string"
+                  },
+                  "TipoRef.Posts": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/Post"
+                    }
+                  },
+                  "Comentarios": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/Comentario"
+                    }
+                  },
+                  "Curtidas": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/Curtida"
+                    }
+                  },
+                  "PostTags": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/PostTag"
+                    }
+                  },
+                  "fotoPost": {
+                    "type": "string",
+                    "format": "binary"
+                  },
+                  "acao": {
+                    "type": "string"
+                  }
+                }
+              },
+              "encoding": {
+                "IdPost": {
+                  "style": "form"
+                },
+                "Titulo": {
+                  "style": "form"
+                },
+                "Resumo": {
+                  "style": "form"
+                },
+                "Conteudo": {
+                  "style": "form"
+                },
+                "TipoPostagem": {
+                  "style": "form"
+                },
+                "Categoria": {
+                  "style": "form"
+                },
+                "Status": {
+                  "style": "form"
+                },
+                "CategoriaEspecifica": {
+                  "style": "form"
+                },
+                "TipoEspecifico": {
+                  "style": "form"
+                },
+                "DataCriacao": {
+                  "style": "form"
+                },
+                "ImagemUrl": {
+                  "style": "form"
+                },
+                "TiposIdTipo": {
+                  "style": "form"
+                },
+                "CategoriasIdCategoria": {
+                  "style": "form"
+                },
+                "UsuariosIdUsuario": {
+                  "style": "form"
+                },
+                "Autor.IdUsuario": {
+                  "style": "form"
+                },
+                "Autor.Username": {
+                  "style": "form"
+                },
+                "Autor.NomeCompleto": {
+                  "style": "form"
+                },
+                "Autor.Email": {
+                  "style": "form"
+                },
+                "Autor.Telefone": {
+                  "style": "form"
+                },
+                "Autor.SenhaHash": {
+                  "style": "form"
+                },
+                "Autor.Uf": {
+                  "style": "form"
+                },
+                "Autor.Biografia": {
+                  "style": "form"
+                },
+                "Autor.Cidade": {
+                  "style": "form"
+                },
+                "Autor.Pais": {
+                  "style": "form"
+                },
+                "Autor.FotoPerfil": {
+                  "style": "form"
+                },
+                "Autor.CriadoEm": {
+                  "style": "form"
+                },
+                "Autor.AlteradoEm": {
+                  "style": "form"
+                },
+                "Autor.EstadoConta": {
+                  "style": "form"
+                },
+                "Autor.DataFimSuspensao": {
+                  "style": "form"
+                },
+                "Autor.DeletadoEm": {
+                  "style": "form"
+                },
+                "Autor.PerfilEstaCompleto": {
+                  "style": "form"
+                },
+                "Autor.Posts": {
+                  "style": "form"
+                },
+                "Autor.Curtidas": {
+                  "style": "form"
+                },
+                "Autor.Comentarios": {
+                  "style": "form"
+                },
+                "CategoriaRef.Id": {
+                  "style": "form"
+                },
+                "CategoriaRef.Nome": {
+                  "style": "form"
+                },
+                "CategoriaRef.OrdemExibicao": {
+                  "style": "form"
+                },
+                "CategoriaRef.DataCriacao": {
+                  "style": "form"
+                },
+                "TipoRef.IdTipo": {
+                  "style": "form"
+                },
+                "TipoRef.nomeTipo": {
+                  "style": "form"
+                },
+                "TipoRef.Descricao": {
+                  "style": "form"
+                },
+                "TipoRef.Posts": {
+                  "style": "form"
+                },
+                "Comentarios": {
+                  "style": "form"
+                },
+                "Curtidas": {
+                  "style": "form"
+                },
+                "PostTags": {
+                  "style": "form"
+                },
+                "fotoPost": {
+                  "style": "form"
+                },
+                "acao": {
+                  "style": "form"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Posts/{id}": {
+      "get": {
+        "tags": [
+          "Posts"
+        ],
+        "summary": "Obter post por ID",
+        "description": "Retorna os detalhes de um post específico pelo ID.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Posts"
+        ],
+        "summary": "Atualizar post",
+        "description": "Atualiza os dados de um post existente.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Post"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Post"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Post"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Posts"
+        ],
+        "summary": "Excluir post",
+        "description": "Remove um post do sistema e apaga a imagem associada se existir.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Posts/create": {
+      "get": {
+        "tags": [
+          "Posts"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Usuarios/login": {
+      "post": {
+        "tags": [
+          "Usuarios"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "additionalProperties": {
+                  "type": "string"
+                }
+              }
+            },
+            "text/json": {
+              "schema": {
+                "type": "object",
+                "additionalProperties": {
+                  "type": "string"
+                }
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "type": "object",
+                "additionalProperties": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Usuarios/esqueceu-senha": {
+      "post": {
+        "tags": [
+          "Usuarios"
+        ],
+        "summary": "Esqueceu a senha - esqueceu-senha",
+        "description": "O usuário esquece a senha.",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "additionalProperties": {
+                  "type": "string"
+                }
+              }
+            },
+            "text/json": {
+              "schema": {
+                "type": "object",
+                "additionalProperties": {
+                  "type": "string"
+                }
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "type": "object",
+                "additionalProperties": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Usuarios/nova-senha": {
+      "post": {
+        "tags": [
+          "Usuarios"
+        ],
+        "summary": "Trocar a senha - nova-senha",
+        "description": "Serve para o usuário trocar sua senha por uma nova.",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "additionalProperties": {
+                  "type": "string"
+                }
+              }
+            },
+            "text/json": {
+              "schema": {
+                "type": "object",
+                "additionalProperties": {
+                  "type": "string"
+                }
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "type": "object",
+                "additionalProperties": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Usuarios/{id}/dashboard-info": {
+      "get": {
+        "tags": [
+          "Usuarios"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Usuarios": {
+      "get": {
+        "tags": [
+          "Usuarios"
+        ],
+        "summary": "Obter todos os usuários  - GetAll",
+        "description": "Retorna os dados cadastrais detalhados de todos os usuários.",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Usuarios"
+        ],
+        "summary": "Cadastra um usuário  - Create",
+        "description": "cria um usuário no banco de dados.",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Usuario"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Usuario"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Usuario"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Usuarios/{id}": {
+      "get": {
+        "tags": [
+          "Usuarios"
+        ],
+        "summary": "Obter usuário por ID - Detail",
+        "description": "Retorna os dados cadastrais detalhados de um usuário específico com base no ID informado.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Usuarios"
+        ],
+        "summary": "Alterar os dados de um usuário por ID - Edit",
+        "description": "Altera os dados cadastrais de um determinado usuário.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Usuario"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Usuario"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Usuario"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Usuarios"
+        ],
+        "summary": "Deleta um usuário por ID - Delete",
+        "description": "deleta um usuário do banco de dados.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Categoria": {
+        "required": [
+          "nome"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "nome": {
+            "maxLength": 100,
+            "minLength": 0,
+            "type": "string"
+          },
+          "ordemExibicao": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "dataCriacao": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Comentario": {
+        "type": "object",
+        "properties": {
+          "idComentario": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "postId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "usuarioId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "conteudo": {
+            "type": "string",
+            "nullable": true
+          },
+          "criadoEm": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "status": {
+            "type": "string",
+            "nullable": true
+          },
+          "alteradoEm": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "deletadoEm": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "post": {
+            "$ref": "#/components/schemas/Post"
+          },
+          "usuario": {
+            "$ref": "#/components/schemas/Usuario"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Curtida": {
+        "type": "object",
+        "properties": {
+          "usuarioId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "postId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "criadoEm": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "alteradoEm": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "usuario": {
+            "$ref": "#/components/schemas/Usuario"
+          },
+          "post": {
+            "$ref": "#/components/schemas/Post"
+          }
+        },
+        "additionalProperties": false
+      },
+      "MensagemChat": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "nullable": true
+          },
+          "remetenteId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "remetenteNome": {
+            "type": "string",
+            "nullable": true
+          },
+          "destinatarioId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "texto": {
+            "type": "string",
+            "nullable": true
+          },
+          "enviadoEm": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "lida": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Post": {
+        "type": "object",
+        "properties": {
+          "idPost": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "titulo": {
+            "type": "string",
+            "nullable": true
+          },
+          "resumo": {
+            "type": "string",
+            "nullable": true
+          },
+          "conteudo": {
+            "type": "string",
+            "nullable": true
+          },
+          "tipoPostagem": {
+            "type": "string",
+            "nullable": true
+          },
+          "categoria": {
+            "type": "string",
+            "nullable": true
+          },
+          "status": {
+            "type": "string",
+            "nullable": true
+          },
+          "categoriaEspecifica": {
+            "type": "string",
+            "nullable": true
+          },
+          "tipoEspecifico": {
+            "type": "string",
+            "nullable": true
+          },
+          "dataCriacao": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "imagemUrl": {
+            "type": "string",
+            "nullable": true
+          },
+          "tiposIdTipo": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "categoriasIdCategoria": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "usuariosIdUsuario": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "autor": {
+            "$ref": "#/components/schemas/Usuario"
+          },
+          "categoriaRef": {
+            "$ref": "#/components/schemas/Categoria"
+          },
+          "tipoRef": {
+            "$ref": "#/components/schemas/Tipo"
+          },
+          "comentarios": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Comentario"
+            },
+            "nullable": true
+          },
+          "curtidas": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Curtida"
+            },
+            "nullable": true
+          },
+          "postTags": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PostTag"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "PostTag": {
+        "type": "object",
+        "properties": {
+          "postId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "tagId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "post": {
+            "$ref": "#/components/schemas/Post"
+          },
+          "tag": {
+            "$ref": "#/components/schemas/Tag"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Tag": {
+        "type": "object",
+        "properties": {
+          "idTag": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "nome": {
+            "type": "string",
+            "nullable": true
+          },
+          "postTags": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PostTag"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Tipo": {
+        "type": "object",
+        "properties": {
+          "idTipo": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "nomeTipo": {
+            "type": "string",
+            "nullable": true
+          },
+          "descricao": {
+            "type": "string",
+            "nullable": true
+          },
+          "posts": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Post"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Usuario": {
+        "required": [
+          "email",
+          "senhaHash",
+          "username"
+        ],
+        "type": "object",
+        "properties": {
+          "idUsuario": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "username": {
+            "maxLength": 50,
+            "minLength": 0,
+            "type": "string"
+          },
+          "nomeCompleto": {
+            "maxLength": 100,
+            "minLength": 0,
+            "type": "string",
+            "nullable": true
+          },
+          "email": {
+            "maxLength": 150,
+            "minLength": 0,
+            "type": "string"
+          },
+          "telefone": {
+            "maxLength": 20,
+            "minLength": 0,
+            "type": "string",
+            "nullable": true
+          },
+          "senhaHash": {
+            "maxLength": 255,
+            "minLength": 0,
+            "type": "string"
+          },
+          "uf": {
+            "maxLength": 2,
+            "minLength": 0,
+            "type": "string",
+            "nullable": true
+          },
+          "biografia": {
+            "type": "string",
+            "nullable": true
+          },
+          "cidade": {
+            "type": "string",
+            "nullable": true
+          },
+          "pais": {
+            "type": "string",
+            "nullable": true
+          },
+          "fotoPerfil": {
+            "type": "string",
+            "nullable": true
+          },
+          "criadoEm": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "alteradoEm": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "estadoConta": {
+            "type": "string",
+            "nullable": true
+          },
+          "dataFimSuspensao": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "deletadoEm": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "perfilEstaCompleto": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "posts": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Post"
+            },
+            "nullable": true
+          },
+          "curtidas": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Curtida"
+            },
+            "nullable": true
+          },
+          "comentarios": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Comentario"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "tags": [
+    {
+      "name": "Chat"
+    },
+    {
+      "name": "Home"
+    },
+    {
+      "name": "Posts"
+    },
+    {
+      "name": "Usuarios"
+    }
+  ]
+}

@@ -1,0 +1,481 @@
+html{
+   height: 100%;
+   margin: 0;
+   padding: 0;
+}
+.contato-geral{
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   flex-direction: column;
+}
+/*SECTION GERAL DA PÁGINA*/
+.contato-geral .contato-titulo{
+   max-width: 800px;
+   text-align: center;
+}
+/*DEFININDO LARGURA MÁXIMA E CENTRALIZAÇÃO PARA A DIV DO TÍTULO E A SECTION*/
+.fale-contato{
+   font-size: 36px;
+   font-weight: 500;
+   color: var(--text-color);
+   margin-top: 50px;
+}
+/*TÍTULO DA PÁGINA*/
+.p-contato{
+   font-weight: 300;
+}
+/*TEXTO ABAIXO DO TÍTULO*/
+.container-contato{
+   width: 80%;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   margin-top: 30px;
+   box-shadow: 2px 2px 2px 2px #357e64;
+   padding: 30px;
+   border-radius: 20px;
+   background-color: #ffffff;
+   border: #004230 solid 2px;
+   margin-bottom: 70px;
+}
+
+/* DARK MODE !IMPORTANT */
+body.dark-mode .container-contato {
+   background: rgba(255,255,255,0.10) !important;
+   border: 1px solid #00d974 !important;
+   backdrop-filter: blur(10px);
+}
+
+/*DIV PRINCIPAL DA PARTE DO CONTATO*/
+.contato-texto{
+   width: 50%;
+   display: flex;
+   flex-direction: column;
+}
+/*TEXTO DA PARTE DO CONTATO*/
+.icone-geral-contato{
+   position: relative;
+   padding: 20px 0;
+   display: flex;
+}
+/*DIV GERAL DA ESQUERDA DA PARTE DO CONTATO*/
+.icone-contato{
+   min-width: 60px;
+   height: 60px;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   border-radius: 50px;
+   font-size: 22px;
+   background-color: #00fa85;
+}
+
+/* Ícones no dark mode continuam pretos (envelope e telefone) */
+body.dark-mode .icone-contato i {
+   color: #000;
+}
+
+/*ICONES NA ESQUERDA DA PARTE DO CONTATO*/
+.info-contato{
+   display: flex;
+   margin-left: 20px;
+   font-size: 22px;
+   flex-direction: column;
+   font-weight: 300;  
+}
+/*DIV PARA O TEXTO NA ESQUERDA DA PARTE DO CONTATO*/
+.info-contato h3{
+   font-weight: 500;
+   color: #005940;
+}
+/*ALTERANDO PESO E COR DO E-MAIL E TELEFONE NA ESQUERDA DA PARTE DO CONTATO*/
+.contato-form{
+   width: 40%;
+   padding: 40px;
+   padding-top: 20px;
+   border-radius: 10px;
+}
+/*FORMULÁRIO DE CONTATO*/
+.contato-form h2{
+   font-size: 30px;
+   color: #004230;
+   text-align: center;
+   padding-bottom: 10px;
+}
+/*TÍTULO DO FORMULÁRIO*/
+.contato-form h2::after{
+   content: "";
+    width: 10.4em;
+    height: 5px;
+    background-color: #005940; /* Aqui é a barrinha de baixo do envie sua mensagem */
+    border-radius: 10px;
+    display: block;
+    margin: auto; 
+}
+
+/* Muda a cor da barrinha em baixo do envie sua mensagem */
+body.dark-mode .contato-form h2::after {
+   background-color: #00d974;
+}
+/*BARRINHA ABAIXO DO TÍTULO DO CONTATO*/
+
+
+.contato-form label{
+   color: #004230;
+   font-weight: 600;
+}
+/*LABEL DO FORM DO CONTATO*/
+.input-div-contato{
+   width: 100%;
+   margin-top: 3px;
+}
+/*DIV DOS INPUTS DO FORM DO CONTATO*/
+.input-div-contato input{
+   width: 100%;
+   padding: 5px 0;
+   font-size: 16px;
+   margin: 10px 0;
+   border: 2px #005940 solid;
+   border-radius: 10px;
+   outline: none;
+   padding-left: 5px;
+}
+/*MODIFICANDO O INPUT EM SI NA DIV DOS INPUTS*/
+.input-div-contato textarea{
+   width: 100%;
+   padding: 5px 0;
+   font-size: 16px;
+   margin: 10px 0;
+   border: 2px #005940 solid;
+   border-radius: 10px;
+   outline: none;
+   padding-left: 5px;
+   min-height: 160px;
+}
+/*MODIFICANDO O TEXTAREA DA DIV DOS INPUTS*/
+
+
+/* ========================================= */
+/* BOTÃO ENVIAR                              */
+/* ========================================= */
+
+.btn-contato {
+    width: 100%;
+    padding: 8px 0;
+    font-size: 15px;
+    font-weight: 600;
+    border: 2px solid #004230;
+    border-radius: 12px;
+    background: linear-gradient(135deg,#005940,#007554);
+    color: #fff;
+    cursor: pointer;
+    transition: all .25s ease;
+    box-shadow: 0 6px 15px rgba(0,0,0,.20);
+    position: relative;
+    overflow: hidden;
+}
+
+    /* Brilho passando no botão */
+    .btn-contato::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -75%;
+        width: 45%;
+        height: 100%;
+        background: rgba(255,255,255,.25);
+        transform: skewX(-25deg);
+        transition: .5s;
+    }
+
+    .btn-contato:hover::before {
+        left: 130%;
+    }
+
+    /* Hover */
+    .btn-contato:hover {
+        background: linear-gradient(135deg,#007554,#00996e);
+        transform: translateY(-2px);
+        box-shadow: 0 10px 20px rgba(0,0,0,.25);
+    }
+
+    /* Clique */
+    .btn-contato:active {
+        transform: scale(.97);
+    }
+
+/* Dark Mode (mantém exatamente o mesmo estilo) */
+body.dark-mode .btn-contato {
+    background: linear-gradient(135deg,#005940,#007554);
+    border-color: #004230;
+    color: #fff;
+}
+
+    body.dark-mode .btn-contato:hover {
+        background: linear-gradient(135deg,#007554,#00996e);
+    }
+
+/*DIV DO BOTAO DO FORM DO CONTATO*/
+.div-btn-contato a{
+    width: 100%;
+    border-radius: 15px;
+    text-decoration: none;
+}
+/*MODIFICANDO O LINK DO BOTAO DA DIV DO BOTAO*/
+
+
+
+
+
+
+/*DAQUI PRA BAIXO É TUDO RESPONSIVIDADE*/
+@media (max-width: 1120px) {
+           .contato-form h2::after{
+               content: "";
+               width: 0em;
+               height: 0PX;
+               background-color: #005940;
+               border-radius: 10px;
+               display: block;
+               margin: auto; 
+            }
+            /*TIRANDO A BARRINHA DE BAIXO DO TÍTULO DO FORM*/
+            .contato-geral{
+               padding-left: 30px;
+               padding-right: 30px;
+            }
+            /*DIMINUINDO O PADDING DA CONTATO-GERAL*/
+}
+@media (max-width: 1400px) {
+   .contato-geral{
+      padding-left: 30px;
+      padding-right: 30px;
+      margin-bottom: 30px;
+   }
+   /*AUMENTANDO O PADDING E O MARGIN DO CONTATO-GERAL*/
+}
+@media (max-width: 1200px) {
+   .container-contato {
+      width: 95%;
+      flex-wrap: wrap;
+      padding: 15px;
+   }
+
+   .contato-texto,
+   .contato-form {
+      width: 100%; /* Faz empilhar certinho */
+   }
+
+   .contato-texto {
+      margin-bottom: 25px; /* Espaço entre texto e formulário */
+   }
+}
+
+@media (max-width: 767px) {
+
+   .contato-geral {
+      padding-left: 15px;
+      padding-right: 15px;
+   }
+
+   .contato-texto h1 {
+      font-size: 1.6rem;
+      text-align: center;
+   }
+
+    .contato-texto p {
+        text-align: center;
+        font-size: 0.95rem;
+    }
+
+   .contato-form {
+      padding: 15px;
+   }
+
+    /* Alinha o container das opções totalmente à esquerda */
+    .contato-texto .d-flex,
+    .contato-texto > div {
+        display: flex !important;
+        flex-direction: row !important;
+        align-items: center !important;
+        justify-content: flex-start !important; /* Alinha no começo */
+        gap: 15px !important;
+        width: 100% !important;
+        text-align: left !important;
+    }
+
+        /* Ícones na bolinha com tamanho proporcional */
+        .contato-texto .icon,
+        .contato-texto img,
+        .contato-texto svg,
+        .contato-texto .d-flex > div:first-child,
+        .contato-texto > div > div:first-child {
+            width: 44px !important;
+            height: 44px !important;
+            min-width: 44px !important;
+            max-width: 44px !important;
+            flex-shrink: 0 !important;
+            border-radius: 50% !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+        }
+
+    /* Container de texto alinhado à esquerda */
+    .contato-texto .info-conteudo,
+    .contato-texto div > div:last-child {
+        flex: 1;
+        min-width: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start !important; /* Texto grudado na esquerda */
+        text-align: left !important;
+    }
+
+    /* Títulos "E-mail" e "Telefone" maiores */
+    .contato-texto h2,
+    .contato-texto h3,
+    .contato-texto strong {
+        font-size: 1.15rem !important; /* Aumentado */
+        font-weight: 600;
+        margin-bottom: 2px !important;
+        text-align: left !important;
+    }
+
+    /* E-mail e Telefone em tamanho legível/grande */
+    .contato-texto p,
+    .contato-texto span,
+    .contato-texto a {
+        font-size: 0.95rem !important; /* Aumentado pra ficar bem visível */
+        text-align: left !important;
+        margin: 0 !important;
+        word-break: break-all; /* Se o e-mail não couber no S9+, ele quebra só o finalzinho sem sumir */
+    }
+}
+
+
+
+
+
+
+
+/* ============================= */
+/* TOAST ROUTE BOOKS             */
+/* ============================= */
+
+.toast-routebooks {
+    position: fixed !important;
+    top: 30px !important;
+    right: -450px !important;
+    width: 380px;
+    background: #ffffff;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.25);
+    overflow: hidden;
+    z-index: 999999 !important;
+    transition: right .6s cubic-bezier(0.68, -0.55, 0.265, 1.55); /* Transição "Chicote" */
+}
+
+    .toast-routebooks.show {
+        right: 25px !important;
+    }
+
+.toast-icon {
+    width: 65px;
+    align-self: stretch; /* Acompanha a altura total do card */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 26px;
+    flex-shrink: 0;
+}
+
+.toast-sucesso .toast-icon {
+    background: #27ae60;
+}
+
+.toast-erro .toast-icon {
+    background: #e74c3c;
+}
+
+.toast-content {
+    flex: 1;
+    padding: 14px 15px;
+}
+
+    .toast-content h5 {
+        margin: 0 0 4px 0;
+        font-size: 16px;
+        font-weight: bold;
+        color: #1d3557;
+    }
+
+    .toast-content p {
+        margin: 0;
+        font-size: 13px;
+        color: #555;
+        line-height: 1.4;
+    }
+
+.toast-close {
+    border: none;
+    background: transparent;
+    padding: 12px 15px;
+    color: #777;
+    cursor: pointer;
+    font-size: 18px;
+    align-self: flex-start;
+}
+
+    .toast-close:hover {
+        color: #000;
+    }
+
+.toast-progress {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+}
+
+.toast-sucesso .toast-progress {
+    background: #27ae60;
+}
+
+.toast-erro .toast-progress {
+    background: #e74c3c;
+}
+
+/* Inicia a barra verde/vermelha assim que o toast entra */
+.toast-routebooks.show .toast-progress {
+    animation: toastProgress 4s linear forwards;
+}
+
+@keyframes toastProgress {
+    from {
+        width: 100%;
+    }
+
+    to {
+        width: 0%;
+    }
+}
+
+/* Responsividade */
+
+@media (max-width: 500px) {
+
+    .toast-routebooks {
+        width: calc(100% - 30px);
+        right: calc(-100% - 30px);
+    }
+
+        .toast-routebooks.show {
+            right: 15px;
+        }
+}
