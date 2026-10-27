@@ -1,0 +1,51 @@
+name: CI Route Books - Build & Test
+
+# Define quando o workflow deve ser executado
+on:
+  push:
+    branches: [ "main", "master" ]
+  pull_request:
+    branches: [ "main", "master" ]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1. Baixa o código do repositório para a máquina virtual do GitHub
+      - name: Checkout do Código
+        uses: actions/checkout@v4
+
+      # 2. Sobe os bancos de dados (MySQL e Mongo) via Docker Compose
+      - name: Subir Containers via Docker Compose
+        run: docker compose up -d
+
+      # 3. Exibe o status dos containers para ver se estão saudáveis
+      - name: Verificar Status dos Containers
+        run: docker ps
+
+      # 4. Prepara o ambiente do .NET Core para a API
+      - name: Configurar .NET Core
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '8.0.x' # Ajuste para a versão do .NET
+
+      # 5. Compila o Backend (API)
+      - name: Restaurar e Compilar a API (Backend)
+        run: |
+          cd Route-Books_api/Route-Books_api
+          dotnet restore
+          dotnet build --no-restore
+
+      # 6. Prepara o ambiente do Node.js para o Frontend
+      - name: Configurar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      # 7. Instala e compila o Frontend (React/Vite)
+      - name: Instalar e Compilar o Frontend (React)
+        run: |
+          cd Route-Books_frontend
+          npm ci
+          npm run build
