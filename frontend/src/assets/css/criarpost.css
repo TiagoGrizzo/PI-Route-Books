@@ -1,0 +1,234 @@
+.criar-post-page {
+    display: flex;
+    min-height: 100vh;
+    align-items: center;
+    justify-content: center;
+    padding: 48px 20px;
+    background: linear-gradient(rgba(234, 250, 243, 0.24), rgba(234, 250, 243, 0.24));
+}
+
+.cad-post-box {
+    width: min(100%, 760px);
+    margin: 0 auto;
+    padding: clamp(24px, 5vw, 48px);
+    border: 1px solid rgba(0, 89, 64, 0.14);
+    border-radius: 24px;
+    background: rgba(255, 255, 255, 0.96);
+    box-shadow: 0 24px 70px rgba(17, 53, 39, 0.22);
+    backdrop-filter: blur(8px);
+}
+
+.criar-post-header {
+    margin-bottom: 32px;
+    text-align: center;
+}
+
+.criar-post-eyebrow {
+    display: inline-block;
+    margin-bottom: 10px;
+    color: #43866a;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+}
+
+.criar-post-header h1 {
+    margin: 0;
+    color: #005940;
+    font-size: clamp(1.8rem, 5vw, 2.35rem);
+    line-height: 1.2;
+}
+
+.criar-post-header p {
+    max-width: 480px;
+    margin: 12px auto 0;
+    color: #64746c;
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+.criar-post-alert {
+    margin-bottom: 24px;
+    padding: 13px 16px;
+    border: 1px solid #f1c5c5;
+    border-radius: 10px;
+    background: #fff3f3;
+    color: #8c2929;
+    font-size: 0.95rem;
+}
+
+.criar-post-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.criar-post-field {
+    display: flex;
+    min-width: 0;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.criar-post-field label {
+    color: #234c3b;
+    font-size: 0.95rem;
+    font-weight: 700;
+}
+
+.criar-post-control {
+    width: 100%;
+    min-height: 48px;
+    padding: 12px 14px;
+    border: 1px solid #cbd9d1;
+    border-radius: 10px;
+    outline: none;
+    background: #fff;
+    color: #24352c;
+    font: inherit;
+    transition: border-color 160ms ease, box-shadow 160ms ease;
+}
+
+.criar-post-control::placeholder {
+    color: #8b9991;
+}
+
+.criar-post-control:focus {
+    border-color: #17815c;
+    box-shadow: 0 0 0 3px rgba(23, 129, 92, 0.15);
+}
+
+.criar-post-textarea {
+    min-height: 170px;
+    resize: vertical;
+    line-height: 1.55;
+}
+
+.criar-post-taxonomia {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+}
+
+.criar-post-upload label span {
+    margin-left: 4px;
+    color: #718078;
+    font-size: 0.85rem;
+    font-weight: 400;
+}
+
+.criar-post-upload input[type="file"] {
+    padding: 8px;
+    color: #52645a;
+}
+
+.criar-post-upload input[type="file"]::file-selector-button {
+    margin-right: 12px;
+    padding: 9px 13px;
+    border: 0;
+    border-radius: 7px;
+    background: #eaf4ee;
+    color: #235a40;
+    font: inherit;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.criar-post-actions {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    margin-top: 8px;
+    padding-top: 22px;
+    border-top: 1px solid #e4ece7;
+}
+
+.criar-post-back {
+    color: #3d6652;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.criar-post-back:hover {
+    color: #005940;
+    text-decoration: underline;
+}
+
+.criar-post-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+.criar-post-button {
+    min-height: 46px;
+    padding: 11px 18px;
+    border: 1px solid transparent;
+    border-radius: 10px;
+    font: inherit;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 160ms ease, transform 160ms ease;
+}
+
+.criar-post-button:hover {
+    transform: translateY(-1px);
+}
+
+.criar-post-draft {
+    border-color: #d9e4dd;
+    background: #f5f8f6;
+    color: #3b5848;
+}
+
+.criar-post-draft:hover {
+    background: #eaf1ec;
+}
+
+.criar-post-publish {
+    background: #08764f;
+    color: #fff;
+}
+
+.criar-post-publish:hover {
+    background: #005940;
+}
+
+.criar-post-button:focus-visible,
+.criar-post-back:focus-visible {
+    outline: 3px solid rgba(23, 129, 92, 0.4);
+    outline-offset: 3px;
+}
+
+@media (max-width: 600px) {
+    .criar-post-page {
+        align-items: flex-start;
+        padding: 20px 12px;
+    }
+
+    .cad-post-box {
+        border-radius: 18px;
+    }
+
+    .criar-post-taxonomia {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .criar-post-actions {
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+    .criar-post-back {
+        text-align: center;
+    }
+
+    .criar-post-buttons {
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+}

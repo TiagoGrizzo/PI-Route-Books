@@ -1,0 +1,33 @@
+{
+  "mysql": {
+    "banco": "Route_Books",
+    "registrosPorTabela": {
+      "__efmigrationshistory": 7,
+      "categorias": 3,
+      "comunidades": 7,
+      "posts": 9,
+      "tags": 3,
+      "temporadas_destinos": 48,
+      "tipos": 2,
+      "usuarios": 12
+    },
+    "registrosOmitidosPorTabela": {
+      "curtidas": 1,
+      "seguidores": 1
+    }
+  },
+  "mongodb": {
+    "banco": "RouteBooksChat",
+    "colecao": "Mensagens",
+    "mensagensIncluidas": 0
+  },
+  "anonimizacao": [
+    "emails e telefones removidos",
+    "contas pessoais renomeadas",
+    "senhas substituídas por hash novo de valor aleatório descartado",
+    "fotos e localização de perfis removidas",
+    "textos e mídias de posts pessoais substituídos",
+    "comentários e dados de tabelas não autorizadas omitidos",
+    "mensagens privadas não exportadas"
+  ]
+}

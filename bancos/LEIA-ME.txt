@@ -1,0 +1,21 @@
+BANCOS ANONIMIZADOS - ROUTE BOOKS
+
+MySQL: mysql/Route_Books-anonimizado.sql inclui estrutura e dados públicos/de demonstração.
+MongoDB: mongodb/restaurar.js cria RouteBooksChat.Mensagens vazia. Mensagens.json contém [].
+
+Execute os comandos a partir da pasta RouteBooks extraída:
+
+MySQL 8 (mysql deve estar no PATH):
+  mysql --user=root --password --default-character-set=utf8mb4 --execute="source bancos/mysql/Route_Books-anonimizado.sql"
+O comando solicita a senha do SEU MySQL. O arquivo cria e usa Route_Books.
+Restaure em uma instalação local de teste, sem uma base Route_Books com dados que queira manter:
+o SQL recria as tabelas desse banco. Nenhum outro banco é alterado.
+
+MongoDB (mongosh deve estar no PATH):
+  mongosh "mongodb://localhost:27017" --file bancos/mongodb/restaurar.js
+O script cria apenas a coleção ausente, sem apagar ou inserir mensagens.
+
+As contas preservadas NÃO possuem uma senha conhecida: os hashes originais não foram incluídos.
+Cadastre uma nova conta pelo site para testar login, posts e chat.
+Perfis, textos e fotos pessoais foram anonimizados; relatos fictícios e comunidades foram mantidos.
+O relatório JSON informa as quantidades sem expor dados pessoais.

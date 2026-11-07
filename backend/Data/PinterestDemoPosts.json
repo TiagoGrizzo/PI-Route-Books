@@ -1,0 +1,62 @@
+[
+  {
+    "Username": "demo_clara_monteiro",
+    "ComunidadeSlug": "dicas-e-economia",
+    "Titulo": "Lisboa no ritmo dos elétricos",
+    "Resumo": "[Demonstração] Uma inspiração de roteiro a pé, com pausas para observar os elétricos e as ruas de Lisboa.",
+    "Conteudo": "Neste roteiro fictício, reservei uma manhã para explorar as ruas com calma e organizar os deslocamentos por bairro. A proposta é alternar caminhadas curtas, transporte público e pausas nos miradouros. Para planejar uma viagem real, confira os horários e as tarifas atualizados antes de sair. Qual bairro você colocaria no roteiro?\n\nRelato fictício de demonstração. Imagem ilustrativa encontrada no Pinterest; consulte o pin de origem para os créditos.",
+    "Localizacao": "Lisboa, Portugal",
+    "ImagemUrl": "/imgs/pinterest-demo/lisboa.jpg",
+    "ImagemFonteUrl": "https://www.pinterest.com/pin/571675746464693620/"
+  },
+  {
+    "Username": "demo_rafael_andrade",
+    "ComunidadeSlug": "amantes-da-natureza",
+    "Titulo": "Kyoto: os detalhes do outono",
+    "Resumo": "[Demonstração] Folhas vermelhas, pedras e caminhos tranquilos para inspirar uma viagem ao Japão.",
+    "Conteudo": "Esta imagem me inspirou a montar um roteiro fictício dedicado aos pequenos detalhes do outono. Em vez de acumular atrações, a ideia é escolher poucos jardins, caminhar devagar e reservar tempo para observar as cores. As datas da mudança das folhas variam, então um planejamento real precisa considerar a previsão local.\n\nRelato fictício de demonstração. Imagem ilustrativa encontrada no Pinterest; consulte o pin de origem para os créditos.",
+    "Localizacao": "Kyoto, Japão",
+    "ImagemUrl": "/imgs/pinterest-demo/kyoto.jpg",
+    "ImagemFonteUrl": "https://www.pinterest.com/pin/41728734042314588/"
+  },
+  {
+    "Username": "demo_marina_costa",
+    "ComunidadeSlug": "viagens-de-aventura",
+    "Titulo": "Uma estrada pela Patagônia chilena",
+    "Resumo": "[Demonstração] Montanhas ao fundo e espírito de estrada: inspiração para explorar Torres del Paine.",
+    "Conteudo": "O plano desta aventura fictícia é montar uma base na região e organizar passeios curtos conforme as condições locais. A imagem de estrada com as montanhas ao fundo resume o clima que eu buscaria: tempo para contemplar e liberdade para adaptar o roteiro. Para uma viagem real, consulte as regras do parque e as condições das vias.\n\nRelato fictício de demonstração. Imagem ilustrativa encontrada no Pinterest; consulte o pin de origem para os créditos.",
+    "Localizacao": "Torres del Paine, Chile",
+    "ImagemUrl": "/imgs/pinterest-demo/torres-paine.jpg",
+    "ImagemFonteUrl": "https://www.pinterest.com/pin/205406432980568666/"
+  },
+  {
+    "Username": "demo_pedro_lima",
+    "ComunidadeSlug": "mochileiros-do-mundo",
+    "Titulo": "Buenos Aires em tons de jacarandá",
+    "Resumo": "[Demonstração] Um passeio de inspiração entre árvores floridas e ruas da capital argentina.",
+    "Conteudo": "Neste relato fictício, o passeio começa sem pressa e deixa espaço para uma pausa no café. A foto dos jacarandás inspirou um roteiro com caminhadas, praças e tempo livre para descobrir o bairro. Levaria uma garrafa de água, calçados confortáveis e um caderno para registrar os lugares que chamarem atenção.\n\nRelato fictício de demonstração. Imagem ilustrativa encontrada no Pinterest; consulte o pin de origem para os créditos.",
+    "Localizacao": "Buenos Aires, Argentina",
+    "ImagemUrl": "/imgs/pinterest-demo/buenos-aires.jpg",
+    "ImagemFonteUrl": "https://www.pinterest.com/pin/81346336992922834/"
+  },
+  {
+    "Username": "demo_beatriz_rocha",
+    "ComunidadeSlug": "gastronomia-pelo-mundo",
+    "Titulo": "Café e pastel de nata: uma pausa em Lisboa",
+    "Resumo": "[Demonstração] Uma mesa simples e um sabor português para entrar no roteiro gastronômico.",
+    "Conteudo": "Esta é uma parada imaginada para um roteiro fictício de gastronomia em Lisboa: sentar, pedir um café e apreciar um pastel de nata. A proposta é deixar um intervalo entre os passeios para provar os sabores da cidade e conversar sobre as descobertas do dia. Qual doce você sempre procura quando viaja?\n\nRelato fictício de demonstração. Imagem ilustrativa encontrada no Pinterest; consulte o pin de origem para os créditos.",
+    "Localizacao": "Lisboa, Portugal",
+    "ImagemUrl": "/imgs/pinterest-demo/pastel-nata.jpg",
+    "ImagemFonteUrl": "https://www.pinterest.com/pin/44543483799822872/"
+  },
+  {
+    "Username": "demo_lucas_almeida",
+    "ComunidadeSlug": "orlando-com-a-fran",
+    "Titulo": "Orlando iluminada para o Halloween",
+    "Resumo": "[Demonstração] Abóboras e luzes noturnas inspiram um roteiro pelos parques de Orlando.",
+    "Conteudo": "A decoração desta imagem foi o ponto de partida para um planejamento fictício de uma noite de Halloween em Orlando. A ideia é chegar com tempo, alternar atrações e pausas, e aproveitar os detalhes iluminados. Antes de uma viagem real, vale conferir o calendário oficial, os ingressos e as condições de cada evento.\n\nRelato fictício de demonstração. Imagem ilustrativa encontrada no Pinterest; consulte o pin de origem para os créditos.",
+    "Localizacao": "Orlando, Estados Unidos",
+    "ImagemUrl": "/imgs/pinterest-demo/orlando.jpg",
+    "ImagemFonteUrl": "https://www.pinterest.com/pin/502925483363056390/"
+  }
+]
