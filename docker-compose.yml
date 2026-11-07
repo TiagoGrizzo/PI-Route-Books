@@ -1,0 +1,25 @@
+   services:
+     mysql-db:
+       image: mysql:8.0
+       container_name: routebooks_mysql
+       restart: always
+       environment:
+         MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
+         MYSQL_DATABASE: route_books
+       ports:
+         - "3306:3306"
+       volumes:
+         - mysql_data:/var/lib/mysql
+
+     mongodb:
+       image: mongo:latest
+       container_name: routebooks_mongodb
+       restart: always
+       ports:
+         - "27017:27017"
+       volumes:
+         - mongo_data:/data/db
+
+   volumes:
+     mysql_data:
+     mongo_data:

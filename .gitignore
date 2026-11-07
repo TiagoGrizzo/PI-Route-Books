@@ -17,3 +17,8 @@ obj/
 Thumbs.db
 ehthumbs.db
 Desktop.ini
+
+echo.>> .gitignore
+echo /bancos/>> .gitignore
+
+bancos/

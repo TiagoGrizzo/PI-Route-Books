@@ -23,9 +23,6 @@ dist-ssr
 *.sln
 *.sw?
 
-# Ignorar pasta local de bancos de dados
-# Ignora qualquer pasta chamada bancos em qualquer subnível (independente de maiúsculas/minúsculas)
-[bB][aA][nN][cC][oO][sS]/
-**/[bB][aA][nN][cC][oO][sS]/
-RouteBooks/RouteBooks/bancos/
-RouteBooks/RouteBooks/Bancos/
+echo.>> .gitignore
+echo bancos/>> .gitignore
+echo node_modules/>> .gitignore
