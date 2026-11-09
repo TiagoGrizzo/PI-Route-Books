@@ -1,0 +1,66 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata: { name: mysql-db, namespace: routebooks }
+spec:
+  serviceName: mysql-db
+  replicas: 1
+  selector: { matchLabels: { app: mysql-db } }
+  template:
+    metadata: { labels: { app: mysql-db } }
+    spec:
+      containers:
+        - name: mysql
+          image: mysql:8.0
+          env:
+            - { name: MYSQL_ALLOW_EMPTY_PASSWORD, value: "yes" }
+            - { name: MYSQL_DATABASE, value: route_books }
+          ports: [{ containerPort: 3306 }]
+          readinessProbe:
+            exec: { command: ["mysqladmin", "ping", "-h", "localhost"] }
+            initialDelaySeconds: 10
+            periodSeconds: 5
+          volumeMounts: [{ name: data, mountPath: /var/lib/mysql }]
+  volumeClaimTemplates:
+    - metadata: { name: data }
+      spec:
+        accessModes: ["ReadWriteOnce"]
+        resources: { requests: { storage: 1Gi } }
+---
+apiVersion: v1
+kind: Service
+metadata: { name: mysql-db, namespace: routebooks }
+spec:
+  selector: { app: mysql-db }
+  ports: [{ port: 3306 }]
+---
+apiVersion: apps/v1
+kind: StatefulSet
+metadata: { name: mongodb, namespace: routebooks }
+spec:
+  serviceName: mongodb
+  replicas: 1
+  selector: { matchLabels: { app: mongodb } }
+  template:
+    metadata: { labels: { app: mongodb } }
+    spec:
+      containers:
+        - name: mongo
+          image: mongo:7
+          ports: [{ containerPort: 27017 }]
+          readinessProbe:
+            exec: { command: ["mongosh", "--quiet", "--eval", "db.adminCommand('ping')"] }
+            initialDelaySeconds: 10
+            periodSeconds: 5
+          volumeMounts: [{ name: data, mountPath: /data/db }]
+  volumeClaimTemplates:
+    - metadata: { name: data }
+      spec:
+        accessModes: ["ReadWriteOnce"]
+        resources: { requests: { storage: 1Gi } }
+---
+apiVersion: v1
+kind: Service
+metadata: { name: mongodb, namespace: routebooks }
+spec:
+  selector: { app: mongodb }
+  ports: [{ port: 27017 }]

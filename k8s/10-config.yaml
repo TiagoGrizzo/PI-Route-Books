@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: Namespace
+metadata: { name: routebooks }
+---
+apiVersion: v1
+kind: Secret
+metadata: { name: backend-secrets, namespace: routebooks }
+type: Opaque
+stringData:
+  ConnectionStrings__DefaultConnection: "Server=mysql-db;Port=3306;Database=route_books;User=root;"
+  ConnectionStrings__MongoConnection: "mongodb://mongodb:27017"
+  JwtSettings__Secret: "RouteBooks-ChaveLocalDeDesenvolvimento-2026-AventurasQueInspiram-12345"
+  JwtSettings__Issuer: "RouteBooks"
+  JwtSettings__Audience: "RouteBooks"
+---
+apiVersion: v1
+kind: ConfigMap
+metadata: { name: backend-config, namespace: routebooks }
+data:
+  RunMigrations: "true"

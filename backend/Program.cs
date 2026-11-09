@@ -106,6 +106,21 @@ builder.Services.AddCors(options =>
 });
 
 var app = builder.Build();
+if (app.Environment.IsDevelopment() || app.Configuration.GetValue<bool>("RunMigrations"))
+{
+    using (var scope = app.Services.CreateScope())
+    {   
+        try
+        {
+            var db = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
+            db.Database.Migrate();
+            
+        } catch(Exception e)
+        {
+            System.Console.WriteLine($"Erro ao rodar as migrations. Error: {e}");
+        }
+    }
+}
 // Populando os exemplos somente quando o comando for solicitado.
 if (args.Contains("--seed-pinterest")) {
     using var scope = app.Services.CreateScope();

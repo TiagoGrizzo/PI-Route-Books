@@ -1,25 +1,61 @@
-   services:
-     mysql-db:
-       image: mysql:8.0
-       container_name: routebooks_mysql
-       restart: always
-       environment:
-         MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
-         MYSQL_DATABASE: route_books
-       ports:
-         - "3306:3306"
-       volumes:
-         - mysql_data:/var/lib/mysql
+services:
+  mysql-db:
+    image: mysql:8.0
+    container_name: routebooks_mysql
+    restart: unless-stopped
+    environment:
+      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
+      MYSQL_DATABASE: route_books
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
 
-     mongodb:
-       image: mongo:latest
-       container_name: routebooks_mongodb
-       restart: always
-       ports:
-         - "27017:27017"
-       volumes:
-         - mongo_data:/data/db
+  mongodb:
+    image: mongo:7
+    container_name: routebooks_mongodb
+    restart: unless-stopped
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo_data:/data/db
+    healthcheck:
+      test: ["CMD", "mongosh", "--quiet", "--eval", "db.adminCommand('ping')"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
 
-   volumes:
-     mysql_data:
-     mongo_data:
+  backend:
+    build: ./backend
+    container_name: routebooks_backend
+    restart: unless-stopped
+    ports:
+      - "5123:8080"
+    environment:
+      ConnectionStrings__DefaultConnection: "Server=mysql-db;Port=3306;Database=route_books;User=root;"
+      ConnectionStrings__MongoConnection: "mongodb://mongodb:27017"
+      RunMigrations: "true"
+    depends_on:
+      mysql-db:
+        condition: service_healthy
+      mongodb:
+        condition: service_healthy
+
+  frontend:
+    build: ./frontend
+    container_name: routebooks_frontend
+    restart: unless-stopped
+    ports:
+      - "5173:80"
+    depends_on:
+      - backend
+
+volumes:
+  mysql_data:
+  mongo_data:
+  
