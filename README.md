@@ -1,6 +1,6 @@
 <div align="center" id="inicio">
   <picture>
-  <img alt="Logo Route Books" src="./wwwroot/imgs/rb-logo2.png" width="550">
+  <img alt="Logo Route Books" src="./wwwroot/imgs/fotos-doc/rb-logo2.png" width="550">
   </picture>
   
   #  Dicas para mochileiros e viajantes
@@ -158,7 +158,7 @@ Na Figura 1, podemos visualizar o modelo de negócios, utilizado para melhor ide
 </div>
 
 <div align="center">
-    <img src="./wwwroot/imgs/modelo-canvas.png" alt="Figura 1 - Canvas, modelo de negócios" width="550">
+    <img src="./wwwroot/imgs/fotos-doc/modelo-canvas.png" alt="Figura 1 - Canvas, modelo de negócios" width="550">
 </div>
 
 ## 3.1. O que será elaborado?
@@ -274,8 +274,8 @@ As figuras 2 apresentadas, são as logos do nosso projeto, uma com a escrita em 
 
 </div>
 <div align="center">
-    <img src="./wwwroot/imgs/logo.jpg" alt="logo" width="250">
-    <img src="./wwwroot/imgs/logo1.jpg" alt="logo 1" width="250">
+    <img src="./wwwroot/imgs/fotos-doc/logo.jpg" alt="logo" width="250">
+    <img src="./wwwroot/imgs/fotos-doc/logo1.jpg" alt="logo 1" width="250">
 </div>
 
 
@@ -416,7 +416,7 @@ Na figura 3, é visto o modelo de caso de uso geral da nossa aplicação, que de
 </div>
 
   <div align="center">
-    <img src="./wwwroot/imgs/diagrama-caso-de-uso-atualizacao-light.jpg" alt="Figura 3 - Caso de uso" width="550">
+    <img src="./wwwroot/imgs/fotos-doc/diagrama-caso-de-uso-atualizacao-light.jpg" alt="Figura 3 - Caso de uso" width="550">
   </div>
 
 [Voltar para o início](#inicio)
@@ -432,7 +432,7 @@ Na figura 4, podemos ver o modelo lógico do nosso sistema, que mostra como os o
 </div>
 
 <div align="center">
-    <img src="./wwwroot/imgs/DiagramaClasses.png" alt="Figura 4 - Diagrama de classes" width="550">
+    <img src="./wwwroot/imgs/fotos-doc/DiagramaClasses.png" alt="Figura 4 - Diagrama de classes" width="550">
   </div>
 
 <div align="center">
@@ -445,7 +445,7 @@ Na figura 5 temos o nosso modelo físico, com relacionamento entre tabelas, chav
 </div>
 
   <div align="center">
-    <img src="./wwwroot/imgs/modelagem-PI-completa.png" alt="Figura 5 - Modelo Físico" width="550">
+    <img src="./wwwroot/imgs/fotos-doc/modelagem-PI-completa.png" alt="Figura 5 - Modelo Físico" width="550">
   </div>
 
   <div align="center">
@@ -484,7 +484,7 @@ Na figura 7, é possível visualizar o protótipo da homepage, de como ela seria
 </div>
 
   <div align="center">
-    <img src="./wwwroot/imgs/prototipo_home.png" alt="Figura 6 - Prototipo" width="550">
+    <img src="./wwwroot/imgs/fotos-doc/prototipo_home.png" alt="Figura 6 - Prototipo" width="550">
   </div>
 
 [Voltar para o início](#inicio)
