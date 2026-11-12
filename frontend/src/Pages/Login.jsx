@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { login, getSessao } from '../api/Route-book.jsx'; // Ajuste o caminho do seu arquivo de serviços do Axios
 
@@ -26,7 +26,7 @@ export default function Login() {
 
     try {
       // O backend espera um Dictionary<string, string> com "email" e "senhaHash"
-      const response = await login({
+      await login({
         email: email,
         senhaHash: senha
       });

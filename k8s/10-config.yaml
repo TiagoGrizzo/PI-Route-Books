@@ -1,6 +1,4 @@
-apiVersion: v1
-kind: Namespace
-metadata: { name: routebooks }
+
 ---
 apiVersion: v1
 kind: Secret

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom'; // Se estiver a usar React Router
 import '../assets/css/index.css'; // Ajuste o caminho do CSS conforme a estrutura do seu projeto React
 import { getUltimosPosts } from '../api/Route-book.jsx';
