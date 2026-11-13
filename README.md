@@ -625,11 +625,11 @@ HOME TOUR. Disponível em: [https://hometour.com.br/](https://hometour.com.br/)
 ## 📸 Imagens do Projeto
 
 **Home Page**
-![Tela inicial do Route Books](./backend/wwwroot/imgs/fotos-doc/homepage.png)
+![Tela inicial do Route Books](./backend/wwwroot/imgs/fotos-doc/HomePage.png)
 
 
 **Tela dos aventureiros, o chat de bate papo (Com dark mode ativado)**
-![Tela de Perfil](./backend/wwwroot/imgs/fotos-doc/bate-papo.png)
+![Tela de Perfil](./backend/wwwroot/imgs/fotos-doc/Bate-papo.png)
 
 
 **Tela de Cadastro**
