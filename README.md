@@ -628,7 +628,7 @@ HOME TOUR. Disponível em: [https://hometour.com.br/](https://hometour.com.br/)
 ![Tela inicial do Route Books](./backend/wwwroot/imgs/fotos-doc/HomePage.png)
 
 
-**Tela dos aventureiros, o chat de bate papo (Com dark mode ativado)**
+**Tela dos aventureiros, o chat de bate papo**
 ![Tela de Perfil](./backend/wwwroot/imgs/fotos-doc/Bate-papo.png)
 
 
