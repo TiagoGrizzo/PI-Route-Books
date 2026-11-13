@@ -20,9 +20,11 @@ namespace Route_Books_api.Controllers
         private int UsuarioAtual => int.TryParse(User.FindFirst(System.Security.Claims.ClaimTypes.NameIdentifier)?.Value, out var id) ? id : 0;
 
         [HttpGet]
-        public async Task<IActionResult> GetPosts([FromQuery] string? busca) {
+        public async Task<IActionResult> GetPosts([FromQuery] string? busca)
+        {
             var query = Route_Books_api.Services.PostQueries.Publicos(_context, UsuarioAtual);
-            if (!string.IsNullOrWhiteSpace(busca)) {
+            if (!string.IsNullOrWhiteSpace(busca))
+            {
                 var termo = busca.Trim();
                 query = query.Where(p => (p.Titulo != null && p.Titulo.Contains(termo)) || (p.Resumo != null && p.Resumo.Contains(termo)) || (p.Localizacao != null && p.Localizacao.Contains(termo)));
             }
@@ -30,7 +32,8 @@ namespace Route_Books_api.Controllers
         }
 
         [HttpGet("{id:int}")]
-        public async Task<IActionResult> GetPost(int id) {
+        public async Task<IActionResult> GetPost(int id)
+        {
             var post = await Route_Books_api.Services.PostQueries.Publicos(_context, UsuarioAtual).FirstOrDefaultAsync(p => p.IdPost == id);
             return post == null ? NotFound(new { mensagem = "Post não encontrado." }) : Ok(post);
         }
@@ -74,35 +77,46 @@ namespace Route_Books_api.Controllers
             var arquivos = fotosPost?.ToList() ?? new List<IFormFile>();
             if (fotoPost != null) arquivos.Insert(0, fotoPost);
             if (arquivos.Count > 10) return BadRequest(new { mensagem = "Envie até 10 fotos por publicação." });
-            var formatos = new Dictionary<string,string[]> {
-                ["image/jpeg"] = new[]{".jpg",".jpeg"}, ["image/png"] = new[]{".png"}, ["image/webp"] = new[]{".webp"},
-                ["video/mp4"] = new[]{".mp4"}, ["video/webm"] = new[]{".webm"}, ["video/quicktime"] = new[]{".mov"}
+            var formatos = new Dictionary<string, string[]>
+            {
+                ["image/jpeg"] = new[] { ".jpg", ".jpeg" },
+                ["image/png"] = new[] { ".png" },
+                ["image/webp"] = new[] { ".webp" },
+                ["video/mp4"] = new[] { ".mp4" },
+                ["video/webm"] = new[] { ".webm" },
+                ["video/quicktime"] = new[] { ".mov" }
             };
-            foreach(var arquivo in arquivos) {
-                var mime=arquivo.ContentType.ToLowerInvariant();var extensao=Path.GetExtension(arquivo.FileName).ToLowerInvariant();
-                if(!formatos.TryGetValue(mime,out var extensoes)||!extensoes.Contains(extensao)||arquivo.Length==0)
-                    return BadRequest(new { mensagem="Envie fotos JPG, PNG, WEBP ou um vídeo MP4, WEBM ou MOV." });
-                var video=mime.StartsWith("video/");
-                if(video&&arquivos.Count>1)return BadRequest(new{mensagem="Envie um vídeo ou um álbum de fotos por vez."});
-                if(arquivo.Length>(video?20L:5L)*1024*1024)return BadRequest(new{mensagem="Cada foto pode ter até 5 MB; o vídeo, até 20 MB."});
+            foreach (var arquivo in arquivos)
+            {
+                var mime = arquivo.ContentType.ToLowerInvariant(); var extensao = Path.GetExtension(arquivo.FileName).ToLowerInvariant();
+                if (!formatos.TryGetValue(mime, out var extensoes) || !extensoes.Contains(extensao) || arquivo.Length == 0)
+                    return BadRequest(new { mensagem = "Envie fotos JPG, PNG, WEBP ou um vídeo MP4, WEBM ou MOV." });
+                var video = mime.StartsWith("video/");
+                if (video && arquivos.Count > 1) return BadRequest(new { mensagem = "Envie um vídeo ou um álbum de fotos por vez." });
+                if (arquivo.Length > (video ? 20L : 5L) * 1024 * 1024) return BadRequest(new { mensagem = "Cada foto pode ter até 5 MB; o vídeo, até 20 MB." });
             }
-            var salvos=new List<string>();var urls=new List<string>();
-            try {
-                if(arquivos.Count>0) {
-                    var pasta=Path.Combine(Directory.GetCurrentDirectory(),"wwwroot","imgs","posts-usuarios");Directory.CreateDirectory(pasta);
-                    foreach(var arquivo in arquivos) {
-                        var nome=Guid.NewGuid().ToString("N")+Path.GetExtension(arquivo.FileName).ToLowerInvariant();
-                        var caminho=Path.Combine(pasta,nome);salvos.Add(caminho);
-                        await using(var stream=System.IO.File.Create(caminho))await arquivo.CopyToAsync(stream,HttpContext.RequestAborted);
-                        urls.Add("/imgs/posts-usuarios/"+nome);
+            var salvos = new List<string>(); var urls = new List<string>();
+            try
+            {
+                if (arquivos.Count > 0)
+                {
+                    var pasta = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "imgs", "posts-usuarios"); Directory.CreateDirectory(pasta);
+                    foreach (var arquivo in arquivos)
+                    {
+                        var nome = Guid.NewGuid().ToString("N") + Path.GetExtension(arquivo.FileName).ToLowerInvariant();
+                        var caminho = Path.Combine(pasta, nome); salvos.Add(caminho);
+                        await using (var stream = System.IO.File.Create(caminho)) await arquivo.CopyToAsync(stream, HttpContext.RequestAborted);
+                        urls.Add("/imgs/posts-usuarios/" + nome);
                     }
-                    post.ImagemUrl=urls[0];post.TipoMidia=arquivos[0].ContentType.StartsWith("video/")?"video":"imagem";
-                    if(post.TipoMidia!="video")post.ImagensJson=System.Text.Json.JsonSerializer.Serialize(urls);
+                    post.ImagemUrl = urls[0]; post.TipoMidia = arquivos[0].ContentType.StartsWith("video/") ? "video" : "imagem";
+                    if (post.TipoMidia != "video") post.ImagensJson = System.Text.Json.JsonSerializer.Serialize(urls);
                 }
-                post.UsuariosIdUsuario=usuarioId;post.Status=acao=="rascunho"?"Rascunho":"Ativo";post.DataCriacao=DateTime.UtcNow;
-                _context.posts.Add(post);await _context.SaveChangesAsync();
-            } catch {
-                foreach(var caminho in salvos)if(System.IO.File.Exists(caminho))System.IO.File.Delete(caminho);
+                post.UsuariosIdUsuario = usuarioId; post.Status = acao == "rascunho" ? "Rascunho" : "Ativo"; post.DataCriacao = DateTime.UtcNow;
+                _context.posts.Add(post); await _context.SaveChangesAsync();
+            }
+            catch
+            {
+                foreach (var caminho in salvos) if (System.IO.File.Exists(caminho)) System.IO.File.Delete(caminho);
                 throw;
             }
 
@@ -156,10 +170,11 @@ namespace Route_Books_api.Controllers
             }
 
             var midias = string.IsNullOrEmpty(post.ImagensJson) ? Array.Empty<string>() : System.Text.Json.JsonSerializer.Deserialize<string[]>(post.ImagensJson) ?? Array.Empty<string>();
-            foreach(var url in midias.Append(post.ImagemUrl??"").Distinct()) {
-                if(!url.StartsWith("/imgs/posts-usuarios/"))continue;
-                var caminho=Path.Combine(Directory.GetCurrentDirectory(),"wwwroot","imgs","posts-usuarios",Path.GetFileName(url));
-                if(System.IO.File.Exists(caminho))System.IO.File.Delete(caminho);
+            foreach (var url in midias.Append(post.ImagemUrl ?? "").Distinct())
+            {
+                if (!url.StartsWith("/imgs/posts-usuarios/")) continue;
+                var caminho = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "imgs", "posts-usuarios", Path.GetFileName(url));
+                if (System.IO.File.Exists(caminho)) System.IO.File.Delete(caminho);
             }
 
             _context.posts.Remove(post);

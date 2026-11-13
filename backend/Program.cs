@@ -109,37 +109,42 @@ var app = builder.Build();
 if (app.Environment.IsDevelopment() || app.Configuration.GetValue<bool>("RunMigrations"))
 {
     using (var scope = app.Services.CreateScope())
-    {   
+    {
         try
         {
             var db = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
             db.Database.Migrate();
-            
-        } catch(Exception e)
+
+        }
+        catch (Exception e)
         {
             System.Console.WriteLine($"Erro ao rodar as migrations. Error: {e}");
         }
     }
 }
 // Populando os exemplos somente quando o comando for solicitado.
-if (args.Contains("--seed-pinterest")) {
+if (args.Contains("--seed-pinterest"))
+{
     using var scope = app.Services.CreateScope();
     await PinterestDemoSeed.Executar(scope.ServiceProvider.GetRequiredService<ApplicationDbContext>());
     return;
 }
-if (args.Contains("--seed-official")) {
+if (args.Contains("--seed-official"))
+{
     using var scope = app.Services.CreateScope();
     var db = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
     await db.Database.MigrateAsync();
     await PerfilOficialSeed.Executar(db);
     return;
 }
-if (args.Contains("--assign-avatars")) {
+if (args.Contains("--assign-avatars"))
+{
     using var scope = app.Services.CreateScope();
     await AvataresPadrao.PreencherExistentes(scope.ServiceProvider.GetRequiredService<ApplicationDbContext>());
     return;
 }
-if (args.Contains("--seed-demo")) {
+if (args.Contains("--seed-demo"))
+{
     using var scope = app.Services.CreateScope();
     var db = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
     await db.Database.MigrateAsync();

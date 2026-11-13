@@ -16,7 +16,7 @@ export default function Login() {
   const [mostrarSenha, setMostrarSenha] = useState(false);
   const [erro, setErro] = useState(new URLSearchParams(window.location.search).has('sessao') ? 'Sua sessão terminou. Entre novamente para curtir e publicar.' : '');
   const [loading, setLoading] = useState(false);
-  
+
   const navigate = useNavigate();
 
   const handleLogin = async (e) => {
@@ -56,17 +56,17 @@ export default function Login() {
     <div className="auth-page auth-login">
       <section className="form-login-geral container-xxl">
         <form onSubmit={handleLogin} className="form-log">
-          
+
           {erro && (
-            <div style={{ 
-              backgroundColor: '#e74c3c', 
-              color: 'white', 
-              padding: '10px', 
-              borderRadius: '5px', 
-              textAlign: 'center', 
-              marginBottom: '15px', 
-              fontFamily: 'sans-serif', 
-              fontSize: '14px' 
+            <div style={{
+              backgroundColor: '#e74c3c',
+              color: 'white',
+              padding: '10px',
+              borderRadius: '5px',
+              textAlign: 'center',
+              marginBottom: '15px',
+              fontFamily: 'sans-serif',
+              fontSize: '14px'
             }}>
               {erro}
             </div>
@@ -80,14 +80,14 @@ export default function Login() {
           <label htmlFor="email">E-mail</label>
           <div className="input-login">
             <i className="fa fa-envelope-o" aria-hidden="true"></i>
-            <input 
-              className="input-email" 
-              name="email" 
-              type="email" 
-              placeholder="Insira seu e-mail..." 
+            <input
+              className="input-email"
+              name="email"
+              type="email"
+              placeholder="Insira seu e-mail..."
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              required 
+              required
             />
           </div>
 
@@ -95,20 +95,20 @@ export default function Login() {
           <div className="input-login">
             <i className="fa fa-lock" aria-hidden="true"></i>
 
-            <input 
+            <input
               id="senha"
               className="input-senha"
               name="senha"
               type={mostrarSenha ? "text" : "password"}
-              placeholder="Insira sua senha..." 
+              placeholder="Insira sua senha..."
               value={senha}
               onChange={(e) => setSenha(e.target.value)}
-              required 
+              required
             />
 
-            <button 
-              type="button" 
-              id="mostrarSenha" 
+            <button
+              type="button"
+              id="mostrarSenha"
               className="btn-mostrar-senha"
               onClick={() => setMostrarSenha(!mostrarSenha)}
             >
@@ -126,7 +126,7 @@ export default function Login() {
             </button>
           </div>
           <br />
-          
+
           <div className="link-login-cad">
             Não tem uma conta? &nbsp;
             <Link to="/cadastro">Cadastre-se já!</Link>

@@ -21,7 +21,7 @@ export default function LandingPage() {
 
   // Busca os últimos posts da API quando o componente carregar
   useEffect(() => {
-      getUltimosPosts()
+    getUltimosPosts()
       .then(response => {
         setPosts(response.data);
         setLoadingPosts(false);
@@ -83,8 +83,8 @@ export default function LandingPage() {
                 <p style={{ textAlign: 'center', color: '#fff' }}>Carregando postagens...</p>
               ) : posts.length > 0 ? (
                 posts.map((p) => {
-                  const resumoConteudo = p.conteudo?.length > 150 
-                    ? p.conteudo.substring(0, 150) + '...' 
+                  const resumoConteudo = p.conteudo?.length > 150
+                    ? p.conteudo.substring(0, 150) + '...'
                     : p.conteudo;
 
                   const nomeAutor = p.autor?.nomeCompleto || p.autor?.username || 'Aventureiro';

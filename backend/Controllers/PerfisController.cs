@@ -20,10 +20,22 @@ public class PerfisController(ApplicationDbContext db) : ControllerBase
         .ToListAsync());
 
     [HttpGet("{id:int}")]
-    public async Task<IActionResult> Perfil(int id) {
+    public async Task<IActionResult> Perfil(int id)
+    {
         var perfil = await db.usuarios.AsNoTracking().Where(u => u.IdUsuario == id && u.DeletadoEm == null)
-            .Select(u => new { u.IdUsuario, perfilOficial = u.PerfilOficial, u.NomeCompleto, u.Username, u.Biografia, u.Cidade, u.Uf, u.Pais,
-                u.FotoPerfil, u.CapaUrl, u.CriadoEm,
+            .Select(u => new
+            {
+                u.IdUsuario,
+                perfilOficial = u.PerfilOficial,
+                u.NomeCompleto,
+                u.Username,
+                u.Biografia,
+                u.Cidade,
+                u.Uf,
+                u.Pais,
+                u.FotoPerfil,
+                u.CapaUrl,
+                u.CriadoEm,
                 postsCount = u.Posts.Count(p => p.Status == "Ativo"),
                 seguindoCount = db.seguidores.Count(s => s.IdUsuarioSeguidor == id),
                 seguidoresCount = db.seguidores.Count(s => s.IdUsuarioSeguido == id),
@@ -32,11 +44,13 @@ public class PerfisController(ApplicationDbContext db) : ControllerBase
         return perfil == null ? NotFound() : Ok(perfil);
     }
     [HttpGet("{id:int}/posts")]
-    public async Task<IActionResult> Publicacoes(int id, [FromQuery] string aba = "posts") {
+    public async Task<IActionResult> Publicacoes(int id, [FromQuery] string aba = "posts")
+    {
         var query = PostQueries.Publicos(db, UsuarioAtual);
         if (aba == "curtidas")
             query = query.Where(p => db.curtidas.Any(v => v.PostId == p.IdPost && v.UsuarioId == id && v.Valor == 1));
-        else {
+        else
+        {
             query = query.Where(p => p.UsuariosIdUsuario == id);
             if (aba == "midias") query = query.Where(p => p.ImagemUrl != null && p.ImagemUrl != "");
             if (aba == "roteiros") query = query.Where(p => p.Localizacao != null && p.Localizacao != "");
@@ -46,12 +60,14 @@ public class PerfisController(ApplicationDbContext db) : ControllerBase
     [Authorize]
     [HttpPatch("me")]
     [RequestSizeLimit(11_000_000)]
-    public async Task<IActionResult> Editar([FromForm] PerfilInput input) {
+    public async Task<IActionResult> Editar([FromForm] PerfilInput input)
+    {
         var usuario = await db.usuarios.FindAsync(UsuarioAtual);
         if (usuario == null) return Unauthorized();
         if (string.IsNullOrWhiteSpace(input.NomeCompleto)) return BadRequest(new { mensagem = "Preencha seu nome." });
         // Validando as duas imagens antes de salvar qualquer arquivo do perfil.
-        foreach (var foto in new[] { input.Foto, input.Capa }) {
+        foreach (var foto in new[] { input.Foto, input.Capa })
+        {
             if (foto == null) continue;
             var ext = Path.GetExtension(foto.FileName).ToLowerInvariant();
             var valido = (foto.ContentType == "image/jpeg" && new[] { ".jpg", ".jpeg" }.Contains(ext))
@@ -60,8 +76,10 @@ public class PerfisController(ApplicationDbContext db) : ControllerBase
                 return BadRequest(new { mensagem = "Use JPG, PNG ou WEBP de até 5 MB para a foto e a capa." });
         }
         var novosArquivos = new List<string>();
-        try {
-            async Task<string?> Salvar(IFormFile? foto) {
+        try
+        {
+            async Task<string?> Salvar(IFormFile? foto)
+            {
                 if (foto == null) return null;
                 var pasta = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "imgs", "perfis");
                 Directory.CreateDirectory(pasta);
@@ -81,14 +99,17 @@ public class PerfisController(ApplicationDbContext db) : ControllerBase
             usuario.Pais = input.Pais?.Trim();
             usuario.AlteradoEm = DateTime.UtcNow;
             await db.SaveChangesAsync();
-        } catch {
+        }
+        catch
+        {
             foreach (var caminho in novosArquivos) if (System.IO.File.Exists(caminho)) System.IO.File.Delete(caminho);
             throw;
         }
         return await Perfil(usuario.IdUsuario);
     }
 }
-public class PerfilInput {
+public class PerfilInput
+{
     [Required, StringLength(100)] public string NomeCompleto { get; set; } = "";
     [StringLength(500)] public string? Biografia { get; set; }
     [StringLength(100)] public string? Cidade { get; set; }

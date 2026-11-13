@@ -6,6 +6,7 @@ html {
     justify-content: center;
     align-items: center;
 }
+
 /*DEFININDO ALTURA EM 100% DA TELA E CENTRALIZANDO CONTEUDO*/
 body {
     font-family: 'Nunito', Arial, Helvetica, sans-serif;
@@ -14,6 +15,7 @@ body {
     background-position: center;
     background-repeat: no-repeat;
 }
+
 /*DEFININDO FONTE E COR DE FUNDO*/
 .form-login-geral {
     position: relative;
@@ -21,9 +23,10 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 1px 4px 0 rgba(0, 0,  0,   .1);
+    box-shadow: 0 1px 4px 0 rgba(0, 0, 0, .1);
     width: 100%;
 }
+
 /*SECTION PRINCIPAL DA PÁGINA*/
 .form-log {
     display: flex;
@@ -34,12 +37,14 @@ body {
     border-radius: 10px;
     padding: 40px 90px 40px 90px;
 }
+
 /*MODIFICANDO O FORMULÁRIO DA PÁGINA*/
 .titulo-login {
     font-size: 1.8em;
     margin-bottom: 10%;
     text-align: center;
 }
+
 /*MODIFICANDO TÍTUO*/
 .input-login {
     width: 100%;
@@ -51,35 +56,41 @@ body {
     align-items: center;
     box-sizing: border-box;
 }
-    /*MODIFICANDO A DIV DO INPUT DA PÁGINA*/
-    .input-login i {
-        font-size: 1.2em;
-        padding: 5px;
-    }
-    /*MODIFICANDO ICONE DA PÁGINA*/
-    .input-login input {
-        width: 90%;
-        height: 2.2em;
-        border: none;
-        outline: none;
-    }
+
+/*MODIFICANDO A DIV DO INPUT DA PÁGINA*/
+.input-login i {
+    font-size: 1.2em;
+    padding: 5px;
+}
+
+/*MODIFICANDO ICONE DA PÁGINA*/
+.input-login input {
+    width: 90%;
+    height: 2.2em;
+    border: none;
+    outline: none;
+}
+
 /*MODIFICANDO O INPUT DA PÁGINA*/
 .form-log label {
     width: 100%;
     box-sizing: border-box;
 }
+
 /*MODIFICNADO LABEL DO FORM*/
 .div-btn-login {
     display: flex;
     justify-content: center;
     width: 60%;
 }
-    /*MODIFICANDO BOTAO DE LOGIN*/
-    .div-btn-login a {
-        width: 90%;
-        border-radius: 15px;
-        margin-top: 10%;
-    }
+
+/*MODIFICANDO BOTAO DE LOGIN*/
+.div-btn-login a {
+    width: 90%;
+    border-radius: 15px;
+    margin-top: 10%;
+}
+
 /*MODIFICANDO LINK DO BOTAO*/
 .btn-logar {
     width: 100%;
@@ -93,11 +104,13 @@ body {
     font-family: 'Nunito', Arial, Helvetica, sans-serif;
     outline: none;
 }
-    /*MODIFICANDO BOTAO DE LOGAR*/
-    .btn-logar:hover {
-        background-color: #00d974;
-        cursor: pointer;
-    }
+
+/*MODIFICANDO BOTAO DE LOGAR*/
+.btn-logar:hover {
+    background-color: #00d974;
+    cursor: pointer;
+}
+
 /*ALTERANDO BOTAO QUANDO O MOUSE ESTÁ EM CIMA DELE*/
 .link-login-cad {
     font-size: .9em;
@@ -106,20 +119,24 @@ body {
     width: 100%;
     margin-top: 10px;
 }
-    /*DIV DO LINK PARA A PÁGINA DE CADASTRO*/
-    .link-login-cad a {
-        color: #005940;
-        text-align: start;
-    }
-        /*MODIFICANDO O LINK PARA A PÁGINA DE CADASTRO*/
-        .link-login-cad a:hover {
-            color: #00d974;
-        }
+
+/*DIV DO LINK PARA A PÁGINA DE CADASTRO*/
+.link-login-cad a {
+    color: #005940;
+    text-align: start;
+}
+
+/*MODIFICANDO O LINK PARA A PÁGINA DE CADASTRO*/
+.link-login-cad a:hover {
+    color: #00d974;
+}
+
 /*ALTERANDO LINK QUANDO O MOUSE ESTÁ EM CIMA DELE*/
 .logo-img {
     height: 50px;
     margin-bottom: 30px;
 }
+
 /*ALTERANDO TAMANHO DA LOGO*/
 .logo {
     display: flex;
@@ -127,6 +144,7 @@ body {
     margin-bottom: 30px;
     margin-top: 10px;
 }
+
 /*MODIFICANDO DIV DA LOGO*/
 
 .btn-mostrar-senha {
@@ -139,9 +157,9 @@ body {
     font-size: 18px;
 }
 
-    .btn-mostrar-senha:hover {
-        color: #009e6b;
-    }
+.btn-mostrar-senha:hover {
+    color: #009e6b;
+}
 
 
 
@@ -150,7 +168,9 @@ body {
 
 /*Celular*/
 @media (max-width: 767px) {
-    html, body {
+
+    html,
+    body {
         height: auto;
         width: 100%;
         margin: 0;
@@ -212,7 +232,7 @@ body {
     .div-btn-login {
         width: 100%;
         margin-top: 25px;
-        
+
     }
 
     .logo-img {
@@ -231,14 +251,16 @@ body {
         font-size: .9em;
     }
 
-        .link-login-cad a {
-            color: #005940;
-        }
+    .link-login-cad a {
+        color: #005940;
+    }
 }
 
 /*/Tablet*/
 @media (min-width: 768px) and (max-width: 1024px) {
-    html, body {
+
+    html,
+    body {
         height: auto;
         width: 100%;
         margin: 0;
@@ -309,11 +331,12 @@ body {
         margin-top: 10px;
     }
 
-        .link-login-cad a {
-            color: #005940;
-            display: inline;
-            width: auto;
-            margin: 0;
-        }
+    .link-login-cad a {
+        color: #005940;
+        display: inline;
+        width: auto;
+        margin: 0;
+    }
 }
+
 /* RESPONSIVIDADE */

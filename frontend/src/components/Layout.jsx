@@ -22,7 +22,7 @@ export default function Layout() {
     }, [searchParams]);
 
     const usuarioLogado = Boolean(localStorage.getItem('UsuarioId'));
-    const isFeedPage = ['/contato','/quem-somos','/chat'].includes(location.pathname) || location.pathname === '/aventureiros' || location.pathname.startsWith('/comunidades/') || location.pathname === '/posts' || location.pathname.startsWith('/posts/detalhes/') || location.pathname === '/perfil' || location.pathname.startsWith('/perfil/');
+    const isFeedPage = ['/contato', '/quem-somos', '/chat'].includes(location.pathname) || location.pathname === '/aventureiros' || location.pathname.startsWith('/comunidades/') || location.pathname === '/posts' || location.pathname.startsWith('/posts/detalhes/') || location.pathname === '/perfil' || location.pathname.startsWith('/perfil/');
 
     useEffect(() => {
         const temaSalvo = localStorage.getItem('theme');
@@ -77,18 +77,127 @@ export default function Layout() {
     return (
         <>
             {!isFeedPage && (
-            <header className="header-navbar">
-                <nav className="navbar navbar-expand-lg bg-navbar container-xxl px-3">
-                    <div className="container-fluid d-flex align-items-center justify-content-between flex-wrap">
+                <header className="header-navbar">
+                    <nav className="navbar navbar-expand-lg bg-navbar container-xxl px-3">
+                        <div className="container-fluid d-flex align-items-center justify-content-between flex-wrap">
 
-                        {/* Logo */}
-                        <Link to="/" className="navbar-brand d-flex align-items-center" onClick={() => setMenuNavegacaoAberto(false)}>
-                            <img src={logoNavbar} className="logo-tamanho" alt="Logo Route Books" />
-                        </Link>
+                            {/* Logo */}
+                            <Link to="/" className="navbar-brand d-flex align-items-center" onClick={() => setMenuNavegacaoAberto(false)}>
+                                <img src={logoNavbar} className="logo-tamanho" alt="Logo Route Books" />
+                            </Link>
 
-                        {/* Nav links + busca (desktop) */}
-                        <div className="d-none d-lg-flex align-items-center gap-4 navbar-center">
-                            <ul className="navbar-nav me-auto mb-2 mb-lg-0 align-items-center gap-2">
+                            {/* Nav links + busca (desktop) */}
+                            <div className="d-none d-lg-flex align-items-center gap-4 navbar-center">
+                                <ul className="navbar-nav me-auto mb-2 mb-lg-0 align-items-center gap-2">
+                                    <li className="nav-item">
+                                        <NavLink
+                                            to="/"
+                                            end
+                                            className={({ isActive }) => `nav-link ${isActive ? 'active' : ''} text-color-navbar`}
+                                        >
+                                            Home
+                                        </NavLink>
+                                    </li>
+
+                                    <li className="nav-item">
+                                        <NavLink
+                                            to="/aventureiros"
+                                            className={({ isActive }) => `nav-link ${isActive ? 'active' : ''} text-color-navbar position-relative`}
+                                        >
+                                            Aventureiros
+                                            <span id="notificacaoNavbarGlobal" className="notificacao-navbar" style={{ display: 'none' }}></span>
+                                        </NavLink>
+                                    </li>
+
+                                    <li className="nav-item">
+                                        <NavLink
+                                            to="/quem-somos"
+                                            className={({ isActive }) => `nav-link ${isActive ? 'active' : ''} text-color-navbar`}
+                                        >
+                                            Sobre
+                                        </NavLink>
+                                    </li>
+
+                                    <li className="nav-item">
+                                        <NavLink
+                                            to="/contato"
+                                            className={({ isActive }) => `nav-link ${isActive ? 'active' : ''} text-color-navbar`}
+                                        >
+                                            Contato
+                                        </NavLink>
+                                    </li>
+                                </ul>
+
+                                <form className="d-flex barra-pesquisa navbar-search" onSubmit={handlePesquisa}>
+                                    <input
+                                        name="busca"
+                                        className="form-control search-bar"
+                                        type="search"
+                                        placeholder="Pesquisar"
+                                        aria-label="Search"
+                                        value={termoPesquisa}
+                                        onChange={(e) => setTermoPesquisa(e.target.value)}
+                                    />
+                                    <button className="btn btn-outline-success" type="submit">
+                                        <i className="fa fa-search" aria-hidden="true"></i>
+                                    </button>
+                                </form>
+                            </div>
+
+                            {/* User actions + dark mode (desktop) */}
+                            <div className="d-none d-lg-flex align-items-center gap-2 navbar-actions ms-auto">
+                                <div className="dropdown perfil-geral">
+                                    <button
+                                        className="btn btn-perfil dropdown-toggle"
+                                        type="button"
+                                        aria-expanded={menuAberto}
+                                        onClick={() => setMenuAberto(!menuAberto)}
+                                    >
+                                        <i className="fa fa-user me-1" aria-hidden="true"></i>
+                                        {" "}{usuarioLogado && usuarioNome ? ` ${usuarioNome}` : ' Entrar'}
+                                    </button>
+
+                                    {menuAberto && (
+                                        <ul className="dropdown-menu menu-perfil" style={{ position: 'absolute', right: 0, top: '110%' }}>
+                                            {usuarioLogado ? (
+                                                <>
+                                                    <li><Link to="/perfil" className="dropdown-item perfil-item" onClick={() => setMenuAberto(false)}>Perfil</Link></li>
+                                                    <li><Link to="/posts/criar" className="dropdown-item perfil-item" onClick={() => setMenuAberto(false)}>Criar Postagem</Link></li>
+                                                    <li><Link to="/chat" className="dropdown-item perfil-item" onClick={() => setMenuAberto(false)}>Chat</Link></li>
+                                                    <li><Link to="/login" className="dropdown-item perfil-item" onClick={sairConta}>Sair da conta</Link></li>
+                                                </>
+                                            ) : (
+                                                <>
+                                                    <li><Link to="/login" className="dropdown-item perfil-item" onClick={() => setMenuAberto(false)}>Fazer Login</Link></li>
+                                                    <li><Link to="/cadastro" className="dropdown-item perfil-item" onClick={() => setMenuAberto(false)}>Cadastre-se</Link></li>
+                                                </>
+                                            )}
+                                        </ul>
+                                    )}
+                                </div>
+
+                                <div className="dark-mode-toggle">
+                                    <button className="btn btn-dark-mode" type="button" onClick={toggleDarkMode} aria-label="Alternar tema">
+                                        <i className={`fa ${temaEscuro ? 'fa-sun-o light-icon' : 'fa-moon-o dark-icon'}`} aria-hidden="true"></i>
+                                    </button>
+                                </div>
+                            </div>
+
+                            {/* Mobile toggler */}
+                            <button
+                                className="navbar-toggler bg-color-menu-btn d-lg-none"
+                                type="button"
+                                aria-label="Toggle navigation"
+                                onClick={() => setMenuNavegacaoAberto(!menuNavegacaoAberto)}
+                            >
+                                <span className="navbar-toggler-icon"></span>
+                            </button>
+
+                        </div>
+
+                        {/* Mobile collapse */}
+                        <div className={`collapse navbar-collapse ${menuNavegacaoAberto ? 'show' : ''}`} id="navbarSupportedContent">
+                            <ul className="navbar-nav me-auto mb-2 mb-lg-0 w-100 align-items-center gap-2">
                                 <li className="nav-item">
                                     <NavLink
                                         to="/"
@@ -98,17 +207,14 @@ export default function Layout() {
                                         Home
                                     </NavLink>
                                 </li>
-
                                 <li className="nav-item">
                                     <NavLink
                                         to="/aventureiros"
                                         className={({ isActive }) => `nav-link ${isActive ? 'active' : ''} text-color-navbar position-relative`}
                                     >
                                         Aventureiros
-                                        <span id="notificacaoNavbarGlobal" className="notificacao-navbar" style={{ display: 'none' }}></span>
                                     </NavLink>
                                 </li>
-
                                 <li className="nav-item">
                                     <NavLink
                                         to="/quem-somos"
@@ -117,7 +223,6 @@ export default function Layout() {
                                         Sobre
                                     </NavLink>
                                 </li>
-
                                 <li className="nav-item">
                                     <NavLink
                                         to="/contato"
@@ -128,10 +233,10 @@ export default function Layout() {
                                 </li>
                             </ul>
 
-                            <form className="d-flex barra-pesquisa navbar-search" onSubmit={handlePesquisa}>
+                            <form className="d-flex barra-pesquisa w-100 mt-3" onSubmit={handlePesquisa}>
                                 <input
                                     name="busca"
-                                    className="form-control search-bar"
+                                    className="form-control search-bar flex-grow-1"
                                     type="search"
                                     placeholder="Pesquisar"
                                     aria-label="Search"
@@ -142,150 +247,45 @@ export default function Layout() {
                                     <i className="fa fa-search" aria-hidden="true"></i>
                                 </button>
                             </form>
-                        </div>
 
-                        {/* User actions + dark mode (desktop) */}
-                        <div className="d-none d-lg-flex align-items-center gap-2 navbar-actions ms-auto">
-                            <div className="dropdown perfil-geral">
-                                <button
-                                    className="btn btn-perfil dropdown-toggle"
-                                    type="button"
-                                    aria-expanded={menuAberto}
-                                    onClick={() => setMenuAberto(!menuAberto)}
-                                >
-                                    <i className="fa fa-user me-1" aria-hidden="true"></i>
-                                    {" "}{usuarioLogado && usuarioNome ? ` ${usuarioNome}` : ' Entrar'}
-                                </button>
-
-                                {menuAberto && (
-                                    <ul className="dropdown-menu menu-perfil" style={{ position: 'absolute', right: 0, top: '110%' }}>
-                                        {usuarioLogado ? (
-                                            <>
-                                                <li><Link to="/perfil" className="dropdown-item perfil-item" onClick={() => setMenuAberto(false)}>Perfil</Link></li>
-                                                <li><Link to="/posts/criar" className="dropdown-item perfil-item" onClick={() => setMenuAberto(false)}>Criar Postagem</Link></li>
-                                                <li><Link to="/chat" className="dropdown-item perfil-item" onClick={() => setMenuAberto(false)}>Chat</Link></li>
-                                                <li><Link to="/login" className="dropdown-item perfil-item" onClick={sairConta}>Sair da conta</Link></li>
-                                            </>
-                                        ) : (
-                                            <>
-                                                <li><Link to="/login" className="dropdown-item perfil-item" onClick={() => setMenuAberto(false)}>Fazer Login</Link></li>
-                                                <li><Link to="/cadastro" className="dropdown-item perfil-item" onClick={() => setMenuAberto(false)}>Cadastre-se</Link></li>
-                                            </>
-                                        )}
-                                    </ul>
-                                )}
-                            </div>
-
-                            <div className="dark-mode-toggle">
-                                <button className="btn btn-dark-mode" type="button" onClick={toggleDarkMode} aria-label="Alternar tema">
-                                    <i className={`fa ${temaEscuro ? 'fa-sun-o light-icon' : 'fa-moon-o dark-icon'}`} aria-hidden="true"></i>
-                                </button>
+                            <div className="d-flex align-items-center gap-2 w-100 mt-3 justify-content-center">
+                                <div className="dropdown perfil-geral w-100">
+                                    <button
+                                        className="btn btn-perfil dropdown-toggle w-100"
+                                        type="button"
+                                        aria-expanded={menuAberto}
+                                        onClick={() => setMenuAberto(!menuAberto)}
+                                    >
+                                        <i className="fa fa-user me-1" aria-hidden="true"></i>
+                                        {" "}{usuarioLogado && usuarioNome ? ` ${usuarioNome}` : ' Entrar'}
+                                    </button>
+                                    {menuAberto && (
+                                        <ul className="dropdown-menu menu-perfil w-100" style={{ position: 'static', right: 'auto', top: 'auto' }}>
+                                            {usuarioLogado ? (
+                                                <>
+                                                    <li><Link to="/perfil" className="dropdown-item perfil-item" onClick={() => setMenuAberto(false)}>Perfil</Link></li>
+                                                    <li><Link to="/posts/criar" className="dropdown-item perfil-item" onClick={() => setMenuAberto(false)}>Criar Postagem</Link></li>
+                                                    <li><Link to="/chat" className="dropdown-item perfil-item" onClick={() => setMenuAberto(false)}>Chat</Link></li>
+                                                    <li><Link to="/login" className="dropdown-item perfil-item" onClick={sairConta}>Sair da conta</Link></li>
+                                                </>
+                                            ) : (
+                                                <>
+                                                    <li><Link to="/login" className="dropdown-item perfil-item" onClick={() => setMenuAberto(false)}>Fazer Login</Link></li>
+                                                    <li><Link to="/cadastro" className="dropdown-item perfil-item" onClick={() => setMenuAberto(false)}>Cadastre-se</Link></li>
+                                                </>
+                                            )}
+                                        </ul>
+                                    )}
+                                </div>
+                                <div className="dark-mode-toggle ms-2">
+                                    <button className="btn btn-dark-mode" type="button" onClick={toggleDarkMode} aria-label="Alternar tema">
+                                        <i className={`fa ${temaEscuro ? 'fa-sun-o light-icon' : 'fa-moon-o dark-icon'}`} aria-hidden="true"></i>
+                                    </button>
+                                </div>
                             </div>
                         </div>
-
-                        {/* Mobile toggler */}
-                        <button
-                            className="navbar-toggler bg-color-menu-btn d-lg-none"
-                            type="button"
-                            aria-label="Toggle navigation"
-                            onClick={() => setMenuNavegacaoAberto(!menuNavegacaoAberto)}
-                        >
-                            <span className="navbar-toggler-icon"></span>
-                        </button>
-
-                    </div>
-
-                    {/* Mobile collapse */}
-                    <div className={`collapse navbar-collapse ${menuNavegacaoAberto ? 'show' : ''}`} id="navbarSupportedContent">
-                        <ul className="navbar-nav me-auto mb-2 mb-lg-0 w-100 align-items-center gap-2">
-                            <li className="nav-item">
-                                <NavLink
-                                    to="/"
-                                    end
-                                    className={({ isActive }) => `nav-link ${isActive ? 'active' : ''} text-color-navbar`}
-                                >
-                                    Home
-                                </NavLink>
-                            </li>
-                            <li className="nav-item">
-                                <NavLink
-                                    to="/aventureiros"
-                                    className={({ isActive }) => `nav-link ${isActive ? 'active' : ''} text-color-navbar position-relative`}
-                                >
-                                    Aventureiros
-                                </NavLink>
-                            </li>
-                            <li className="nav-item">
-                                <NavLink
-                                    to="/quem-somos"
-                                    className={({ isActive }) => `nav-link ${isActive ? 'active' : ''} text-color-navbar`}
-                                >
-                                    Sobre
-                                </NavLink>
-                            </li>
-                            <li className="nav-item">
-                                <NavLink
-                                    to="/contato"
-                                    className={({ isActive }) => `nav-link ${isActive ? 'active' : ''} text-color-navbar`}
-                                >
-                                    Contato
-                                </NavLink>
-                            </li>
-                        </ul>
-
-                        <form className="d-flex barra-pesquisa w-100 mt-3" onSubmit={handlePesquisa}>
-                            <input
-                                name="busca"
-                                className="form-control search-bar flex-grow-1"
-                                type="search"
-                                placeholder="Pesquisar"
-                                aria-label="Search"
-                                value={termoPesquisa}
-                                onChange={(e) => setTermoPesquisa(e.target.value)}
-                            />
-                            <button className="btn btn-outline-success" type="submit">
-                                <i className="fa fa-search" aria-hidden="true"></i>
-                            </button>
-                        </form>
-
-                        <div className="d-flex align-items-center gap-2 w-100 mt-3 justify-content-center">
-                            <div className="dropdown perfil-geral w-100">
-                                <button
-                                    className="btn btn-perfil dropdown-toggle w-100"
-                                    type="button"
-                                    aria-expanded={menuAberto}
-                                    onClick={() => setMenuAberto(!menuAberto)}
-                                >
-                                    <i className="fa fa-user me-1" aria-hidden="true"></i>
-                                    {" "}{usuarioLogado && usuarioNome ? ` ${usuarioNome}` : ' Entrar'}
-                                </button>
-                                {menuAberto && (
-                                    <ul className="dropdown-menu menu-perfil w-100" style={{ position: 'static', right: 'auto', top: 'auto' }}>
-                                        {usuarioLogado ? (
-                                            <>
-                                                <li><Link to="/perfil" className="dropdown-item perfil-item" onClick={() => setMenuAberto(false)}>Perfil</Link></li>
-                                                <li><Link to="/posts/criar" className="dropdown-item perfil-item" onClick={() => setMenuAberto(false)}>Criar Postagem</Link></li>
-                                                <li><Link to="/chat" className="dropdown-item perfil-item" onClick={() => setMenuAberto(false)}>Chat</Link></li>
-                                                <li><Link to="/login" className="dropdown-item perfil-item" onClick={sairConta}>Sair da conta</Link></li>
-                                            </>
-                                        ) : (
-                                            <>
-                                                <li><Link to="/login" className="dropdown-item perfil-item" onClick={() => setMenuAberto(false)}>Fazer Login</Link></li>
-                                                <li><Link to="/cadastro" className="dropdown-item perfil-item" onClick={() => setMenuAberto(false)}>Cadastre-se</Link></li>
-                                            </>
-                                        )}
-                                    </ul>
-                                )}
-                            </div>
-                            <div className="dark-mode-toggle ms-2">
-                                <button className="btn btn-dark-mode" type="button" onClick={toggleDarkMode} aria-label="Alternar tema">
-                                    <i className={`fa ${temaEscuro ? 'fa-sun-o light-icon' : 'fa-moon-o dark-icon'}`} aria-hidden="true"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </nav>
-            </header>
+                    </nav>
+                </header>
             )}
 
             <main role="main" className={isFeedPage ? 'feed-layout-main' : 'flex-grow-1'}>
@@ -293,33 +293,33 @@ export default function Layout() {
             </main>
 
             {!isFeedPage && (
-            <footer className="footer-index">
-                <div className="itens-footer-geral">
-                    <div className="item-footer item-footer-direitos">
-                        <h4 className="titulo-font">
-                            Route Books © Todos os direitos reservados
-                        </h4>
-                    </div>
+                <footer className="footer-index">
+                    <div className="itens-footer-geral">
+                        <div className="item-footer item-footer-direitos">
+                            <h4 className="titulo-font">
+                                Route Books © Todos os direitos reservados
+                            </h4>
+                        </div>
 
-                    <div className="item-footer">
-                        <h4 className="titulo-font">
-                            Desenvolvido por:
-                            <br />
-                            <a href="https://github.com/LucasEduardoPereiraCruz" target="_blank" rel="noreferrer">
-                                Lucas Cruz
-                            </a>
-                            <br />
-                            <a href="https://github.com/TiagoGrizzo" target="_blank" rel="noreferrer">
-                                Tiago Grizzo
-                            </a>
-                        </h4>
-                    </div>
+                        <div className="item-footer">
+                            <h4 className="titulo-font">
+                                Desenvolvido por:
+                                <br />
+                                <a href="https://github.com/LucasEduardoPereiraCruz" target="_blank" rel="noreferrer">
+                                    Lucas Cruz
+                                </a>
+                                <br />
+                                <a href="https://github.com/TiagoGrizzo" target="_blank" rel="noreferrer">
+                                    Tiago Grizzo
+                                </a>
+                            </h4>
+                        </div>
 
-                    <div className="logo-footer">
-                        <img src={logoNavbar} className="logo-footer" alt="Logo Route Books" />
+                        <div className="logo-footer">
+                            <img src={logoNavbar} className="logo-footer" alt="Logo Route Books" />
+                        </div>
                     </div>
-                </div>
-            </footer>
+                </footer>
             )}
         </>
     );

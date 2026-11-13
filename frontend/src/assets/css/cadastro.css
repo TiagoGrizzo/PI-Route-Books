@@ -1,13 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
 
-html, body {
+html,
+body {
     height: 100%;
     width: 100%;
     font-family: 'Nunito', Arial, Helvetica, sans-serif;
     margin: 0;
     padding: 0;
-    display: block; 
-    overflow-x: hidden; /* impede rolagem lateral */
+    display: block;
+    overflow-x: hidden;
+    /* impede rolagem lateral */
     background-image: url('../imgs/foto_cadastro.jpg');
     background-size: cover;
     background-position: center;
@@ -21,12 +23,13 @@ html, body {
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 1px 4px 0 rgba(0, 0, 0, .1);
+    box-shadow: 0 1px 4px 0 rgba(0, 0, 0, .1);
     width: 100%;
     padding: 100px 0;
 }
+
 /*ALTERAÇÕES NA DIV PRINCIPAL*/
-.form-cad{
+.form-cad {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -36,22 +39,25 @@ html, body {
     border-radius: 10px;
     padding: 12px 0px 20px 0px;
 }
+
 /*ALTERAÇÕES DO FORM*/
-.div-inputs{
+.div-inputs {
     display: flex;
     flex-direction: row;
     gap: 28px;
 }
+
 /*DIV GERAL DO INPUTS*/
-.dividir-inputs-1{
+.dividir-inputs-1 {
     display: flex;
     flex-direction: column;
 }
+
 /*DIV DOS 3 PRIMEIROS INPUTS (FEITO PARA FINS DE RESPONSIVIDADE)*/
-.dividir-inputs-2{
+.dividir-inputs-2 {
     display: flex;
     flex-direction: column;
-    
+
 }
 
 /*DIV DOS 3 ULTIMOS INPUT*/
@@ -61,6 +67,7 @@ html, body {
     margin-bottom: 40px;
     text-align: center;
 }
+
 /*TITULO DO CADASTRO*/
 .input-cadastro {
     min-width: 300px;
@@ -71,13 +78,15 @@ html, body {
     display: flex;
     align-items: center;
 }
+
 /*INPUTS DO CADASTRO*/
-.input-cadastro i{
+.input-cadastro i {
     font-size: 1.2em;
     padding: 5px;
 }
+
 /*ALTERANDO OS ICONES*/
-.input-cadastro input{
+.input-cadastro input {
     width: 90%;
     height: 2.2em;
     border: none;
@@ -85,17 +94,19 @@ html, body {
 }
 
 /*MUDANÇAS ESPECIFICAS NO INPUT*/
-.div-btn-cadastro{
+.div-btn-cadastro {
     display: flex;
     justify-content: center;
     width: 60%;
 }
+
 /*DIV DO BOTAO DE CADASTRO*/
-.div-btn-cadastro a{
+.div-btn-cadastro a {
     width: 90%;
     border-radius: 15px;
     margin-top: 10%;
 }
+
 /*ALTERANDO O LINK DO BOTAO*/
 .btn-cadastrar {
     width: 100%;
@@ -109,11 +120,13 @@ html, body {
     font-family: 'Nunito', Arial, Helvetica, sans-serif;
     outline: none;
 }
+
 /*ALTERANDO O BOTAO EM SI*/
-.btn-cadastrar:hover{
+.btn-cadastrar:hover {
     background-color: #00d974;
     cursor: pointer;
 }
+
 /*MODIFICANDO O HOVER(QUANDO O MOUSE PASSA POR CIMA DO ELEMENTO) DO BOTAO DE CADASTRAR*/
 
 
@@ -121,37 +134,45 @@ html, body {
 
 
 /*LINK PARA O LOGIN*/
-.link-login{
+.link-login {
     font-size: .9em;
 }
-.link-login a{
+
+.link-login a {
     color: #005940;
 }
-.link-login a:hover{
+
+.link-login a:hover {
     color: #00d974;
 }
+
 /*LINK PARA O LOGIN*/
-.logo-cadastro{
+.logo-cadastro {
     height: 50px;
 }
-.logo{
+
+.logo {
     display: flex;
     justify-content: center;
     margin-bottom: 15px;
     margin-top: 45px;
 }
+
 /*LOGO*/
 
 /*Celular*/
 @media (max-width: 767px) {
-    html, body {
+
+    html,
+    body {
         height: auto;
         display: block;
         background-color: #005940;
     }
 
     .form-cad {
-        min-width: unset; /* remove largura mínima */
+        min-width: unset;
+        /* remove largura mínima */
         width: 95%;
         max-width: 500px;
         padding: 20px 15px;
@@ -201,7 +222,9 @@ html, body {
 
 /*Tablet*/
 @media (min-width: 768px) and (max-width: 1024px) {
-    html, body {
+
+    html,
+    body {
         height: auto;
         width: 100%;
         margin: 0;
@@ -232,7 +255,8 @@ html, body {
 
     .div-inputs {
         display: flex;
-        flex-direction: row; /* divide em duas colunas */
+        flex-direction: row;
+        /* divide em duas colunas */
         justify-content: space-between;
         gap: 25px;
     }
@@ -275,28 +299,28 @@ html, body {
 
 
 .input-uf {
-  display: flex;
-  align-items: center;
-  border: 2px solid #005940;
-  border-radius: 22px;
-  padding: 5px 10px;
-  width: fit-content;
+    display: flex;
+    align-items: center;
+    border: 2px solid #005940;
+    border-radius: 22px;
+    padding: 5px 10px;
+    width: fit-content;
 }
 
 .input-uf i {
-  font-size: 1.2em;
-  padding-right: 5px;
-  color: #005940;
+    font-size: 1.2em;
+    padding-right: 5px;
+    color: #005940;
 }
 
 .select-uf {
-  border: none;
-  outline: none;
-  font-size: 1em;
-  padding: 5px;
-  border-radius: 22px;
-  background: transparent;
-  cursor: pointer;
+    border: none;
+    outline: none;
+    font-size: 1em;
+    padding: 5px;
+    border-radius: 22px;
+    background: transparent;
+    cursor: pointer;
 }
 
 
@@ -315,26 +339,26 @@ html, body {
     font-size: 13px;
 }
 
-    .regras-senha strong {
-        display: block;
-        margin-bottom: 5px;
-    }
+.regras-senha strong {
+    display: block;
+    margin-bottom: 5px;
+}
 
 .regra {
     margin: 3px 0;
     transition: 0.2s ease;
 }
 
-    /* Regra ainda não cumprida */
-    .regra.invalido {
-        color: #d9534f;
-    }
+/* Regra ainda não cumprida */
+.regra.invalido {
+    color: #d9534f;
+}
 
-    /* Regra cumprida */
-    .regra.valido {
-        color: #00a759;
-        font-weight: 600;
-    }
+/* Regra cumprida */
+.regra.valido {
+    color: #00a759;
+    font-weight: 600;
+}
 
 
 
@@ -371,10 +395,10 @@ html, body {
     position: relative;
 }
 
-    /* Deixa espaço para o olho dentro do input */
-    .senha-container .input-senha {
-        padding-right: 45px !important;
-    }
+/* Deixa espaço para o olho dentro do input */
+.senha-container .input-senha {
+    padding-right: 45px !important;
+}
 
 /* Botão do olho */
 .btn-olho {
@@ -395,15 +419,15 @@ html, body {
     z-index: 10;
 }
 
-    /* Quando passa o mouse */
-    .btn-olho:hover {
-        color: #00a759;
-    }
+/* Quando passa o mouse */
+.btn-olho:hover {
+    color: #00a759;
+}
 
-    /* Remove efeitos padrão do botão */
-    .btn-olho:focus {
-        outline: none;
-    }
+/* Remove efeitos padrão do botão */
+.btn-olho:focus {
+    outline: none;
+}
 
 /* Olho no dark mode, caso você use depois */
 body.dark-mode .btn-olho {

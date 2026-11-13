@@ -24,17 +24,20 @@ namespace Route_Books_api.Data
         public DbSet<Comunidade> comunidades { get; set; }
         public DbSet<ComunidadeMembro> comunidadeMembros { get; set; }
         public DbSet<TemporadaDestino> temporadasDestinos { get; set; }
-        
 
-        private void PreencherNovosAvatares() {
-            foreach(var entrada in ChangeTracker.Entries<Usuario>().Where(e=>e.State==EntityState.Added && string.IsNullOrWhiteSpace(e.Entity.FotoPerfil)))
-                entrada.Entity.FotoPerfil=Route_Books_api.Services.AvataresPadrao.Sortear();
+
+        private void PreencherNovosAvatares()
+        {
+            foreach (var entrada in ChangeTracker.Entries<Usuario>().Where(e => e.State == EntityState.Added && string.IsNullOrWhiteSpace(e.Entity.FotoPerfil)))
+                entrada.Entity.FotoPerfil = Route_Books_api.Services.AvataresPadrao.Sortear();
         }
-        public override int SaveChanges(bool acceptAllChangesOnSuccess) {
-            PreencherNovosAvatares();return base.SaveChanges(acceptAllChangesOnSuccess);
+        public override int SaveChanges(bool acceptAllChangesOnSuccess)
+        {
+            PreencherNovosAvatares(); return base.SaveChanges(acceptAllChangesOnSuccess);
         }
-        public override Task<int> SaveChangesAsync(bool acceptAllChangesOnSuccess, CancellationToken cancellationToken=default) {
-            PreencherNovosAvatares();return base.SaveChangesAsync(acceptAllChangesOnSuccess,cancellationToken);
+        public override Task<int> SaveChangesAsync(bool acceptAllChangesOnSuccess, CancellationToken cancellationToken = default)
+        {
+            PreencherNovosAvatares(); return base.SaveChangesAsync(acceptAllChangesOnSuccess, cancellationToken);
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -61,7 +64,7 @@ namespace Route_Books_api.Data
             modelBuilder.Entity<Curtida>().ToTable("curtidas");
             modelBuilder.Entity<Tag>().ToTable("tags");
             modelBuilder.Entity<PostTag>().ToTable("poststags");
-            
+
 
             // Configuração da relação de Seguidores para evitar erro de Ciclo/Cascata no SQL Server
             // Usando os nomes exatos da sua classe: UsuarioSeguidor e UsuarioSeguido

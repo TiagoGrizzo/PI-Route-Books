@@ -12,7 +12,7 @@ const api = axios.create({
 });
 
 api.interceptors.response.use(response => response, error => {
-    if (error.response?.status === 401 && !['/Usuarios/login','/Usuarios/sessao'].includes(error.config?.url)) {
+    if (error.response?.status === 401 && !['/Usuarios/login', '/Usuarios/sessao'].includes(error.config?.url)) {
         localStorage.removeItem('UsuarioId');
         localStorage.removeItem('NomeUsuario');
         error.response.data = { mensagem: 'Sua sessão expirou. Entre novamente para continuar.' };
@@ -95,10 +95,10 @@ export const enviarContato = (dados) => api.post("/Home/enviar-contato", dados);
 
 export default api;
 
-export const votarPost = (id, valor) => api.put('/Posts/'+id+'/voto', { valor });
-export const getComentarios = id => api.get('/Posts/'+id+'/comentarios');
-export const comentarPost = (id, payload) => api.post('/Posts/'+id+'/comentarios', payload);
+export const votarPost = (id, valor) => api.put('/Posts/' + id + '/voto', { valor });
+export const getComentarios = id => api.get('/Posts/' + id + '/comentarios');
+export const comentarPost = (id, payload) => api.post('/Posts/' + id + '/comentarios', payload);
 export const getTemporadas = () => api.get('/temporadas');
-export const getPerfilPublico = id => api.get('/perfis/'+id);
-export const getPostsPerfil = (id, aba) => api.get('/perfis/'+id+'/posts', { params: { aba } });
-export const editarPerfil = dados => api.patch('/perfis/me', dados, {headers:{'Content-Type':undefined}});
+export const getPerfilPublico = id => api.get('/perfis/' + id);
+export const getPostsPerfil = (id, aba) => api.get('/perfis/' + id + '/posts', { params: { aba } });
+export const editarPerfil = dados => api.patch('/perfis/me', dados, { headers: { 'Content-Type': undefined } });
