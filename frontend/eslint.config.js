@@ -25,12 +25,10 @@ export default defineConfig([
   {
     files: ['**/*.{js,jsx}'],
     rules: {
-      'react-hooks/set-state-in-effect': 'warn',
-      'react-hooks/refs': 'warn',
-      'react-refresh/only-export-components': 'off',
-      'no-unused-vars': ['error', { varsIgnorePattern: '^React$|^_' }],
       'react-hooks/set-state-in-effect': 'off',
-      'react-hooks/refs': 'off'
+      'react-hooks/refs': 'off',
+      'react-refresh/only-export-components': 'off',
+      'no-unused-vars': ['error', { varsIgnorePattern: '^React$|^_' }]
     },
   },
 ])
