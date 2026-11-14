@@ -39,8 +39,6 @@ export default function Cadastro() {
     });
   };
 
-
-
   const senhaValida =
     regras.tamanho &&
     regras.maiuscula &&
@@ -71,15 +69,11 @@ export default function Cadastro() {
 
     try {
       await createUser(payload);
-
-      // Salva a mensagem no localStorage para aparecer com o toast na tela de login
       localStorage.setItem('toastMessage', 'Usuário cadastrado com sucesso!');
       localStorage.setItem('toastType', 'success');
-
       navigate('/login');
     } catch (err) {
       console.error('Erro ao cadastrar usuário:', err);
-      // Padrão UX para falhas de rede ou erro do servidor
       const mensagemErro = err.response?.data?.mensagem || 'Não foi possível cadastrar o usuário. Verifique sua conexão ou tente novamente.';
       setErro(mensagemErro);
     }
@@ -89,7 +83,6 @@ export default function Cadastro() {
     const atendida = regras[chave];
     return (
       <div key={chave} className={`regra ${atendida ? 'valido' : 'invalido'}`}>
-        {/* Alterna o ícone dinamicamente: check verde se válido, xis vermelho se inválido */}
         <i className={`fa ${atendida ? 'fa-check' : 'fa-times'}`} style={{ color: atendida ? '#27AE60' : '#EC4772', marginRight: '6px' }}></i>
         {texto}
       </div>
@@ -184,7 +177,6 @@ export default function Cadastro() {
               </button>
             </div>
 
-            {/* Mensagem dinâmica de validação das senhas com ícone de check ou xis */}
             {confirmarSenha && (
               <div className={confirmarSenha === senha ? 'mensagem-confirmacao senha-correta' : 'mensagem-confirmacao senha-incorreta'} style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
                 <i className={`fa ${confirmarSenha === senha ? 'fa-check' : 'fa-times'}`}></i>

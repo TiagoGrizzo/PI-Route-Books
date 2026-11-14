@@ -68,10 +68,17 @@ export default function FeedLayout({ children, aba = '', onSelect, onCreate, sho
       getNaoLidas(usuarioId)
         .then(r => {
           if (!ativo) return;
-          const total = typeof r.data === 'number' ? r.data : (r.data?.total || r.data?.quantidade || 0);
-          setMensagensNaoLidas(total);
+          // Trata qualquer formato que o C# possa retornar (número, total, quantidade ou naoLidas)
+          const dados = r.data;
+          const total = typeof dados === 'number'
+            ? dados
+            : (dados?.total ?? dados?.quantidade ?? dados?.naoLidas ?? dados?.count ?? 0);
+
+          setMensagensNaoLidas(Number(total) || 0);
         })
-        .catch(() => {});
+        .catch(err => {
+          console.error("Erro ao buscar mensagens não lidas:", err);
+        });
 
       // 2. Verifica se ganhou novos seguidores comparando com o último valor visto
       getPerfilPublico(usuarioId)
@@ -89,11 +96,11 @@ export default function FeedLayout({ children, aba = '', onSelect, onCreate, sho
             if (diferenca > 0) setNovosSeguidores(diferenca);
           }
         })
-        .catch(() => {});
+        .catch(() => { });
     };
 
     checarNotificacoes();
-    getUsuariosSeguidos().then(r => { if (ativo) setIdsSeguidos(new Set(r.data.map(Number))); }).catch(() => {});
+    getUsuariosSeguidos().then(r => { if (ativo) setIdsSeguidos(new Set(r.data.map(Number))); }).catch(() => { });
 
     const intervalo = setInterval(checarNotificacoes, 15000); // Atualiza a cada 15s
     return () => {
