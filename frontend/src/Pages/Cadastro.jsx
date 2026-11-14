@@ -35,7 +35,7 @@ export default function Cadastro() {
       maiuscula: /[A-Z]/.test(valor),
       minuscula: /[a-z]/.test(valor),
       numero: /[0-9]/.test(valor),
-      especial: /[@!#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/.test(valor)
+      especial: /[@!#$%^&*()_+\-=[\]{};':"\\|,.<>?]/.test(valor)
     });
   };
 
