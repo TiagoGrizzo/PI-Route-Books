@@ -29,38 +29,45 @@ a {
 }
 
 /* ==========================================
-   TOAST ROUTE BOOKS (padrão global)
+   TOAST ROUTE BOOKS (Padrão Global Unificado)
    ========================================== */
 
 .toast-routebooks {
   position: fixed !important;
-  top: 30px !important;
+  top: 90px !important; /* Joga um pouco mais para baixo para alinhar perfeitamente abaixo da navbar superior */
   right: -420px;
   width: 360px;
-  background: #fff;
-  border-radius: 18px;
+  background: #042317 !important;
+  border: 1px solid #00FA85 !important;
+  border-radius: 14px;
   display: flex;
   align-items: center;
   overflow: hidden;
-  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8) !important;
   transition: right 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-  z-index: 999999 !important;
+  z-index: 2147483647 !important; /* Garante prioridade máxima na tela */
 }
 
 .toast-routebooks.show {
-  right: 25px !important;
+  right: 25px !important; /* Distância exata da bordinha direita da tela */
 }
 
 .toast-icon {
-  width: 60px;
+  width: 50px;
   align-self: stretch;
-  background: #2ecc71;
+  background: #00FA85; /* Verde vibrante de ações do Route Books */
   display: flex;
   justify-content: center;
   align-items: center;
-  color: white;
-  font-size: 26px;
+  color: #042317; /* Ícone escuro para contraste perfeito */
+  font-size: 22px;
   flex-shrink: 0;
+}
+
+/* Se for um toast de erro, mudamos a cor lateral/ícone */
+.toast-routebooks.toast-erro .toast-icon {
+  background: #EC4772 !important; /* Tom de destaque de erro do projeto */
+  color: #fff !important;
 }
 
 .toast-content {
@@ -70,17 +77,19 @@ a {
 
 .toast-content h5 {
   margin: 0;
-  color: #1d3557;
+  color: #00FA85 !important; /* Título em verde neon super legível */
   font-weight: bold;
-  font-size: 16px;
+  font-size: 15px;
+  font-family: 'Rubik', sans-serif;
 }
 
 .toast-content p {
   margin-top: 4px;
   margin-bottom: 0;
-  color: #555;
+  color: #E1E8DD !important; /* Texto claro padrão do site */
   font-size: 13px;
   line-height: 1.4;
+  font-family: 'Roboto', sans-serif;
 }
 
 .toast-close {
@@ -88,14 +97,14 @@ a {
   border: none;
   cursor: pointer;
   padding: 12px 15px;
-  color: #777;
-  font-size: 18px;
+  color: #B1C6BD; /* Cinza esverdeado muted */
+  font-size: 16px;
   transition: 0.3s;
   align-self: flex-start;
 }
 
 .toast-close:hover {
-  color: #000;
+  color: #FFFFFF;
 }
 
 .toast-progress {
@@ -103,8 +112,13 @@ a {
   bottom: 0;
   left: 0;
   width: 100%;
+  history: 4px;
   height: 4px;
-  background: #2ecc71;
+  background: #00FA85;
+}
+
+.toast-routebooks.toast-erro .toast-progress {
+  background: #EC4772 !important;
 }
 
 .toast-routebooks.show .toast-progress {
@@ -115,7 +129,6 @@ a {
   from {
     width: 100%;
   }
-
   to {
     width: 0%;
   }
@@ -129,9 +142,42 @@ a {
   .toast-routebooks {
     width: calc(100% - 30px);
     right: calc(-100% - 30px);
+    top: 70px !important;
   }
 
   .toast-routebooks.show {
     right: 15px !important;
   }
 }
+
+
+/* ==========================================
+   TOAST LIGHT (Para telas de Login e Cadastro)
+   ========================================== */
+.toast-routebooks.toast-light {
+  background: #FFFFFF !important;
+  border: 1px solid #005940 !important;
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.15) !important;
+}
+
+.toast-routebooks.toast-light .toast-icon {
+  background: #005940 !important;
+  color: #FFFFFF !important;
+}
+
+.toast-routebooks.toast-light .toast-content h5 {
+  color: #005940 !important;
+}
+
+.toast-routebooks.toast-light .toast-content p {
+  color: #333333 !important;
+}
+
+.toast-routebooks.toast-light .toast-close {
+  color: #666 !important;
+}
+
+.toast-routebooks.toast-light .toast-progress {
+  background: #005940 !important;
+}
+

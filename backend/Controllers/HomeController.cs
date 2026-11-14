@@ -21,7 +21,7 @@ namespace Route_Books_api.Controllers
 
         // POST: api/Home/enviar-contato
         [HttpPost("enviar-contato")]
-        [SwaggerOperation(Summary = "Enviar mensagem de contato", Description = "Envia um e-mail através do serviço configurado recebendo um dicionário de dados.")]
+        [SwaggerOperation(Summary = "Enviar mensagem de contato", Description = "Envia um e-mail atravï¿½s do serviï¿½o configurado recebendo um dicionï¿½rio de dados.")]
         public async Task<IActionResult> EnviarContato([FromBody] Dictionary<string, string> dados)
         {
             if (dados == null ||
@@ -41,7 +41,7 @@ namespace Route_Books_api.Controllers
             catch (Exception ex)
             {
                 _logger.LogError(ex, "Erro ao enviar e-mail de contato.");
-                return StatusCode(500, new { mensagem = "Não foi possível enviar sua mensagem. Tente novamente." });
+                return StatusCode(500, new { mensagem = "Nï¿½o foi possï¿½vel enviar sua mensagem. Tente novamente." });
             }
         }
 
@@ -51,7 +51,7 @@ namespace Route_Books_api.Controllers
         public IActionResult Error()
         {
             var requestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier;
-            return Ok(new { requestId, mensagem = "Ocorreu um erro interno na aplicação." });
+            return Ok(new { requestId, mensagem = "Ocorreu um erro interno na aplicaï¿½ï¿½o." });
         }
     }
 }

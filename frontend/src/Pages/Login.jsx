@@ -1,13 +1,10 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { login, getSessao } from '../api/Route-book.jsx'; // Ajuste o caminho do seu arquivo de serviços do Axios
+import { login, getSessao } from '../api/Route-book.jsx';
 
-// Importação dos estilos originais
 import '../assets/css/reset.css';
 import '../assets/css/style.css';
 import '../assets/css/login.css';
-
-// Importação da logo (ajuste o caminho se necessário)
 import logoImg from '../assets/imgs/rb-logo1.png';
 
 export default function Login() {
@@ -17,7 +14,32 @@ export default function Login() {
   const [erro, setErro] = useState(new URLSearchParams(window.location.search).has('sessao') ? 'Sua sessão terminou. Entre novamente para curtir e publicar.' : '');
   const [loading, setLoading] = useState(false);
 
+  // Estados para o Toast personalizado
+  const [toast, setToast] = useState({ show: false, message: '', type: 'success' });
+
   const navigate = useNavigate();
+
+  // Captura mensagem vinda do cadastro (ou outras telas) via localStorage
+  useEffect(() => {
+    const mensagemSalva = localStorage.getItem('toastMessage');
+    const tipoSalvo = localStorage.getItem('toastType');
+
+    if (mensagemSalva) {
+      setToast({
+        show: true,
+        message: mensagemSalva,
+        type: tipoSalvo || 'success'
+      });
+
+      localStorage.removeItem('toastMessage');
+      localStorage.removeItem('toastType');
+
+      // Some com o toast automaticamente após 4 segundos
+      setTimeout(() => {
+        setToast(prev => ({ ...prev, show: false }));
+      }, 4000);
+    }
+  }, []);
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -25,27 +47,23 @@ export default function Login() {
     setLoading(true);
 
     try {
-      // O backend espera um Dictionary<string, string> com "email" e "senhaHash"
       await login({
         email: email,
         senhaHash: senha
       });
 
-      // Sucesso no login (armazena dados básicos se necessário)
-      // Confirmando o cookie antes de exibir a pessoa como conectada.
       const sessao = await getSessao();
       const { usuarioId, nome } = sessao.data;
       localStorage.setItem('UsuarioId', usuarioId);
       localStorage.setItem('NomeUsuario', nome);
 
-      // Redireciona para a home ou dashboard
       const destino = new URLSearchParams(window.location.search).get('voltar');
       navigate(destino?.startsWith('/') && !destino.startsWith('//') ? destino : '/posts');
     } catch (err) {
       if (err.response && err.response.data && err.response.data.mensagem) {
         setErro(err.response.data.mensagem);
       } else {
-        setErro('Erro ao realizar login. Tente novamente.');
+        setErro('Ops! Verifique sua conexão ou tente novamente mais tarde.');
       }
     } finally {
       setLoading(false);
@@ -54,18 +72,34 @@ export default function Login() {
 
   return (
     <div className="auth-page auth-login">
+      {/* Elemento Visual do Toast Padrão Route Books */}
+      <div className={`toast-routebooks toast-light ${toast.show ? 'show' : ''} ${toast.type === 'error' ? 'toast-erro' : ''}`}>
+        <div className="toast-icon">
+          <i className={`fa ${toast.type === 'error' ? 'fa-exclamation' : 'fa-check'}`}></i>
+        </div>
+        <div className="toast-content">
+          <h5>{toast.type === 'error' ? 'Atenção' : 'Sucesso!'}</h5>
+          <p>{toast.message}</p>
+        </div>
+        <button className="toast-close" onClick={() => setToast({ ...toast, show: false })}>
+          <i className="fa fa-times"></i>
+        </button>
+        <div className="toast-progress"></div>
+      </div>
+
       <section className="form-login-geral container-xxl">
         <form onSubmit={handleLogin} className="form-log">
 
           {erro && (
             <div style={{
-              backgroundColor: '#e74c3c',
+              backgroundColor: '#042317',
+              borderLeft: '5px solid #EC4772',
               color: 'white',
-              padding: '10px',
-              borderRadius: '5px',
-              textAlign: 'center',
+              padding: '12px 16px',
+              borderRadius: '8px',
+              textAlign: 'left',
               marginBottom: '15px',
-              fontFamily: 'sans-serif',
+              fontFamily: 'Roboto, sans-serif',
               fontSize: '14px'
             }}>
               {erro}

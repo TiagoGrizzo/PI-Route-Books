@@ -140,7 +140,25 @@ export default function PostComposer({ usuarioId, nomeUsuario, fotoUsuario, aber
             {mostrarAvaliacao && <div className="feed-composer-rating" role="group" aria-label="Avaliação do lugar"><span>Avalie o lugar:</span>{[1, 2, 3, 4, 5].map((nota) => <button key={nota} type="button" className={nota <= avaliacao ? 'selected' : ''} aria-pressed={nota === avaliacao} onClick={() => setAvaliacao(nota)} aria-label={nota + (nota === 1 ? ' estrela' : ' estrelas')}><i className="fa fa-star" aria-hidden="true"></i></button>)}<button className="feed-composer-clear-rating" type="button" onClick={() => { setAvaliacao(0); setMostrarAvaliacao(false); }}>Limpar</button></div>}
             {acoes}
             {erro && <p className="feed-composer-message error" role="alert">{erro}{erro.includes('sessão expirou') && <> <Link to="/login">Entrar</Link></>}</p>}
-            <div className="feed-composer-submit"><span>Até 10 fotos de 5 MB cada ou um vídeo de até 20 MB.</span><button className="feed-create-link" type="submit" disabled={publicando || carregandoOpcoes || !categorias.length || !tipos.length}>{publicando ? 'Publicando...' : 'Publicar relato'}</button></div>
+            
+            {/* Aparece SOMENTE quando o formulário está aberto */}
+            <div className="feed-composer-submit" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '10px' }}>
+              <span>Até 10 fotos de 5 MB cada ou um vídeo de até 20 MB.</span>
+              <div style={{ display: 'flex', gap: '10px', alignItems: 'center' }}>
+                <button
+                  type="button"
+                  className="feed-create-link"
+                  onClick={() => onAbertoChange(false)}
+                  disabled={publicando}
+                  style={{ backgroundColor: '#EC4772', borderColor: '#EC4772', color: '#ffffff' }}
+                >
+                  Cancelar
+                </button>
+                <button className="feed-create-link" type="submit" disabled={publicando || carregandoOpcoes || !categorias.length || !tipos.length}>
+                  {publicando ? 'Publicando...' : 'Publicar relato'}
+                </button>
+              </div>
+            </div>
           </fieldset>
         </form>
       ) : (

@@ -1,7 +1,7 @@
 import VerifiedBadge from './VerifiedBadge.jsx';
 import { useEffect, useState } from 'react';
 import { Link, NavLink, useNavigate, useSearchParams } from 'react-router-dom';
-import { logout, getComunidades, getPerfilPublico, getAventureiros, getUsuariosSeguidos, seguirUsuario, deixarDeSeguirUsuario } from '../api/Route-book.jsx';
+import { logout, getComunidades, getPerfilPublico, getAventureiros, getUsuariosSeguidos, seguirUsuario, deixarDeSeguirUsuario, getNaoLidas } from '../api/Route-book.jsx';
 import { iniciais, urlDaApi } from './postUtils.js';
 import SeasonalDestinations from './SeasonalDestinations.jsx';
 import CommunityImage from './CommunityImage.jsx';
@@ -26,6 +26,11 @@ export default function FeedLayout({ children, aba = '', onSelect, onCreate, sho
   const [comunidades, setComunidades] = useState([]);
   const [erroComunidades, setErroComunidades] = useState(false);
   const [saindo, setSaindo] = useState(false);
+
+  // Estados das notificações (Sino e Balão de Mensagens)
+  const [mensagensNaoLidas, setMensagensNaoLidas] = useState(0);
+  const [novosSeguidores, setNovosSeguidores] = useState(0);
+
   const sair = async () => {
     if (saindo) return; setSaindo(true);
     try { await logout(); localStorage.removeItem('UsuarioId'); localStorage.removeItem('NomeUsuario'); navigate('/login'); }
@@ -52,14 +57,59 @@ export default function FeedLayout({ children, aba = '', onSelect, onCreate, sho
     document.body.classList.add('route-feed-active');
     return () => document.body.classList.remove('route-feed-active');
   }, []);
+
+  // Carrega perfil, seguidores e checa notificações periodicamente
   useEffect(() => {
     let ativo = true;
-    if (usuarioId) {
-      getPerfilPublico(usuarioId).then(r => { if (ativo) setPerfilUsuario(r.data); }).catch(() => { });
-      getUsuariosSeguidos().then(r => { if (ativo) setIdsSeguidos(new Set(r.data.map(Number))); }).catch(() => { });
-    }
-    return () => { ativo = false; };
+    if (!usuarioId) return;
+
+    const checarNotificacoes = () => {
+      // 1. Verifica mensagens não lidas no Chat
+      getNaoLidas(usuarioId)
+        .then(r => {
+          if (!ativo) return;
+          const total = typeof r.data === 'number' ? r.data : (r.data?.total || r.data?.quantidade || 0);
+          setMensagensNaoLidas(total);
+        })
+        .catch(() => {});
+
+      // 2. Verifica se ganhou novos seguidores comparando com o último valor visto
+      getPerfilPublico(usuarioId)
+        .then(r => {
+          if (!ativo) return;
+          setPerfilUsuario(r.data);
+          const atual = r.data?.seguidoresCount ?? 0;
+          const chaveStorage = `rb_seguidores_vistos_${usuarioId}`;
+          const vistoSalvo = localStorage.getItem(chaveStorage);
+
+          if (vistoSalvo === null) {
+            localStorage.setItem(chaveStorage, String(atual));
+          } else {
+            const diferenca = atual - Number(vistoSalvo);
+            if (diferenca > 0) setNovosSeguidores(diferenca);
+          }
+        })
+        .catch(() => {});
+    };
+
+    checarNotificacoes();
+    getUsuariosSeguidos().then(r => { if (ativo) setIdsSeguidos(new Set(r.data.map(Number))); }).catch(() => {});
+
+    const intervalo = setInterval(checarNotificacoes, 15000); // Atualiza a cada 15s
+    return () => {
+      ativo = false;
+      clearInterval(intervalo);
+    };
   }, [usuarioId]);
+
+  // Limpa a notificação do sino ao clicar nele
+  const limparNotificacaoSeguidores = () => {
+    if (usuarioId && perfilUsuario?.seguidoresCount != null) {
+      localStorage.setItem(`rb_seguidores_vistos_${usuarioId}`, String(perfilUsuario.seguidoresCount));
+    }
+    setNovosSeguidores(0);
+  };
+
   useEffect(() => {
     if (!showRight) return;
     let ativo = true;
@@ -91,8 +141,18 @@ export default function FeedLayout({ children, aba = '', onSelect, onCreate, sho
       </form>
 
       <div className="feed-top-actions">
-        <Link to="/aventureiros" className="feed-icon-link" aria-label="Aventureiros"><i className="fa fa-bell-o" aria-hidden="true"></i></Link>
-        <Link to="/chat" className="feed-icon-link" aria-label="Conversas"><i className="fa fa-commenting-o" aria-hidden="true"></i></Link>
+        {/* Ícone do Sino com notificação de novos seguidores */}
+        <Link to="/aventureiros" onClick={limparNotificacaoSeguidores} className="feed-icon-link" aria-label="Aventureiros">
+          <i className="fa fa-bell-o" aria-hidden="true"></i>
+          {novosSeguidores > 0 && <span className="feed-notif-badge">{novosSeguidores > 9 ? '9+' : novosSeguidores}</span>}
+        </Link>
+
+        {/* Ícone do Balão com notificação de mensagens não lidas */}
+        <Link to="/chat" onClick={() => setMensagensNaoLidas(0)} className="feed-icon-link" aria-label="Conversas">
+          <i className="fa fa-commenting-o" aria-hidden="true"></i>
+          {mensagensNaoLidas > 0 && <span className="feed-notif-badge">{mensagensNaoLidas > 9 ? '9+' : mensagensNaoLidas}</span>}
+        </Link>
+
         <button type="button" onClick={abrirPublicacao} className="feed-create-link">Registrar Viagem <span aria-hidden="true">🗺️</span></button>
         <Link to={usuarioId ? '/perfil' : '/login'} className="feed-account">
           <span className="feed-account-avatar">{avatarUsuario}{usuarioId && <span className="feed-online-dot" role="img" aria-label="Conectado" />}</span>
@@ -144,6 +204,7 @@ export default function FeedLayout({ children, aba = '', onSelect, onCreate, sho
         </section>
 
         <p className="feed-footer-links"><Link to="/quem-somos">Sobre</Link><Link to="/contato">Contato</Link><span>Route Books © {new Date().getFullYear()}</span></p>
-      </aside>}      </div>
+      </aside>}
+    </div>
   </div>;
 }

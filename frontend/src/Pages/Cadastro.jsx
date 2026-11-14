@@ -35,9 +35,11 @@ export default function Cadastro() {
       maiuscula: /[A-Z]/.test(valor),
       minuscula: /[a-z]/.test(valor),
       numero: /[0-9]/.test(valor),
-      especial: /[^A-Za-z0-9]/.test(valor)
+      especial: /[@!#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/.test(valor)
     });
   };
+
+
 
   const senhaValida =
     regras.tamanho &&
@@ -68,22 +70,31 @@ export default function Cadastro() {
     };
 
     try {
-      const res = await createUser(payload);
-      alert(res.data?.mensagem || 'Usuário cadastrado com sucesso!');
+      await createUser(payload);
+
+      // Salva a mensagem no localStorage para aparecer com o toast na tela de login
+      localStorage.setItem('toastMessage', 'Usuário cadastrado com sucesso!');
+      localStorage.setItem('toastType', 'success');
 
       navigate('/login');
     } catch (err) {
       console.error('Erro ao cadastrar usuário:', err);
-      setErro(err.response?.data?.mensagem || 'Não foi possível cadastrar o usuário. Tente novamente.');
+      // Padrão UX para falhas de rede ou erro do servidor
+      const mensagemErro = err.response?.data?.mensagem || 'Não foi possível cadastrar o usuário. Verifique sua conexão ou tente novamente.';
+      setErro(mensagemErro);
     }
   };
 
-  const renderizarRegra = (chave, texto) => (
-    <div key={chave} className={`regra ${regras[chave] ? 'valido' : 'invalido'}`}>
-      <i className="fa fa-times"></i>
-      {texto}
-    </div>
-  );
+  const renderizarRegra = (chave, texto) => {
+    const atendida = regras[chave];
+    return (
+      <div key={chave} className={`regra ${atendida ? 'valido' : 'invalido'}`}>
+        {/* Alterna o ícone dinamicamente: check verde se válido, xis vermelho se inválido */}
+        <i className={`fa ${atendida ? 'fa-check' : 'fa-times'}`} style={{ color: atendida ? '#27AE60' : '#EC4772', marginRight: '6px' }}></i>
+        {texto}
+      </div>
+    );
+  };
 
   return (
     <section className="form-cadastro-geral auth-page auth-cadastro">
@@ -173,7 +184,13 @@ export default function Cadastro() {
               </button>
             </div>
 
-            <div id="mensagemConfirmacao" className="mensagem-confirmacao"></div>
+            {/* Mensagem dinâmica de validação das senhas com ícone de check ou xis */}
+            {confirmarSenha && (
+              <div className={confirmarSenha === senha ? 'mensagem-confirmacao senha-correta' : 'mensagem-confirmacao senha-incorreta'} style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+                <i className={`fa ${confirmarSenha === senha ? 'fa-check' : 'fa-times'}`}></i>
+                <span>{confirmarSenha === senha ? 'As senhas coincidem' : 'As senhas não coincidem'}</span>
+              </div>
+            )}
           </div>
         </div>
 
