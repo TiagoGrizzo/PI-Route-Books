@@ -96,7 +96,7 @@ Abaixo, na Figura 1, apresentamos a estrutura de execução dos containers em am
 
 </div>
 <div align="center">
-    <img src="./backend/wwwroot/imgs/fotos-doc/docker-kubernetes.png" alt="Docker e Kubernetes" width="550">
+    <img src="./backend/wwwroot/imgs/fotos-doc/docker-kubernetes.jpeg" alt="Docker e Kubernetes" width="550">
 </div>
 
 [Voltar para o início](#inicio)
@@ -639,8 +639,9 @@ HOME TOUR. Disponível em: [https://hometour.com.br/](https://hometour.com.br/)
 **Tela de Login**
 ![Tela de Login](https://github.com/user-attachments/assets/f7c015f6-e128-46cd-8e25-f30b53d50adf)
 
-## 🚀 Como Usar
-  
+
+# 🚀 Como Usar
+  ## Inicialização simples
 1. Abra seu o Prompt de comando ou o Windows PowerShell.
 
 2. Em um dos programas citados acima, use o comando 'cd ..' até ir para a pasta 'C:', normalmente o comando 'cd ..' precisará ser usado 2 vezes.
@@ -649,6 +650,137 @@ HOME TOUR. Disponível em: [https://hometour.com.br/](https://hometour.com.br/)
 
 4. Depois de usar o comando citado no passo de cima, entra na pasta do projeto, use o comando 'cd PI-Route-Books'.
 
-5. Agora você deve abrir dois cmds, um na pasta "backend" e rodar dotnet restore e depois dotnet run, e um na pasta "frontend" onde você deve rodar npm run dev, assim trazendo a URL. Ou tem a opção de rodar com o comando kubectl port-forward -n routebooks svc/frontend 5173:80 na pasta RAIZ DO PROJETO e depois abrir a URL. Lembrando de ter as ferramentas necessárias para o processo! 
+5. Agora você deve abrir dois cmds, um na pasta "backend" e rodar dotnet restore e depois dotnet run, e um na pasta "frontend" onde você deve rodar npm run dev, assim trazendo a URL. Lembrando de ter as ferramentas necessárias para o processo! 
  
 6. Pronto! Agora você pode conferir nosso projeto.
+
+
+# 🐳 Como Rodar com Docker e Kubernetes
+  ## Infraestrutura e Containerização
+
+
+### Primeira vez rodando o projeto
+
+
+
+1. **Verifique o Docker e o Kubernetes:** Certifique-se de que o **Docker Desktop** esteja aberto e com o status do **Kubernetes** ativo (ícone verde). Confirme pelo terminal rodando:
+
+   ```bash
+
+   kubectl get nodes
+
+   ```
+
+   > O retorno deve mostrar `docker-desktop` (ou `desktop-control-plane`) com o status **`Ready`**.
+
+
+
+2. **Verifique as imagens Docker:** Confira se as imagens da aplicação já foram criadas na sua máquina:
+
+   * **No WSL / Linux:**
+
+     ```bash
+
+     docker images | grep routebooks
+
+     ```
+
+   * **No PowerShell:**
+
+     ```bash
+
+     docker images | Select-String routebooks
+
+     ```
+
+   > Precisam existir as imagens **`routebooks-api:dev`** e **`routebooks-web:dev`**. Caso alguma esteja faltando, gere-as a partir da pasta raiz do projeto:
+
+   ```bash
+
+   docker build -t routebooks-api:dev ./backend
+
+   docker build -t routebooks-web:dev ./frontend
+
+   ```
+
+
+
+3. **Crie os recursos no Kubernetes:** Aplique os manifestos da pasta `k8s/` (os arquivos `00-`, `10-`, `20-`, `30-` serão executados na ordem correta automaticamente):
+
+   ```bash
+
+   kubectl apply -f k8s/
+
+   ```
+
+
+
+4. **Aguarde os Pods subirem:** Acompanhe o status de inicialização dos containers:
+
+   * Para acompanhar em tempo real (`watch`):
+
+     ```bash
+
+     kubectl get pods -n routebooks -w
+
+     ```
+
+   * Para consultar apenas uma vez:
+
+     ```bash
+
+     kubectl get pods -n routebooks
+
+     ```
+
+   > **Como saber se deu certo:** Os **4 pods** devem estar com `READY = 1/1` e `STATUS = Running`. *(Obs.: É normal o pod do backend passar pelo status `Init:0/1` enquanto aguarda o MySQL terminar de iniciar).*
+
+
+
+5. **Exponha a aplicação na rede local:** Na pasta raiz do projeto, execute:
+
+   ```bash
+
+   kubectl port-forward -n routebooks svc/frontend 5173:80
+
+   ```
+
+
+
+6. **Acesse no navegador:** Abra o endereço [http://localhost:5173](http://localhost:5173) e pronto!
+
+
+
+---
+
+
+
+### 🔄 Rodando novamente (após a configuração inicial)
+
+
+
+Se você já fez o passo a passo acima anteriormente e quer apenas subir o projeto de novo:
+
+
+
+1. Confirme que o Kubernetes está ativo:
+
+   ```bash
+
+   kubectl get nodes
+
+   ```
+
+2. Verifique se os pods já estão rodando:
+
+   ```bash
+
+   kubectl get pods -n routebooks
+
+   ```
+
+3. Libere a porta da aplicação e acesse [http://localhost:5173](http://localhost:5173):
+
+   ```bash
+
+   kubectl port-forward -n routebooks svc/frontend 5173:80
