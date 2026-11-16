@@ -649,9 +649,9 @@ body.dark-mode .btn-dark-mode:hover {
     /* Gruda ela na pontinha direita sem esticar o link */
     width: 8px;
     height: 8px;
-    background-color: #ff3030;
+    background-color: #ff8a00;
     border-radius: 50%;
-    box-shadow: 0 0 6px #ff3030;
+    box-shadow: 0 0 6px #ff8a00;
     pointer-events: none;
     /* Evita atrapalhar o clique no link */
 }
@@ -661,10 +661,10 @@ body.dark-mode .btn-dark-mode:hover {
 
     0%,
     100% {
-        box-shadow: 0 0 3px #ff3030;
+        box-shadow: 0 0 3px #ff8a00;
     }
 
     50% {
-        box-shadow: 0 0 9px #ff3030;
+        box-shadow: 0 0 9px #ff8a00;
     }
 }

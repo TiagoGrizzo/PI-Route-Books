@@ -72,7 +72,7 @@ export default function FeedLayout({ children, aba = '', onSelect, onCreate, sho
           const dados = r.data;
           const total = typeof dados === 'number'
             ? dados
-            : (dados?.total ?? dados?.quantidade ?? dados?.naoLidas ?? dados?.count ?? 0);
+            : (dados?.qtd ?? dados?.total ?? dados?.quantidade ?? dados?.naoLidas ?? dados?.count ?? 0);
 
           setMensagensNaoLidas(Number(total) || 0);
         })
@@ -93,7 +93,7 @@ export default function FeedLayout({ children, aba = '', onSelect, onCreate, sho
             localStorage.setItem(chaveStorage, String(atual));
           } else {
             const diferenca = atual - Number(vistoSalvo);
-            if (diferenca > 0) setNovosSeguidores(diferenca);
+            setNovosSeguidores(Math.max(0, diferenca));
           }
         })
         .catch(() => { });
@@ -149,15 +149,15 @@ export default function FeedLayout({ children, aba = '', onSelect, onCreate, sho
 
       <div className="feed-top-actions">
         {/* Ícone do Sino com notificação de novos seguidores */}
-        <Link to="/aventureiros" onClick={limparNotificacaoSeguidores} className="feed-icon-link" aria-label="Aventureiros">
+        <Link to="/aventureiros" onClick={limparNotificacaoSeguidores} className="feed-icon-link" aria-label={novosSeguidores > 0 ? "Aventureiros, novos seguidores" : "Aventureiros"}>
           <i className="fa fa-bell-o" aria-hidden="true"></i>
-          {novosSeguidores > 0 && <span className="feed-notif-badge">{novosSeguidores > 9 ? '9+' : novosSeguidores}</span>}
+          {novosSeguidores > 0 && <span className="feed-notif-dot" aria-hidden="true" />}
         </Link>
 
         {/* Ícone do Balão com notificação de mensagens não lidas */}
-        <Link to="/chat" onClick={() => setMensagensNaoLidas(0)} className="feed-icon-link" aria-label="Conversas">
+        <Link to="/chat" className="feed-icon-link" aria-label={mensagensNaoLidas > 0 ? "Conversas, mensagens não lidas" : "Conversas"}>
           <i className="fa fa-commenting-o" aria-hidden="true"></i>
-          {mensagensNaoLidas > 0 && <span className="feed-notif-badge">{mensagensNaoLidas > 9 ? '9+' : mensagensNaoLidas}</span>}
+          {mensagensNaoLidas > 0 && <span className="feed-notif-dot" aria-hidden="true" />}
         </Link>
 
         <button type="button" onClick={abrirPublicacao} className="feed-create-link">Registrar Viagem <span aria-hidden="true">🗺️</span></button>
@@ -171,7 +171,6 @@ export default function FeedLayout({ children, aba = '', onSelect, onCreate, sho
     <div className="feed-shell">
       <aside className="feed-sidebar" aria-label="Navegação principal">
         <nav className="feed-nav">
-          <NavLink to="/" end className="feed-nav-link"><i className="fa fa-home" aria-hidden="true"></i><span>Início</span></NavLink>
           <NavLink to="/posts" className={({ isActive }) => "feed-nav-link" + (isActive && (!aba || aba === "para-voce") ? " active" : "")}><i className="fa fa-compass" aria-hidden="true"></i><span>Explorar Rotas</span></NavLink>
           <NavLink to={caminhoCriarPost} className="feed-nav-link"><i className="fa fa-book" aria-hidden="true"></i><span>Diário de Bordo</span></NavLink>
           <button type="button" className={`feed-nav-link ${aba === 'meus' ? 'active' : ''}`} onClick={() => setAba('meus')}><i className="fa fa-map-o" aria-hidden="true"></i><span>Meus Roteiros</span></button>

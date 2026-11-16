@@ -1,7 +1,6 @@
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import SessionGate from './components/SessionGate.jsx';
 import Layout from './components/Layout.jsx';
-import LandingPage from "./Pages/LandingPage.jsx";
 import Login from "./Pages/Login.jsx";
 import CriarPost from "./Pages/CriarPost.jsx";
 import Posts from "./Pages/Posts.jsx";
@@ -28,7 +27,7 @@ function App() {
 
         {/* Demais páginas usam o layout padrão (navbar + footer) */}
         <Route element={<Layout />}>
-          <Route path="/" element={<LandingPage />} />
+          <Route path="/" element={<Navigate to="/posts" replace />} />
           <Route path="/posts" element={<Posts />} />
           <Route path="/comunidades/:slug" element={<Comunidade />} />
           <Route path="/perfil" element={<Perfil />} />

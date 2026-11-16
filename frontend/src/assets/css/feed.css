@@ -3550,7 +3550,7 @@ button.feed-create-community {
   }
 
   .route-feed .feed-top-actions .feed-icon-link {
-    display: none;
+    display: inline-flex;
   }
 }
 
@@ -3579,34 +3579,15 @@ button.feed-create-community {
   justify-content: center;
 }
 
-/* Bolinha vermelha de notificação */
-.feed-notif-badge {
-  position: absolute;
-  top: -2px;
-  right: -2px;
-  min-width: 16px;
-  height: 16px;
-  padding: 0 4px;
-  background-color: #EC4772;
-  color: #ffffff;
-  font-size: 10px;
-  font-weight: 700;
-  border-radius: 999px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: 2px solid #041e16; /* Borda na cor do fundo da topbar para destacar */
-  line-height: 1;
-}
-
-/* Variação apenas pontinho vermelho (sem número) caso prefira */
+/* Indicador de notificações pendentes no sino e no bate-papo. */
 .feed-notif-dot {
   position: absolute;
-  top: 0px;
-  right: 0px;
+  top: 0;
+  right: 0;
   width: 10px;
   height: 10px;
-  background-color: #EC4772;
+  background-color: #ff8a00;
   border-radius: 50%;
   border: 2px solid #041e16;
+  pointer-events: none;
 }

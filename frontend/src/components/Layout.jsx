@@ -91,11 +91,11 @@ export default function Layout() {
                                 <ul className="navbar-nav me-auto mb-2 mb-lg-0 align-items-center gap-2">
                                     <li className="nav-item">
                                         <NavLink
-                                            to="/"
+                                            to="/posts"
                                             end
                                             className={({ isActive }) => `nav-link ${isActive ? 'active' : ''} text-color-navbar`}
                                         >
-                                            Home
+                                            Posts
                                         </NavLink>
                                     </li>
 
@@ -200,11 +200,11 @@ export default function Layout() {
                             <ul className="navbar-nav me-auto mb-2 mb-lg-0 w-100 align-items-center gap-2">
                                 <li className="nav-item">
                                     <NavLink
-                                        to="/"
-                                        end
+                                        to="/posts"
+                                            end
                                         className={({ isActive }) => `nav-link ${isActive ? 'active' : ''} text-color-navbar`}
                                     >
-                                        Home
+                                        Posts
                                     </NavLink>
                                 </li>
                                 <li className="nav-item">
