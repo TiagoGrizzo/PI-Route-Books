@@ -1,10 +1,11 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>net9.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <RootNamespace>Route_Books_api</RootNamespace>
+    <UserSecretsId>8bec33a2-b86d-469d-9574-0430cbcc628d</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>

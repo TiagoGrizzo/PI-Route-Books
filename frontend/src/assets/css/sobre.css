@@ -1,17 +1,181 @@
 /* Apresentando a equipe com os mesmos painéis da comunidade. */
-.route-feed .about-page{max-width:1120px;margin:0 auto;padding:0 16px 32px;color:#e1e8dd}
-.route-feed .sobre-geral>h1,.route-feed .sobre-geral-integrantes>.sobre-integrantes:first-child h1{font-family:inherit;text-align:center;font-size:30px;line-height:1.2;font-weight:700;margin:0 auto 32px;display:table;position:relative;padding-bottom:10px}
-.route-feed .sobre-geral>h1:after,.route-feed .sobre-geral-integrantes>.sobre-integrantes:first-child h1:after{content:'';height:4px;border-radius:3px;background:#53b87b;position:absolute;bottom:0;left:10%;right:10%}
-.route-feed .sobre-texto-geral{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(160px,1fr);gap:40px;align-items:center;margin:40px 0 36px}
-.route-feed .sobre-texto h3{font-family:inherit;font-size:22px;font-weight:600;margin:0 0 6px;line-height:1.3}
-.route-feed .sobre-texto p{font-size:14px;line-height:1.5;margin:0 0 10px}
-.route-feed .logo-sobre{text-align:center}.route-feed .logo-sobre img{width:260px;max-width:100%;height:auto;filter:drop-shadow(0 0 10px #4fc87855)}
-.route-feed .sobre-redes{display:flex;gap:14px;align-items:center;color:#69c981;font-size:23px}.route-feed .sobre-redes a{color:inherit;text-decoration:none;line-height:1}
-.route-feed .sobre-redes a:hover{color:#a4f5b7}.route-feed .sobre-redes a:focus-visible{outline:2px solid #a4f5b7;outline-offset:4px}
-.route-feed .sobre-geral-integrantes>.sobre-integrantes:first-child{margin-bottom:22px}.route-feed .sobre-geral-integrantes>.sobre-integrantes:first-child h1{margin-bottom:0}
-.route-feed .sobre-geral-integrantes>.sobre-integrantes:not(:first-child){display:grid;grid-template-columns:minmax(0,1fr) 132px;align-items:center;gap:36px;padding:22px 24px;margin-bottom:22px;border:1px solid #315940;border-radius:20px;background:linear-gradient(110deg,#113325,#102d21);box-shadow:3px 3px 0 #75a97b13}
-.route-feed .perfil-sobre-integrantes img{display:block;width:126px;height:126px;border-radius:50%;object-fit:cover;margin:auto}
-@media(max-width:1050px){.route-feed .about-page{padding-inline:4px}.route-feed .sobre-texto-geral{gap:24px}.route-feed .sobre-geral-integrantes>.sobre-integrantes:not(:first-child){gap:22px;grid-template-columns:minmax(0,1fr) 100px;padding:20px}.route-feed .perfil-sobre-integrantes img{width:100px;height:100px}.route-feed .sobre-texto p{font-size:13px}}
-@media(max-width:700px){.route-feed .about-page{padding-top:12px}.route-feed .sobre-geral>h1,.route-feed .sobre-geral-integrantes>.sobre-integrantes:first-child h1{font-size:26px}.route-feed .sobre-texto-geral{grid-template-columns:minmax(0,1fr);gap:22px;margin:26px 0 30px}.route-feed .logo-sobre img{width:210px}.route-feed .sobre-geral-integrantes>.sobre-integrantes:not(:first-child){grid-template-columns:minmax(0,1fr);gap:20px}.route-feed .perfil-sobre-integrantes{grid-row:1}.route-feed .sobre-texto h3{font-size:21px}}
+.route-feed .about-page {
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 0 16px 32px;
+    color: #e1e8dd
+}
 
-.route-feed .logo-sobre img{filter:brightness(0) saturate(100%) invert(74%) sepia(28%) saturate(1116%) hue-rotate(83deg) brightness(93%) contrast(91%) drop-shadow(0 0 8px #4fc87855)}
+.route-feed .sobre-geral>h1,
+.route-feed .sobre-geral-integrantes>.sobre-integrantes:first-child h1 {
+    font-family: inherit;
+    text-align: center;
+    font-size: 30px;
+    line-height: 1.2;
+    font-weight: 700;
+    margin: 0 auto 32px;
+    display: table;
+    position: relative;
+    padding-bottom: 10px
+}
+
+.route-feed .sobre-geral>h1:after,
+.route-feed .sobre-geral-integrantes>.sobre-integrantes:first-child h1:after {
+    content: '';
+    height: 4px;
+    border-radius: 3px;
+    background: #53b87b;
+    position: absolute;
+    bottom: 0;
+    left: 10%;
+    right: 10%
+}
+
+.route-feed .sobre-texto-geral {
+    display: grid;
+    grid-template-columns: minmax(0, 1.3fr) minmax(160px, 1fr);
+    gap: 40px;
+    align-items: center;
+    margin: 40px 0 36px
+}
+
+.route-feed .sobre-texto h3 {
+    font-family: inherit;
+    font-size: 22px;
+    font-weight: 600;
+    margin: 0 0 6px;
+    line-height: 1.3
+}
+
+.route-feed .sobre-texto p {
+    font-size: 14px;
+    line-height: 1.5;
+    margin: 0 0 10px
+}
+
+.route-feed .logo-sobre {
+    text-align: center
+}
+
+.route-feed .logo-sobre img {
+    width: 260px;
+    max-width: 100%;
+    height: auto;
+    filter: drop-shadow(0 0 10px #4fc87855)
+}
+
+.route-feed .sobre-redes {
+    display: flex;
+    gap: 14px;
+    align-items: center;
+    color: #69c981;
+    font-size: 23px
+}
+
+.route-feed .sobre-redes a {
+    color: inherit;
+    text-decoration: none;
+    line-height: 1
+}
+
+.route-feed .sobre-redes a:hover {
+    color: #a4f5b7
+}
+
+.route-feed .sobre-redes a:focus-visible {
+    outline: 2px solid #a4f5b7;
+    outline-offset: 4px
+}
+
+.route-feed .sobre-geral-integrantes>.sobre-integrantes:first-child {
+    margin-bottom: 22px
+}
+
+.route-feed .sobre-geral-integrantes>.sobre-integrantes:first-child h1 {
+    margin-bottom: 0
+}
+
+.route-feed .sobre-geral-integrantes>.sobre-integrantes:not(:first-child) {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 132px;
+    align-items: center;
+    gap: 36px;
+    padding: 22px 24px;
+    margin-bottom: 22px;
+    border: 1px solid #315940;
+    border-radius: 20px;
+    background: linear-gradient(110deg, #113325, #102d21);
+    box-shadow: 3px 3px 0 #75a97b13
+}
+
+.route-feed .perfil-sobre-integrantes img {
+    display: block;
+    width: 126px;
+    height: 126px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin: auto
+}
+
+@media(max-width:1050px) {
+    .route-feed .about-page {
+        padding-inline: 4px
+    }
+
+    .route-feed .sobre-texto-geral {
+        gap: 24px
+    }
+
+    .route-feed .sobre-geral-integrantes>.sobre-integrantes:not(:first-child) {
+        gap: 22px;
+        grid-template-columns: minmax(0, 1fr) 100px;
+        padding: 20px
+    }
+
+    .route-feed .perfil-sobre-integrantes img {
+        width: 100px;
+        height: 100px
+    }
+
+    .route-feed .sobre-texto p {
+        font-size: 13px
+    }
+}
+
+@media(max-width:700px) {
+    .route-feed .about-page {
+        padding-top: 12px
+    }
+
+    .route-feed .sobre-geral>h1,
+    .route-feed .sobre-geral-integrantes>.sobre-integrantes:first-child h1 {
+        font-size: 26px
+    }
+
+    .route-feed .sobre-texto-geral {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 22px;
+        margin: 26px 0 30px
+    }
+
+    .route-feed .logo-sobre img {
+        width: 210px
+    }
+
+    .route-feed .sobre-geral-integrantes>.sobre-integrantes:not(:first-child) {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 20px
+    }
+
+    .route-feed .perfil-sobre-integrantes {
+        grid-row: 1
+    }
+
+    .route-feed .sobre-texto h3 {
+        font-size: 21px
+    }
+}
+
+.route-feed .logo-sobre img {
+    filter: brightness(0) saturate(100%) invert(74%) sepia(28%) saturate(1116%) hue-rotate(83deg) brightness(93%) contrast(91%) drop-shadow(0 0 8px #4fc87855)
+}

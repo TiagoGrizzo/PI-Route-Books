@@ -1,21 +1,21 @@
 import PhotoSelection, { validarMidias } from '../components/PhotoSelection.jsx';
 import { useState, useEffect } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
-import '../assets/css/index.css'; 
-import '../assets/css/posts.css'; 
+import '../assets/css/index.css';
+import '../assets/css/posts.css';
 import '../assets/css/criarpost.css';
-import { getCreatePostData, createPost } from '../api/Route-book.jsx'; 
+import { getCreatePostData, createPost } from '../api/Route-book.jsx';
 
 export default function CriarPost() {
   const navigate = useNavigate();
-  
+
   const [titulo, setTitulo] = useState('');
   const [resumo, setResumo] = useState('');
   const [conteudo, setConteudo] = useState('');
   const [tipoId, setTipoId] = useState('');
   const [categoriaId, setCategoriaId] = useState('');
   const [foto, setFoto] = useState([]);
-  
+
   const [categorias, setCategorias] = useState([]);
   const [tipos, setTipos] = useState([]);
   const [erro, setErro] = useState('');
@@ -53,7 +53,7 @@ export default function CriarPost() {
     if (salvando) return;
     if (acaoDesejada === 'publicar' && !tipoId) { setErro('Selecione o tipo de viagem antes de publicar.'); return; }
     if (acaoDesejada === 'publicar' && !categoriaId) { setErro('Selecione uma categoria antes de publicar.'); return; }
-    const erroMidia=validarMidias(foto);if(erroMidia){setErro(erroMidia);return;}
+    const erroMidia = validarMidias(foto); if (erroMidia) { setErro(erroMidia); return; }
 
     const formData = new FormData();
     formData.append('Titulo', titulo);
@@ -62,8 +62,8 @@ export default function CriarPost() {
     formData.append('TiposIdTipo', tipoId);
     formData.append('CategoriasIdCategoria', categoriaId);
     formData.append('acao', acaoDesejada); // Envia para o C# saber se é "rascunho" ou "publicar"
-    
-    foto.forEach(arquivo=>formData.append('fotosPost',arquivo));
+
+    foto.forEach(arquivo => formData.append('fotosPost', arquivo));
 
     setSalvando(true);
     try {
@@ -89,101 +89,101 @@ export default function CriarPost() {
           <div className="criar-post-field">
             <label htmlFor="titulo-post">Título da postagem</label>
             <input
-                id="titulo-post"
-                type="text" 
-                className="criar-post-control"
-                placeholder="Dê um título chamativo..." 
-                value={titulo}
-                onChange={(e) => setTitulo(e.target.value)}
-                required
-              />
+              id="titulo-post"
+              type="text"
+              className="criar-post-control"
+              placeholder="Dê um título chamativo..."
+              value={titulo}
+              onChange={(e) => setTitulo(e.target.value)}
+              required
+            />
           </div>
 
           <div className="criar-post-field">
             <label htmlFor="resumo-post">Resumo</label>
             <input
-                id="resumo-post"
-                type="text" 
-                className="criar-post-control"
-                placeholder="Um breve resumo do que se trata..." 
-                value={resumo}
-                onChange={(e) => setResumo(e.target.value)}
-              />
+              id="resumo-post"
+              type="text"
+              className="criar-post-control"
+              placeholder="Um breve resumo do que se trata..."
+              value={resumo}
+              onChange={(e) => setResumo(e.target.value)}
+            />
           </div>
 
           <div className="criar-post-field">
             <label htmlFor="conteudo-post">Relato da viagem</label>
             <textarea
-                id="conteudo-post"
-                className="criar-post-control criar-post-textarea"
-                placeholder="Conte os detalhes da sua aventura aqui..."
-                value={conteudo}
-                onChange={(e) => setConteudo(e.target.value)}
-                required
-              ></textarea>
+              id="conteudo-post"
+              className="criar-post-control criar-post-textarea"
+              placeholder="Conte os detalhes da sua aventura aqui..."
+              value={conteudo}
+              onChange={(e) => setConteudo(e.target.value)}
+              required
+            ></textarea>
           </div>
 
           <div className="criar-post-taxonomia">
-              <div className="criar-post-field">
-                <label htmlFor="tipo-viagem">Tipo de viagem</label>
-                <select 
-                  id="tipo-viagem"
-                  className="criar-post-control"
-                  value={tipoId}
-                  onChange={(e) => setTipoId(e.target.value)}
-                >
-                  <option value="">-- Selecione o Tipo --</option>
-                  {tipos.map((t) => (
-                    <option key={t.id} value={t.id}>{t.nome}</option>
-                  ))}
-                </select>
-              </div>
+            <div className="criar-post-field">
+              <label htmlFor="tipo-viagem">Tipo de viagem</label>
+              <select
+                id="tipo-viagem"
+                className="criar-post-control"
+                value={tipoId}
+                onChange={(e) => setTipoId(e.target.value)}
+              >
+                <option value="">-- Selecione o Tipo --</option>
+                {tipos.map((t) => (
+                  <option key={t.id} value={t.id}>{t.nome}</option>
+                ))}
+              </select>
+            </div>
 
-              <div className="criar-post-field">
-                <label htmlFor="categoria-post">Categoria</label>
-                <select 
-                  id="categoria-post"
-                  className="criar-post-control"
-                  value={categoriaId}
-                  onChange={(e) => setCategoriaId(e.target.value)}
-                >
-                  <option value="">-- Selecione a Categoria --</option>
-                  {categorias.map((c) => (
-                    <option key={c.id} value={c.id}>{c.nome}</option>
-                  ))}
-                </select>
-              </div>
+            <div className="criar-post-field">
+              <label htmlFor="categoria-post">Categoria</label>
+              <select
+                id="categoria-post"
+                className="criar-post-control"
+                value={categoriaId}
+                onChange={(e) => setCategoriaId(e.target.value)}
+              >
+                <option value="">-- Selecione a Categoria --</option>
+                {categorias.map((c) => (
+                  <option key={c.id} value={c.id}>{c.nome}</option>
+                ))}
+              </select>
+            </div>
           </div>
 
           <div className="criar-post-field criar-post-upload">
-              <label htmlFor="foto-post">Adicionar fotos (até 10 imagens, 5 MB cada)</label>
-              <input 
-                id="foto-post"
-                type="file" multiple 
-                className="criar-post-control"
-                accept=".jpg,.jpeg,.png,.webp" 
-                onChange={e=>{const files=Array.from(e.target.files||[]);const erroMidia=validarMidias(files);if(erroMidia){setErro(erroMidia);e.target.value='';return;}setFoto(files);}} 
-              />
-              <small>Formatos aceitos: JPG, PNG, WEBP.</small>
-              <PhotoSelection files={foto} onRemove={i=>setFoto(lista=>lista.filter((_,j)=>j!==i))}/>
+            <label htmlFor="foto-post">Adicionar fotos (até 10 imagens, 5 MB cada)</label>
+            <input
+              id="foto-post"
+              type="file" multiple
+              className="criar-post-control"
+              accept=".jpg,.jpeg,.png,.webp"
+              onChange={e => { const files = Array.from(e.target.files || []); const erroMidia = validarMidias(files); if (erroMidia) { setErro(erroMidia); e.target.value = ''; return; } setFoto(files); }}
+            />
+            <small>Formatos aceitos: JPG, PNG, WEBP.</small>
+            <PhotoSelection files={foto} onRemove={i => setFoto(lista => lista.filter((_, j) => j !== i))} />
           </div>
 
           <footer className="criar-post-actions">
-              <Link to="/posts" className="criar-post-back">Voltar ao feed</Link>
-              <div className="criar-post-buttons">
-                <button 
-                  type="button" 
-                  className="criar-post-button criar-post-draft"
-                  onClick={(e) => handleSubmit(e, 'rascunho')}
-                  disabled={salvando}
-                >
-                  {salvando ? 'Salvando...' : 'Salvar Rascunho'}
-                </button>
+            <Link to="/posts" className="criar-post-back">Voltar ao feed</Link>
+            <div className="criar-post-buttons">
+              <button
+                type="button"
+                className="criar-post-button criar-post-draft"
+                onClick={(e) => handleSubmit(e, 'rascunho')}
+                disabled={salvando}
+              >
+                {salvando ? 'Salvando...' : 'Salvar Rascunho'}
+              </button>
 
-                <button type="submit" className="criar-post-button criar-post-publish" disabled={salvando}>
-                  {salvando ? 'Publicando...' : 'Publicar Relato'}
-                </button>
-              </div>
+              <button type="submit" className="criar-post-button criar-post-publish" disabled={salvando}>
+                {salvando ? 'Publicando...' : 'Publicar Relato'}
+              </button>
+            </div>
           </footer>
         </form>
       </section>

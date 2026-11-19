@@ -1,6 +1,8 @@
 using Route_Books_api.Models;
 namespace Route_Books_api.Data;
-public static class TemporadasSeed {
+
+public static class TemporadasSeed
+{
     // Calendário anual recorrente; fevereiro inclui o dia 29 nos anos bissextos.
     public static TemporadaDestino[] Destinos => new TemporadaDestino[] {
         new() { Id = 1, Mes = 1, DiaInicio = 1, DiaFim = 31, Ordem = 1, Pais = "Estados Unidos (Flórida)", Descricao = "Disney e Férias / Temporada Ativa", Icone = "fa-globe" },

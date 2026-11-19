@@ -6,16 +6,31 @@ namespace Route_Books_api.Services;
 public static class PostQueries
 {
     public static IQueryable<PostResumo> Publicos(ApplicationDbContext db, int usuarioId) =>
-        db.posts.AsNoTracking().Where(p => p.Status == "Ativo").Select(p => new PostResumo {
-            IdPost = p.IdPost, Titulo = p.Titulo, Resumo = p.Resumo, Conteudo = p.Conteudo,
-            DataCriacao = p.DataCriacao, ImagensJson = p.ImagensJson, ImagemUrl = p.ImagemUrl, TipoMidia = p.TipoMidia,
-            ComunidadeId = p.ComunidadeId, ImagemFonteUrl = p.ImagemFonteUrl,
-            Localizacao = p.Localizacao, AvaliacaoLugar = p.AvaliacaoLugar,
+        db.posts.AsNoTracking().Where(p => p.Status == "Ativo").Select(p => new PostResumo
+        {
+            IdPost = p.IdPost,
+            Titulo = p.Titulo,
+            Resumo = p.Resumo,
+            Conteudo = p.Conteudo,
+            DataCriacao = p.DataCriacao,
+            ImagensJson = p.ImagensJson,
+            ImagemUrl = p.ImagemUrl,
+            TipoMidia = p.TipoMidia,
+            ComunidadeId = p.ComunidadeId,
+            ImagemFonteUrl = p.ImagemFonteUrl,
+            Localizacao = p.Localizacao,
+            AvaliacaoLugar = p.AvaliacaoLugar,
             UsuariosIdUsuario = p.UsuariosIdUsuario,
-            Autor = p.Autor == null ? null : new AutorPublico {
-                IdUsuario = p.Autor.IdUsuario, NomeCompleto = p.Autor.NomeCompleto,
-                PerfilOficial = p.Autor.PerfilOficial, Username = p.Autor.Username, FotoPerfil = p.Autor.FotoPerfil,
-                Cidade = p.Autor.Cidade, Uf = p.Autor.Uf },
+            Autor = p.Autor == null ? null : new AutorPublico
+            {
+                IdUsuario = p.Autor.IdUsuario,
+                NomeCompleto = p.Autor.NomeCompleto,
+                PerfilOficial = p.Autor.PerfilOficial,
+                Username = p.Autor.Username,
+                FotoPerfil = p.Autor.FotoPerfil,
+                Cidade = p.Autor.Cidade,
+                Uf = p.Autor.Uf
+            },
             CategoriaRef = p.CategoriaRef == null ? null : new CategoriaPublica { Nome = p.CategoriaRef.Nome },
             TipoRef = p.TipoRef == null ? null : new TipoPublico { NomeTipo = p.TipoRef.nomeTipo },
             CurtidasCount = p.Curtidas.Count(v => v.Valor == 1),
@@ -48,7 +63,8 @@ public class PostResumo
     public int MeuVoto { get; set; }
     public int ComentariosCount { get; set; }
 }
-public class AutorPublico {
+public class AutorPublico
+{
     public bool PerfilOficial { get; set; }
     public int IdUsuario { get; set; }
     public string? NomeCompleto { get; set; }

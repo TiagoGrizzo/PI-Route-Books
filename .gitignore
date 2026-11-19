@@ -22,3 +22,7 @@ echo.>> .gitignore
 echo /bancos/>> .gitignore
 
 bancos/
+
+
+appsettings.json
+appsettings.*.json

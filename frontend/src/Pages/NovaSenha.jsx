@@ -11,7 +11,7 @@ export default function NovaSenha() {
   const [searchParams] = useSearchParams();
   const idUsuario = searchParams.get('idUsuario') || localStorage.getItem('UsuarioId') || '';
 
-  const [novaSenha, setNovaSenha] = useState('');
+  const [NovaSenha, setNovaSenha] = useState('');
   const [confirmarSenha, setConfirmarSenha] = useState('');
   const [mostrarSenha, setMostrarSenha] = useState(false);
   const [erro, setErro] = useState('');
@@ -21,7 +21,7 @@ export default function NovaSenha() {
     e.preventDefault();
     setErro('');
 
-    if (novaSenha !== confirmarSenha) {
+    if (NovaSenha !== confirmarSenha) {
       setErro('As senhas não coincidem.');
       return;
     }
@@ -29,7 +29,7 @@ export default function NovaSenha() {
     setEnviando(true);
 
     try {
-      const res = await novaSenha({ idUsuario: String(idUsuario), senha: novaSenha });
+      const res = await novaSenha({ idUsuario: String(idUsuario), senha: NovaSenha });
       alert(res.data?.mensagem || 'Senha alterada com sucesso!');
 
       // Volta para a tela de login após trocar a senha

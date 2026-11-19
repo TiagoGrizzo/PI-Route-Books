@@ -20,7 +20,7 @@ using System.Threading.Tasks;
 
 namespace Route_Books_api.Controllers
 {
-    
+
     [ApiController]
     [Route("api/[controller]")]
     public class UsuariosController : ControllerBase
@@ -363,7 +363,7 @@ namespace Route_Books_api.Controllers
         }
 
         // POST: api/Usuarios
-        
+
         [HttpPost]
         [SwaggerOperation(
             Summary = "Cadastra um usuário  - Create",

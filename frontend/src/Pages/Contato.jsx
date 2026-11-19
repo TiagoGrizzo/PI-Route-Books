@@ -52,64 +52,64 @@ export default function Contato() {
       )}
 
       <section className="contato-geral">
-          <div className="contato-titulo">
-            <h1 className="fale-contato titulo-font">Fale Conosco</h1>
-            <p className="p-contato">
-              Mande a sua dúvida para a nossa equipe e te responderemos o mais breve possível! <br />
-              Siga as outras formas de contato logo abaixo.
-            </p>
-          </div>
+        <div className="contato-titulo">
+          <h1 className="fale-contato titulo-font">Fale Conosco</h1>
+          <p className="p-contato">
+            Mande a sua dúvida para a nossa equipe e te responderemos o mais breve possível! <br />
+            Siga as outras formas de contato logo abaixo.
+          </p>
+        </div>
 
-          <div className="container-contato">
-            <div className="contato-texto">
-              <div className="icone-geral-contato">
-                <div className="icone-contato">
-                  <i className="fa fa-envelope-o" aria-hidden="true"></i>
-                </div>
-                <div className="info-contato">
-                  <h3 className="titulo-font">E-mail</h3>
-                  <p>routebooks.contato@gmail.com</p>
-                </div>
+        <div className="container-contato">
+          <div className="contato-texto">
+            <div className="icone-geral-contato">
+              <div className="icone-contato">
+                <i className="fa fa-envelope-o" aria-hidden="true"></i>
               </div>
-
-              <div className="icone-geral-contato">
-                <div className="icone-contato">
-                  <i className="fa fa-phone" aria-hidden="true"></i>
-                </div>
-                <div className="info-contato">
-                  <h3 className="titulo-font">Telefone</h3>
-                  <p>(14) 9999-9999</p>
-                </div>
+              <div className="info-contato">
+                <h3 className="titulo-font">E-mail</h3>
+                <p>routebooks.contato@gmail.com</p>
               </div>
             </div>
 
-            <div className="contato-form">
-              <form onSubmit={handleEnviar}>
-                <h2 className="titulo-font">Envie sua mensagem!</h2>
-
-                <div className="input-div-contato">
-                  <label htmlFor="contato-nome" className="titulo-font">Nome Completo</label>
-                  <input id="contato-nome" type="text" value={nome} onChange={(e) => setNome(e.target.value)} required placeholder="Insira seu nome completo..." />
-                </div>
-
-                <div className="input-div-contato">
-                  <label htmlFor="contato-email" className="titulo-font">E-mail</label>
-                  <input id="contato-email" type="email" value={email} onChange={(e) => setEmail(e.target.value)} required placeholder="Insira seu e-mail..." />
-                </div>
-
-                <div className="input-div-contato">
-                  <label htmlFor="contato-mensagem" className="titulo-font">Digite sua mensagem</label>
-                  <textarea id="contato-mensagem" value={mensagem} onChange={(e) => setMensagem(e.target.value)} required placeholder="Digite sua mensagem aqui..." />
-                </div>
-
-                <div className="div-btn-contato">
-                  <button type="submit" className="titulo-font btn-contato" disabled={enviando}>
-                    {enviando ? 'Enviando...' : 'Enviar'}
-                  </button>
-                </div>
-              </form>
+            <div className="icone-geral-contato">
+              <div className="icone-contato">
+                <i className="fa fa-phone" aria-hidden="true"></i>
+              </div>
+              <div className="info-contato">
+                <h3 className="titulo-font">Telefone</h3>
+                <p>(14) 9999-9999</p>
+              </div>
             </div>
           </div>
+
+          <div className="contato-form">
+            <form onSubmit={handleEnviar}>
+              <h2 className="titulo-font">Envie sua mensagem!</h2>
+
+              <div className="input-div-contato">
+                <label htmlFor="contato-nome" className="titulo-font">Nome Completo</label>
+                <input id="contato-nome" type="text" value={nome} onChange={(e) => setNome(e.target.value)} required placeholder="Insira seu nome completo..." />
+              </div>
+
+              <div className="input-div-contato">
+                <label htmlFor="contato-email" className="titulo-font">E-mail</label>
+                <input id="contato-email" type="email" value={email} onChange={(e) => setEmail(e.target.value)} required placeholder="Insira seu e-mail..." />
+              </div>
+
+              <div className="input-div-contato">
+                <label htmlFor="contato-mensagem" className="titulo-font">Digite sua mensagem</label>
+                <textarea id="contato-mensagem" value={mensagem} onChange={(e) => setMensagem(e.target.value)} required placeholder="Digite sua mensagem aqui..." />
+              </div>
+
+              <div className="div-btn-contato">
+                <button type="submit" className="titulo-font btn-contato" disabled={enviando}>
+                  {enviando ? 'Enviando...' : 'Enviar'}
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
       </section>
     </div></FeedLayout>
   );

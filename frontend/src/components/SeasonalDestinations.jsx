@@ -1,3 +1,7 @@
+import novembro42 from '../assets/imgs/temporadas/argentina-escapadas-novembro.png';
+import novembro44 from '../assets/imgs/temporadas/portugal-acolhedor-novembro.png';
+import novembro41 from '../assets/imgs/temporadas/eua-compras-novembro.png';
+import novembro43 from '../assets/imgs/temporadas/chile-atacama-novembro.png';
 import { useEffect, useState } from 'react';
 import { getTemporadas } from '../api/Route-book.jsx';
 import euaHalloween from '../assets/imgs/temporadas/eua-halloween-minimal.webp';
@@ -12,28 +16,36 @@ const artesOutubro = [
   { pais: 'Argentina', imagem: argentinaPrimavera, alt: 'Obelisco de Buenos Aires e jacarandás floridos na primavera' },
 ];
 
+const artesNovembro = [
+  { pais: 'Argentina', imagem: novembro42, alt: 'Obelisco, mala e flores na primavera argentina' },
+  { pais: 'Portugal', imagem: novembro44, alt: 'Casa portuguesa e café na baixa temporada' },
+  { pais: 'Estados Unidos', imagem: novembro41, alt: 'Sacolas de compras da Black Friday' },
+  { pais: 'Chile', imagem: novembro43, alt: 'Vulcão do Atacama e lagoa azul' }
+];
+
 function DestinationArtwork({ destino, mes }) {
-  const [falhou,setFalhou] = useState(false);
-  const arte = mes === 10 ? artesOutubro.find(a => destino.pais.startsWith(a.pais)) : null;
+  const [falhou, setFalhou] = useState(false);
+  const artes = mes === 10 ? artesOutubro : mes === 11 ? artesNovembro : [];
+  const arte = artes.find(a => destino.pais.startsWith(a.pais));
   return arte && !falhou
-    ? <img className="seasonal-destination-artwork" src={arte.imagem} alt={arte.alt} width="60" height="60" loading="lazy" decoding="async" onError={()=>setFalhou(true)} />
-    : <span className="feed-destination-icon"><i className={'fa '+destino.icone} aria-hidden="true"/></span>;
+    ? <img className="seasonal-destination-artwork" src={arte.imagem} alt={arte.alt} width="60" height="60" loading="lazy" decoding="async" onError={() => setFalhou(true)} />
+    : <span className="feed-destination-icon"><i className={'fa ' + destino.icone} aria-hidden="true" /></span>;
 }
 
 export default function SeasonalDestinations() {
-  const [dados,setDados]=useState(null);
-  const [erro,setErro]=useState(false);
-  const [tentativa,setTentativa]=useState(0);
-  useEffect(()=>{
-    let ativo=true;
-    const carregar=()=>getTemporadas().then(r=>{if(ativo){setDados(r.data);setErro(false);}}).catch(()=>{if(ativo)setErro(true);});
+  const [dados, setDados] = useState(null);
+  const [erro, setErro] = useState(false);
+  const [tentativa, setTentativa] = useState(0);
+  useEffect(() => {
+    let ativo = true;
+    const carregar = () => getTemporadas().then(r => { if (ativo) { setDados(r.data); setErro(false); } }).catch(() => { if (ativo) setErro(true); });
     carregar();
-    const timer=setInterval(carregar,60000);
-    return ()=>{ativo=false;clearInterval(timer);};
-  },[tentativa]);
+    const timer = setInterval(carregar, 60000);
+    return () => { ativo = false; clearInterval(timer); };
+  }, [tentativa]);
   return <section className="feed-side-card feed-seasonal">
-    <div className="feed-side-card-heading"><h2>PAÍSES EM TEMPORADA</h2><i className="fa fa-calendar" aria-hidden="true"/></div>
-    {dados && <p className="season-month">{new Intl.DateTimeFormat('pt-BR',{month:'long',timeZone:'UTC'}).format(new Date(Date.UTC(2026,dados.mes-1,1)))}</p>}
-    {erro ? <p className="feed-side-empty" role="alert">Não foi possível carregar as temporadas. <button type="button" onClick={()=>setTentativa(n=>n+1)}>Tentar novamente</button></p> : !dados ? <p className="feed-side-empty">Carregando destinos...</p> : dados.destinos.length ? dados.destinos.map(d=><div className="feed-destination" key={d.id}><DestinationArtwork destino={d} mes={dados.mes} /><div><strong>{d.pais}</strong><small>{d.descricao}</small></div></div>) : <p className="feed-side-empty">Nenhum destino cadastrado para este período.</p>}
+    <div className="feed-side-card-heading"><h2>PAÍSES EM TEMPORADA</h2><i className="fa fa-calendar" aria-hidden="true" /></div>
+    {dados && <p className="season-month">{new Intl.DateTimeFormat('pt-BR', { month: 'long', timeZone: 'UTC' }).format(new Date(Date.UTC(2026, dados.mes - 1, 1)))}</p>}
+    {erro ? <p className="feed-side-empty" role="alert">Não foi possível carregar as temporadas. <button type="button" onClick={() => setTentativa(n => n + 1)}>Tentar novamente</button></p> : !dados ? <p className="feed-side-empty">Carregando destinos...</p> : dados.destinos.length ? dados.destinos.map(d => <div className="feed-destination" key={d.id}><DestinationArtwork destino={d} mes={dados.mes} /><div><strong>{d.pais}</strong><small>{d.descricao}</small></div></div>) : <p className="feed-side-empty">Nenhum destino cadastrado para este período.</p>}
   </section>;
 }

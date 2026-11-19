@@ -1,6 +1,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 namespace Route_Books_api.Models;
+
 [Table("temporadas_destinos")]
 public class TemporadaDestino
 {
