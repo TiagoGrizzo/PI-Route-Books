@@ -56,6 +56,11 @@ namespace Route_Books_api.Models
 
         [MaxLength(300)] public string? CapaUrl { get; set; }
 
+        [Required]
+        [StringLength(30)]
+        [Column("role")]
+        public string Role { get; set; } = "Usuario"; // Padrão para novos cadastros ("Usuario", "Admin", etc.)
+
         [Column("criado_em")]
         public DateTime CriadoEm { get; set; } = DateTime.Now;
 

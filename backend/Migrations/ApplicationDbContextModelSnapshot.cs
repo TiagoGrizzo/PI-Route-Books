@@ -977,6 +977,12 @@ namespace Route_Books_api.Migrations
                     b.Property<bool>("PerfilOficial")
                         .HasColumnType("tinyint(1)");
 
+                    b.Property<string>("Role")
+                        .IsRequired()
+                        .HasMaxLength(30)
+                        .HasColumnType("varchar(30)")
+                        .HasColumnName("role");
+
                     b.Property<string>("SenhaHash")
                         .IsRequired()
                         .HasMaxLength(255)

@@ -99,8 +99,22 @@ namespace Route_Books_api.Controllers
                     post.ImagemUrl=urls[0];post.TipoMidia=arquivos[0].ContentType.StartsWith("video/")?"video":"imagem";
                     if(post.TipoMidia!="video")post.ImagensJson=System.Text.Json.JsonSerializer.Serialize(urls);
                 }
-                post.UsuariosIdUsuario=usuarioId;post.Status=acao=="rascunho"?"Rascunho":"Ativo";post.DataCriacao=DateTime.UtcNow;
-                _context.posts.Add(post);await _context.SaveChangesAsync();
+                post.UsuariosIdUsuario = usuarioId;
+
+                // Se for rascunho, continua rascunho. 
+                // Senão, se for Admin, o status vira "Ativo" direto. Se for usuário comum, vira "Pendente".
+                if (acao == "rascunho")
+                    {
+                        post.Status = "Rascunho";
+                    }
+                else
+                    {
+                        post.Status = User.IsInRole("Admin") ? "Ativo" : "Pendente";
+                    }
+
+                post.DataCriacao = DateTime.UtcNow;
+                _context.posts.Add(post);
+                await _context.SaveChangesAsync()
             } catch {
                 foreach(var caminho in salvos)if(System.IO.File.Exists(caminho))System.IO.File.Delete(caminho);
                 throw;
@@ -207,6 +221,42 @@ namespace Route_Books_api.Controllers
         private bool PostExists(int id)
         {
             return _context.posts.Any(e => e.IdPost == id);
+        }
+        // GET: api/Posts/pendentes
+        [HttpGet("pendentes")]
+        [Authorize(Roles = "Admin")]
+        [SwaggerOperation(Summary = "Listar posts pendentes", Description = "Retorna todos os posts que estão aguardando aprovação.")]
+        public async Task<IActionResult> GetPostsPendentes()
+        {
+            var postsPendentes = await _context.posts
+                .Where(p => p.Status == "PENDENTE")
+                .OrderByDescending(p => p.DataCriacao)
+                .ToListAsync();
+
+            return Ok(postsPendentes);
+        }
+
+        // PATCH: api/Posts/5/aprovar
+        [HttpPatch("{id:int}/aprovar")]
+        [Authorize(Roles = "Admin")]
+        [SwaggerOperation(Summary = "Aprovar post", Description = "Muda o status de um post pendente para Ativo, liberando-o no feed.")]
+        public async Task<IActionResult> AprovarPost(int id)
+        {
+            var post = await _context.posts.FindAsync(id);
+            if (post == null)
+            {
+                return NotFound(new { mensagem = "Post não encontrado." });
+            }
+
+            if (post.Status != "PENDENTE")
+            {
+                return BadRequest(new { mensagem = "Este post não está pendente de moderação." });
+            }
+
+            post.Status = "Ativo";
+            await _context.SaveChangesAsync();
+
+            return Ok(new { mensagem = "Post aprovado e publicado com sucesso no feed!", post });
         }
     }
 }

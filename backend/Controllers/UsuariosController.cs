@@ -63,7 +63,8 @@ namespace Route_Books_api.Controllers
                 {
             new Claim(ClaimTypes.NameIdentifier, usuario.IdUsuario.ToString()),
             new Claim(ClaimTypes.Email, usuario.Email),
-            new Claim(ClaimTypes.Name, usuario.Username ?? usuario.NomeCompleto ?? "")
+            new Claim(ClaimTypes.Name, usuario.Username ?? usuario.NomeCompleto ?? ""),
+            new Claim(ClaimTypes.Role, usuario.Role)
         };
 
                 var tokenDescriptor = new SecurityTokenDescriptor
@@ -308,6 +309,28 @@ namespace Route_Books_api.Controllers
             return Ok(new { seguindo = false });
         }
 
+        // PATCH: api/Usuarios/5/promover
+        //Método que somente os Admins conseguem chamar
+        [HttpPatch("{id:int}/promover")]
+        [Microsoft.AspNetCore.Authorization.Authorize(Roles = "Admin")]
+        [SwaggerOperation(Summary = "Promove um usuário a Administrador")]
+        public async Task<IActionResult> PromoverParaAdmin(int id)
+        {
+            var usuario = await _context.usuarios.FindAsync(id);
+            if (usuario == null)
+            {
+                return NotFound(new { mensagem = "Usuário não encontrado." });
+            }
+
+            usuario.Role = "Admin";
+            usuario.AlteradoEm = DateTime.Now;
+
+            _context.usuarios.Update(usuario);
+            await _context.SaveChangesAsync();
+
+            return Ok(new { mensagem = $"O usuário {usuario.NomeCompleto ?? usuario.Username} agora é um Administrador!" });
+        }
+
         // GET: api/Usuarios
         [HttpGet]
         [SwaggerOperation(
@@ -365,6 +388,8 @@ namespace Route_Books_api.Controllers
             if (string.Equals(usuario.Username?.Trim(), "routebooks", StringComparison.OrdinalIgnoreCase))
                 return BadRequest(new { mensagem = "Este nome de usuário é reservado ao perfil oficial." });
             usuario.PerfilOficial = false;
+
+            usuario.Role = "Usuario";
             // Validação do E-mail (Verifica se já existe no banco MySQL)
             bool emailExiste = await _context.usuarios.AnyAsync(u => u.Email == usuario.Email);
             if (emailExiste)
