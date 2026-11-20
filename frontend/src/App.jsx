@@ -14,6 +14,7 @@ import Aventureiros from "./Pages/Aventureiros.jsx";
 import Chat from "./Pages/Chat.jsx";
 import Comunidade from './Pages/Comunidade.jsx';
 import Perfil from "./Pages/Perfil.jsx";
+import DestinosEmAlta from "./Pages/DestinosEmAlta.jsx";
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
         <Route path="/cadastro" element={<Cadastro />} />
         <Route path="/esqueceu-senha" element={<EsqueciSenha />} />
         <Route path="/nova-senha" element={<NovaSenha />} />
+        <Route path="/destinos-em-alta" element={<DestinosEmAlta />} />
 
         {/* Demais páginas usam o layout padrão (navbar + footer) */}
         <Route element={<Layout />}>

@@ -1,6 +1,5 @@
 using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
-using Route_Books_api.Models;
 using Route_Books_api.Services;
 using Swashbuckle.AspNetCore.Annotations;
 
@@ -21,7 +20,7 @@ namespace Route_Books_api.Controllers
 
         // POST: api/Home/enviar-contato
         [HttpPost("enviar-contato")]
-        [SwaggerOperation(Summary = "Enviar mensagem de contato", Description = "Envia um e-mail atrav�s do servi�o configurado recebendo um dicion�rio de dados.")]
+        [SwaggerOperation(Summary = "Enviar mensagem de contato", Description = "Envia um e-mail através do serviço configurado recebendo um dicionário de dados.")]
         public async Task<IActionResult> EnviarContato([FromBody] Dictionary<string, string> dados)
         {
             if (dados == null ||
@@ -29,19 +28,28 @@ namespace Route_Books_api.Controllers
                 !dados.TryGetValue("email", out var email) || string.IsNullOrWhiteSpace(email) ||
                 !dados.TryGetValue("mensagem", out var mensagem) || string.IsNullOrWhiteSpace(mensagem))
             {
-                return BadRequest(new { mensagem = "Preencha todos os campos (nome, email, mensagem)." });
+                return BadRequest(new { mensagem = "Preencha todos os campos (nome, e-mail e mensagem)." });
             }
 
             try
             {
-                await _emailService.EnviarContatoAsync(nome, email, mensagem);
+                await _emailService.EnviarContatoAsync(nome.Trim(), email.Trim(), mensagem.Trim());
 
                 return Ok(new { mensagem = "Sua mensagem foi enviada com sucesso! Obrigado pelo contato." });
+            }
+            catch (FormatException)
+            {
+                return BadRequest(new { mensagem = "Informe um endereço de e-mail válido." });
+            }
+            catch (InvalidOperationException ex)
+            {
+                _logger.LogError(ex, "Configuração de e-mail ausente.");
+                return StatusCode(500, new { mensagem = ex.Message });
             }
             catch (Exception ex)
             {
                 _logger.LogError(ex, "Erro ao enviar e-mail de contato.");
-                return StatusCode(500, new { mensagem = "N�o foi poss�vel enviar sua mensagem. Tente novamente." });
+                return StatusCode(500, new { mensagem = "Não foi possível enviar sua mensagem. Tente novamente." });
             }
         }
 
@@ -51,7 +59,7 @@ namespace Route_Books_api.Controllers
         public IActionResult Error()
         {
             var requestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier;
-            return Ok(new { requestId, mensagem = "Ocorreu um erro interno na aplica��o." });
+            return Ok(new { requestId, mensagem = "Ocorreu um erro interno na aplicação." });
         }
     }
 }

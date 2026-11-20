@@ -1546,11 +1546,17 @@ button.feed-create-community {
 
 .feed-composer-selects select {
   width: min(240px, 100%);
-  padding: 10px 16px;
+  padding: 10px 44px 10px 16px;
   border: 1px solid var(--feed-line);
   border-radius: 24px;
   color: #edf5f0;
-  background: #031f15;
+  background-color: #031f15;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%23b1c6bd' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 18px center;
+  background-size: 14px 14px;
+  appearance: none;
+  -webkit-appearance: none;
   font: inherit;
   cursor: pointer;
 }
@@ -1895,7 +1901,11 @@ button.feed-create-community {
     min-height: 52px;
     font-size: 22px;
     padding: 0 19px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
   }
+
 
   .feed-tabs button.active {
     font-weight: 500;

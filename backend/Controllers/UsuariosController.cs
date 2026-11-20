@@ -262,6 +262,61 @@ namespace Route_Books_api.Controllers
             return Ok(idsSeguidos);
         }
 
+        
+
+        // GET: api/Usuarios/{id}/seguidores
+        [HttpGet("{id:int}/seguidores")]
+        public async Task<IActionResult> GetSeguidores(int id)
+        {
+            if (!await _context.usuarios.AnyAsync(u => u.IdUsuario == id && u.DeletadoEm == null))
+                return NotFound(new { mensagem = "Usuário não encontrado." });
+
+            var seguidores = await _context.seguidores
+                .AsNoTracking()
+                .Where(s => s.IdUsuarioSeguido == id && s.UsuarioSeguidor != null && s.UsuarioSeguidor.DeletadoEm == null)
+                .OrderByDescending(s => s.DataSeguimento)
+                .Select(s => new
+                {
+                    idUsuario = s.UsuarioSeguidor!.IdUsuario,
+                    nomeCompleto = s.UsuarioSeguidor.NomeCompleto,
+                    username = s.UsuarioSeguidor.Username,
+                    fotoPerfil = s.UsuarioSeguidor.FotoPerfil,
+                    cidade = s.UsuarioSeguidor.Cidade,
+                    uf = s.UsuarioSeguidor.Uf,
+                    pais = s.UsuarioSeguidor.Pais
+                })
+                .ToListAsync();
+
+            return Ok(seguidores);
+        }
+
+        // GET: api/Usuarios/{id}/seguindo
+        [HttpGet("{id:int}/seguindo")]
+        public async Task<IActionResult> GetSeguindoPorUsuario(int id)
+        {
+            if (!await _context.usuarios.AnyAsync(u => u.IdUsuario == id && u.DeletadoEm == null))
+                return NotFound(new { mensagem = "Usuário não encontrado." });
+
+            var seguindo = await _context.seguidores
+                .AsNoTracking()
+                .Where(s => s.IdUsuarioSeguidor == id && s.UsuarioSeguido != null && s.UsuarioSeguido.DeletadoEm == null)
+                .OrderByDescending(s => s.DataSeguimento)
+                .Select(s => new
+                {
+                    idUsuario = s.UsuarioSeguido!.IdUsuario,
+                    nomeCompleto = s.UsuarioSeguido.NomeCompleto,
+                    username = s.UsuarioSeguido.Username,
+                    fotoPerfil = s.UsuarioSeguido.FotoPerfil,
+                    cidade = s.UsuarioSeguido.Cidade,
+                    uf = s.UsuarioSeguido.Uf,
+                    pais = s.UsuarioSeguido.Pais
+                })
+                .ToListAsync();
+
+            return Ok(seguindo);
+        }
+
+
         [Microsoft.AspNetCore.Authorization.Authorize]
         [HttpPost("{id:int}/seguir")]
         public async Task<IActionResult> SeguirUsuario(int id)

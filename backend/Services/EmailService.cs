@@ -2,7 +2,6 @@
 using MailKit.Security;
 using MimeKit;
 
-
 namespace Route_Books_api.Services
 {
     public class EmailService
@@ -14,29 +13,32 @@ namespace Route_Books_api.Services
             _configuration = configuration;
         }
 
-        public async Task EnviarContatoAsync(
-            string nome,
-            string email,
-            string mensagem)
+        private (string usuario, string senha, string destino) ObterConfiguracaoEmail()
         {
-            var emailOrigem = _configuration["Email:Usuario"];
-            var senha = _configuration["Email:Senha"];
-            var emailDestino = _configuration["Email:Destino"];
+            var usuario = _configuration["Email:Usuario"]?.Trim();
+            var senha = _configuration["Email:Senha"]?.Replace(" ", "").Trim();
+            var destino = _configuration["Email:Destino"]?.Trim();
+
+            if (string.IsNullOrWhiteSpace(usuario) || string.IsNullOrWhiteSpace(senha))
+                throw new InvalidOperationException("Serviço de e-mail não configurado no servidor (Email:Usuario ou Email:Senha ausentes).");
+
+            if (string.IsNullOrWhiteSpace(destino))
+                destino = usuario;
+
+            return (usuario, senha, destino);
+        }
+
+        public async Task EnviarContatoAsync(string nome, string email, string mensagem)
+        {
+            var (emailOrigem, senha, emailDestino) = ObterConfiguracaoEmail();
+
+            if (!MailboxAddress.TryParse(email, out var replyAddress))
+                throw new FormatException("E-mail do remetente inválido.");
 
             var message = new MimeMessage();
-
-            message.From.Add(
-                new MailboxAddress("Route Books", emailOrigem)
-            );
-
-            message.To.Add(
-                MailboxAddress.Parse(emailDestino)
-            );
-
-            message.ReplyTo.Add(
-                new MailboxAddress(nome, email)
-            );
-
+            message.From.Add(new MailboxAddress("Route Books", emailOrigem));
+            message.To.Add(MailboxAddress.Parse(emailDestino));
+            message.ReplyTo.Add(new MailboxAddress(nome, replyAddress.Address));
             message.Subject = "Novo contato pelo Route Books";
 
             message.Body = new TextPart("plain")
@@ -44,40 +46,26 @@ namespace Route_Books_api.Services
                 Text =
                     $"Novo contato recebido pelo site Route Books.\n\n" +
                     $"Nome: {nome}\n" +
-                    $"E-mail: {email}\n\n" +
+                    $"E-mail: {replyAddress.Address}\n\n" +
                     $"Mensagem:\n{mensagem}"
             };
 
             using var smtp = new SmtpClient();
-
-            await smtp.ConnectAsync(
-                "smtp.gmail.com",
-                587,
-                SecureSocketOptions.StartTls
-            );
-
-            await smtp.AuthenticateAsync(
-                emailOrigem,
-                senha
-            );
-
+            await smtp.ConnectAsync("smtp.gmail.com", 587, SecureSocketOptions.StartTls);
+            await smtp.AuthenticateAsync(emailOrigem, senha);
             await smtp.SendAsync(message);
-
             await smtp.DisconnectAsync(true);
         }
+
         public async Task EnviarEmailRecuperacaoAsync(string emailDestino, string nomeUsuario, int idUsuario)
         {
-            var emailOrigem = _configuration["Email:Usuario"];
-            var senha = _configuration["Email:Senha"];
+            var (emailOrigem, senha, _) = ObterConfiguracaoEmail();
 
             var message = new MimeMessage();
-
             message.From.Add(new MailboxAddress("Route Books", emailOrigem));
             message.To.Add(MailboxAddress.Parse(emailDestino));
             message.Subject = "Recuperação de Senha - Route Books";
 
-            // Aqui você pode montar o link que vai para o seu Front-end em React
-            // Exemplo: http://localhost:3000/nova-senha?id={idUsuario}
             message.Body = new TextPart("html")
             {
                 Text = $"<h3>Olá, {nomeUsuario}</h3>" +
@@ -87,8 +75,6 @@ namespace Route_Books_api.Services
             };
 
             using var smtp = new SmtpClient();
-
-            // Dica: use o SecureSocketOptions.Auto ou SslOnConnect dependendo da porta (587 usa StartTls)
             await smtp.ConnectAsync("smtp.gmail.com", 587, SecureSocketOptions.StartTls);
             await smtp.AuthenticateAsync(emailOrigem, senha);
             await smtp.SendAsync(message);

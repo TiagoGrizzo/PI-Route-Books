@@ -175,6 +175,7 @@ export default function FeedLayout({ children, aba = '', onSelect, onCreate, sho
           <NavLink to={caminhoCriarPost} className="feed-nav-link"><i className="fa fa-book" aria-hidden="true"></i><span>Diário de Bordo</span></NavLink>
           <button type="button" className={`feed-nav-link ${aba === 'meus' ? 'active' : ''}`} onClick={() => setAba('meus')}><i className="fa fa-map-o" aria-hidden="true"></i><span>Meus Roteiros</span></button>
           <button type="button" className={`feed-nav-link ${aba === 'salvos' ? 'active' : ''}`} onClick={() => setAba('salvos')}><i className="fa fa-bookmark-o" aria-hidden="true"></i><span>Salvos</span></button>
+          <NavLink to="/destinos-em-alta" className={({ isActive }) => "feed-nav-link" + (isActive ? " active" : "")}><i className="fa fa-bar-chart" aria-hidden="true"></i><span>Destinos em Alta</span></NavLink>
           <div className="feed-profile-more-row">
             <NavLink to={usuarioId ? '/perfil' : '/login'} className="feed-nav-link"><i className="fa fa-user-o" aria-hidden="true"></i><span>Perfil</span></NavLink>
             <button type="button" className="feed-more-button" aria-expanded={menuMaisAberto} onClick={() => setMenuMaisAberto((aberto) => !aberto)}>Mais</button>

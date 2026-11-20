@@ -112,7 +112,6 @@ a {
   bottom: 0;
   left: 0;
   width: 100%;
-  history: 4px;
   height: 4px;
   background: #00FA85;
 }
@@ -150,7 +149,6 @@ a {
   }
 }
 
-
 /* ==========================================
    TOAST LIGHT (Para telas de Login e Cadastro)
    ========================================== */
@@ -180,4 +178,3 @@ a {
 .toast-routebooks.toast-light .toast-progress {
   background: #005940 !important;
 }
-

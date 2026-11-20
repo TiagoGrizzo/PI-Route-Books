@@ -3,6 +3,8 @@ import FeedLayout from '../components/FeedLayout.jsx';
 import logoSobre from '../assets/imgs/rb-logo2.png';
 import fotoLucas from '../assets/imgs/foto_perfil3.jpg';
 import fotoTiago from '../assets/imgs/perfil-tiago.jfif';
+import fotoJoao from '../assets/imgs/foto-joao.jpg';
+import fotoLuis from '../assets/imgs/foto-luis.jpg';
 
 export default function Sobre() {
   return (
@@ -71,6 +73,48 @@ export default function Sobre() {
               <img src={fotoTiago} alt="Foto Tiago" />
             </div>
           </div>
+
+
+          <div className="sobre-integrantes">
+            <div className="sobre-texto">
+              <h3 className="titulo-font">João Pascuci</h3>
+              <p>
+                Sou o João Pascuci, tenho 20 anos e estudo na Fatec Jahu no curso de Desenvolvimento De Software Multiplataforma.
+                Assim como o outros membros participei ativamente nas partes de documentação do projeto, produção do
+                protótipo e na construção deste website.
+              </p>
+              <div className="sobre-redes">
+                <a href="https://www.instagram.com/?hl=pt-br" target="_blank" rel="noreferrer"><i className="fa fa-instagram" aria-hidden="true"></i></a>
+                <a href="https://www.linkedin.com/in/jo%C3%A3o-pedro-pascuci-de-russi-37a652358/" target="_blank" rel="noreferrer"><i className="fa fa-linkedin-square" aria-hidden="true"></i></a>
+                <a href="https://github.com/joaopedropdr" target="_blank" rel="noreferrer"><i className="fa fa-github" aria-hidden="true"></i></a>
+              </div>
+            </div>
+            <div className="perfil-sobre-integrantes">
+              <img src={fotoJoao} alt="Foto João" />
+            </div>
+          </div>
+
+
+
+          <div className="sobre-integrantes">
+            <div className="sobre-texto">
+              <h3 className="titulo-font">Luis Abdo</h3>
+              <p>
+                Sou o Luis Abdo, tenho 20 anos e estudo na Fatec Jahu no curso de Desenvolvimento De Software Multiplataforma.
+                Assim como o outros membros participei ativamente nas partes de documentação do projeto, produção do
+                protótipo e na construção deste website.
+              </p>
+              <div className="sobre-redes">
+                <a href="https://www.instagram.com/?hl=pt-br" target="_blank" rel="noreferrer"><i className="fa fa-instagram" aria-hidden="true"></i></a>
+                <a href="https://www.linkedin.com/in/luis-abdo-2a31a7352/" target="_blank" rel="noreferrer"><i className="fa fa-linkedin-square" aria-hidden="true"></i></a>
+                <a href="https://github.com/LuisAbdo" target="_blank" rel="noreferrer"><i className="fa fa-github" aria-hidden="true"></i></a>
+              </div>
+            </div>
+            <div className="perfil-sobre-integrantes">
+              <img src={fotoLuis} alt="Foto Luis" />
+            </div>
+          </div>
+
         </div>
       </section>
     </FeedLayout>

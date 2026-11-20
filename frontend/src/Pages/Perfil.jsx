@@ -1,17 +1,62 @@
 import VerifiedBadge from '../components/VerifiedBadge.jsx';
 import { useEffect, useRef, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
-import { editarPerfil, getPerfilPublico, getPostsPerfil, seguirUsuario, deixarDeSeguirUsuario } from '../api/Route-book.jsx';
+import api, {
+  editarPerfil,
+  getPerfilPublico,
+  getPostsPerfil,
+  getAventureiros,
+  getUsuariosSeguidos,
+  seguirUsuario,
+  deixarDeSeguirUsuario
+} from '../api/Route-book.jsx';
 import ProfilePhotoInput from '../components/ProfilePhotoInput.jsx';
 import FeedLayout from '../components/FeedLayout.jsx';
 import PostCard, { Avatar } from '../components/PostCard.jsx';
-import { urlDaApi } from '../components/postUtils.js';
+import { iniciais, urlDaApi } from '../components/postUtils.js';
+import GraficoDestinos from '../components/GraficosDestinos.jsx';
+
+function normalizarListaUsuarios(data) {
+  if (!data) return [];
+  const lista = Array.isArray(data)
+    ? data
+    : Array.isArray(data?.items)
+      ? data.items
+      : Array.isArray(data?.usuarios)
+        ? data.usuarios
+        : Array.isArray(data?.seguidores)
+          ? data.seguidores
+          : Array.isArray(data?.seguindo)
+            ? data.seguindo
+            : [];
+
+  return lista
+    .map(item => {
+      const pessoa = item?.usuario || item?.seguidor || item?.seguido || item?.perfil || item;
+      const idUsuario = Number(
+        pessoa?.idUsuario ?? pessoa?.IdUsuario ?? pessoa?.id ?? pessoa?.Id ?? item?.usuarioId ?? item?.seguidorId ?? item?.seguidoId
+      );
+      if (!idUsuario) return null;
+
+      return {
+        idUsuario,
+        nomeCompleto: pessoa?.nomeCompleto || pessoa?.NomeCompleto || pessoa?.nome || '',
+        username: pessoa?.username || pessoa?.Username || `aventureiro${idUsuario}`,
+        fotoPerfil: pessoa?.fotoPerfil || pessoa?.FotoPerfil || '',
+        cidade: pessoa?.cidade || pessoa?.Cidade || '',
+        uf: pessoa?.uf || pessoa?.UF || pessoa?.estado || '',
+        pais: pessoa?.pais || pessoa?.Pais || ''
+      };
+    })
+    .filter(Boolean);
+}
 
 export default function Perfil() {
   const { id: routeId } = useParams();
   const uid = Number(localStorage.getItem('UsuarioId')) || null;
   const id = Number(routeId) || uid;
   const proprio = id === uid;
+
   const [perfil, setPerfil] = useState(null);
   const [posts, setPosts] = useState([]);
   const [aba, setAba] = useState('posts');
@@ -26,6 +71,18 @@ export default function Perfil() {
   const [erroEdicao, setErroEdicao] = useState('');
   const [ocupado, setOcupado] = useState(false);
 
+  // Modal para visualizar foto de perfil ou banner/capa ampliada
+  const [modalMidia, setModalMidia] = useState(null);
+
+  // Modal para listar Seguindo / Seguidores
+  const [modalRelacao, setModalRelacao] = useState(null);
+  const [listaRelacao, setListaRelacao] = useState([]);
+  const [carregandoRelacao, setCarregandoRelacao] = useState(false);
+  const [erroRelacao, setErroRelacao] = useState('');
+  const [filtroRelacao, setFiltroRelacao] = useState('');
+  const [idsSeguidos, setIdsSeguidos] = useState(new Set());
+  const [seguindoLinhaId, setSeguindoLinhaId] = useState(null);
+
   // Estados para controlar o Toast personalizado na tela de Perfil
   const [toast, setToast] = useState({ show: false, message: '', type: 'success' });
 
@@ -38,81 +95,219 @@ export default function Perfil() {
     }, 4000);
   };
 
-  useEffect(() => { 
-    if (editando) document.querySelector('.profile-editor')?.scrollIntoView({ behavior: 'smooth', block: 'center' }); 
+  useEffect(() => {
+    if (editando) document.querySelector('.profile-editor')?.scrollIntoView({ behavior: 'smooth', block: 'center' });
   }, [editando]);
 
   useEffect(() => {
     let ativo = true; setPerfil(null); setEditando(false); setErro(''); setLoading(true);
     if (!id) { setLoading(false); return; }
-    getPerfilPublico(id).then(r => { if (ativo) setPerfil(r.data); }).catch(() => { if (ativo) setErro('Não foi possível carregar este perfil.'); }).finally(() => { if (ativo) setLoading(false); });
+    getPerfilPublico(id)
+      .then(r => { if (ativo) setPerfil(r.data); })
+      .catch(() => { if (ativo) setErro('Não foi possível carregar este perfil.'); })
+      .finally(() => { if (ativo) setLoading(false); });
     return () => { ativo = false; };
   }, [id, tentativa]);
 
   useEffect(() => {
     let ativo = true; setPosts([]); setErroPosts('');
-    if (!id) return;
+    if (!id || aba === 'estatisticas') { setLoadingPosts(false); return; }
     setLoadingPosts(true);
-    getPostsPerfil(id, aba).then(r => { if (ativo) setPosts(r.data); }).catch(() => { if (ativo) setErroPosts('Não foi possível carregar as publicações.'); }).finally(() => { if (ativo) setLoadingPosts(false); });
+    getPostsPerfil(id, aba)
+      .then(r => { if (ativo) setPosts(r.data); })
+      .catch(() => { if (ativo) setErroPosts('Não foi possível carregar as publicações.'); })
+      .finally(() => { if (ativo) setLoadingPosts(false); });
     return () => { ativo = false; };
   }, [id, aba, tentativa]);
 
-  const editar = () => { 
-    setForm({ nomeCompleto: perfil.nomeCompleto || '', biografia: perfil.biografia || '', cidade: perfil.cidade || '', uf: perfil.uf || '', pais: perfil.pais || '' }); 
-    setErroEdicao(''); 
-    setEditando(true); 
+  useEffect(() => {
+    if (!uid) { setIdsSeguidos(new Set()); return; }
+    let ativo = true;
+    getUsuariosSeguidos()
+      .then(r => {
+        if (!ativo) return;
+        const raw = Array.isArray(r.data) ? r.data : [];
+        const ids = raw
+          .map(item => Number(typeof item === 'object' ? (item?.idUsuario ?? item?.id ?? item?.seguidoId) : item))
+          .filter(Boolean);
+        setIdsSeguidos(new Set(ids));
+      })
+      .catch(() => { });
+    return () => { ativo = false; };
+  }, [uid]);
+
+  useEffect(() => {
+    if (!modalMidia && !modalRelacao) return;
+    const onKeyDown = e => {
+      if (e.key === 'Escape') {
+        setModalMidia(null);
+        setModalRelacao(null);
+      }
+    };
+    window.addEventListener('keydown', onKeyDown);
+    return () => window.removeEventListener('keydown', onKeyDown);
+  }, [modalMidia, modalRelacao]);
+
+  const editar = () => {
+    setForm({ nomeCompleto: perfil.nomeCompleto || '', biografia: perfil.biografia || '', cidade: perfil.cidade || '', uf: perfil.uf || '', pais: perfil.pais || '' });
+    setErroEdicao('');
+    setEditando(true);
+  };
+
+  const abrirVisualizacaoAvatar = () => {
+    if (!perfil) return;
+    setModalMidia({
+      tipo: 'avatar',
+      titulo: `Foto de perfil · ${perfil.nomeCompleto || perfil.username}`,
+      url: urlDaApi(perfil.fotoPerfil),
+      pessoa: perfil
+    });
+  };
+
+  const abrirVisualizacaoCapa = () => {
+    if (!perfil?.capaUrl) return;
+    setModalMidia({
+      tipo: 'capa',
+      titulo: `Capa do perfil · ${perfil.nomeCompleto || perfil.username}`,
+      url: urlDaApi(perfil.capaUrl),
+      pessoa: perfil
+    });
+  };
+
+  const abrirModalRelacao = async tipo => {
+    if (!id) return;
+    setModalRelacao(tipo);
+    setFiltroRelacao('');
+    setErroRelacao('');
+    setListaRelacao([]);
+    setCarregandoRelacao(true);
+
+    try {
+      const rotaTentativa = tipo === 'seguidores'
+        ? `/Usuarios/${id}/seguidores`
+        : `/Usuarios/${id}/seguindo`;
+
+      const resp = await api.get(rotaTentativa);
+      const normalizados = normalizarListaUsuarios(resp.data);
+      setListaRelacao(normalizados);
+    } catch {
+      if (tipo === 'seguindo' && proprio) {
+        try {
+          const [todosPerfisRes, seguidosLogadoRes] = await Promise.all([
+            getAventureiros(),
+            uid ? getUsuariosSeguidos().catch(() => ({ data: [] })) : Promise.resolve({ data: [] })
+          ]);
+
+          const todosPerfis = normalizarListaUsuarios(todosPerfisRes.data).filter(p => p.idUsuario !== id);
+          const rawSeguidosLogado = Array.isArray(seguidosLogadoRes.data) ? seguidosLogadoRes.data : [];
+          const setSeguidosLogado = new Set(
+            rawSeguidosLogado
+              .map(item => Number(typeof item === 'object' ? (item?.idUsuario ?? item?.id ?? item?.seguidoId) : item))
+              .filter(Boolean)
+          );
+
+          setListaRelacao(todosPerfis.filter(p => setSeguidosLogado.has(p.idUsuario)));
+        } catch {
+          setErroRelacao('Não foi possível carregar a lista de seguindo.');
+        }
+      } else {
+        setListaRelacao([]);
+      }
+    } finally {
+      setCarregandoRelacao(false);
+    }
+  };
+
+  const alternarSeguirNaLista = async alvoId => {
+    if (!uid || !alvoId || seguindoLinhaId === alvoId) return;
+    setSeguindoLinhaId(alvoId);
+    const jaSegue = idsSeguidos.has(alvoId);
+
+    try {
+      if (jaSegue) await deixarDeSeguirUsuario(alvoId);
+      else await seguirUsuario(alvoId);
+
+      setIdsSeguidos(prev => {
+        const next = new Set(prev);
+        if (jaSegue) next.delete(alvoId);
+        else next.add(alvoId);
+        return next;
+      });
+
+      if (proprio && modalRelacao === 'seguindo') {
+        setPerfil(p => p ? ({ ...p, seguindoCount: Math.max(0, (p.seguindoCount || 0) + (jaSegue ? -1 : 1)) }) : p);
+      }
+      if (Number(alvoId) === Number(id)) {
+        setPerfil(p => p ? ({ ...p, seguidoresCount: Math.max(0, (p.seguidoresCount || 0) + (jaSegue ? -1 : 1)) }) : p);
+      }
+    } catch {
+      dispararToast('Não foi possível atualizar quem você segue.', 'error');
+    } finally {
+      setSeguindoLinhaId(null);
+    }
   };
 
   const salvar = async e => {
-    e.preventDefault(); 
-    if (lock.current) return; 
-    lock.current = true; 
-    setSalvando(true); 
+    e.preventDefault();
+    if (lock.current) return;
+    lock.current = true;
+    setSalvando(true);
     setErroEdicao('');
-    
-    const dados = new FormData(); 
+
+    const dados = new FormData();
     Object.entries(form).forEach(([k, v]) => { if (v != null) dados.append(k, v); });
-    
-    try { 
-      const r = await editarPerfil(dados); 
-      setPerfil(r.data); 
-      setPosts(lista => lista.map(p => p.autor?.idUsuario === r.data.idUsuario ? { ...p, autor: { ...p.autor, nomeCompleto: r.data.nomeCompleto, fotoPerfil: r.data.fotoPerfil } } : p)); 
-      localStorage.setItem('NomeUsuario', r.data.nomeCompleto); 
-      window.dispatchEvent(new CustomEvent('routebooks-profile-updated', { detail: r.data })); 
-      setEditando(false); 
-      
+
+    try {
+      const r = await editarPerfil(dados);
+      setPerfil(r.data);
+      setPosts(lista => lista.map(p => p.autor?.idUsuario === r.data.idUsuario ? { ...p, autor: { ...p.autor, nomeCompleto: r.data.nomeCompleto, fotoPerfil: r.data.fotoPerfil } } : p));
+      localStorage.setItem('NomeUsuario', r.data.nomeCompleto);
+      window.dispatchEvent(new CustomEvent('routebooks-profile-updated', { detail: r.data }));
+      setEditando(false);
+
       // Dispara Toast de Sucesso customizado
       dispararToast('Alterações salvas com sucesso!', 'success');
     }
-    catch (e) { 
+    catch (e) {
       const msgErro = e.response?.data?.mensagem || 'Não foi possível salvar as alterações. Verifique sua conexão ou tente novamente.';
-      setErroEdicao(msgErro); 
-      
+      setErroEdicao(msgErro);
+
       // Dispara Toast de Erro customizado
       dispararToast(msgErro, 'error');
     }
-    finally { 
-      lock.current = false; 
-      setSalvando(false); 
+    finally {
+      lock.current = false;
+      setSalvando(false);
     }
   };
 
   const seguir = async () => {
-    if (ocupado) return; 
+    if (ocupado) return;
     setOcupado(true);
-    try { 
-      if (perfil.seguindo) await deixarDeSeguirUsuario(id); 
-      else await seguirUsuario(id); 
-      setPerfil(p => ({ ...p, seguindo: !p.seguindo, seguidoresCount: p.seguidoresCount + (p.seguindo ? -1 : 1) })); 
+    try {
+      if (perfil.seguindo) await deixarDeSeguirUsuario(id);
+      else await seguirUsuario(id);
+      setPerfil(p => ({ ...p, seguindo: !p.seguindo, seguidoresCount: p.seguidoresCount + (p.seguindo ? -1 : 1) }));
     }
-    catch { 
-      setErroEdicao('Não foi possível atualizar quem você segue.'); 
+    catch {
+      setErroEdicao('Não foi possível atualizar quem você segue.');
       dispararToast('Não foi possível atualizar quem você segue.', 'error');
     }
-    finally { 
-      setOcupado(false); 
+    finally {
+      setOcupado(false);
     }
   };
+
+  const pessoasFiltradas = listaRelacao.filter(p => {
+    if (!filtroRelacao.trim()) return true;
+    const termo = filtroRelacao.toLowerCase();
+    return (
+      (p.nomeCompleto || '').toLowerCase().includes(termo) ||
+      (p.username || '').toLowerCase().includes(termo) ||
+      (p.cidade || '').toLowerCase().includes(termo) ||
+      (p.pais || '').toLowerCase().includes(termo)
+    );
+  });
 
   return (
     <>
@@ -146,50 +341,79 @@ export default function Perfil() {
               <span>{perfil.postsCount} posts</span>
             </div>
           </header>
-          
+
           <section className="social-profile">
-            <div className={'profile-cover' + (!perfil.capaUrl ? ' no-cover' : '')}>
+            <div
+              className={'profile-cover' + (!perfil.capaUrl ? ' no-cover' : '')}
+              onClick={perfil.capaUrl ? abrirVisualizacaoCapa : undefined}
+              role={perfil.capaUrl ? 'button' : undefined}
+              tabIndex={perfil.capaUrl ? 0 : undefined}
+              onKeyDown={e => {
+                if (perfil.capaUrl && (e.key === 'Enter' || e.key === ' ')) {
+                  e.preventDefault();
+                  abrirVisualizacaoCapa();
+                }
+              }}
+              style={perfil.capaUrl ? { cursor: 'zoom-in' } : undefined}
+              title={perfil.capaUrl ? 'Clique para ampliar a capa' : undefined}
+            >
               {perfil.capaUrl ? <img src={urlDaApi(perfil.capaUrl)} alt="Capa do perfil" /> : <i className="fa fa-compass" aria-hidden="true" />}
             </div>
-            
+
             <div className="profile-identity">
               <div className="profile-avatar">
-                {proprio ? (
-                  <button type="button" className="profile-photo-button" onClick={editar} aria-label="Trocar foto do perfil">
-                    <Avatar pessoa={perfil} />
-                    <span><i className="fa fa-camera" aria-hidden="true" /></span>
-                  </button>
-                ) : <Avatar pessoa={perfil} />}
+                <button
+                  type="button"
+                  className="profile-photo-button"
+                  onClick={abrirVisualizacaoAvatar}
+                  aria-label="Ver foto do perfil"
+                  title="Clique para ver a foto ampliada"
+                >
+                  <Avatar pessoa={perfil} />
+                  <span><i className="fa fa-camera" aria-hidden="true" /></span>
+                </button>
               </div>
-              
+
               {proprio ? (
                 <button className="profile-edit-button" onClick={editar}>Editar perfil</button>
               ) : uid ? (
                 <button className="profile-edit-button" onClick={seguir} disabled={ocupado}>{perfil.seguindo ? 'Seguindo' : 'Seguir'}</button>
               ) : <Link to="/login" className="profile-edit-button">Seguir</Link>}
-              
+
               <h2>{perfil.nomeCompleto || perfil.username}<VerifiedBadge pessoa={perfil} /></h2>
               <p className="profile-handle">@{perfil.username}</p>
               <p className="profile-bio">{perfil.biografia || 'Uma nova aventura começa aqui.'}</p>
-              
+
               <div className="profile-metadata">
                 {(perfil.cidade || perfil.pais) && <span><i className="fa fa-map-marker" aria-hidden="true" /> {[perfil.cidade, perfil.uf, perfil.pais].filter(Boolean).join(', ')}</span>}
                 <span><i className="fa fa-calendar" aria-hidden="true" /> Membro desde {new Date(perfil.criadoEm).toLocaleDateString('pt-BR', { month: 'long', year: 'numeric' })}</span>
               </div>
-              
+
               <div className="profile-counts">
-                <span><strong>{perfil.seguindoCount}</strong> Seguindo</span>
-                <span><strong>{perfil.seguidoresCount}</strong> Seguidores</span>
+                <button
+                  type="button"
+                  onClick={() => abrirModalRelacao('seguindo')}
+                  style={{ background: 'none', border: 'none', color: 'inherit', padding: 0, cursor: 'pointer', font: 'inherit' }}
+                >
+                  <strong>{perfil.seguindoCount}</strong> Seguindo
+                </button>
+                <button
+                  type="button"
+                  onClick={() => abrirModalRelacao('seguidores')}
+                  style={{ background: 'none', border: 'none', color: 'inherit', padding: 0, cursor: 'pointer', font: 'inherit' }}
+                >
+                  <strong>{perfil.seguidoresCount}</strong> Seguidores
+                </button>
               </div>
             </div>
-            
+
             <div className="profile-tabs" role="group" aria-label="Publicações do perfil">
-              {[['posts', 'Posts'], ['midias', 'Mídias'], ['roteiros', 'Roteiros'], ['curtidas', 'Curtidas']].map(([key, label]) => (
+              {[['posts', 'Posts'], ['midias', 'Mídias'], ['roteiros', 'Roteiros'], ['curtidas', 'Curtidas'], ['estatisticas', 'Estatísticas']].map(([key, label]) => (
                 <button key={key} className={aba === key ? 'active' : ''} aria-pressed={aba === key} onClick={() => setAba(key)}>{label}</button>
               ))}
             </div>
           </section>
-          
+
           {editando && (
             <section className="profile-editor">
               <h2>Editar perfil</h2>
@@ -205,12 +429,12 @@ export default function Perfil() {
                       )}
                     </label>
                   ))}
-                  
+
                   <ProfilePhotoInput label="Foto do perfil" file={form.foto} current={urlDaApi(perfil.fotoPerfil)} onChange={foto => setForm(f => ({ ...f, foto }))} />
                   <ProfilePhotoInput label="Capa do perfil" file={form.capa} current={urlDaApi(perfil.capaUrl)} onChange={capa => setForm(f => ({ ...f, capa }))} />
-                  
+
                   <small>JPG, PNG ou WEBP; até 5 MB por imagem.</small>
-                  
+
                   <div className="profile-editor-actions">
                     <button type="button" onClick={() => setEditando(false)}>Cancelar</button>
                     <button className="social-green-button" type="submit">{salvando ? 'Salvando...' : 'Salvar alterações'}</button>
@@ -219,24 +443,289 @@ export default function Perfil() {
               </form>
             </section>
           )}
-          
+
           {erroEdicao && <p role="alert" className="feed-toast">{erroEdicao}</p>}
-          
-          {aba === 'roteiros' && <p className="feed-side-empty">Relatos com local adicionado.</p>}
-          
-          {loadingPosts ? (
-            <div className="feed-state-card">Carregando relatos...</div>
-          ) : erroPosts ? (
-            <div className="feed-state-card" role="alert">{erroPosts}<button onClick={() => setTentativa(n => n + 1)}>Tentar novamente</button></div>
-          ) : posts.length ? (
-            <div className="feed-post-list">
-              {posts.map(p => <PostCard key={p.idPost} post={p} onChange={novo => setPosts(lista => lista.map(item => item.idPost === novo.idPost ? novo : item).filter(item => aba !== 'curtidas' || !proprio || item.idPost !== novo.idPost || novo.meuVoto === 1))} />)}
-            </div>
+
+          {aba === 'estatisticas' ? (
+            <GraficoDestinos usuarioId={id} />
           ) : (
-            <div className="feed-state-card">Nenhuma publicação nesta aba ainda.</div>
+            <>
+              {aba === 'roteiros' && <p className="feed-side-empty">Relatos com local adicionado.</p>}
+
+              {loadingPosts ? (
+                <div className="feed-state-card">Carregando relatos...</div>
+              ) : erroPosts ? (
+                <div className="feed-state-card" role="alert">{erroPosts}<button onClick={() => setTentativa(n => n + 1)}>Tentar novamente</button></div>
+              ) : posts.length ? (
+                <div className="feed-post-list">
+                  {posts.map(p => <PostCard key={p.idPost} post={p} onChange={novo => setPosts(lista => lista.map(item => item.idPost === novo.idPost ? novo : item).filter(item => aba !== 'curtidas' || !proprio || item.idPost !== novo.idPost || novo.meuVoto === 1))} />)}
+                </div>
+              ) : (
+                <div className="feed-state-card">Nenhuma publicação nesta aba ainda.</div>
+              )}
+            </>
           )}
         </>}
       </FeedLayout>
+
+      {modalMidia && (
+        <div
+          onClick={() => setModalMidia(null)}
+          role="dialog"
+          aria-modal="true"
+          aria-label={modalMidia.titulo}
+          style={{
+            position: 'fixed',
+            inset: 0,
+            backgroundColor: 'rgba(0, 0, 0, 0.82)',
+            backdropFilter: 'blur(6px)',
+            zIndex: 9999,
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            padding: '20px'
+          }}
+        >
+          <div
+            onClick={e => e.stopPropagation()}
+            style={{
+              backgroundColor: '#11261f',
+              border: '1px solid rgba(16, 185, 129, 0.35)',
+              borderRadius: '16px',
+              maxWidth: modalMidia.tipo === 'capa' ? '820px' : '460px',
+              width: '100%',
+              padding: '18px',
+              boxShadow: '0 20px 50px rgba(0, 0, 0, 0.6)'
+            }}
+          >
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '14px', gap: '12px' }}>
+              <h3 style={{ margin: 0, color: '#f8fafc', fontSize: '1rem' }}>{modalMidia.titulo}</h3>
+              <button
+                type="button"
+                onClick={() => setModalMidia(null)}
+                aria-label="Fechar visualização"
+                style={{
+                  background: 'rgba(255,255,255,0.08)',
+                  border: 'none',
+                  color: '#f8fafc',
+                  width: '32px',
+                  height: '32px',
+                  borderRadius: '8px',
+                  cursor: 'pointer'
+                }}
+              >
+                <i className="fa fa-times" aria-hidden="true" />
+              </button>
+            </div>
+
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: '220px' }}>
+              {modalMidia.url ? (
+                <img
+                  src={modalMidia.url}
+                  alt={modalMidia.titulo}
+                  style={{
+                    maxWidth: '100%',
+                    maxHeight: '65vh',
+                    borderRadius: modalMidia.tipo === 'avatar' ? '50%' : '12px',
+                    width: modalMidia.tipo === 'avatar' ? '260px' : '100%',
+                    height: modalMidia.tipo === 'avatar' ? '260px' : 'auto',
+                    objectFit: 'cover',
+                    border: '2px solid rgba(16, 185, 129, 0.4)'
+                  }}
+                />
+              ) : (
+                <div
+                  style={{
+                    width: '160px',
+                    height: '160px',
+                    borderRadius: '50%',
+                    backgroundColor: '#1b3d31',
+                    color: '#ecfdf5',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    fontSize: '2.5rem',
+                    fontWeight: 700
+                  }}
+                >
+                  {iniciais(modalMidia.pessoa?.nomeCompleto || modalMidia.pessoa?.username || 'RB')}
+                </div>
+              )}
+            </div>
+
+            <div style={{ display: 'flex', justifyContent: 'flex-end', gap: '10px', marginTop: '16px' }}>
+              {proprio && (
+                <button
+                  type="button"
+                  className="social-green-button"
+                  onClick={() => {
+                    setModalMidia(null);
+                    editar();
+                  }}
+                >
+                  <i className="fa fa-pencil" aria-hidden="true" /> {modalMidia.tipo === 'capa' ? 'Editar capa' : 'Editar foto'}
+                </button>
+              )}
+              <button
+                type="button"
+                onClick={() => setModalMidia(null)}
+                style={{
+                  background: 'rgba(255,255,255,0.1)',
+                  border: 'none',
+                  color: '#e2e8f0',
+                  borderRadius: '10px',
+                  padding: '8px 14px',
+                  cursor: 'pointer'
+                }}
+              >
+                Fechar
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {modalRelacao && (
+        <div
+          onClick={() => setModalRelacao(null)}
+          role="dialog"
+          aria-modal="true"
+          aria-label={modalRelacao === 'seguidores' ? 'Seguidores' : 'Seguindo'}
+          style={{
+            position: 'fixed',
+            inset: 0,
+            backgroundColor: 'rgba(0, 0, 0, 0.78)',
+            backdropFilter: 'blur(5px)',
+            zIndex: 9999,
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            padding: '20px'
+          }}
+        >
+          <div
+            onClick={e => e.stopPropagation()}
+            style={{
+              backgroundColor: '#11261f',
+              border: '1px solid rgba(16, 185, 129, 0.35)',
+              borderRadius: '16px',
+              maxWidth: '480px',
+              width: '100%',
+              maxHeight: '80vh',
+              display: 'flex',
+              flexDirection: 'column',
+              overflow: 'hidden',
+              boxShadow: '0 20px 50px rgba(0, 0, 0, 0.6)'
+            }}
+          >
+            <div style={{ padding: '16px 18px', borderBottom: '1px solid rgba(255,255,255,0.08)', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+              <h3 style={{ margin: 0, color: '#f8fafc', fontSize: '1.05rem' }}>
+                {modalRelacao === 'seguidores' ? 'Seguidores' : 'Seguindo'} ({modalRelacao === 'seguidores' ? (perfil?.seguidoresCount ?? listaRelacao.length) : (perfil?.seguindoCount ?? listaRelacao.length)})
+              </h3>
+              <button
+                type="button"
+                onClick={() => setModalRelacao(null)}
+                aria-label="Fechar lista"
+                style={{
+                  background: 'rgba(255,255,255,0.08)',
+                  border: 'none',
+                  color: '#f8fafc',
+                  width: '32px',
+                  height: '32px',
+                  borderRadius: '8px',
+                  cursor: 'pointer'
+                }}
+              >
+                <i className="fa fa-times" aria-hidden="true" />
+              </button>
+            </div>
+
+            <div style={{ padding: '12px 18px', borderBottom: '1px solid rgba(255,255,255,0.06)' }}>
+              <input
+                type="search"
+                value={filtroRelacao}
+                onChange={e => setFiltroRelacao(e.target.value)}
+                placeholder="Buscar aventureiro na lista..."
+                style={{
+                  width: '100%',
+                  padding: '9px 12px',
+                  borderRadius: '10px',
+                  border: '1px solid rgba(255,255,255,0.14)',
+                  backgroundColor: '#0b1914',
+                  color: '#f8fafc',
+                  fontSize: '0.9rem',
+                  boxSizing: 'border-box'
+                }}
+              />
+            </div>
+
+            <div style={{ padding: '12px 18px', overflowY: 'auto', flex: 1 }}>
+              {carregandoRelacao ? (
+                <p style={{ color: '#94a3b8', textAlign: 'center', margin: '20px 0' }}>Carregando lista...</p>
+              ) : erroRelacao ? (
+                <p style={{ color: '#fca5a5', textAlign: 'center', margin: '20px 0' }}>{erroRelacao}</p>
+              ) : !pessoasFiltradas.length ? (
+                <p style={{ color: '#94a3b8', textAlign: 'center', margin: '20px 0' }}>
+                  {modalRelacao === 'seguidores'
+                    ? (perfil?.seguidoresCount > 0
+                      ? 'A API ainda não expôs os detalhes individuais dos seguidores.'
+                      : 'Nenhum seguidor encontrado.')
+                    : 'Ainda não segue ninguém por aqui.'}
+                </p>
+              ) : (
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
+                  {pessoasFiltradas.map(pessoa => {
+                    const jaSegue = idsSeguidos.has(pessoa.idUsuario);
+                    const localTexto = [pessoa.cidade, pessoa.uf, pessoa.pais].filter(Boolean).join(', ');
+
+                    return (
+                      <div
+                        key={pessoa.idUsuario}
+                        style={{
+                          display: 'flex',
+                          alignItems: 'center',
+                          justifyContent: 'space-between',
+                          gap: '12px',
+                          padding: '8px',
+                          borderRadius: '10px',
+                          backgroundColor: 'rgba(255,255,255,0.03)'
+                        }}
+                      >
+                        <Link
+                          to={`/perfil/${pessoa.idUsuario}`}
+                          onClick={() => setModalRelacao(null)}
+                          style={{ display: 'flex', alignItems: 'center', gap: '10px', textDecoration: 'none', color: 'inherit', minWidth: 0, flex: 1 }}
+                        >
+                          <Avatar pessoa={pessoa} />
+                          <div style={{ minWidth: 0 }}>
+                            <strong style={{ display: 'block', color: '#f8fafc', fontSize: '0.92rem', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
+                              {pessoa.nomeCompleto || pessoa.username}
+                            </strong>
+                            <small style={{ display: 'block', color: '#94a3b8', fontSize: '0.78rem', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
+                              @{pessoa.username}{localTexto ? ` · ${localTexto}` : ''}
+                            </small>
+                          </div>
+                        </Link>
+
+                        {uid && uid !== pessoa.idUsuario && (
+                          <button
+                            type="button"
+                            disabled={seguindoLinhaId === pessoa.idUsuario}
+                            onClick={() => alternarSeguirNaLista(pessoa.idUsuario)}
+                            className={`feed-follow-button ${jaSegue ? 'following' : ''}`}
+                          >
+                            {seguindoLinhaId === pessoa.idUsuario ? '...' : jaSegue ? 'Seguindo' : 'Seguir'}
+                          </button>
+                        )}
+                      </div>
+                    );
+                  })}
+                </div>
+              )}
+            </div>
+          </div>
+        </div>
+      )}
     </>
   );
 }

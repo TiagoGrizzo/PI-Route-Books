@@ -102,3 +102,5 @@ export const getTemporadas = () => api.get('/temporadas');
 export const getPerfilPublico = id => api.get('/perfis/' + id);
 export const getPostsPerfil = (id, aba) => api.get('/perfis/' + id + '/posts', { params: { aba } });
 export const editarPerfil = dados => api.patch('/perfis/me', dados, { headers: { 'Content-Type': undefined } });
+export const getEstatisticasDestinos = () => api.get('/Posts/estatisticas-destinos');
+export const getEstatisticasUsuario = (usuarioId) => api.get(`/Posts/estatisticas-usuario/${usuarioId}`);

@@ -11,8 +11,10 @@
     "test": "vitest"
   },
   "dependencies": {
+    "apexcharts": "^8.9.1",
     "axios": "^1.20.0",
     "react": "^19.2.8",
+    "react-apexcharts": "^2.2.1",
     "react-dom": "^19.2.8",
     "react-router-dom": "^7.18.4"
   },

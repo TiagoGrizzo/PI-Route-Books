@@ -31,6 +31,71 @@ namespace Route_Books_api.Controllers
             return Ok(await query.OrderByDescending(p => p.DataCriacao).ToListAsync());
         }
 
+
+        // GET: api/Posts/estatisticas-destinos
+        [HttpGet("estatisticas-destinos")]
+        [SwaggerOperation(Summary = "Top destinos mais curtidos e bem avaliados da plataforma")]
+        public async Task<IActionResult> GetEstatisticasDestinos()
+        {
+            var postsComLocal = await _context.posts
+                .AsNoTracking()
+                .Where(p => p.Status == "Ativo" && !string.IsNullOrWhiteSpace(p.Localizacao))
+                .Select(p => new
+                {
+                    Localizacao = p.Localizacao!.Trim(),
+                    CurtidasPositivas = p.Curtidas.Count(c => c.Valor == 1),
+                    Avaliacao = p.AvaliacaoLugar
+                })
+                .ToListAsync();
+
+            var ranking = postsComLocal
+                .GroupBy(p => p.Localizacao, StringComparer.OrdinalIgnoreCase)
+                .Select(g => new
+                {
+                    destino = g.First().Localizacao,
+                    totalCurtidas = g.Sum(x => x.CurtidasPositivas),
+                    mediaAvaliacao = g.Any(x => x.Avaliacao.HasValue)
+                        ? Math.Round(g.Where(x => x.Avaliacao.HasValue).Average(x => x.Avaliacao!.Value), 1)
+                        : 0m,
+                    totalRelatos = g.Count()
+                })
+                .OrderByDescending(x => x.totalCurtidas)
+                .ThenByDescending(x => x.mediaAvaliacao)
+                .Take(6)
+                .ToList();
+
+            return Ok(ranking);
+        }
+
+
+
+
+
+        // GET: api/Posts/estatisticas-usuario/5
+        [HttpGet("estatisticas-usuario/{usuarioId:int}")]
+        [SwaggerOperation(Summary = "Engajamento (curtidas e comentários) das publicações de um usuário")]
+        public async Task<IActionResult> GetEstatisticasUsuario(int usuarioId)
+        {
+            var postsUsuario = await _context.posts
+                .AsNoTracking()
+                .Where(p => p.UsuariosIdUsuario == usuarioId && p.Status == "Ativo")
+                .OrderByDescending(p => p.DataCriacao)
+                .Select(p => new
+                {
+                    rotulo = !string.IsNullOrWhiteSpace(p.Localizacao)
+                        ? p.Localizacao!.Trim()
+                        : (p.Titulo ?? $"Post #{p.IdPost}"),
+                    titulo = p.Titulo ?? $"Post #{p.IdPost}",
+                    curtidas = p.Curtidas.Count(c => c.Valor == 1),
+                    comentarios = p.Comentarios.Count
+                })
+                .Take(6)
+                .ToListAsync();
+
+            return Ok(postsUsuario);
+        }
+
+
         [HttpGet("{id:int}")]
         public async Task<IActionResult> GetPost(int id)
         {

@@ -112,7 +112,6 @@ export default function PostComposer({ usuarioId, nomeUsuario, fotoUsuario, aber
       <button type="button" disabled={publicando} onClick={() => abrirAcao('midia')}><i className="fa fa-picture-o" aria-hidden="true"></i> Fotos/Vídeo</button>
       <button type="button" disabled={publicando} onClick={() => abrirAcao('local')}><i className="fa fa-map-marker" aria-hidden="true"></i> Adicionar local</button>
       <button type="button" disabled={publicando} onClick={() => abrirAcao('avaliacao')}><i className="fa fa-star" aria-hidden="true"></i> Avaliar lugar</button>
-      {aberto && <Link to={usuarioId ? '/posts/criar' : '/login'}>Formulário completo</Link>}
     </div>
   );
 
