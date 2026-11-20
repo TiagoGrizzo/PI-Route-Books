@@ -128,11 +128,6 @@ namespace Route_Books_api.Controllers
                 post.DataCriacao = DateTime.UtcNow;
                 _context.posts.Add(post);
                 await _context.SaveChangesAsync();
-            } catch {
-                foreach(var caminho in salvos)if(System.IO.File.Exists(caminho))System.IO.File.Delete(caminho);
-
-                post.UsuariosIdUsuario = usuarioId; post.Status = acao == "rascunho" ? "Rascunho" : "Ativo"; post.DataCriacao = DateTime.UtcNow;
-                _context.posts.Add(post); await _context.SaveChangesAsync();
             }
             catch
             {
