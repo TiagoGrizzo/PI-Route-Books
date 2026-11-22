@@ -504,6 +504,150 @@ export default function Perfil() {
         </>}
       </FeedLayout>
 
+      {modalRelacao && (
+        <div
+          onClick={() => setModalRelacao(null)}
+          role="dialog"
+          aria-modal="true"
+          aria-label={modalRelacao === 'seguidores' ? 'Seguidores' : 'Seguindo'}
+          style={{
+            position: 'fixed',
+            inset: 0,
+            backgroundColor: 'rgba(0, 0, 0, 0.82)',
+            backdropFilter: 'blur(6px)',
+            zIndex: 9999,
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            padding: '20px'
+          }}
+        >
+          <div
+            onClick={e => e.stopPropagation()}
+            style={{
+              backgroundColor: '#11261f',
+              border: '1px solid rgba(16, 185, 129, 0.35)',
+              borderRadius: '16px',
+              maxWidth: '480px',
+              width: '100%',
+              maxHeight: '80vh',
+              display: 'flex',
+              flexDirection: 'column',
+              padding: '18px',
+              boxShadow: '0 20px 50px rgba(0, 0, 0, 0.6)'
+            }}
+          >
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '12px', gap: '12px' }}>
+              <h3 style={{ margin: 0, color: '#f8fafc', fontSize: '1rem' }}>
+                {modalRelacao === 'seguidores' ? 'Seguidores' : 'Seguindo'}
+              </h3>
+              <button
+                type="button"
+                onClick={() => setModalRelacao(null)}
+                aria-label="Fechar lista"
+                style={{
+                  background: 'rgba(255,255,255,0.08)',
+                  border: 'none',
+                  color: '#f8fafc',
+                  width: '32px',
+                  height: '32px',
+                  borderRadius: '8px',
+                  cursor: 'pointer'
+                }}
+              >
+                <i className="fa fa-times" aria-hidden="true" />
+              </button>
+            </div>
+
+            <input
+              type="search"
+              value={filtroRelacao}
+              onChange={e => setFiltroRelacao(e.target.value)}
+              placeholder="Buscar por nome, @usuário ou local..."
+              aria-label="Filtrar lista"
+              style={{
+                width: '100%',
+                padding: '9px 12px',
+                borderRadius: '10px',
+                border: '1px solid rgba(255,255,255,0.14)',
+                backgroundColor: 'rgba(0,0,0,0.25)',
+                color: '#f8fafc',
+                fontSize: '0.9rem',
+                marginBottom: '12px'
+              }}
+            />
+
+            <div style={{ overflowY: 'auto', display: 'flex', flexDirection: 'column', gap: '10px' }}>
+              {carregandoRelacao ? (
+                <p style={{ margin: '12px 0', color: '#cbd5e1', textAlign: 'center' }}>Carregando lista...</p>
+              ) : erroRelacao ? (
+                <p role="alert" style={{ margin: '12px 0', color: '#fca5a5', textAlign: 'center' }}>{erroRelacao}</p>
+              ) : pessoasFiltradas.length ? (
+                pessoasFiltradas.map(pessoa => {
+                  const jaSegue = idsSeguidos.has(pessoa.idUsuario);
+                  const estaSalvando = seguindoLinhaId === pessoa.idUsuario;
+                  const localTexto = [pessoa.cidade, pessoa.uf, pessoa.pais].filter(Boolean).join(', ');
+
+                  return (
+                    <div
+                      key={pessoa.idUsuario}
+                      style={{
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'space-between',
+                        gap: '12px',
+                        padding: '8px 10px',
+                        borderRadius: '12px',
+                        backgroundColor: 'rgba(255,255,255,0.04)'
+                      }}
+                    >
+                      <Link
+                        to={`/perfil/${pessoa.idUsuario}`}
+                        onClick={() => setModalRelacao(null)}
+                        style={{ display: 'flex', alignItems: 'center', gap: '10px', textDecoration: 'none', color: 'inherit', minWidth: 0, flex: 1 }}
+                      >
+                        <Avatar pessoa={pessoa} />
+                        <div style={{ minWidth: 0 }}>
+                          <div style={{ fontWeight: 600, color: '#f8fafc', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
+                            {pessoa.nomeCompleto || pessoa.username}
+                          </div>
+                          <div style={{ fontSize: '0.82rem', color: '#94a3b8', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
+                            @{pessoa.username}{localTexto ? ` · ${localTexto}` : ''}
+                          </div>
+                        </div>
+                      </Link>
+
+                      {uid && uid !== pessoa.idUsuario && (
+                        <button
+                          type="button"
+                          disabled={estaSalvando}
+                          onClick={() => alternarSeguirNaLista(pessoa.idUsuario)}
+                          className={jaSegue ? '' : 'social-green-button'}
+                          style={{
+                            padding: '6px 12px',
+                            borderRadius: '8px',
+                            border: jaSegue ? '1px solid #527b5d' : 0,
+                            background: jaSegue ? 'transparent' : undefined,
+                            color: jaSegue ? '#edf4eb' : undefined,
+                            fontSize: '0.82rem',
+                            cursor: 'pointer',
+                            flexShrink: 0
+                          }}
+                        >
+                          {estaSalvando ? '...' : jaSegue ? 'Seguindo' : 'Seguir'}
+                        </button>
+                      )}
+                    </div>
+                  );
+                })
+              ) : (
+                <p style={{ margin: '12px 0', color: '#94a3b8', textAlign: 'center' }}>Nenhum aventureiro encontrado.</p>
+              )}
+            </div>
+          </div>
+        </div>
+      )}
+
       {modalMidia && (
         <div
           onClick={() => setModalMidia(null)}
