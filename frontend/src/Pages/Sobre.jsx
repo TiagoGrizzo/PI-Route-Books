@@ -16,7 +16,7 @@ export default function Sobre() {
             <div className="sobre-texto">
               <h3 className="titulo-font">Route Books - Conheça nossa equipe!</h3>
               <p>
-                Conheça melhor a equipe desenvolvedora do site, composta por 2 integrantes da Fatec Jahu.
+                Conheça melhor a equipe desenvolvedora do site, composta por 4 integrantes da Fatec Jahu.
               </p>
               <div className="sobre-redes">
                 <i className="fa fa-instagram" aria-hidden="true"></i>

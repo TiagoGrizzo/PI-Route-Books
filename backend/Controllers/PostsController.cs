@@ -4,6 +4,7 @@ using Route_Books_api.Data;
 using Route_Books_api.Models;
 using Swashbuckle.AspNetCore.Annotations;
 using Microsoft.AspNetCore.Authorization;
+
 namespace Route_Books_api.Controllers
 {
     [Route("api/[controller]")]
@@ -19,6 +20,18 @@ namespace Route_Books_api.Controllers
 
         private int UsuarioAtual => int.TryParse(User.FindFirst(System.Security.Claims.ClaimTypes.NameIdentifier)?.Value, out var id) ? id : 0;
 
+        public class AtualizarPostRequest
+        {
+            public int IdPost { get; set; }
+            public string? Titulo { get; set; }
+            public string? Resumo { get; set; }
+            public string? Conteudo { get; set; }
+            public int? TiposIdTipo { get; set; }
+            public int? CategoriasIdCategoria { get; set; }
+            public string? Localizacao { get; set; }
+            public decimal? AvaliacaoLugar { get; set; }
+        }
+
         [HttpGet]
         public async Task<IActionResult> GetPosts([FromQuery] string? busca)
         {
@@ -30,7 +43,6 @@ namespace Route_Books_api.Controllers
             }
             return Ok(await query.OrderByDescending(p => p.DataCriacao).ToListAsync());
         }
-
 
         // GET: api/Posts/estatisticas-destinos
         [HttpGet("estatisticas-destinos")]
@@ -67,10 +79,6 @@ namespace Route_Books_api.Controllers
             return Ok(ranking);
         }
 
-
-
-
-
         // GET: api/Posts/estatisticas-usuario/5
         [HttpGet("estatisticas-usuario/{usuarioId:int}")]
         [SwaggerOperation(Summary = "Engajamento (curtidas e comentários) das publicações de um usuário")]
@@ -94,7 +102,6 @@ namespace Route_Books_api.Controllers
 
             return Ok(postsUsuario);
         }
-
 
         [HttpGet("{id:int}")]
         public async Task<IActionResult> GetPost(int id)
@@ -138,7 +145,6 @@ namespace Route_Books_api.Controllers
             if (post.TiposIdTipo.HasValue && !await _context.tipo.AnyAsync(t => t.IdTipo == post.TiposIdTipo))
                 return BadRequest(new { mensagem = "O tipo de viagem selecionado não existe." });
 
-            // Organizando as fotos da mesma publicação sem misturar vídeos e álbuns.
             var arquivos = fotosPost?.ToList() ?? new List<IFormFile>();
             if (fotoPost != null) arquivos.Insert(0, fotoPost);
             if (arquivos.Count > 10) return BadRequest(new { mensagem = "Envie até 10 fotos por publicação." });
@@ -179,16 +185,14 @@ namespace Route_Books_api.Controllers
 
                 post.UsuariosIdUsuario = usuarioId;
 
-                // Se for rascunho, continua rascunho. 
-                // Senão, se for Admin, o status vira "Ativo" direto. Se for usuário comum, vira "Pendente".
                 if (acao == "rascunho")
-                    {
-                        post.Status = "Rascunho";
-                    }
+                {
+                    post.Status = "Rascunho";
+                }
                 else
-                    {
-                        post.Status = User.IsInRole("Admin") ? "Ativo" : "Pendente";
-                    }
+                {
+                    post.Status = User.IsInRole("Admin") ? "Ativo" : "Pendente";
+                }
 
                 post.DataCriacao = DateTime.UtcNow;
                 _context.posts.Add(post);
@@ -209,48 +213,85 @@ namespace Route_Books_api.Controllers
         }
 
         // PUT: api/Posts/5
-        [HttpPut("{id}")]
-        [SwaggerOperation(Summary = "Atualizar post", Description = "Atualiza os dados de um post existente.")]
-        public async Task<IActionResult> UpdatePost(int id, [FromBody] Post post)
+        [Authorize]
+        [HttpPut("{id:int}")]
+        [SwaggerOperation(Summary = "Atualizar post", Description = "Atualiza os dados de um post pertencente ao usuário autenticado.")]
+        public async Task<IActionResult> UpdatePost(int id, [FromBody] AtualizarPostRequest req)
         {
-            if (id != post.IdPost)
-            {
-                return BadRequest(new { mensagem = "O ID da URL não confere com o ID do objeto." });
-            }
+            var usuarioId = UsuarioAtual;
+            if (usuarioId <= 0)
+                return Unauthorized(new { mensagem = "Entre na sua conta para editar." });
 
-            _context.Entry(post).State = EntityState.Modified;
+            if (req.IdPost != 0 && id != req.IdPost)
+                return BadRequest(new { mensagem = "O ID da URL não confere com o ID do post." });
 
-            try
-            {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!PostExists(id))
-                {
-                    return NotFound(new { mensagem = "Post não encontrado para atualização." });
-                }
-                else
-                {
-                    throw;
-                }
-            }
+            var existente = await _context.posts.FindAsync(id);
+            if (existente == null)
+                return NotFound(new { mensagem = "Post não encontrado para atualização." });
 
-            return Ok(new { mensagem = "Post atualizado com sucesso!", post });
+            if (existente.UsuariosIdUsuario != usuarioId && !User.IsInRole("Admin"))
+                return StatusCode(403, new { mensagem = "Você só pode editar as suas próprias publicações." });
+
+            var titulo = req.Titulo?.Trim();
+            var conteudo = req.Conteudo?.Trim();
+            var resumo = string.IsNullOrWhiteSpace(req.Resumo) ? null : req.Resumo.Trim();
+            var localizacao = string.IsNullOrWhiteSpace(req.Localizacao) ? null : req.Localizacao.Trim();
+
+            if (string.IsNullOrWhiteSpace(titulo) || string.IsNullOrWhiteSpace(conteudo))
+                return BadRequest(new { mensagem = "Preencha o título e o relato da viagem." });
+
+            if (localizacao?.Length > 180)
+                return BadRequest(new { mensagem = "O local pode ter até 180 caracteres." });
+
+            if (req.AvaliacaoLugar.HasValue && (req.AvaliacaoLugar.Value < 1 || req.AvaliacaoLugar.Value > 5))
+                return BadRequest(new { mensagem = "A avaliação deve ser entre 1 e 5 estrelas." });
+
+            if (req.CategoriasIdCategoria.HasValue && req.CategoriasIdCategoria.Value > 0 &&
+                !await _context.categorias.AnyAsync(c => c.Id == req.CategoriasIdCategoria.Value))
+                return BadRequest(new { mensagem = "A categoria selecionada não existe." });
+
+            if (req.TiposIdTipo.HasValue && req.TiposIdTipo.Value > 0 &&
+                !await _context.tipo.AnyAsync(t => t.IdTipo == req.TiposIdTipo.Value))
+                return BadRequest(new { mensagem = "O tipo de viagem selecionado não existe." });
+
+            existente.Titulo = titulo;
+            existente.Resumo = resumo;
+            existente.Conteudo = conteudo;
+            existente.Localizacao = localizacao;
+            existente.AvaliacaoLugar = req.AvaliacaoLugar;
+
+            if (req.CategoriasIdCategoria.HasValue && req.CategoriasIdCategoria.Value > 0)
+                existente.CategoriasIdCategoria = req.CategoriasIdCategoria.Value;
+
+            if (req.TiposIdTipo.HasValue && req.TiposIdTipo.Value > 0)
+                existente.TiposIdTipo = req.TiposIdTipo.Value;
+
+            await _context.SaveChangesAsync();
+
+            return Ok(new { mensagem = "Post atualizado com sucesso!", post = existente });
         }
 
         // DELETE: api/Posts/5
-        [HttpDelete("{id}")]
-        [SwaggerOperation(Summary = "Excluir post", Description = "Remove um post do sistema e apaga a imagem associada se existir.")]
+        [Authorize]
+        [HttpDelete("{id:int}")]
+        [SwaggerOperation(Summary = "Excluir post", Description = "Remove um post pertencente ao usuário autenticado e apaga a mídia associada se existir.")]
         public async Task<IActionResult> DeletePost(int id)
         {
+            var usuarioId = UsuarioAtual;
+            if (usuarioId <= 0)
+                return Unauthorized(new { mensagem = "Entre na sua conta para excluir." });
+
             var post = await _context.posts.FindAsync(id);
             if (post == null)
-            {
                 return NotFound(new { mensagem = "Post não encontrado." });
-            }
 
-            var midias = string.IsNullOrEmpty(post.ImagensJson) ? Array.Empty<string>() : System.Text.Json.JsonSerializer.Deserialize<string[]>(post.ImagensJson) ?? Array.Empty<string>();
+            if (post.UsuariosIdUsuario != usuarioId && !User.IsInRole("Admin"))
+                return StatusCode(403, new { mensagem = "Você só pode excluir as suas próprias publicações." });
+
+            var midias = string.IsNullOrEmpty(post.ImagensJson)
+                ? Array.Empty<string>()
+                : System.Text.Json.JsonSerializer.Deserialize<string[]>(post.ImagensJson) ?? Array.Empty<string>();
+
             foreach (var url in midias.Append(post.ImagemUrl ?? "").Distinct())
             {
                 if (!url.StartsWith("/imgs/posts-usuarios/")) continue;
@@ -263,11 +304,11 @@ namespace Route_Books_api.Controllers
 
             return Ok(new { mensagem = "Post excluído com sucesso!" });
         }
+
         [HttpGet("create")]
         [Authorize]
         public async Task<IActionResult> CreateData()
         {
-            // Tenta pegar o ID do usuário logado via Claims (caso o [Authorize] já valide o Cookie do JWT)
             var userIdClaim = User.FindFirst(System.Security.Claims.ClaimTypes.NameIdentifier)?.Value;
             int? usuarioLogadoId = null;
             if (int.TryParse(userIdClaim, out var parsedId))
@@ -300,10 +341,7 @@ namespace Route_Books_api.Controllers
                 tipos = tipos
             });
         }
-        private bool PostExists(int id)
-        {
-            return _context.posts.Any(e => e.IdPost == id);
-        }
+
         // GET: api/Posts/pendentes
         [HttpGet("pendentes")]
         [Authorize(Roles = "Admin")]
@@ -342,4 +380,3 @@ namespace Route_Books_api.Controllers
         }
     }
 }
-

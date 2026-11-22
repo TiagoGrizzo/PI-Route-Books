@@ -72,6 +72,8 @@ export const getPosts = (busca) => api.get("/Posts", { params: busca ? { busca }
 export const getUltimosPosts = (busca) => api.get("/Posts", { params: busca ? { busca } : {} });
 
 export const createPost = (formData) => api.post('/Posts', formData, { headers: { 'Content-Type': undefined } });
+export const updatePost = (id, payload) => api.put(`/Posts/${id}`, payload);
+export const deletePost = (id) => api.delete(`/Posts/${id}`);
 // GET: api/Posts/create (Busca categorias, tipos e rascunho para a tela de criação)
 export const getCreatePostData = () => api.get("/Posts/create");
 

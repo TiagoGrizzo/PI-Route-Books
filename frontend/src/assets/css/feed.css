@@ -789,7 +789,6 @@ body.route-feed-active .feed-layout-main {
   border: 1px solid var(--feed-line);
   border-radius: 20px;
   color: white;
-  background: #164933;
   cursor: pointer;
 }
 

@@ -1,5 +1,5 @@
 import VerifiedBadge from './VerifiedBadge.jsx';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Link, NavLink, useNavigate, useSearchParams } from 'react-router-dom';
 import { logout, getComunidades, getPerfilPublico, getAventureiros, getUsuariosSeguidos, seguirUsuario, deixarDeSeguirUsuario, getNaoLidas } from '../api/Route-book.jsx';
 import { iniciais, urlDaApi } from './postUtils.js';
@@ -22,6 +22,10 @@ export default function FeedLayout({ children, aba = '', onSelect, onCreate, sho
   const [seguindoIdsCarregando, setSeguindoIdsCarregando] = useState(new Set());
   const [menuMaisAberto, setMenuMaisAberto] = useState(false);
   const [mensagem, setMensagem] = useState('');
+  const [toast, setToast] = useState(null);
+  const [toastVisivel, setToastVisivel] = useState(false);
+  const toastTimerRef = useRef(null);
+  const toastHideTimerRef = useRef(null);
   const [sessaoExpirada, setSessaoExpirada] = useState(false);
   const [comunidades, setComunidades] = useState([]);
   const [erroComunidades, setErroComunidades] = useState(false);
@@ -39,13 +43,53 @@ export default function FeedLayout({ children, aba = '', onSelect, onCreate, sho
   };
   const carregarComunidades = () => getComunidades().then(r => { setComunidades(r.data); setErroComunidades(false); }).catch(() => setErroComunidades(true));
   useEffect(() => { carregarComunidades(); }, []);
+
+  const fecharToast = () => {
+    if (toastTimerRef.current) clearTimeout(toastTimerRef.current);
+    if (toastHideTimerRef.current) clearTimeout(toastHideTimerRef.current);
+    setToastVisivel(false);
+    toastHideTimerRef.current = setTimeout(() => setToast(null), 600);
+  };
+
   useEffect(() => {
     const expirar = () => setSessaoExpirada(true);
     const atualizar = e => setPerfilUsuario(e.detail);
+    const aoReceberToast = e => {
+      const msg = e?.detail?.mensagem;
+      if (!msg) return;
+      if (toastTimerRef.current) clearTimeout(toastTimerRef.current);
+      if (toastHideTimerRef.current) clearTimeout(toastHideTimerRef.current);
+
+      const tipo = e?.detail?.tipo || 'sucesso';
+      const titulo = e?.detail?.titulo || (tipo === 'erro' ? 'Ops!' : 'Tudo certo!');
+
+      setToastVisivel(false);
+      setToast({ id: Date.now(), titulo, mensagem: msg, tipo });
+
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          setToastVisivel(true);
+        });
+      });
+
+      toastTimerRef.current = setTimeout(() => {
+        setToastVisivel(false);
+        toastHideTimerRef.current = setTimeout(() => setToast(null), 600);
+      }, 4000);
+    };
+
     window.addEventListener('routebooks-session-expired', expirar);
     window.addEventListener('routebooks-profile-updated', atualizar);
-    return () => { window.removeEventListener('routebooks-session-expired', expirar); window.removeEventListener('routebooks-profile-updated', atualizar); };
+    window.addEventListener('routebooks-toast', aoReceberToast);
+    return () => {
+      window.removeEventListener('routebooks-session-expired', expirar);
+      window.removeEventListener('routebooks-profile-updated', atualizar);
+      window.removeEventListener('routebooks-toast', aoReceberToast);
+      if (toastTimerRef.current) clearTimeout(toastTimerRef.current);
+      if (toastHideTimerRef.current) clearTimeout(toastHideTimerRef.current);
+    };
   }, []);
+
   const nomeUsuario = usuarioId ? (perfilUsuario?.nomeCompleto || localStorage.getItem('NomeUsuario') || 'Aventureiro') : 'Entrar';
   const localUsuario = [perfilUsuario?.cidade, perfilUsuario?.pais].filter(Boolean).join(', ') || 'Local não informado';
   const fotoUsuario = urlDaApi(perfilUsuario?.fotoPerfil);
@@ -136,7 +180,36 @@ export default function FeedLayout({ children, aba = '', onSelect, onCreate, sho
     } catch { setMensagem('Não foi possível seguir esse aventureiro. Entre na sua conta e tente novamente.'); }
     finally { setSeguindoIdsCarregando(s => { const next = new Set(s); next.delete(pessoa.idUsuario); return next; }); }
   };
+
+  const ehErroToast = toast?.tipo === 'erro';
+
   return <div className={"route-feed" + (!showRight ? " feed-without-right" : "")}>
+    {toast && (
+      <div
+        key={toast.id}
+        className={`toast-routebooks ${ehErroToast ? 'toast-erro' : ''} ${toastVisivel ? 'show' : ''}`}
+        role="status"
+        aria-live="polite"
+      >
+        <div className="toast-icon">
+          <i className={`fa ${ehErroToast ? 'fa-exclamation-circle' : 'fa-check'}`} aria-hidden="true"></i>
+        </div>
+        <div className="toast-content">
+          <h5>{toast.titulo}</h5>
+          <p>{toast.mensagem}</p>
+        </div>
+        <button
+          type="button"
+          className="toast-close"
+          onClick={fecharToast}
+          aria-label="Fechar notificação"
+        >
+          <i className="fa fa-times" aria-hidden="true"></i>
+        </button>
+        <div className="toast-progress"></div>
+      </div>
+    )}
+
     <header className="feed-topbar">
       <Link to="/" className="feed-brand" aria-label="Route Books, início">
         <img src={logoOficial} alt="Route Books" />

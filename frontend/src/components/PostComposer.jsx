@@ -70,16 +70,35 @@ export default function PostComposer({ usuarioId, nomeUsuario, fotoUsuario, aber
     if (envioRef.current || !usuarioId) return;
     setErro('');
     setSucesso('');
+
+    const localLimpo = localizacao.trim();
+    const semLocal = !localLimpo;
+    const semAvaliacao = !avaliacao;
+
     if (!titulo.trim() || !conteudo.trim()) { setErro('Preencha o título e o relato da viagem.'); return; }
     if (!tipoId || !categoriaId) { setErro('Selecione o tipo de viagem e a categoria.'); return; }
+
+    if (semLocal || semAvaliacao) {
+      if (semLocal) setMostrarLocal(true);
+      if (semAvaliacao) setMostrarAvaliacao(true);
+
+      if (semLocal && semAvaliacao) {
+        setErro('Adicione o local da aventura e avalie o lugar antes de publicar.');
+      } else if (semLocal) {
+        setErro('Adicione o local da aventura antes de publicar.');
+      } else {
+        setErro('Avalie o lugar (de 1 a 5 estrelas) antes de publicar.');
+      }
+      return;
+    }
 
     const dados = new FormData();
     Object.entries({
       Titulo: titulo.trim(), Resumo: resumo.trim(), Conteudo: conteudo.trim(),
       TiposIdTipo: tipoId, CategoriasIdCategoria: categoriaId, acao: 'publicar',
-      Localizacao: mostrarLocal ? localizacao.trim() : ''
+      Localizacao: localLimpo
     }).forEach(([campo, valor]) => dados.append(campo, valor));
-    if (mostrarAvaliacao && avaliacao) dados.append('AvaliacaoLugar', String(avaliacao));
+    if (avaliacao) dados.append('AvaliacaoLugar', String(avaliacao));
     midia.forEach(arquivo => dados.append('fotosPost', arquivo));
 
     envioRef.current = true;
@@ -135,7 +154,7 @@ export default function PostComposer({ usuarioId, nomeUsuario, fotoUsuario, aber
             </div>
             {erroOpcoes && <div className="feed-composer-message error" role="alert">{erroOpcoes} <button type="button" onClick={() => setTentativa((atual) => atual + 1)}>Tentar novamente</button></div>}
             {!!midia.length && <PhotoSelection files={midia} onRemove={i => setMidia(lista => lista.filter((_, j) => j !== i))} />}
-            {mostrarLocal && <div className="feed-composer-location"><i className="fa fa-map-marker" aria-hidden="true"></i><input className="feed-composer-writing" value={localizacao} onChange={(e) => setLocalizacao(e.target.value)} placeholder="Onde foi essa aventura?" maxLength="180" aria-label="Local da aventura" /><button type="button" onClick={() => { setMostrarLocal(false); setLocalizacao(''); }} aria-label="Remover local">×</button></div>}
+            {mostrarLocal && <div className="feed-composer-location"><i className="fa fa-map-marker" aria-hidden="true"></i><input className="feed-composer-writing" value={localizacao} onChange={(e) => setLocalizacao(e.target.value)} placeholder="Onde foi essa aventura? (Ex: Local, País)" maxLength="180" aria-label="Local da aventura" /><button type="button" onClick={() => { setMostrarLocal(false); setLocalizacao(''); }} aria-label="Remover local">×</button></div>}
             {mostrarAvaliacao && <div className="feed-composer-rating" role="group" aria-label="Avaliação do lugar"><span>Avalie o lugar:</span>{[1, 2, 3, 4, 5].map((nota) => <button key={nota} type="button" className={nota <= avaliacao ? 'selected' : ''} aria-pressed={nota === avaliacao} onClick={() => setAvaliacao(nota)} aria-label={nota + (nota === 1 ? ' estrela' : ' estrelas')}><i className="fa fa-star" aria-hidden="true"></i></button>)}<button className="feed-composer-clear-rating" type="button" onClick={() => { setAvaliacao(0); setMostrarAvaliacao(false); }}>Limpar</button></div>}
             {acoes}
             {erro && <p className="feed-composer-message error" role="alert">{erro}{erro.includes('sessão expirou') && <> <Link to="/login">Entrar</Link></>}</p>}

@@ -1,6 +1,6 @@
 import VerifiedBadge from '../components/VerifiedBadge.jsx';
 import { useEffect, useRef, useState } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { Link, useParams, useSearchParams } from 'react-router-dom';
 import api, {
   editarPerfil,
   getPerfilPublico,
@@ -15,6 +15,8 @@ import FeedLayout from '../components/FeedLayout.jsx';
 import PostCard, { Avatar } from '../components/PostCard.jsx';
 import { iniciais, urlDaApi } from '../components/postUtils.js';
 import GraficoDestinos from '../components/GraficosDestinos.jsx';
+
+const ABAS_VALIDAS = ['posts', 'midias', 'roteiros', 'curtidas', 'estatisticas'];
 
 function normalizarListaUsuarios(data) {
   if (!data) return [];
@@ -53,13 +55,16 @@ function normalizarListaUsuarios(data) {
 
 export default function Perfil() {
   const { id: routeId } = useParams();
+  const [searchParams, setSearchParams] = useSearchParams();
+  const abaUrl = searchParams.get('aba');
+
   const uid = Number(localStorage.getItem('UsuarioId')) || null;
   const id = Number(routeId) || uid;
   const proprio = id === uid;
 
   const [perfil, setPerfil] = useState(null);
   const [posts, setPosts] = useState([]);
-  const [aba, setAba] = useState('posts');
+  const [aba, setAba] = useState(() => (ABAS_VALIDAS.includes(abaUrl) ? abaUrl : 'posts'));
   const [loading, setLoading] = useState(true);
   const [loadingPosts, setLoadingPosts] = useState(false);
   const [erro, setErro] = useState('');
@@ -94,6 +99,12 @@ export default function Perfil() {
       setToast(prev => ({ ...prev, show: false }));
     }, 4000);
   };
+
+  useEffect(() => {
+    if (ABAS_VALIDAS.includes(abaUrl) && abaUrl !== aba) {
+      setAba(abaUrl);
+    }
+  }, [abaUrl, aba]);
 
   useEffect(() => {
     if (editando) document.querySelector('.profile-editor')?.scrollIntoView({ behavior: 'smooth', block: 'center' });
@@ -147,6 +158,11 @@ export default function Perfil() {
     window.addEventListener('keydown', onKeyDown);
     return () => window.removeEventListener('keydown', onKeyDown);
   }, [modalMidia, modalRelacao]);
+
+  const selecionarAba = novaAba => {
+    setAba(novaAba);
+    setSearchParams(novaAba === 'posts' ? {} : { aba: novaAba }, { replace: true });
+  };
 
   const editar = () => {
     setForm({ nomeCompleto: perfil.nomeCompleto || '', biografia: perfil.biografia || '', cidade: perfil.cidade || '', uf: perfil.uf || '', pais: perfil.pais || '' });
@@ -265,14 +281,12 @@ export default function Perfil() {
       window.dispatchEvent(new CustomEvent('routebooks-profile-updated', { detail: r.data }));
       setEditando(false);
 
-      // Dispara Toast de Sucesso customizado
       dispararToast('Alterações salvas com sucesso!', 'success');
     }
     catch (e) {
       const msgErro = e.response?.data?.mensagem || 'Não foi possível salvar as alterações. Verifique sua conexão ou tente novamente.';
       setErroEdicao(msgErro);
 
-      // Dispara Toast de Erro customizado
       dispararToast(msgErro, 'error');
     }
     finally {
@@ -296,6 +310,14 @@ export default function Perfil() {
     finally {
       setOcupado(false);
     }
+  };
+
+  const handleExcluirPost = idExcluido => {
+    setPosts(lista => lista.filter(item => Number(item.idPost) !== Number(idExcluido)));
+    if (proprio && aba === 'posts') {
+      setPerfil(p => p ? ({ ...p, postsCount: Math.max(0, (p.postsCount || 0) - 1) }) : p);
+    }
+    dispararToast('Publicação excluída com sucesso!', 'success');
   };
 
   const pessoasFiltradas = listaRelacao.filter(p => {
@@ -409,7 +431,14 @@ export default function Perfil() {
 
             <div className="profile-tabs" role="group" aria-label="Publicações do perfil">
               {[['posts', 'Posts'], ['midias', 'Mídias'], ['roteiros', 'Roteiros'], ['curtidas', 'Curtidas'], ['estatisticas', 'Estatísticas']].map(([key, label]) => (
-                <button key={key} className={aba === key ? 'active' : ''} aria-pressed={aba === key} onClick={() => setAba(key)}>{label}</button>
+                <button
+                  key={key}
+                  className={aba === key ? 'active' : ''}
+                  aria-pressed={aba === key}
+                  onClick={() => selecionarAba(key)}
+                >
+                  {label}
+                </button>
               ))}
             </div>
           </section>
@@ -458,7 +487,14 @@ export default function Perfil() {
                 <div className="feed-state-card" role="alert">{erroPosts}<button onClick={() => setTentativa(n => n + 1)}>Tentar novamente</button></div>
               ) : posts.length ? (
                 <div className="feed-post-list">
-                  {posts.map(p => <PostCard key={p.idPost} post={p} onChange={novo => setPosts(lista => lista.map(item => item.idPost === novo.idPost ? novo : item).filter(item => aba !== 'curtidas' || !proprio || item.idPost !== novo.idPost || novo.meuVoto === 1))} />)}
+                  {posts.map(p => (
+                    <PostCard
+                      key={p.idPost}
+                      post={p}
+                      onChange={novo => setPosts(lista => lista.map(item => item.idPost === novo.idPost ? novo : item).filter(item => aba !== 'curtidas' || !proprio || item.idPost !== novo.idPost || novo.meuVoto === 1))}
+                      onDelete={handleExcluirPost}
+                    />
+                  ))}
                 </div>
               ) : (
                 <div className="feed-state-card">Nenhuma publicação nesta aba ainda.</div>
@@ -492,13 +528,13 @@ export default function Perfil() {
               backgroundColor: '#11261f',
               border: '1px solid rgba(16, 185, 129, 0.35)',
               borderRadius: '16px',
-              maxWidth: modalMidia.tipo === 'capa' ? '820px' : '460px',
+              maxWidth: modalMidia.tipo === 'capa' ? '900px' : '420px',
               width: '100%',
               padding: '18px',
               boxShadow: '0 20px 50px rgba(0, 0, 0, 0.6)'
             }}
           >
-            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '14px', gap: '12px' }}>
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '16px', gap: '12px' }}>
               <h3 style={{ margin: 0, color: '#f8fafc', fontSize: '1rem' }}>{modalMidia.titulo}</h3>
               <button
                 type="button"
@@ -518,209 +554,86 @@ export default function Perfil() {
               </button>
             </div>
 
-            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: '220px' }}>
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
               {modalMidia.url ? (
                 <img
                   src={modalMidia.url}
                   alt={modalMidia.titulo}
-                  style={{
-                    maxWidth: '100%',
-                    maxHeight: '65vh',
-                    borderRadius: modalMidia.tipo === 'avatar' ? '50%' : '12px',
-                    width: modalMidia.tipo === 'avatar' ? '260px' : '100%',
-                    height: modalMidia.tipo === 'avatar' ? '260px' : 'auto',
-                    objectFit: 'cover',
-                    border: '2px solid rgba(16, 185, 129, 0.4)'
-                  }}
+                  style={
+                    modalMidia.tipo === 'capa'
+                      ? {
+                          display: 'block',
+                          width: '100%',
+                          aspectRatio: '3 / 1',
+                          maxHeight: '320px',
+                          borderRadius: '12px',
+                          objectFit: 'cover'
+                        }
+                      : {
+                          display: 'block',
+                          width: '210px',
+                          height: '210px',
+                          borderRadius: '50%',
+                          objectFit: 'cover',
+                          border: '3px solid rgba(16, 185, 129, 0.45)'
+                        }
+                  }
                 />
               ) : (
                 <div
                   style={{
-                    width: '160px',
-                    height: '160px',
+                    width: '210px',
+                    height: '210px',
                     borderRadius: '50%',
-                    backgroundColor: '#1b3d31',
-                    color: '#ecfdf5',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
-                    fontSize: '2.5rem',
-                    fontWeight: 700
+                    fontSize: '56px',
+                    fontWeight: 700,
+                    color: '#fff',
+                    background: 'linear-gradient(140deg, #5c9974, #234b40)',
+                    border: '3px solid rgba(16, 185, 129, 0.45)'
                   }}
                 >
-                  {iniciais(modalMidia.pessoa?.nomeCompleto || modalMidia.pessoa?.username || 'RB')}
+                  {iniciais(modalMidia.pessoa?.nomeCompleto || modalMidia.pessoa?.username || 'Aventureiro')}
                 </div>
               )}
             </div>
 
-            <div style={{ display: 'flex', justifyContent: 'flex-end', gap: '10px', marginTop: '16px' }}>
-              {proprio && (
-                <button
-                  type="button"
-                  className="social-green-button"
-                  onClick={() => {
-                    setModalMidia(null);
-                    editar();
-                  }}
-                >
-                  <i className="fa fa-pencil" aria-hidden="true" /> {modalMidia.tipo === 'capa' ? 'Editar capa' : 'Editar foto'}
-                </button>
-              )}
+            <div style={{ display: 'flex', justifyContent: 'flex-end', gap: '10px', marginTop: '18px' }}>
               <button
                 type="button"
                 onClick={() => setModalMidia(null)}
                 style={{
-                  background: 'rgba(255,255,255,0.1)',
-                  border: 'none',
-                  color: '#e2e8f0',
-                  borderRadius: '10px',
                   padding: '8px 14px',
-                  cursor: 'pointer'
-                }}
-              >
-                Fechar
-              </button>
-            </div>
-          </div>
-        </div>
-      )}
-
-      {modalRelacao && (
-        <div
-          onClick={() => setModalRelacao(null)}
-          role="dialog"
-          aria-modal="true"
-          aria-label={modalRelacao === 'seguidores' ? 'Seguidores' : 'Seguindo'}
-          style={{
-            position: 'fixed',
-            inset: 0,
-            backgroundColor: 'rgba(0, 0, 0, 0.78)',
-            backdropFilter: 'blur(5px)',
-            zIndex: 9999,
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            padding: '20px'
-          }}
-        >
-          <div
-            onClick={e => e.stopPropagation()}
-            style={{
-              backgroundColor: '#11261f',
-              border: '1px solid rgba(16, 185, 129, 0.35)',
-              borderRadius: '16px',
-              maxWidth: '480px',
-              width: '100%',
-              maxHeight: '80vh',
-              display: 'flex',
-              flexDirection: 'column',
-              overflow: 'hidden',
-              boxShadow: '0 20px 50px rgba(0, 0, 0, 0.6)'
-            }}
-          >
-            <div style={{ padding: '16px 18px', borderBottom: '1px solid rgba(255,255,255,0.08)', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-              <h3 style={{ margin: 0, color: '#f8fafc', fontSize: '1.05rem' }}>
-                {modalRelacao === 'seguidores' ? 'Seguidores' : 'Seguindo'} ({modalRelacao === 'seguidores' ? (perfil?.seguidoresCount ?? listaRelacao.length) : (perfil?.seguindoCount ?? listaRelacao.length)})
-              </h3>
-              <button
-                type="button"
-                onClick={() => setModalRelacao(null)}
-                aria-label="Fechar lista"
-                style={{
-                  background: 'rgba(255,255,255,0.08)',
-                  border: 'none',
-                  color: '#f8fafc',
-                  width: '32px',
-                  height: '32px',
                   borderRadius: '8px',
+                  border: '1px solid #527b5d',
+                  background: 'transparent',
+                  color: '#edf4eb',
+                  fontSize: '13.5px',
                   cursor: 'pointer'
                 }}
               >
-                <i className="fa fa-times" aria-hidden="true" />
+                Cancelar
               </button>
-            </div>
-
-            <div style={{ padding: '12px 18px', borderBottom: '1px solid rgba(255,255,255,0.06)' }}>
-              <input
-                type="search"
-                value={filtroRelacao}
-                onChange={e => setFiltroRelacao(e.target.value)}
-                placeholder="Buscar aventureiro na lista..."
-                style={{
-                  width: '100%',
-                  padding: '9px 12px',
-                  borderRadius: '10px',
-                  border: '1px solid rgba(255,255,255,0.14)',
-                  backgroundColor: '#0b1914',
-                  color: '#f8fafc',
-                  fontSize: '0.9rem',
-                  boxSizing: 'border-box'
-                }}
-              />
-            </div>
-
-            <div style={{ padding: '12px 18px', overflowY: 'auto', flex: 1 }}>
-              {carregandoRelacao ? (
-                <p style={{ color: '#94a3b8', textAlign: 'center', margin: '20px 0' }}>Carregando lista...</p>
-              ) : erroRelacao ? (
-                <p style={{ color: '#fca5a5', textAlign: 'center', margin: '20px 0' }}>{erroRelacao}</p>
-              ) : !pessoasFiltradas.length ? (
-                <p style={{ color: '#94a3b8', textAlign: 'center', margin: '20px 0' }}>
-                  {modalRelacao === 'seguidores'
-                    ? (perfil?.seguidoresCount > 0
-                      ? 'A API ainda não expôs os detalhes individuais dos seguidores.'
-                      : 'Nenhum seguidor encontrado.')
-                    : 'Ainda não segue ninguém por aqui.'}
-                </p>
-              ) : (
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
-                  {pessoasFiltradas.map(pessoa => {
-                    const jaSegue = idsSeguidos.has(pessoa.idUsuario);
-                    const localTexto = [pessoa.cidade, pessoa.uf, pessoa.pais].filter(Boolean).join(', ');
-
-                    return (
-                      <div
-                        key={pessoa.idUsuario}
-                        style={{
-                          display: 'flex',
-                          alignItems: 'center',
-                          justifyContent: 'space-between',
-                          gap: '12px',
-                          padding: '8px',
-                          borderRadius: '10px',
-                          backgroundColor: 'rgba(255,255,255,0.03)'
-                        }}
-                      >
-                        <Link
-                          to={`/perfil/${pessoa.idUsuario}`}
-                          onClick={() => setModalRelacao(null)}
-                          style={{ display: 'flex', alignItems: 'center', gap: '10px', textDecoration: 'none', color: 'inherit', minWidth: 0, flex: 1 }}
-                        >
-                          <Avatar pessoa={pessoa} />
-                          <div style={{ minWidth: 0 }}>
-                            <strong style={{ display: 'block', color: '#f8fafc', fontSize: '0.92rem', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
-                              {pessoa.nomeCompleto || pessoa.username}
-                            </strong>
-                            <small style={{ display: 'block', color: '#94a3b8', fontSize: '0.78rem', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
-                              @{pessoa.username}{localTexto ? ` · ${localTexto}` : ''}
-                            </small>
-                          </div>
-                        </Link>
-
-                        {uid && uid !== pessoa.idUsuario && (
-                          <button
-                            type="button"
-                            disabled={seguindoLinhaId === pessoa.idUsuario}
-                            onClick={() => alternarSeguirNaLista(pessoa.idUsuario)}
-                            className={`feed-follow-button ${jaSegue ? 'following' : ''}`}
-                          >
-                            {seguindoLinhaId === pessoa.idUsuario ? '...' : jaSegue ? 'Seguindo' : 'Seguir'}
-                          </button>
-                        )}
-                      </div>
-                    );
-                  })}
-                </div>
+              {proprio && (
+                <button
+                  type="button"
+                  onClick={() => {
+                    setModalMidia(null);
+                    editar();
+                  }}
+                  className="social-green-button"
+                  style={{
+                    padding: '8px 16px',
+                    borderRadius: '8px',
+                    border: 0,
+                    fontSize: '13.5px',
+                    cursor: 'pointer'
+                  }}
+                >
+                  {modalMidia.tipo === 'capa' ? 'Editar capa' : 'Editar foto'}
+                </button>
               )}
             </div>
           </div>
