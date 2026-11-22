@@ -83,12 +83,12 @@ Todo o trabalho está sendo conduzido nas dependências da Fatec de Jahu, local 
 
 
 ## 1.3. Infraestrutura e Containerização
-Para garantir que a aplicação funcione de maneira idêntica em qualquer ambiente (seja nas máquinas dos desenvolvedores, nos laboratórios da Fatec ou em produção), adotamos a containerização e orquestração de serviços:
+Para garantir que a aplicação funcione de maneira idêntica em qualquer ambiente (seja nas máquinas dos desenvolvedores, nos laboratórios da Fatec ou em produção), adotamos a containerização e orquestração de serviços[cite: 4]:
 
-* **Docker:** Utilizado para empacotar o frontend (React), o backend (C#/.NET) e suas dependências em containers isolados, eliminando problemas de incompatibilidade de ambiente.
-* **Kubernetes (com Kind):** Empregado para orquestrar os containers localmente em clusters, permitindo gerenciar a comunicação entre os serviços, escalabilidade e resiliência da aplicação.
+- **Docker:** Utilizado para empacotar o frontend (React), o backend (C#/.NET) e suas dependências em containers isolados, eliminando problemas de incompatibilidade de ambiente[cite: 4].
+- **Kubernetes (com Kind):** Empregado para orquestrar os containers localmente em clusters, permitindo gerenciar a comunicação entre os serviços, escalabilidade e resiliência da aplicação[cite: 4].
 
-Abaixo, na Figura 1, apresentamos a estrutura de execução dos containers em ambiente orquestrado.
+Abaixo, nas Figuras 1, 2 e 3, apresentamos a orquestração dos pods no cluster, os containers dos bancos de dados em execução no Docker Desktop e as imagens locais utilizadas no ambiente.
 
 <div align="center">
 
@@ -96,7 +96,25 @@ Abaixo, na Figura 1, apresentamos a estrutura de execução dos containers em am
 
 </div>
 <div align="center">
-    <img src="./backend/wwwroot/imgs/fotos-doc/docker-kubernetes.jpeg" alt="Docker e Kubernetes" width="550">
+    <img src="./backend/wwwroot/imgs/fotos-doc/docker-kubernetes.jpeg" alt="Docker e Kubernetes" width="620">
+</div>
+
+<div align="center">
+
+### Figura 2 - Containers e Logs no Docker Desktop (MySQL e MongoDB)
+
+</div>
+<div align="center">
+    <img src="./backend/wwwroot/imgs/fotos-doc/docker-sql_mongo.png" alt="Containers MySQL e MongoDB no Docker Desktop" width="680">
+</div>
+
+<div align="center">
+
+### Figura 3 - Imagens Docker Locais do Projeto
+
+</div>
+<div align="center">
+    <img src="./backend/wwwroot/imgs/fotos-doc/Route Books-docker.png" alt="Imagens Docker do Route Books" width="680">
 </div>
 
 [Voltar para o início](#inicio)
@@ -197,16 +215,16 @@ A plataforma e suas interfaces/conteúdos devem ser estruturadas e direcionadas 
 
 # 3. Modelo de negócios
 
-Na Figura 2, podemos visualizar o modelo de negócios, utilizado para melhor identificação do que o projeto oferece, como estrutura, canais, parceiros...
+Na Figura 4, podemos visualizar o modelo de negócios, utilizado para melhor identificação do que o projeto oferece, como estrutura, canais, parceiros...
 
 <div align="center">
 
-### Figura 2 - Canvas, modelo de negócios
+### Figura 4 - Canvas, modelo de negócios
 
 </div>
 
 <div align="center">
-    <img src="./backend/wwwroot/imgs/fotos-doc/modelo-canvas.png" alt="Figura 2 - Canvas, modelo de negócios" width="550">
+    <img src="./backend/wwwroot/imgs/fotos-doc/modelo-canvas.png" alt="Figura 4 - Canvas, modelo de negócios" width="550">
 </div>
 
 ## 3.1. O que será elaborado?
@@ -317,11 +335,11 @@ Foi feita à análise, no começo erámos uma vitrine para viagens e percebemos 
 
 ### Logo:
  
-As figuras 3 apresentadas, são as logos do nosso projeto, uma com a escrita em preto e outra com a escrita em branco, pensada para diferentes fundos.
+As figuras 5 apresentadas, são as logos do nosso projeto, uma com a escrita em preto e outra com a escrita em branco, pensada para diferentes fundos.
 
 <div align="center">
 
-### Figura 3 - Logotipo
+### Figura 5 - Logotipo
 
 </div>
 <div align="center">
@@ -332,11 +350,11 @@ As figuras 3 apresentadas, são as logos do nosso projeto, uma com a escrita em 
 
 
 ### Service Blueprint:
-Abaixo, na Figura 4, apresentamos o Service Blueprint da nossa aplicação, utilizado para mapear visualmente a jornada do usuário, os processos de front-end, back-end e as interações de suporte necessárias para entregar a experiência do Route Books.
+Abaixo, na Figura 6, apresentamos o Service Blueprint da nossa aplicação, utilizado para mapear visualmente a jornada do usuário, os processos de front-end, back-end e as interações de suporte necessárias para entregar a experiência do Route Books.
 
 <div align="center">
 
-### Figura 4 - Service Blueprint
+### Figura 6 - Service Blueprint
 
 </div>
 <div align="center">
@@ -345,11 +363,11 @@ Abaixo, na Figura 4, apresentamos o Service Blueprint da nossa aplicação, util
 
 
 ### Criação de Personas com IA:
-Na Figura 5, visualizamos as personas desenvolvidas com o auxílio de ferramentas de inteligência artificial, representando os perfis reais dos nossos usuários-alvo (mochileiros, turistas e empresas locais) para guiar as decisões de UX e funcionalidades da plataforma.
+Na Figura 7, visualizamos as personas desenvolvidas com o auxílio de ferramentas de inteligência artificial, representando os perfis reais dos nossos usuários-alvo (mochileiros, turistas e empresas locais) para guiar as decisões de UX e funcionalidades da plataforma.
 
 <div align="center">
 
-### Figura 5 - Personas (IA)
+### Figura 7 - Personas (IA)
 
 | Persona 1 | Persona 2 |
 | :---: | :---: |
@@ -486,16 +504,16 @@ Atores: Usuário <br>
 Tipo: Primário <br>
 Descrição: O usuário pode avaliar a postagem de outro usuário.
 
-Na figura 6, é visto o modelo de caso de uso geral da nossa aplicação, que demonstra como será feito todo o processo com um visitante, para que ele vire um usuário e as funçõoes do admin. O caso de uso de baixo e alto nível está especificado.
+Na figura 8, é visto o modelo de caso de uso geral da nossa aplicação, que demonstra como será feito todo o processo com um visitante, para que ele vire um usuário e as funçõoes do admin. O caso de uso de baixo e alto nível está especificado.
 
 <div align="center">
 
-### Figura 6 - Modelo de caso de uso 
+### Figura 8 - Modelo de caso de uso 
 
 </div>
 
   <div align="center">
-    <img src="./backend/wwwroot/imgs/fotos-doc/diagrama-caso-de-uso-atualizacao-light.jpg" alt="Figura 6 - Caso de uso" width="550">
+    <img src="./backend/wwwroot/imgs/fotos-doc/diagrama-caso-de-uso-atualizacao-light.jpg" alt="Figura 8 - Caso de uso" width="550">
   </div>
 
 [Voltar para o início](#inicio)
@@ -503,16 +521,16 @@ Na figura 6, é visto o modelo de caso de uso geral da nossa aplicação, que de
 
 
 # 7. Modelo Lógico 
-Na figura 7, podemos ver o modelo lógico do nosso sistema, que mostra como os objetos se comportam e a funcionalidade deles. 
+Na figura 9, podemos ver o modelo lógico do nosso sistema, que mostra como os objetos se comportam e a funcionalidade deles. 
 
 <div align="center">
 
-### Figura 7 - Modelo Lógico (Diagrama de classes)
+### Figura 9 - Modelo Lógico (Diagrama de classes)
 
 </div>
 
 <div align="center">
-    <img src="./backend/wwwroot/imgs/fotos-doc/DiagramaClasses.png" alt="Figura 7 - Diagrama de classes" width="550">
+    <img src="./backend/wwwroot/imgs/fotos-doc/DiagramaClasses.png" alt="Figura 9 - Diagrama de classes" width="550">
   </div>
 
 <div align="center">
@@ -520,20 +538,20 @@ Na figura 7, podemos ver o modelo lógico do nosso sistema, que mostra como os o
 
 
 
-### Figura 8 - Modelo Físico (Modelagem do banco de dados)
+### Figura 10 - Modelo Físico (Modelagem do banco de dados)
 
-Na figura 8 temos o nosso modelo físico, com relacionamento entre tabelas, chaves primárias, tabelas intermediárias, onde essas funcionalidades, funcionam dentro da aplicação 
+Na figura 10 temos o nosso modelo físico, com relacionamento entre tabelas, chaves primárias, tabelas intermediárias, onde essas funcionalidades, funcionam dentro da aplicação 
 </div>
 
   <div align="center">
-    <img src="./backend/wwwroot/imgs/fotos-doc/modelagem-PI-completa.png" alt="Figura 8 - Modelo Físico" width="550">
+    <img src="./backend/wwwroot/imgs/fotos-doc/modelagem-PI-completa.png" alt="Figura 10 - Modelo Físico" width="550">
   </div>
 
   <div align="center">
 
-### Figura 9 - Modelo Banco de Dados NoSql (MongoDB)
+### Figura 11 - Modelo Banco de Dados NoSql (MongoDB)
 
-Na figura 9 temos o nosso banco de dados não relacional, utilizamos MongoDB para a parte do chat entre os aventureiros da plataforma. Nela existe apenas a coleção Mensagens. 
+Na figura 11 temos o nosso banco de dados não relacional, utilizamos MongoDB para a parte do chat entre os aventureiros da plataforma. Nela existe apenas a coleção Mensagens. 
 </div>
 
    <table>
@@ -557,16 +575,16 @@ Na figura 9 temos o nosso banco de dados não relacional, utilizamos MongoDB par
 - ### Link dos protótipos com a ferramenta Figma: [Figma - Route Books](https://www.figma.com/design/8UFfrEyZOdytMzzJvd0jSB/Mockup-do-site-PI?node-id=0-1&p=f&t=6UuWB1YErd0NN2MF-0)
 
 
-Na figura 10, é possível visualizar o protótipo da homepage, de como ela seria na aplicação final (Fizemos mais telas, mas coloquei apenas uma para visualização).
+Na figura 12, é possível visualizar o protótipo da homepage, de como ela seria na aplicação final (Fizemos mais telas, mas coloquei apenas uma para visualização).
 
 <div align="center">
 
-### Figura 10 - Protótipo da home
+### Figura 12 - Protótipo da home
 
 </div>
 
   <div align="center">
-    <img src="./backend/wwwroot/imgs/fotos-doc/prototipo_home.png" alt="Figura 10 - Prototipo" width="550">
+    <img src="./backend/wwwroot/imgs/fotos-doc/prototipo_home.png" alt="Figura 12 - Prototipo" width="550">
   </div>
 
 [Voltar para o início](#inicio)
