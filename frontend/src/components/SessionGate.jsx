@@ -6,10 +6,10 @@ export default function SessionGate({ children }) {
     const [ready, setReady] = useState(false), [error, setError] = useState(false), [retry, setRetry] = useState(0);
     useEffect(() => {
         let alive = true;
-        const clear = () => { localStorage.removeItem('UsuarioId'); localStorage.removeItem('NomeUsuario'); };
-        getSessao().then(r => { if (!alive) return; localStorage.setItem('UsuarioId', r.data.usuarioId); localStorage.setItem('NomeUsuario', r.data.nome || ''); setReady(true); }).catch(e => {
+        const clear = () => { localStorage.removeItem('UsuarioId'); localStorage.removeItem('NomeUsuario'); localStorage.removeItem('UsuarioRole'); };
+        getSessao().then(r => { if (!alive) return; localStorage.setItem('UsuarioId', r.data.usuarioId); localStorage.setItem('NomeUsuario', r.data.nome || ''); localStorage.setItem('UsuarioRole', r.data.role || 'Usuario'); setReady(true); }).catch(e => {
             if (!alive) return;
-            if (e.response?.status === 401) { clear(); setReady(true); if (location.pathname === '/perfil' || location.pathname === '/posts/criar') navigate('/login?voltar=' + encodeURIComponent(location.pathname), { replace: true }); }
+            if (e.response?.status === 401) { clear(); setReady(true); if (location.pathname === '/perfil' || location.pathname === '/posts/criar' || location.pathname.startsWith('/admin')) navigate('/login?voltar=' + encodeURIComponent(location.pathname), { replace: true }); }
             else setError(true);
         });
         return () => { alive = false; };

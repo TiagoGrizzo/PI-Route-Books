@@ -16,6 +16,7 @@ using System.Linq;
 using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 
 
 namespace Route_Books_api.Controllers
@@ -109,7 +110,7 @@ namespace Route_Books_api.Controllers
         {
             if (!int.TryParse(User.FindFirstValue(ClaimTypes.NameIdentifier), out var id)) return Unauthorized();
             var usuario = await _context.usuarios.AsNoTracking().Where(u => u.IdUsuario == id && u.DeletadoEm == null)
-                .Select(u => new { usuarioId = u.IdUsuario, nome = u.NomeCompleto }).FirstOrDefaultAsync();
+                .Select(u => new { usuarioId = u.IdUsuario, nome = u.NomeCompleto, role = u.Role }).FirstOrDefaultAsync();
             return usuario == null ? Unauthorized() : Ok(usuario);
         }
 
@@ -588,6 +589,29 @@ namespace Route_Books_api.Controllers
         private bool UsuarioExists(int id)
         {
             return _context.usuarios.Any(e => e.IdUsuario == id);
+        }
+
+        // Métodos para dashboard Admin
+        // get usuarios logados
+        [HttpGet("ativos/quantidade")]
+        [Authorize(Roles = "Admin")]
+        [SwaggerOperation(
+            Summary = "Obter todos os usuários ativos - GetUsuariosAtivos",
+            Description = "Retorna a quantidade de usuarios ativos."
+        )]
+        public async Task<IActionResult> GetUsuariosAtivos()
+        {
+            try
+            {
+                var usuarios = await _context.usuarios
+                    .Where(u => u.DeletadoEm == null && u.EstadoConta == "Ativo")
+                    .CountAsync();
+                return Ok(usuarios);
+            } catch (Exception e)
+            {
+                Console.WriteLine(e);
+                return StatusCode(StatusCodes.Status500InternalServerError, "Erro ao encontrar os usuarios.");
+            }
         }
     }
 }
