@@ -53,12 +53,13 @@ export default function Login() {
       });
 
       const sessao = await getSessao();
-      const { usuarioId, nome } = sessao.data;
+      const { usuarioId, nome, role } = sessao.data;
       localStorage.setItem('UsuarioId', usuarioId);
       localStorage.setItem('NomeUsuario', nome);
+      localStorage.setItem('UsuarioRole', role || 'Usuario');
 
       const destino = new URLSearchParams(window.location.search).get('voltar');
-      navigate(destino?.startsWith('/') && !destino.startsWith('//') ? destino : '/posts');
+      navigate(role === 'Admin' ? '/admin' : destino?.startsWith('/') && !destino.startsWith('//') ? destino : '/posts');
     } catch (err) {
       if (err.response && err.response.data && err.response.data.mensagem) {
         setErro(err.response.data.mensagem);

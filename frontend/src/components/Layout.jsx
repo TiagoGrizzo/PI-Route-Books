@@ -70,6 +70,7 @@ export default function Layout() {
         catch { window.alert('Não foi possível sair. Tente novamente.'); return; }
         localStorage.removeItem('UsuarioId');
         localStorage.removeItem('NomeUsuario');
+        localStorage.removeItem('UsuarioRole');
         setMenuAberto(false);
         navigate('/login');
     };

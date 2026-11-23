@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Route_Books_api.Data;
 using Route_Books_api.Models;
+using Route_Books_api.Services;
 using Swashbuckle.AspNetCore.Annotations;
 using Microsoft.AspNetCore.Authorization;
 namespace Route_Books_api.Controllers
@@ -108,11 +109,14 @@ namespace Route_Books_api.Controllers
         [SwaggerOperation(Summary = "Criar postagem ou rascunho com mídia, local e avaliação")]
         [RequestSizeLimit(55_000_000)]
         public async Task<IActionResult> CreatePost(
-            [FromForm][Bind("Titulo,Resumo,Conteudo,TiposIdTipo,CategoriasIdCategoria,Localizacao,AvaliacaoLugar")] Post post,
+            [FromForm][Bind("Titulo,Resumo,Conteudo,TiposIdTipo,Localizacao,AvaliacaoLugar")] Post post,
+            [FromForm(Name = "CategoriasIdCategoria")] int? categoriaId,
             IFormFile? fotoPost,
             [FromForm] List<IFormFile>? fotosPost,
             [FromForm] string? acao)
         {
+            // O formulário envia a chave da categoria como campo multipart/form-data.
+            post.CategoriasIdCategoria = categoriaId;
             var claim = User.FindFirst(System.Security.Claims.ClaimTypes.NameIdentifier)?.Value;
             if (!int.TryParse(claim, out var usuarioId))
                 return Unauthorized(new { mensagem = "Entre na sua conta para publicar." });
@@ -187,7 +191,7 @@ namespace Route_Books_api.Controllers
                     }
                 else
                     {
-                        post.Status = User.IsInRole("Admin") ? "Ativo" : "Pendente";
+                        post.Status = User.IsInRole("Admin") ? "Ativo" : "PENDENTE";
                     }
 
                 post.DataCriacao = DateTime.UtcNow;
@@ -318,13 +322,77 @@ namespace Route_Books_api.Controllers
             return Ok(postsPendentes);
         }
 
+        // GET: api/Posts/estatisticas-mensais-ativos?ano=2026
+        [HttpGet("estatisticas-mensais-ativos")]
+        [Authorize(Roles = "Admin")]
+        [SwaggerOperation(Summary = "Quantidade de posts ativos criados em cada mês do ano")]
+        public async Task<IActionResult> GetEstatisticasMensaisPostsAtivos()
+        {
+            var anoConsultado = DateTime.UtcNow.Year;
+            var inicio = new DateTime(anoConsultado, 1, 1, 0, 0, 0, DateTimeKind.Utc);
+            var fim = inicio.AddYears(1);
+            var datas = await _context.posts
+                .AsNoTracking()
+                .Where(p => p.Status == "Ativo" && p.DataCriacao >= inicio && p.DataCriacao < fim)
+                .Select(p => p.DataCriacao)
+                .ToListAsync();
+
+            var quantidades = datas.GroupBy(data => data.Month)
+                .ToDictionary(grupo => grupo.Key, grupo => grupo.Count());
+            var meses = Enumerable.Range(1, 12)
+                .Select(mes => new { mes, quantidade = quantidades.GetValueOrDefault(mes, 0) });
+
+            return Ok(new { ano = anoConsultado, meses });
+        }
+
+        // GET: api/Posts/estatisticas-media-categorias
+        [HttpGet("estatisticas-media-categorias")]
+        [Authorize(Roles = "Admin")]
+        [SwaggerOperation(Summary = "Média mensal de posts ativos para as três categorias mais usadas")]
+        public async Task<IActionResult> GetMediaPostsPorCategoria()
+        {
+            var anoConsultado = DateTime.UtcNow.Year;
+            var categorias = await CategoriaQueries.GetTresMaisUsadasAsync(_context, anoConsultado);
+            var ids = categorias.Select(categoria => categoria.CategoriaId).ToList();
+            var inicio = new DateTime(anoConsultado, 1, 1, 0, 0, 0, DateTimeKind.Utc);
+            var fim = inicio.AddYears(1);
+            var posts = await _context.posts.AsNoTracking()
+                .Where(p => p.Status == "Ativo" && p.CategoriasIdCategoria.HasValue &&
+                    ids.Contains(p.CategoriasIdCategoria.Value) && p.DataCriacao >= inicio && p.DataCriacao < fim)
+                .Select(p => new { categoriaId = p.CategoriasIdCategoria!.Value, mes = p.DataCriacao.Month })
+                .ToListAsync();
+
+            var contagens = posts.GroupBy(p => new { p.categoriaId, p.mes })
+                .ToDictionary(grupo => (grupo.Key.categoriaId, grupo.Key.mes), grupo => grupo.Count());
+            var resultado = categorias
+                .Select(c =>
+                {
+                    var meses = Enumerable.Range(1, 12)
+                        .Select(mes => new { mes, quantidade = contagens.GetValueOrDefault((c.CategoriaId, mes), 0) })
+                        .ToList();
+                    return new
+                    {
+                        categoriaId = c.CategoriaId,
+                        nome = c.Nome,
+                        mediaMensal = Math.Round(meses.Average(m => (double)m.quantidade), 2),
+                        totalPosts = meses.Sum(m => m.quantidade),
+                        meses
+                    };
+                })
+                .ToList();
+
+            return Ok(new { ano = anoConsultado, categorias = resultado });
+        }
+
         // PATCH: api/Posts/5/aprovar
         [HttpPatch("{id:int}/aprovar")]
         [Authorize(Roles = "Admin")]
         [SwaggerOperation(Summary = "Aprovar post", Description = "Muda o status de um post pendente para Ativo, liberando-o no feed.")]
         public async Task<IActionResult> AprovarPost(int id)
         {
+            Console.WriteLine(id);
             var post = await _context.posts.FindAsync(id);
+            Console.WriteLine(post);
             if (post == null)
             {
                 return NotFound(new { mensagem = "Post não encontrado." });
@@ -340,6 +408,29 @@ namespace Route_Books_api.Controllers
 
             return Ok(new { mensagem = "Post aprovado e publicado com sucesso no feed!", post });
         }
+        // PATCH: api/Posts/5/cancelar
+        [HttpPatch("{id:int}/cancelar")]
+        [Authorize(Roles = "Admin")]
+        [SwaggerOperation(Summary = "Cancelar post", Description = "Muda o status de um post pendente para Cancelado, não permitindo que ele va para o feed.")]
+        public async Task<IActionResult> CancelarPost(int id)
+        {
+            var post = await _context.posts.FindAsync(id);
+            if (post == null)
+            {
+                return NotFound(new { mensagem = "Post não encontrado." });
+            }
+
+            if (post.Status != "PENDENTE")
+            {
+                return BadRequest(new { mensagem = "Este post não está pendente de moderação." });
+            }
+
+            post.Status = "Cancelado";
+            await _context.SaveChangesAsync();
+
+            return Ok(new { mensagem = "Post cancelado pelo administrador!", post });
+        }
+
     }
 }
 

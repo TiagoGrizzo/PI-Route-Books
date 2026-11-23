@@ -35,5 +35,18 @@ public class ComunidadesController(ApplicationDbContext db) : ControllerBase
         else await db.comunidadeMembros.Where(m => m.ComunidadeId == comunidade.Id && m.UsuarioId == uid).ExecuteDeleteAsync();
         return Ok(new { participando = input.Participar, membrosCount = await db.comunidadeMembros.CountAsync(m => m.ComunidadeId == comunidade.Id) });
     }
+    [Authorize(Roles = "Admin"), HttpGet("ativas/quantidade")]
+    public async Task<IActionResult> GetComunidadesAtivas()
+    {
+        try
+        {
+            var comunidades = await db.comunidades.CountAsync();
+            return Ok(comunidades);
+        } catch (Exception e)
+        {
+            Console.WriteLine(e);
+            return StatusCode(StatusCodes.Status500InternalServerError, "Erro ao encontrar as comunidades.");
+        }
+    }
 }
 public record ParticipacaoInput(bool Participar);

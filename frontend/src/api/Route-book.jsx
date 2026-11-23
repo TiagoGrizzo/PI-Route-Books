@@ -15,6 +15,7 @@ api.interceptors.response.use(response => response, error => {
     if (error.response?.status === 401 && !['/Usuarios/login', '/Usuarios/sessao'].includes(error.config?.url)) {
         localStorage.removeItem('UsuarioId');
         localStorage.removeItem('NomeUsuario');
+        localStorage.removeItem('UsuarioRole');
         error.response.data = { mensagem: 'Sua sessão expirou. Entre novamente para continuar.' };
         window.dispatchEvent(new Event('routebooks-session-expired'));
     }
@@ -62,11 +63,19 @@ export const novaSenha = (payload) => api.post("/Usuarios/nova-senha", payload);
 
 // GET: api/Usuarios/{id}/dashboard-info
 export const getDashboardInfo = (id) => api.get(`/Usuarios/${id}/dashboard-info`);
+export const getUsuariosAtivos = () => api.get('/Usuarios/ativos/quantidade');
+export const getComunidadesAtivas = () => api.get('/comunidades/ativas/quantidade');
 
 //Rotas de Posts
 
 // GET: api/Posts (lista de posts, com busca opcional via ?busca=)
 export const getPosts = (busca) => api.get("/Posts", { params: busca ? { busca } : {} });
+export const getpostsPendentes = () => api.get('/Posts/pendentes');
+export const getPostsMensaisAtivos = () => api.get('/Posts/estatisticas-mensais-ativos');
+export const getCategoriasMaisUsadas = () => api.get('/Categorias/mais-usadas');
+export const getMediaPostsPorCategoria = () => api.get('/Posts/estatisticas-media-categorias');
+export const AprovarPost = id => api.patch(`Posts/${id}/aprovar`);
+export const CancelarPost = id => api.patch(`Posts/${id}/cancelar`);
 
 // GET: api/Posts (retorna os últimos posts)
 export const getUltimosPosts = (busca) => api.get("/Posts", { params: busca ? { busca } : {} });

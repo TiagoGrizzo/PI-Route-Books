@@ -142,6 +142,14 @@ if (args.Contains("--seed-official"))
     await PerfilOficialSeed.Executar(db);
     return;
 }
+if (args.Contains("--seed-admin"))
+{
+    using var scope = app.Services.CreateScope();
+    var db = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
+    await db.Database.MigrateAsync();
+    await AdminSeed.Executar(db, scope.ServiceProvider.GetRequiredService<IConfiguration>());
+    return;
+}
 if (args.Contains("--assign-avatars"))
 {
     using var scope = app.Services.CreateScope();
