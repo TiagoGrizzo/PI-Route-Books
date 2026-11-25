@@ -57,10 +57,11 @@ export default function PostMediaGallery({ post, detail = false }) {
   }
 
   const visiveis = detail ? fotos : fotos.slice(0, 4);
+  const qtdGrade = detail ? visiveis.length : Math.min(visiveis.length, 4);
 
   return (
     <div className={'post-gallery' + (detail ? ' post-gallery-detail' : '') + (post.imagemFonteUrl ? ' post-gallery-credit' : '')}>
-      <div className={'post-photo-grid photos-' + Math.min(visiveis.length, 4)}>
+      <div className={'post-photo-grid photos-' + qtdGrade}>
         {visiveis.map((url, i) => (
           <button
             key={url}

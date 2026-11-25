@@ -6,6 +6,11 @@ import PostComposer from '../components/PostComposer.jsx';
 import PostCard from '../components/PostCard.jsx';
 import { lerSalvos, urlDaApi } from '../components/postUtils.js';
 
+function postAprovado(post) {
+  const st = (post?.status ?? post?.Status ?? '').toString().toLowerCase();
+  return st === 'ativo' || st === 'aprovado';
+}
+
 export default function Posts() {
   const [params, setParams] = useSearchParams();
   const busca = (params.get('busca') || '').trim();
@@ -81,7 +86,11 @@ export default function Posts() {
         fotoUsuario={urlDaApi(perfil?.fotoPerfil)}
         aberto={aberto}
         onAbertoChange={setAberto}
-        onPublicado={p => setPosts(lista => [{ ...p, autor: perfil, curtidasCount: 0, downvotesCount: 0, meuVoto: 0, comentariosCount: 0 }, ...lista])}
+        onPublicado={p => {
+          if (postAprovado(p)) {
+            setPosts(lista => [{ ...p, autor: perfil, curtidasCount: 0, downvotesCount: 0, meuVoto: 0, comentariosCount: 0 }, ...lista]);
+          }
+        }}
       />
       {busca && <p className="feed-search-summary">Resultados para <strong>“{busca}”</strong></p>}
       {loading
@@ -94,7 +103,7 @@ export default function Posts() {
                 <i className="fa fa-map-o" aria-hidden="true" />
                 <h2>{aba === 'salvos' ? 'Nenhum relato salvo' : aba === 'meus' ? 'Seus relatos aparecerão aqui' : busca ? 'Nenhum relato encontrado' : 'A estrada está esperando por você'}</h2>
                 <p>{aba === 'perto' ? 'Complete sua localização no perfil para encontrar viagens próximas.' : 'Compartilhe sua aventura com a comunidade Route Books.'}</p>
-                <button onClick={abrir}>Criar publicação</button>
+                <button type="button" className="feed-empty-cta" onClick={abrir}>Criar publicação</button>
               </div>}
     </FeedLayout>
   );

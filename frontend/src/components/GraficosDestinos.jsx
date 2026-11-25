@@ -2,6 +2,8 @@ import { useEffect, useRef, useState } from 'react';
 import ApexCharts from 'apexcharts';
 import { getEstatisticasUsuario } from '../api/Route-book.jsx';
 
+const LIMITE_POSTS = 3;
+
 export default function GraficoDestinos({ usuarioId }) {
   const [dados, setDados] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -16,7 +18,12 @@ export default function GraficoDestinos({ usuarioId }) {
 
     getEstatisticasUsuario(usuarioId)
       .then(res => {
-        if (ativo) setDados(Array.isArray(res.data) ? res.data : []);
+        if (!ativo) return;
+        const lista = Array.isArray(res.data) ? res.data : [];
+        const comInteracao = lista.filter(
+          d => (Number(d.curtidas) || 0) > 0 || (Number(d.comentarios) || 0) > 0
+        );
+        setDados(comInteracao.slice(0, LIMITE_POSTS));
       })
       .catch(() => {
         if (ativo) setErro('Não foi possível carregar as estatísticas deste perfil.');
@@ -31,9 +38,10 @@ export default function GraficoDestinos({ usuarioId }) {
   useEffect(() => {
     if (!dados.length || !chartContainerRef.current) return;
 
-    const categorias = dados.map(d => d.rotulo);
-    const serieCurtidas = dados.map(d => Number(d.curtidas) || 0);
-    const serieComentarios = dados.map(d => Number(d.comentarios) || 0);
+    const itensExibidos = dados.slice(0, LIMITE_POSTS);
+    const categorias = itensExibidos.map(d => d.rotulo);
+    const serieCurtidas = itensExibidos.map(d => Number(d.curtidas) || 0);
+    const serieComentarios = itensExibidos.map(d => Number(d.comentarios) || 0);
     const maiorValor = Math.max(...serieCurtidas, ...serieComentarios, 1);
 
     const options = {
@@ -113,7 +121,7 @@ export default function GraficoDestinos({ usuarioId }) {
         theme: 'dark',
         x: {
           formatter: (_, opts) => {
-            const item = dados[opts?.dataPointIndex ?? 0];
+            const item = itensExibidos[opts?.dataPointIndex ?? 0];
             return item ? `${item.titulo} (${item.rotulo})` : '';
           }
         },
@@ -143,7 +151,7 @@ export default function GraficoDestinos({ usuarioId }) {
   if (!dados.length) {
     return (
       <div className="feed-state-card">
-        Este perfil ainda não possui publicações ativas para exibir estatísticas.
+        Este perfil ainda não possui publicações com curtidas ou comentários para exibir estatísticas.
       </div>
     );
   }
@@ -165,7 +173,7 @@ export default function GraficoDestinos({ usuarioId }) {
           Engajamento das Publicações
         </h3>
         <p style={{ margin: '4px 0 0', color: '#94a3b8', fontSize: '0.875rem' }}>
-          Curtidas e comentários recebidos nos relatos publicados neste perfil.
+          Curtidas e comentários recebidos nos relatos com interações neste perfil.
         </p>
       </div>
 

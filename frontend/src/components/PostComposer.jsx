@@ -105,15 +105,23 @@ export default function PostComposer({ usuarioId, nomeUsuario, fotoUsuario, aber
     setPublicando(true);
     try {
       const response = await createPost(dados);
+      const postCriado = response.data?.post ?? response.data;
+      const st = (postCriado?.status ?? postCriado?.Status ?? '').toString().toLowerCase();
+      const vaiParaFeed = st === 'ativo' || st === 'aprovado';
+
       onPublicado?.({
-        ...response.data.post,
+        ...postCriado,
         categoriaRef: categorias.find((item) => String(item.id) === categoriaId),
         tipoRef: { nomeTipo: tipos.find((item) => String(item.id) === tipoId)?.nome }
       });
       setTitulo(''); setResumo(''); setConteudo(''); setTipoId(''); setCategoriaId('');
       setMidia([]); setLocalizacao(''); setMostrarLocal(false);
       setAvaliacao(0); setMostrarAvaliacao(false);
-      setSucesso('Publicação compartilhada no feed.');
+      setSucesso(
+        vaiParaFeed
+          ? 'Publicação compartilhada no feed.'
+          : 'Relato enviado para aprovação do administrador.'
+      );
       onAbertoChange(false);
     } catch (err) {
       const validacao = Object.values(err.response?.data?.errors || {}).flat().join(' ');
@@ -158,7 +166,7 @@ export default function PostComposer({ usuarioId, nomeUsuario, fotoUsuario, aber
             {mostrarAvaliacao && <div className="feed-composer-rating" role="group" aria-label="Avaliação do lugar"><span>Avalie o lugar:</span>{[1, 2, 3, 4, 5].map((nota) => <button key={nota} type="button" className={nota <= avaliacao ? 'selected' : ''} aria-pressed={nota === avaliacao} onClick={() => setAvaliacao(nota)} aria-label={nota + (nota === 1 ? ' estrela' : ' estrelas')}><i className="fa fa-star" aria-hidden="true"></i></button>)}<button className="feed-composer-clear-rating" type="button" onClick={() => { setAvaliacao(0); setMostrarAvaliacao(false); }}>Limpar</button></div>}
             {acoes}
             {erro && <p className="feed-composer-message error" role="alert">{erro}{erro.includes('sessão expirou') && <> <Link to="/login">Entrar</Link></>}</p>}
-            
+
             {/* Aparece SOMENTE quando o formulário está aberto */}
             <div className="feed-composer-submit" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '10px' }}>
               <span>Até 10 fotos de 5 MB cada ou um vídeo de até 20 MB.</span>
